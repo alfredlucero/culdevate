@@ -3,7 +3,8 @@
     "allowJs": true,
     "allowSyntheticDefaultImports": true,
     "baseUrl": ".",
-    "jsx": "preserve",
+    "esModuleInterop": true,
+    "jsx": "react",
     "lib": ["dom", "es2017"],
     "module": "esnext",
     "moduleResolution": "node",
@@ -16,5 +17,6 @@
     "sourceMap": true,
     "strict": true,
     "target": "esnext"
-  }
+  },
+  "include": ["**/*.ts", "**/*.tsx"]
 }

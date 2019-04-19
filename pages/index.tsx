@@ -2,11 +2,18 @@ import React from "react";
 import styled, { ThemeProvider } from "styled-components";
 import { culdevateDefaultTheme } from "../components/defaultTheme";
 
-const CuldevateApp: React.FC<{}> = () => (
-  <ThemeProvider theme={culdevateDefaultTheme}>
-    <Title isBlue>Culdevate App</Title>
-  </ThemeProvider>
-);
+const CuldevateApp: React.FC<{}> = () => {
+  const someObject = {
+    test: "test",
+  };
+  console.log(someObject);
+
+  return (
+    <ThemeProvider theme={culdevateDefaultTheme}>
+      <Title isBlue>Culdevate App</Title>
+    </ThemeProvider>
+  );
+};
 
 interface TitleProps {
   isBlue: boolean;

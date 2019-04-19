@@ -13,8 +13,7 @@ interface TitleProps {
 }
 
 const Title = styled.h1<TitleProps>`
-  color: ${props =>
-    props.isBlue ? props.theme.colors.primary : props.theme.colors.secondary};
+  color: ${props => (props.isBlue ? props.theme.colors.primary : props.theme.colors.secondary)};
 `;
 
 export default CuldevateApp;

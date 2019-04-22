@@ -11,7 +11,8 @@
     "test": "jest",
     "lint": "tsc --noEmit && eslint '{components,pages}/**/*.{js,jsx,ts,tsx}' --quiet --fix",
     "cypress:open": "cypress open",
-    "cypress:run": "cypress run"
+    "cypress:run": "cypress run",
+    "now-build": "next build"
   },
   "repository": {
     "type": "git",

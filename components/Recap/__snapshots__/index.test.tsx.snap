@@ -1,0 +1,20 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`<Recap /> should render the component 1`] = `
+<div>
+  work
+  <h2>
+    Sandia National Labs
+  </h2>
+  <p>
+    Web Developer Intern
+  </p>
+  <p
+    data-testid="recapDateRange"
+  >
+    2016/06/20
+     - 
+    2017/06/10
+  </p>
+</div>
+`;

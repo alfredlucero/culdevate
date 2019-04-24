@@ -25,7 +25,7 @@ const Recap: React.FC<RecapProps> = ({ title, description, type, startDate, endD
       {type}
       <h2>{title}</h2>
       <p>{description}</p>
-      <p>
+      <p data-testid="recapDateRange">
         {startDate} - {endDate !== null ? endDate : "Present"}
       </p>
     </div>

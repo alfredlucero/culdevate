@@ -1,4 +1,5 @@
 import React from "react";
+import styled from "styled-components";
 import { IconDefinition } from "@fortawesome/fontawesome-svg-core";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import {
@@ -12,6 +13,7 @@ import {
   faTrophy,
   faLevelUpAlt,
 } from "@fortawesome/free-solid-svg-icons";
+import { culdevateDefaultTheme } from "../../defaultTheme";
 
 export type CuldevateIcon =
   | "suitcase"
@@ -45,6 +47,23 @@ interface IconProps {
 const Icon: React.FC<IconProps> = ({ icon, ...rest }) => {
   const mappedIcon = culdevateIconToFontAwesomeIconMap[icon];
   return <FontAwesomeIcon icon={mappedIcon} {...rest} />;
+};
+
+export const StyledRoundIcon = styled.div`
+  height: 50px;
+  width: 50px;
+  border-radius: 20px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 2rem;
+  background-color: ${props => props.theme.colors.platinum};
+  color: ${props => props.theme.colors.blueGray};
+`;
+
+// Passing a default theme for Icons not wrapped in the ThemeProvider
+StyledRoundIcon.defaultProps = {
+  theme: culdevateDefaultTheme,
 };
 
 export default Icon;

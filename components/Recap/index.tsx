@@ -1,5 +1,5 @@
 import React from "react";
-import Icon, { CuldevateIcon } from "../__common__/Icon";
+import Icon, { CuldevateIcon, StyledRoundIcon } from "../__common__/Icon";
 
 export type RecapType =
   | "objectives"
@@ -34,7 +34,11 @@ const mapRecapTypeToIcon = (recapType: RecapType): React.ReactNode | null => {
   };
   const mappedIcon = recapTypeToIconMap[recapType];
 
-  return mappedIcon ? <Icon icon={mappedIcon} /> : null;
+  return mappedIcon ? (
+    <StyledRoundIcon>
+      <Icon icon={mappedIcon} />
+    </StyledRoundIcon>
+  ) : null;
 };
 
 const Recap: React.FC<RecapProps> = ({ title, description, type, startDate, endDate }) => {

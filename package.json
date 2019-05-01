@@ -12,7 +12,8 @@
     "lint": "tsc --noEmit && eslint '{components,pages}/**/*.{js,jsx,ts,tsx}' --quiet --fix",
     "cypress:open": "cypress open",
     "cypress:run": "cypress run",
-    "now-build": "next build"
+    "now-build": "next build",
+    "typecheck": "tsc --project tsconfig.json"
   },
   "repository": {
     "type": "git",
@@ -65,18 +66,18 @@
     "react-testing-library": "^6.1.2",
     "ts-jest": "^24.0.2",
     "ts-loader": "^5.3.3",
-    "typescript": "^3.4.3",
+    "typescript": "^3.4.5",
     "webpack": "^4.30.0"
   },
   "husky": {
     "hooks": {
-      "pre-commit": "lint-staged",
+      "pre-commit": "tsc --noEmit && lint-staged",
       "pre-push": "npm run test -- --ci"
     }
   },
   "lint-staged": {
     "*.{js,jsx,ts,tsx}": [
-      "npm run lint",
+      "eslint . --fix",
       "git add"
     ]
   }

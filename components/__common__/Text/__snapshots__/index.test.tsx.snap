@@ -1,0 +1,31 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Text (H1, H2, H3, P) should render all Text components 1`] = `
+<div>
+  <h1
+    class="sc-bdVaJa bVbrxZ"
+  >
+    Culdevate Header 1 Text
+  </h1>
+  <h2
+    class="sc-bwzfXH jdFXXL"
+  >
+    Culdevate Header 2 Text
+  </h2>
+  <h3
+    class="sc-htpNat iTJEtc"
+  >
+    Culdevate Header 3 Text
+  </h3>
+  <p
+    class="sc-bxivhb fftNLG"
+  >
+    Culdevate Paragraph Text
+  </p>
+  <p
+    class="sc-bxivhb dIdlXt"
+  >
+    Culdevate Paragraph Small Text
+  </p>
+</div>
+`;

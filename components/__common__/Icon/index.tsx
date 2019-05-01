@@ -58,10 +58,9 @@ export const StyledRoundIcon = styled.div`
   align-items: center;
   font-size: 2rem;
   background-color: ${props => props.theme.colors.platinum};
-  color: ${props => props.theme.colors.blueGray};
+  color: ${props => props.theme.colors.teal};
 `;
 
-// Passing a default theme for Icons not wrapped in the ThemeProvider
 StyledRoundIcon.defaultProps = {
   theme: culdevateDefaultTheme,
 };

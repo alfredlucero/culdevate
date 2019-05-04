@@ -34,12 +34,12 @@ exports[`<Recap /> should render the component 1`] = `
       class="sc-dnqmqq frxxYH"
     >
       <h3
-        class="sc-bxivhb fJQFDo"
+        class="sc-bxivhb gQIBYU"
       >
         Sandia National Labs
       </h3>
       <p
-        class="sc-EHOje jMHhug"
+        class="sc-EHOje caTcrA"
       >
         <time
           data-testid="recapDateRange"
@@ -53,7 +53,7 @@ exports[`<Recap /> should render the component 1`] = `
       </p>
     </header>
     <p
-      class="sc-EHOje jMHhug"
+      class="sc-EHOje caTcrA"
     >
       <strong>
         Subtitle: some position
@@ -64,7 +64,7 @@ exports[`<Recap /> should render the component 1`] = `
         data-testid="bulletPoint"
       >
         <p
-          class="sc-EHOje jMHhug"
+          class="sc-EHOje caTcrA"
         >
           Web Developer Intern
         </p>
@@ -73,14 +73,14 @@ exports[`<Recap /> should render the component 1`] = `
         data-testid="bulletPoint"
       >
         <p
-          class="sc-EHOje jMHhug"
+          class="sc-EHOje caTcrA"
         >
           Worked on graphing prototype
         </p>
       </li>
     </ul>
     <p
-      class="sc-EHOje jMHhug"
+      class="sc-EHOje caTcrA"
     >
       # 
       work

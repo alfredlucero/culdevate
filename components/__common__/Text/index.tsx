@@ -19,7 +19,7 @@ const H2 = styled.h2`
   padding: 0;
   font-family: ${props => props.theme.fonts.headerFontFamily};
   font-size: 2.5rem;
-  line-height: 1.75;
+  line-height: 2;
   color: ${props => props.theme.colors.teal};
 `;
 
@@ -32,7 +32,7 @@ const H3 = styled.h3`
   padding: 0;
   font-family: ${props => props.theme.fonts.headerFontFamily};
   font-size: 2rem;
-  line-height: 1.5;
+  line-height: 2;
   color: ${props => props.theme.colors.teal};
 `;
 
@@ -45,7 +45,7 @@ const H4 = styled.h4`
   padding: 0;
   font-family: ${props => props.theme.fonts.headerFontFamily};
   font-size: 1.75rem;
-  line-height: 1.5;
+  line-height: 2;
   color: ${props => props.theme.colors.orange};
 `;
 
@@ -62,7 +62,7 @@ const P = styled.p<PProps>`
   padding: 0;
   font-family: ${props => props.theme.fonts.bodyFontFamily};
   font-size: ${props => (props.small ? "1.25rem" : "1.5rem")};
-  line-height: 1.25;
+  line-height: 1.5;
   color: ${props => props.theme.colors.gray};
 `;
 

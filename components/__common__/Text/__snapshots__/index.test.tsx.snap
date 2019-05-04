@@ -8,22 +8,22 @@ exports[`Text (H1, H2, H3, P) should render all Text components 1`] = `
     Culdevate Header 1 Text
   </h1>
   <h2
-    class="sc-bwzfXH imZTiu"
+    class="sc-bwzfXH lmrCAX"
   >
     Culdevate Header 2 Text
   </h2>
   <h3
-    class="sc-htpNat ieEzlC"
+    class="sc-htpNat dlSRUZ"
   >
     Culdevate Header 3 Text
   </h3>
   <p
-    class="sc-ifAKCX cRIQJ"
+    class="sc-ifAKCX jCqHur"
   >
     Culdevate Paragraph Text
   </p>
   <p
-    class="sc-ifAKCX hYQYyi"
+    class="sc-ifAKCX fWjezD"
   >
     Culdevate Paragraph Small Text
   </p>

@@ -2,9 +2,11 @@
 
 exports[`<Recap /> should render the component 1`] = `
 <article
-  class="sc-bwzfXH jNsnLW"
+  class="sc-bZQynM hXWdPo"
 >
-  <figure>
+  <figure
+    class="sc-htoDjs CGREo"
+  >
     <div
       class="sc-bdVaJa jQHlEe"
     >
@@ -26,15 +28,19 @@ exports[`<Recap /> should render the component 1`] = `
     </div>
   </figure>
   <section
-    class="sc-htpNat cyYjkk"
+    class="sc-gzVnrw qXjxa"
   >
     <header
-      class="sc-bxivhb ePMNDB"
+      class="sc-dnqmqq frxxYH"
     >
-      <h2>
+      <h3
+        class="sc-bxivhb fJQFDo"
+      >
         Sandia National Labs
-      </h2>
-      <h3>
+      </h3>
+      <p
+        class="sc-EHOje jMHhug"
+      >
         <time
           data-testid="recapDateRange"
         >
@@ -44,14 +50,41 @@ exports[`<Recap /> should render the component 1`] = `
             2017/06/10
           </em>
         </time>
-      </h3>
+      </p>
     </header>
-    <p>
-      Web Developer Intern
+    <p
+      class="sc-EHOje jMHhug"
+    >
+      <strong>
+        Subtitle: some position
+      </strong>
     </p>
-    <footer>
-      Edit
-    </footer>
+    <ul>
+      <li
+        data-testid="bulletPoint"
+      >
+        <p
+          class="sc-EHOje jMHhug"
+        >
+          Web Developer Intern
+        </p>
+      </li>
+      <li
+        data-testid="bulletPoint"
+      >
+        <p
+          class="sc-EHOje jMHhug"
+        >
+          Worked on graphing prototype
+        </p>
+      </li>
+    </ul>
+    <p
+      class="sc-EHOje jMHhug"
+    >
+      # 
+      work
+    </p>
   </section>
 </article>
 `;

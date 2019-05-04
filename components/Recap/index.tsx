@@ -1,6 +1,7 @@
 import React from "react";
 import styled from "styled-components";
 import Icon, { CuldevateIcon, StyledRoundIcon } from "../__common__/Icon";
+import { H3, P } from "../__common__/Text";
 import { culdevateDefaultTheme } from "../defaultTheme";
 
 export type RecapType =
@@ -16,7 +17,8 @@ export type RecapType =
 
 export interface RecapProps {
   title: string;
-  description: string;
+  subtitle: string;
+  bulletPoints: string[];
   type: RecapType;
   startDate: string;
   endDate: string | null;
@@ -45,53 +47,75 @@ const mapRecapTypeToIcon = (recapType: RecapType): React.ReactNode | null => {
 
 const StyledRecap = styled.article`
   display: flex;
-
-  & figure {
-    padding: 30px;
-    flex: 0 0 50px;
-    margin: 0;
-  }
+  min-width: 760px;
 `;
-
-StyledRecap.defaultProps = {
-  theme: culdevateDefaultTheme,
-};
 
 const StyledRecapSection = styled.section`
   flex: 1 0 auto;
+  padding: 2.5rem 2.5rem 2.5rem 0;
+
+  ul {
+    color: ${props => props.theme.colors.gray};
+  }
+`;
+
+StyledRecapSection.defaultProps = {
+  theme: culdevateDefaultTheme,
+};
+
+const StyledRecapFigure = styled.figure`
+  display: flex;
+  padding: 3rem;
+  margin: 0;
+  flex: 0 0 8rem;
+  flex-direction: column;
+  align-items: center;
 `;
 
 const StyledRecapHeader = styled.header`
   display: flex;
   justify-content: space-between;
+  align-items: center;
 
-  & time {
-    font-size: 2rem;
-    color: ${props => props.theme.colors.orange};
+  & h3 {
+    flex: 3 0 0;
+  }
+
+  & h4 {
+    flex: 1 0 10rem;
+    text-align: right;
   }
 `;
 
-StyledRecapHeader.defaultProps = {
-  theme: culdevateDefaultTheme,
-};
-
-const Recap: React.FC<RecapProps> = ({ title, description, type, startDate, endDate }) => {
+const Recap: React.FC<RecapProps> = ({ title, subtitle, bulletPoints, type, startDate, endDate }) => {
+  const hasBulletPoints = bulletPoints.length > 0;
   return (
     <StyledRecap>
-      <figure>{mapRecapTypeToIcon(type)}</figure>
+      <StyledRecapFigure>{mapRecapTypeToIcon(type)}</StyledRecapFigure>
       <StyledRecapSection>
         <StyledRecapHeader>
-          <h2>{title}</h2>
-          <h3>
+          <H3>{title}</H3>
+          <P>
             <time data-testid="recapDateRange">
               <em>
                 {startDate} - {endDate !== null ? endDate : "Present"}
               </em>
             </time>
-          </h3>
+          </P>
         </StyledRecapHeader>
-        <p>{description}</p>
-        <footer>Edit</footer>
+        <P>
+          <strong>{subtitle}</strong>
+        </P>
+        {hasBulletPoints && (
+          <ul>
+            {bulletPoints.map((bulletPoint, idx) => (
+              <li key={idx} data-testid="bulletPoint">
+                <P>{bulletPoint}</P>
+              </li>
+            ))}
+          </ul>
+        )}
+        <P># {type}</P>
       </StyledRecapSection>
     </StyledRecap>
   );

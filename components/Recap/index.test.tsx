@@ -7,7 +7,8 @@ afterEach(cleanup);
 describe("<Recap />", () => {
   const sampleRecapProps: RecapProps = {
     title: "Sandia National Labs",
-    description: "Web Developer Intern",
+    subtitle: "Subtitle: some position",
+    bulletPoints: ["Web Developer Intern", "Worked on graphing prototype"],
     type: "work",
     startDate: "2016/06/20",
     endDate: "2017/06/10",
@@ -26,5 +27,24 @@ describe("<Recap />", () => {
     const { getByTestId } = render(<Recap {...sampleRecapPropsWithoutEndDate} />);
 
     expect(getByTestId("recapDateRange").textContent).toContain("- Present");
+  });
+
+  test("should display bullet points in a list given some bullet points", () => {
+    const { getAllByTestId } = render(<Recap {...sampleRecapProps} />);
+    const bulletPoints = getAllByTestId("bulletPoint");
+
+    bulletPoints.forEach((bulletPoint, idx) => {
+      expect(bulletPoint.textContent).toContain(sampleRecapProps.bulletPoints[idx]);
+    });
+  });
+
+  test("should not display a list given no bullet points", () => {
+    const sampleRecapPropsWithoutBulletPoints = {
+      ...sampleRecapProps,
+      bulletPoints: [],
+    };
+    const { queryByTestId } = render(<Recap {...sampleRecapPropsWithoutBulletPoints} />);
+
+    expect(queryByTestId("bulletPoint")).toBeNull();
   });
 });

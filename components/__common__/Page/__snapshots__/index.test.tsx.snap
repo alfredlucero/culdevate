@@ -1,0 +1,11 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`<Page /> should render the Page and its children 1`] = `
+<div
+  class="sc-bdVaJa gJJmKQ"
+>
+  <div>
+    Some children
+  </div>
+</div>
+`;

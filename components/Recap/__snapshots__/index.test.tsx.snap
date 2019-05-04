@@ -1,0 +1,90 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`<Recap /> should render the component 1`] = `
+<article
+  class="sc-bZQynM hXWdPo"
+>
+  <figure
+    class="sc-htoDjs CGREo"
+  >
+    <div
+      class="sc-bdVaJa jQHlEe"
+    >
+      <svg
+        aria-hidden="true"
+        class="svg-inline--fa fa-suitcase fa-w-16 "
+        data-icon="suitcase"
+        data-prefix="fas"
+        focusable="false"
+        role="img"
+        viewBox="0 0 512 512"
+        xmlns="http://www.w3.org/2000/svg"
+      >
+        <path
+          d="M128 480h256V80c0-26.5-21.5-48-48-48H176c-26.5 0-48 21.5-48 48v400zm64-384h128v32H192V96zm320 80v256c0 26.5-21.5 48-48 48h-48V128h48c26.5 0 48 21.5 48 48zM96 480H48c-26.5 0-48-21.5-48-48V176c0-26.5 21.5-48 48-48h48v352z"
+          fill="currentColor"
+        />
+      </svg>
+    </div>
+  </figure>
+  <section
+    class="sc-gzVnrw qXjxa"
+  >
+    <header
+      class="sc-dnqmqq frxxYH"
+    >
+      <h3
+        class="sc-bxivhb gQIBYU"
+      >
+        Sandia National Labs
+      </h3>
+      <p
+        class="sc-EHOje caTcrA"
+      >
+        <time
+          data-testid="recapDateRange"
+        >
+          <em>
+            2016/06/20
+             - 
+            2017/06/10
+          </em>
+        </time>
+      </p>
+    </header>
+    <p
+      class="sc-EHOje caTcrA"
+    >
+      <strong>
+        Subtitle: some position
+      </strong>
+    </p>
+    <ul>
+      <li
+        data-testid="bulletPoint"
+      >
+        <p
+          class="sc-EHOje caTcrA"
+        >
+          Web Developer Intern
+        </p>
+      </li>
+      <li
+        data-testid="bulletPoint"
+      >
+        <p
+          class="sc-EHOje caTcrA"
+        >
+          Worked on graphing prototype
+        </p>
+      </li>
+    </ul>
+    <p
+      class="sc-EHOje caTcrA"
+    >
+      # 
+      work
+    </p>
+  </section>
+</article>
+`;

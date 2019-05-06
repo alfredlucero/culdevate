@@ -1,0 +1,11 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`<TextInput /> should render the text input 1`] = `
+<div>
+  <input
+    name="textInputName"
+    type="text"
+    value="someTextInput"
+  />
+</div>
+`;

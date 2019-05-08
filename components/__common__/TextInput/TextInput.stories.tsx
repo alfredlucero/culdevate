@@ -1,10 +1,45 @@
 import React from "react";
 import { storiesOf } from "@storybook/react";
 import StoryFrame from "../StoryFrame";
-import TextInput from "./index";
+import TextInput, { TextInputType } from "./index";
 
-storiesOf("TextInput", module).add("Default", () => (
-  <StoryFrame>
-    <TextInput value="someTextInput" name="textInputName" valid={true} touched={true} type="text" onChange={() => {}} />
-  </StoryFrame>
-));
+const requiredTextInputProps = {
+  value: "someTextInput",
+  id: "some-text-input-id",
+  name: "textInputName",
+  valid: true,
+  touched: true,
+  type: "text" as TextInputType,
+  onChange: () => {},
+};
+
+storiesOf("TextInput", module)
+  .add("Default", () => (
+    <StoryFrame>
+      <TextInput {...requiredTextInputProps} />
+      <TextInput {...requiredTextInputProps} value="some.email@domain.com" type="email" />
+      <TextInput {...requiredTextInputProps} type="password" />
+    </StoryFrame>
+  ))
+  .add("Valid + Info Message", () => (
+    <StoryFrame>
+      <TextInput {...requiredTextInputProps} infoMessage="Some info message" />
+    </StoryFrame>
+  ))
+  .add("Error + Error Message", () => (
+    <StoryFrame>
+      <TextInput {...requiredTextInputProps} valid={false} errorMessage="Some error message" />
+    </StoryFrame>
+  ))
+  .add("Label + placeholder + disabled + required", () => (
+    <StoryFrame>
+      <TextInput
+        {...requiredTextInputProps}
+        label="Some label"
+        placeholder="Some placeholder text"
+        value=""
+        disabled={true}
+        required={true}
+      />
+    </StoryFrame>
+  ));

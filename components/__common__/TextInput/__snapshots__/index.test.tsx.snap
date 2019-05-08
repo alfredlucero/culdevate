@@ -1,11 +1,28 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`<TextInput /> should render the text input 1`] = `
-<div>
+<div
+  class="sc-bdVaJa bPGLpq"
+>
+  <label
+    for="some-text-input-id"
+  >
+    
+     
+    
+  </label>
   <input
+    aria-describedby=""
+    class="sc-bwzfXH jbQxGG"
+    id="some-text-input-id"
     name="textInputName"
+    placeholder=""
     type="text"
     value="someTextInput"
+  />
+  <span
+    data-testid="textInputInfo"
+    id=""
   />
 </div>
 `;

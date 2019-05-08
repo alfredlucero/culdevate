@@ -15,6 +15,8 @@ interface Colors {
   blueGray: string;
   orange: string;
   gray: string;
+  lightGray: string;
+  red: string;
 }
 
 // Extend the DefaultTheme

@@ -1,5 +1,5 @@
 import React from "react";
-import styled from "styled-components";
+import styled, { css } from "styled-components";
 import { culdevateDefaultTheme } from "../../defaultTheme";
 
 interface StyledButtonProps {
@@ -10,7 +10,60 @@ interface StyledButtonProps {
   size: ButtonSize;
 }
 const StyledButton = styled.button<StyledButtonProps>`
-  border-radius: 5px;
+  border: none;
+  border-radius: 2px;
+  cursor: pointer;
+
+  ${props =>
+    props.size === "small" &&
+    css`
+      padding: 1rem;
+      font-size: 1rem;
+    `};
+
+  ${props =>
+    props.size === "medium" &&
+    css`
+      padding: 1.5rem;
+      font-size: 1.5rem;
+    `};
+
+  ${props =>
+    props.size === "large" &&
+    css`
+      padding: 2rem;
+      font-size: 2rem;
+    `};
+
+  ${props =>
+    props.kind === "primary" &&
+    css`
+      background-color: ${props.disabled ? props.theme.colors.gray : props.theme.colors.blue};
+      color: ${props.theme.colors.white};
+    `}
+  
+  ${props =>
+    props.kind === "secondary-primary" &&
+    css`
+      border: ${props.disabled ? props.theme.colors.gray : props.theme.colors.blue} 2px solid;
+      background-color: ${props.theme.colors.white};
+      color: ${props.disabled ? props.theme.colors.gray : props.theme.colors.blue};
+    `}
+
+  ${props =>
+    props.kind === "danger" &&
+    css`
+      background-color: ${props.disabled ? props.theme.colors.gray : props.theme.colors.red};
+      color: ${props.theme.colors.white};
+    `}
+
+  ${props =>
+    props.kind === "secondary-danger" &&
+    css`
+      border: ${props.disabled ? props.theme.colors.gray : props.theme.colors.red} 2px solid;
+      background-color: ${props.theme.colors.white};
+      color: ${props.disabled ? props.theme.colors.gray : props.theme.colors.red};
+    `}
 `;
 StyledButton.defaultProps = {
   theme: culdevateDefaultTheme,

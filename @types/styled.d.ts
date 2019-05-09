@@ -6,17 +6,16 @@ interface Fonts {
 }
 
 interface Colors {
-  primary: string;
-  secondary: string;
   white: string;
   platinum: string;
   yellow: string;
+  red: string;
   teal: string;
+  blue: string;
   blueGray: string;
   orange: string;
   gray: string;
   lightGray: string;
-  red: string;
 }
 
 // Extend the DefaultTheme

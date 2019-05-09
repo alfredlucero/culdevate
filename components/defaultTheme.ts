@@ -7,17 +7,16 @@ const culdevateDefaultTheme: DefaultTheme = {
     bodyFontFamily: '"Lato", sans-serif',
   },
   colors: {
-    primary: "cyan",
-    secondary: "red",
     white: "#FCFCFC",
     platinum: "#EDF3F2",
     yellow: "#F4F1BB",
+    red: "red",
     teal: "#5CA4A9",
+    blue: "blue",
     blueGray: "#8DA9A5",
     orange: "#ED6A5A",
     gray: "#595959",
     lightGray: "#e5e5e5",
-    red: "red",
   },
 };
 

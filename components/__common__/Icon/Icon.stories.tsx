@@ -15,7 +15,7 @@ const allCuldevateIcons: CuldevateIcon[] = [
   "levelUp",
 ];
 
-storiesOf("Icon", module)
+storiesOf("common/Icon", module)
   .add("All Icon Types", () => (
     <StoryFrame>
       {allCuldevateIcons.map((culdevateIcon, idx) => (

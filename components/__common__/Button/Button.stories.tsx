@@ -3,7 +3,7 @@ import { storiesOf } from "@storybook/react";
 import StoryFrame from "../StoryFrame";
 import Button from "./index";
 
-storiesOf("Button", module)
+storiesOf("common/Button", module)
   .add("Primary Button Small", () => (
     <StoryFrame>
       <Button onClick={() => {}} type="button" kind="primary" size="small">

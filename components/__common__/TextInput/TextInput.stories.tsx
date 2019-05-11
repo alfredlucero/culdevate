@@ -13,7 +13,7 @@ const requiredTextInputProps = {
   onChange: () => {},
 };
 
-storiesOf("TextInput", module)
+storiesOf("common/TextInput", module)
   .add("Default", () => (
     <StoryFrame>
       <TextInput {...requiredTextInputProps} />

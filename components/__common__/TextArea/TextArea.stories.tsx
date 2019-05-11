@@ -12,7 +12,7 @@ const requiredTextAreaProps = {
   onChange: () => {},
 };
 
-storiesOf("TextArea", module)
+storiesOf("common/TextArea", module)
   .add("Default", () => (
     <StoryFrame>
       <TextArea {...requiredTextAreaProps} />

@@ -1,4 +1,5 @@
 import React from "react";
+import Link from "next/link";
 import Recap, { RecapProps } from "../components/Recap";
 
 interface RecapsPageProps {
@@ -8,6 +9,20 @@ interface RecapsPageProps {
 const RecapsPage: React.FC<RecapsPageProps> = ({ recaps }) => {
   return (
     <div>
+      <nav>
+        <Link href="/">
+          <a>Home</a>
+        </Link>
+        <Link href="/your_daily">
+          <a>Your Daily</a>
+        </Link>
+        <Link href="/endeavors">
+          <a>Endeavors</a>
+        </Link>
+      </nav>
+      <h1>Culdevate</h1>
+      <h2>Recaps</h2>
+      <p>Recap for your resume/CV/reflection of experiences</p>
       {recaps.map((recap, idx) => (
         <Recap {...recap} key={idx} />
       ))}

@@ -37,6 +37,7 @@ server.use(jsonServer.bodyParser);
 
 // Use default router and start up json-server on port 3000
 server.use(router);
-server.listen(3000, () => {
-  console.log("Culdevate Mock API JSON Server is running!");
+const mockApiPort = 4567;
+server.listen(mockApiPort, () => {
+  console.log(`Culdevate Mock API JSON Server is running on port ${mockApiPort}!`);
 });

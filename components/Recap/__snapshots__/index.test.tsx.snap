@@ -8,7 +8,7 @@ exports[`<Recap /> should render the component 1`] = `
     class="sc-htoDjs CGREo"
   >
     <div
-      class="sc-bdVaJa jQHlEe"
+      class="sc-bdVaJa cKsvFD"
     >
       <svg
         aria-hidden="true"
@@ -34,12 +34,12 @@ exports[`<Recap /> should render the component 1`] = `
       class="sc-dnqmqq frxxYH"
     >
       <h3
-        class="sc-bxivhb gQIBYU"
+        class="sc-bxivhb dTjgpx"
       >
         Sandia National Labs
       </h3>
       <p
-        class="sc-EHOje caTcrA"
+        class="sc-EHOje gQVyTR"
       >
         <time
           data-testid="recapDateRange"
@@ -53,7 +53,7 @@ exports[`<Recap /> should render the component 1`] = `
       </p>
     </header>
     <p
-      class="sc-EHOje caTcrA"
+      class="sc-EHOje gQVyTR"
     >
       <strong>
         Subtitle: some position
@@ -64,7 +64,7 @@ exports[`<Recap /> should render the component 1`] = `
         data-testid="bulletPoint"
       >
         <p
-          class="sc-EHOje caTcrA"
+          class="sc-EHOje gQVyTR"
         >
           Web Developer Intern
         </p>
@@ -73,14 +73,14 @@ exports[`<Recap /> should render the component 1`] = `
         data-testid="bulletPoint"
       >
         <p
-          class="sc-EHOje caTcrA"
+          class="sc-EHOje gQVyTR"
         >
           Worked on graphing prototype
         </p>
       </li>
     </ul>
     <p
-      class="sc-EHOje caTcrA"
+      class="sc-EHOje gQVyTR"
     >
       # 
       work

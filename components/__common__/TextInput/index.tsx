@@ -1,13 +1,14 @@
 import React from "react";
-import styled from "styled-components";
-import { culdevateDefaultTheme } from "../../defaultTheme";
+import styled, { css } from "styled-components";
+import "../../../moduleTypes/styled-components.d.ts";
+import { culdevateThemes } from "../../defaultTheme";
 
 const StyledTextInputContainer = styled.div`
   display: flex;
   flex-direction: column;
 `;
 StyledTextInputContainer.defaultProps = {
-  theme: culdevateDefaultTheme,
+  theme: culdevateThemes.light,
 };
 
 interface StyledTextInputProps {
@@ -15,13 +16,51 @@ interface StyledTextInputProps {
 }
 const StyledTextInput = styled.input<StyledTextInputProps>`
   width: 100%;
-  color: ${props => props.theme.colors.gray};
-  padding: 1.5rem;
-  border: 2px solid ${props => (props.isError ? props.theme.colors.red : props.theme.colors.lightGray)};
-  border-radius: 5px;
+  ${({
+    isError,
+    theme: {
+      fontSize: { formInputFontSize },
+      semanticColors: { inputBorderDefaultColor, inputBorderErrorColor, normalTextColor },
+      forms: { inputBoxShadow, inputFocusShadow, inputBorderRadius, inputBorderWidth, inputPadding },
+    },
+  }) => css`
+    padding: ${inputPadding};
+    border: ${inputBorderWidth} solid ${isError ? inputBorderErrorColor : inputBorderDefaultColor};
+    border-radius: ${inputBorderRadius};
+    box-shadow: ${inputBoxShadow};
+    color: ${normalTextColor};
+    font-size: ${formInputFontSize};
+
+    &:focus {
+      outline: none;
+      box-shadow: ${inputFocusShadow};
+    }
+  `}
 `;
 StyledTextInput.defaultProps = {
-  theme: culdevateDefaultTheme,
+  theme: culdevateThemes.light,
+};
+
+const StyledTextInputInfo = styled.em`
+  ${({ theme: { semanticColors, fontSize } }) => css`
+    padding: 0.25rem 1rem;
+    color: ${semanticColors.normalTextColor};
+    font-size: ${fontSize.smallBodyFontSize};
+  `}
+`;
+StyledTextInputInfo.defaultProps = {
+  theme: culdevateThemes.light,
+};
+
+const StyledTextInputError = styled.em`
+  ${({ theme: { semanticColors, fontSize } }) => css`
+    padding: 0.25rem 1rem;
+    color: ${semanticColors.errorTextColor};
+    font-size: ${fontSize.smallBodyFontSize};
+  `}
+`;
+StyledTextInputError.defaultProps = {
+  theme: culdevateThemes.light,
 };
 
 export type TextInputType = "text" | "password" | "email";
@@ -79,15 +118,15 @@ const TextInput: React.FC<TextInputProps> = ({
         aria-describedby={isError ? errorId : infoId}
         {...passThroughProps}
       />
-      {!isError && (
-        <span data-testid="textInputInfo" id={infoId}>
-          {infoMessage}
-        </span>
-      )}
       {isError && (
-        <span data-testid="textInputError" id={errorId}>
+        <StyledTextInputError data-testid="textInputError" id={errorId}>
           {errorMessage}
-        </span>
+        </StyledTextInputError>
+      )}
+      {!isError && (
+        <StyledTextInputInfo data-testid="textInputInfo" id={infoId}>
+          {infoMessage}
+        </StyledTextInputInfo>
       )}
     </StyledTextInputContainer>
   );

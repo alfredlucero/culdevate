@@ -1,8 +1,9 @@
 import React from "react";
 import styled from "styled-components";
+import "../../moduleTypes/styled-components.d.ts";
 import Icon, { CuldevateIcon, StyledRoundIcon } from "../__common__/Icon";
 import { H3, P } from "../__common__/Text";
-import { culdevateDefaultTheme } from "../defaultTheme";
+import { culdevateThemes } from "../defaultTheme";
 
 export type RecapType =
   | "objectives"
@@ -55,12 +56,11 @@ const StyledRecapSection = styled.section`
   padding: 2.5rem 2.5rem 2.5rem 0;
 
   ul {
-    color: ${props => props.theme.colors.gray};
+    color: ${props => props.theme.semanticColors.normalTextColor};
   }
 `;
-
 StyledRecapSection.defaultProps = {
-  theme: culdevateDefaultTheme,
+  theme: culdevateThemes.light,
 };
 
 const StyledRecapFigure = styled.figure`

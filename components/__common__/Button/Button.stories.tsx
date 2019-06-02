@@ -32,31 +32,31 @@ storiesOf("common/Button", module)
       </Button>
     </StoryFrame>
   ))
-  .add("Secondary Primary Button Small", () => (
+  .add("Secondary Button Small", () => (
     <StoryFrame>
-      <Button onClick={() => {}} type="button" kind="secondary-primary" size="small">
-        Secondary Primary
+      <Button onClick={() => {}} type="button" kind="secondary" size="small">
+        Secondary
       </Button>
     </StoryFrame>
   ))
-  .add("Secondary Primary Submit Medium", () => (
+  .add("Secondary Submit Medium", () => (
     <StoryFrame>
-      <Button onClick={() => {}} type="submit" kind="secondary-primary" size="medium">
-        Secondary Primary
+      <Button onClick={() => {}} type="submit" kind="secondary" size="medium">
+        Secondary
       </Button>
     </StoryFrame>
   ))
-  .add("Secondary Primary Submit Medium Disabled", () => (
+  .add("Secondary Submit Medium Disabled", () => (
     <StoryFrame>
-      <Button onClick={() => {}} type="submit" kind="secondary-primary" size="medium" disabled={true}>
-        Secondary Primary
+      <Button onClick={() => {}} type="submit" kind="secondary" size="medium" disabled={true}>
+        Secondary
       </Button>
     </StoryFrame>
   ))
-  .add("Secondary Primary Reset Large", () => (
+  .add("Secondary Reset Large", () => (
     <StoryFrame>
-      <Button onClick={() => {}} type="reset" kind="secondary-primary" size="large">
-        Secondary Primary
+      <Button onClick={() => {}} type="reset" kind="secondary" size="large">
+        Secondary
       </Button>
     </StoryFrame>
   ))
@@ -90,28 +90,28 @@ storiesOf("common/Button", module)
   ))
   .add("Secondary Danger Button Small", () => (
     <StoryFrame>
-      <Button onClick={() => {}} type="button" kind="secondary-danger" size="small">
+      <Button onClick={() => {}} type="button" kind="secondaryDanger" size="small">
         Secondary Danger
       </Button>
     </StoryFrame>
   ))
   .add("Secondary Danger Submit Medium", () => (
     <StoryFrame>
-      <Button onClick={() => {}} type="submit" kind="secondary-danger" size="medium">
+      <Button onClick={() => {}} type="submit" kind="secondaryDanger" size="medium">
         Secondary Danger
       </Button>
     </StoryFrame>
   ))
   .add("Secondary Danger Submit Medium Disabled", () => (
     <StoryFrame>
-      <Button onClick={() => {}} type="submit" kind="secondary-danger" size="medium" disabled={true}>
+      <Button onClick={() => {}} type="submit" kind="secondaryDanger" size="medium" disabled={true}>
         Secondary Danger
       </Button>
     </StoryFrame>
   ))
   .add("Secondary Danger Reset Large", () => (
     <StoryFrame>
-      <Button onClick={() => {}} type="reset" kind="secondary-danger" size="large">
+      <Button onClick={() => {}} type="reset" kind="secondaryDanger" size="large">
         Secondary Danger
       </Button>
     </StoryFrame>

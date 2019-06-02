@@ -1,6 +1,7 @@
 import React from "react";
 import styled, { css } from "styled-components";
-import { culdevateDefaultTheme } from "../../defaultTheme";
+import "../../../moduleTypes/styled-components.d.ts";
+import { culdevateThemes } from "../../defaultTheme";
 
 interface StyledButtonProps {
   onClick: (event: React.MouseEvent) => void;
@@ -11,65 +12,101 @@ interface StyledButtonProps {
 }
 const StyledButton = styled.button<StyledButtonProps>`
   border: none;
-  border-radius: 2px;
+  border-radius: 0.25rem;
   cursor: pointer;
 
-  ${props =>
-    props.size === "small" &&
+  ${({ size }) =>
+    size === "small" &&
     css`
       padding: 1rem;
       font-size: 1rem;
-    `};
+    `}
 
-  ${props =>
-    props.size === "medium" &&
+  ${({ size }) =>
+    size === "medium" &&
     css`
       padding: 1.5rem;
       font-size: 1.5rem;
-    `};
+    `}
 
-  ${props =>
-    props.size === "large" &&
+  ${({ size }) =>
+    size === "large" &&
     css`
       padding: 2rem;
       font-size: 2rem;
-    `};
+    `} 
 
-  ${props =>
-    props.kind === "primary" &&
+  ${({
+    kind,
+    disabled,
+    theme: {
+      semanticColors: { btnDisabledBgColor, btnPrimaryBgColor, btnPrimaryColor },
+    },
+  }) =>
+    kind === "primary" &&
     css`
-      background-color: ${props.disabled ? props.theme.colors.gray : props.theme.colors.blue};
-      color: ${props.theme.colors.white};
-    `}
-  
-  ${props =>
-    props.kind === "secondary-primary" &&
-    css`
-      border: ${props.disabled ? props.theme.colors.gray : props.theme.colors.blue} 2px solid;
-      background-color: ${props.theme.colors.white};
-      color: ${props.disabled ? props.theme.colors.gray : props.theme.colors.blue};
+      background-color: ${disabled ? btnDisabledBgColor : btnPrimaryBgColor};
+      color: ${btnPrimaryColor};
     `}
 
-  ${props =>
-    props.kind === "danger" &&
+  ${({
+    kind,
+    disabled,
+    theme: {
+      semanticColors: { btnDangerBgColor, btnDangerColor, btnDisabledBgColor },
+    },
+  }) =>
+    kind === "danger" &&
     css`
-      background-color: ${props.disabled ? props.theme.colors.gray : props.theme.colors.red};
-      color: ${props.theme.colors.white};
+      background-color: ${disabled ? btnDisabledBgColor : btnDangerBgColor};
+      color: ${btnDangerColor};
     `}
 
-  ${props =>
-    props.kind === "secondary-danger" &&
+  ${({
+    kind,
+    disabled,
+    theme: {
+      semanticColors: {
+        btnSecondaryBgColor,
+        btnSecondaryColor,
+        btnSecondaryBorderColor,
+        btnSecondaryDisabledColor,
+        btnSecondaryBorderDisabledColor,
+      },
+    },
+  }) =>
+    kind === "secondary" &&
     css`
-      border: ${props.disabled ? props.theme.colors.gray : props.theme.colors.red} 2px solid;
-      background-color: ${props.theme.colors.white};
-      color: ${props.disabled ? props.theme.colors.gray : props.theme.colors.red};
+      border: ${disabled ? btnSecondaryBorderDisabledColor : btnSecondaryBorderColor} 0.2rem solid;
+      background-color: ${btnSecondaryBgColor};
+      color: ${disabled ? btnSecondaryDisabledColor : btnSecondaryColor};
     `}
+
+    ${({
+      kind,
+      disabled,
+      theme: {
+        semanticColors: {
+          btnSecondaryDangerBgColor,
+          btnSecondaryDangerColor,
+          btnSecondaryDangerBorderColor,
+          btnSecondaryDisabledColor,
+          btnSecondaryBorderDisabledColor,
+        },
+      },
+    }) =>
+      kind === "secondary" &&
+      css`
+        border: ${disabled ? btnSecondaryBorderDisabledColor : btnSecondaryDangerBorderColor} 0.2rem solid;
+        background-color: ${btnSecondaryDangerBgColor};
+        color: ${disabled ? btnSecondaryDisabledColor : btnSecondaryDangerColor};
+      `}
 `;
 StyledButton.defaultProps = {
-  theme: culdevateDefaultTheme,
+  theme: culdevateThemes.light,
 };
 
-export type ButtonKind = "primary" | "danger" | "secondary-primary" | "secondary-danger";
+export type ButtonKind = "primary" | "danger" | "secondary" | "secondaryDanger";
 export type ButtonType = "button" | "submit" | "reset";
 export type ButtonSize = "small" | "medium" | "large";
 

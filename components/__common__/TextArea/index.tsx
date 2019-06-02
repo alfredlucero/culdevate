@@ -1,13 +1,14 @@
 import React from "react";
-import styled from "styled-components";
-import { culdevateDefaultTheme } from "../../defaultTheme";
+import styled, { css } from "styled-components";
+import "../../../moduleTypes/styled-components.d.ts";
+import { culdevateThemes } from "../../defaultTheme";
 
 const StyledTextAreaContainer = styled.div`
   display: flex;
   flex-direction: column;
 `;
 StyledTextAreaContainer.defaultProps = {
-  theme: culdevateDefaultTheme,
+  theme: culdevateThemes.light,
 };
 
 interface StyledTextAreaProps {
@@ -15,13 +16,51 @@ interface StyledTextAreaProps {
 }
 const StyledTextArea = styled.textarea<StyledTextAreaProps>`
   width: 100%;
-  color: ${props => props.theme.colors.gray};
-  padding: 1.5rem;
-  border: 2px solid ${props => (props.isError ? props.theme.colors.red : props.theme.colors.lightGray)};
-  border-radius: 5px;
+  ${({
+    isError,
+    theme: {
+      fontSize: { formInputFontSize },
+      semanticColors: { inputBorderDefaultColor, inputBorderErrorColor, normalTextColor },
+      forms: { inputBoxShadow, inputFocusShadow, inputBorderRadius, inputBorderWidth, inputPadding },
+    },
+  }) => css`
+    padding: ${inputPadding};
+    border: ${inputBorderWidth} solid ${isError ? inputBorderErrorColor : inputBorderDefaultColor};
+    border-radius: ${inputBorderRadius};
+    box-shadow: ${inputBoxShadow};
+    color: ${normalTextColor};
+    font-size: ${formInputFontSize};
+
+    &:focus {
+      outline: none;
+      box-shadow: ${inputFocusShadow};
+    }
+  `}
 `;
 StyledTextArea.defaultProps = {
-  theme: culdevateDefaultTheme,
+  theme: culdevateThemes.light,
+};
+
+const StyledTextAreaInfo = styled.em`
+  ${({ theme: { semanticColors, fontSize } }) => css`
+    padding: 0.25rem 1rem;
+    color: ${semanticColors.normalTextColor};
+    font-size: ${fontSize.smallBodyFontSize};
+  `}
+`;
+StyledTextAreaInfo.defaultProps = {
+  theme: culdevateThemes.light,
+};
+
+const StyledTextAreaError = styled.em`
+  ${({ theme: { semanticColors, fontSize } }) => css`
+    padding: 0.25rem 1rem;
+    color: ${semanticColors.errorTextColor};
+    font-size: ${fontSize.smallBodyFontSize};
+  `}
+`;
+StyledTextAreaError.defaultProps = {
+  theme: culdevateThemes.light,
 };
 
 interface TextAreaProps {
@@ -74,15 +113,15 @@ const TextArea: React.FC<TextAreaProps> = ({
         aria-describedby={isError ? errorId : infoId}
         {...passThroughProps}
       />
-      {!isError && (
-        <span data-testid="textAreaInfo" id={infoId}>
-          {infoMessage}
-        </span>
-      )}
       {isError && (
-        <span data-testid="textAreaError" id={errorId}>
+        <StyledTextAreaError data-testid="textAreaError" id={errorId}>
           {errorMessage}
-        </span>
+        </StyledTextAreaError>
+      )}
+      {!isError && (
+        <StyledTextAreaInfo data-testid="textAreaInfo" id={infoId}>
+          {infoMessage}
+        </StyledTextAreaInfo>
       )}
     </StyledTextAreaContainer>
   );

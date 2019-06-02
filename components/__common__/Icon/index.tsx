@@ -1,5 +1,6 @@
 import React from "react";
-import styled from "styled-components";
+import styled, { css } from "styled-components";
+import "../../../moduleTypes/styled-components.d.ts";
 import { IconDefinition } from "@fortawesome/fontawesome-svg-core";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import {
@@ -13,7 +14,7 @@ import {
   faTrophy,
   faLevelUpAlt,
 } from "@fortawesome/free-solid-svg-icons";
-import { culdevateDefaultTheme } from "../../defaultTheme";
+import { culdevateThemes } from "../../defaultTheme";
 
 export type CuldevateIcon =
   | "suitcase"
@@ -57,12 +58,15 @@ export const StyledRoundIcon = styled.div`
   justify-content: center;
   align-items: center;
   font-size: 2rem;
-  background-color: ${props => props.theme.colors.platinum};
-  color: ${props => props.theme.colors.teal};
+
+  ${({ theme }) => css`
+    background-color: ${theme.semanticColors.iconBgColor};
+    color: ${theme.semanticColors.iconColor};
+  `}
 `;
 
 StyledRoundIcon.defaultProps = {
-  theme: culdevateDefaultTheme,
+  theme: culdevateThemes.light,
 };
 
 export default Icon;

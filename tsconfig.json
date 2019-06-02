@@ -20,6 +20,6 @@
     "strict": true,
     "target": "esnext"
   },
-  "include": ["./components/**/*", "./pages/**/*"],
+  "include": ["./pages/**/*", "./components/**/*", "./moduleTypes/**/*"],
   "exclude": ["node_modules", "./cypress/**/*"]
 }

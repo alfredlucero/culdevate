@@ -13,14 +13,15 @@ exports[`<TextInput /> should render the text input 1`] = `
   </label>
   <input
     aria-describedby=""
-    class="sc-bwzfXH jbQxGG"
+    class="sc-bwzfXH kvBLEJ"
     id="some-text-input-id"
     name="textInputName"
     placeholder=""
     type="text"
     value="someTextInput"
   />
-  <span
+  <em
+    class="sc-htpNat kbZKBX"
     data-testid="textInputInfo"
     id=""
   />

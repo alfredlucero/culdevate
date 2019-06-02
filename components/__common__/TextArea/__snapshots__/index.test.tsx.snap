@@ -13,14 +13,15 @@ exports[`<TextArea /> should render the text area 1`] = `
   </label>
   <textarea
     aria-describedby=""
-    class="sc-bwzfXH jbQxGG"
+    class="sc-bwzfXH kvBLEJ"
     id="some-text-area-id"
     name="textAreaName"
     placeholder=""
   >
     someTextAreaInput
   </textarea>
-  <span
+  <em
+    class="sc-htpNat kbZKBX"
     data-testid="textAreaInfo"
     id=""
   />

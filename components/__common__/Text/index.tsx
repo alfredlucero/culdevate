@@ -1,56 +1,61 @@
-import styled from "styled-components";
-import { culdevateDefaultTheme } from "../../defaultTheme";
+import styled, { css } from "styled-components";
+import "../../../moduleTypes/styled-components.d.ts";
+import { culdevateThemes } from "../../defaultTheme";
 
 const H1 = styled.h1`
   margin: 0;
   padding: 0;
-  font-family: ${props => props.theme.fonts.headerFontFamily};
-  font-size: 3rem;
   line-height: 2;
-  color: ${props => props.theme.colors.teal};
+  ${({ theme: { fontFamily, fontSize, semanticColors } }) => css`
+    font-family: ${fontFamily.headerFontFamily};
+    font-size: ${fontSize.h1FontSize};
+    color: ${semanticColors.primaryHeaderColor};
+  `}
 `;
-
 H1.defaultProps = {
-  theme: culdevateDefaultTheme,
+  theme: culdevateThemes.light,
 };
 
 const H2 = styled.h2`
   margin: 0;
   padding: 0;
-  font-family: ${props => props.theme.fonts.headerFontFamily};
-  font-size: 2.5rem;
   line-height: 2;
-  color: ${props => props.theme.colors.teal};
+  ${({ theme: { fontFamily, fontSize, semanticColors } }) => css`
+    font-family: ${fontFamily.headerFontFamily};
+    font-size: ${fontSize.h2FontSize};
+    color: ${semanticColors.primaryHeaderColor};
+  `}
 `;
-
 H2.defaultProps = {
-  theme: culdevateDefaultTheme,
+  theme: culdevateThemes.light,
 };
 
 const H3 = styled.h3`
   margin: 0;
   padding: 0;
-  font-family: ${props => props.theme.fonts.headerFontFamily};
-  font-size: 2rem;
   line-height: 2;
-  color: ${props => props.theme.colors.teal};
+  ${({ theme: { fontFamily, fontSize, semanticColors } }) => css`
+    font-family: ${fontFamily.headerFontFamily};
+    font-size: ${fontSize.h3FontSize};
+    color: ${semanticColors.primaryHeaderColor};
+  `}
 `;
-
 H3.defaultProps = {
-  theme: culdevateDefaultTheme,
+  theme: culdevateThemes.light,
 };
 
 const H4 = styled.h4`
   margin: 0;
   padding: 0;
-  font-family: ${props => props.theme.fonts.headerFontFamily};
-  font-size: 1.75rem;
   line-height: 2;
-  color: ${props => props.theme.colors.orange};
+  ${({ theme: { fontFamily, fontSize, semanticColors } }) => css`
+    font-family: ${fontFamily.headerFontFamily};
+    font-size: ${fontSize.h4FontSize};
+    color: ${semanticColors.secondaryHeaderColor};
+  `}
 `;
-
 H4.defaultProps = {
-  theme: culdevateDefaultTheme,
+  theme: culdevateThemes.light,
 };
 
 interface PProps {
@@ -60,14 +65,15 @@ interface PProps {
 const P = styled.p<PProps>`
   margin: 0;
   padding: 0;
-  font-family: ${props => props.theme.fonts.bodyFontFamily};
-  font-size: ${props => (props.small ? "1.25rem" : "1.5rem")};
   line-height: 1.5;
-  color: ${props => props.theme.colors.gray};
+  ${({ small, theme: { fontFamily, fontSize, semanticColors } }) => css`
+    font-family: ${fontFamily.bodyFontFamily};
+    font-size: ${small ? fontSize.smallBodyFontSize : fontSize.bodyFontSize};
+    color: ${semanticColors.normalTextColor};
+  `}
 `;
-
 P.defaultProps = {
-  theme: culdevateDefaultTheme,
+  theme: culdevateThemes.light,
 };
 
 export { P, H1, H2, H3, H4 };

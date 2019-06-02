@@ -1,6 +1,5 @@
 import React from "react";
-import styled, { css } from "styled-components";
-import "../../../moduleTypes/styled-components.d.ts";
+import styled, { css } from "../../../@types/styled-components/index";
 import { culdevateThemes } from "../../defaultTheme";
 
 interface StyledButtonProps {
@@ -14,6 +13,7 @@ const StyledButton = styled.button<StyledButtonProps>`
   border: none;
   border-radius: 0.25rem;
   cursor: pointer;
+  font-weight: 600;
 
   ${({ size }) =>
     size === "small" &&
@@ -40,26 +40,34 @@ const StyledButton = styled.button<StyledButtonProps>`
     kind,
     disabled,
     theme: {
-      semanticColors: { btnDisabledBgColor, btnPrimaryBgColor, btnPrimaryColor },
+      semanticColors: { btnDisabledBgColor, btnPrimaryBgColor, btnPrimaryBgHoverColor, btnPrimaryColor },
     },
   }) =>
     kind === "primary" &&
     css`
       background-color: ${disabled ? btnDisabledBgColor : btnPrimaryBgColor};
       color: ${btnPrimaryColor};
+
+      &:hover {
+        background-color: ${disabled ? btnDisabledBgColor : btnPrimaryBgHoverColor};
+      }
     `}
 
   ${({
     kind,
     disabled,
     theme: {
-      semanticColors: { btnDangerBgColor, btnDangerColor, btnDisabledBgColor },
+      semanticColors: { btnDangerBgColor, btnDangerColor, btnDisabledBgColor, btnDangerBgHoverColor },
     },
   }) =>
     kind === "danger" &&
     css`
       background-color: ${disabled ? btnDisabledBgColor : btnDangerBgColor};
       color: ${btnDangerColor};
+
+      &:hover {
+        background-color: ${disabled ? btnDisabledBgColor : btnDangerBgHoverColor};
+      }
     `}
 
   ${({
@@ -68,9 +76,11 @@ const StyledButton = styled.button<StyledButtonProps>`
     theme: {
       semanticColors: {
         btnSecondaryBgColor,
+        btnSecondaryBgHoverColor,
         btnSecondaryColor,
         btnSecondaryBorderColor,
         btnSecondaryDisabledColor,
+        btnSecondaryDisabledBgColor,
         btnSecondaryBorderDisabledColor,
       },
     },
@@ -80,6 +90,10 @@ const StyledButton = styled.button<StyledButtonProps>`
       border: ${disabled ? btnSecondaryBorderDisabledColor : btnSecondaryBorderColor} 0.2rem solid;
       background-color: ${btnSecondaryBgColor};
       color: ${disabled ? btnSecondaryDisabledColor : btnSecondaryColor};
+
+      &:hover {
+        background-color: ${disabled ? btnSecondaryDisabledBgColor : btnSecondaryBgHoverColor};
+      }
     `}
 
     ${({
@@ -91,15 +105,21 @@ const StyledButton = styled.button<StyledButtonProps>`
           btnSecondaryDangerColor,
           btnSecondaryDangerBorderColor,
           btnSecondaryDisabledColor,
+          btnSecondaryDisabledBgColor,
+          btnSecondaryDangerBgHoverColor,
           btnSecondaryBorderDisabledColor,
         },
       },
     }) =>
-      kind === "secondary" &&
+      kind === "secondaryDanger" &&
       css`
         border: ${disabled ? btnSecondaryBorderDisabledColor : btnSecondaryDangerBorderColor} 0.2rem solid;
         background-color: ${btnSecondaryDangerBgColor};
         color: ${disabled ? btnSecondaryDisabledColor : btnSecondaryDangerColor};
+
+        &:hover {
+          background-color: ${disabled ? btnSecondaryDisabledBgColor : btnSecondaryDangerBgHoverColor};
+        }
       `}
 `;
 StyledButton.defaultProps = {

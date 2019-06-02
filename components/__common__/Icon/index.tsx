@@ -1,6 +1,5 @@
 import React from "react";
-import styled, { css } from "styled-components";
-import "../../../moduleTypes/styled-components.d.ts";
+import styled, { css } from "../../../@types/styled-components/index";
 import { IconDefinition } from "@fortawesome/fontawesome-svg-core";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import {

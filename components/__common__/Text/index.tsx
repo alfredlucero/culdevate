@@ -1,5 +1,5 @@
 import styled, { css } from "styled-components";
-import "../../../moduleTypes/styled-components.d.ts";
+import "../../../@types/styled-components/index";
 import { culdevateThemes } from "../../defaultTheme";
 
 const H1 = styled.h1`

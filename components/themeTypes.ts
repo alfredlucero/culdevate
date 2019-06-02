@@ -70,6 +70,7 @@ export interface SemanticColors {
   btnSecondaryDangerBorderColor: string;
   btnSecondaryBorderDisabledColor: string;
   btnSecondaryDisabledColor: string;
+  btnSecondaryDisabledBgColor: string;
   // Icons
   iconBgColor: string;
   iconColor: string;

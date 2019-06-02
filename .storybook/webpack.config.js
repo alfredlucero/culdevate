@@ -4,10 +4,12 @@ module.exports = ({ config }) => {
   config.module.rules.push({
     test: /\.(ts|tsx)$/,
     loader: require.resolve('babel-loader'),
+    exclude: /node_modules/,
     options: {
-      presets: [['react-app', { flow: false, typescript: true }]],
+      presets: [require.resolve('babel-preset-react-app')],
     },
   });
+  
   config.resolve.extensions.push('.ts', '.tsx');
 
   config.plugins.push(
@@ -17,5 +19,6 @@ module.exports = ({ config }) => {
       formatter: require("react-dev-utils/typescriptFormatter"),
     })
   );
+
   return config;
 };

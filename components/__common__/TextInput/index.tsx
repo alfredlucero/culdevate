@@ -1,6 +1,5 @@
 import React from "react";
-import styled, { css } from "styled-components";
-import "../../../moduleTypes/styled-components.d.ts";
+import styled, { css } from "../../../@types/styled-components/index";
 import { culdevateThemes } from "../../defaultTheme";
 
 const StyledTextInputContainer = styled.div`

@@ -13,7 +13,7 @@ exports[`<TextInput /> should render the text input 1`] = `
   </label>
   <input
     aria-describedby=""
-    class="sc-bwzfXH kvBLEJ"
+    class="sc-bwzfXH gAQYSD"
     id="some-text-input-id"
     name="textInputName"
     placeholder=""

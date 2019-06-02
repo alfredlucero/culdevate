@@ -13,7 +13,7 @@ exports[`<TextArea /> should render the text area 1`] = `
   </label>
   <textarea
     aria-describedby=""
-    class="sc-bwzfXH kvBLEJ"
+    class="sc-bwzfXH gAQYSD"
     id="some-text-area-id"
     name="textAreaName"
     placeholder=""

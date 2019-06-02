@@ -1,6 +1,5 @@
 import React from "react";
-import styled from "styled-components";
-import "../../moduleTypes/styled-components.d.ts";
+import styled from "../../@types/styled-components/index";
 import Icon, { CuldevateIcon, StyledRoundIcon } from "../__common__/Icon";
 import { H3, P } from "../__common__/Text";
 import { culdevateThemes } from "../defaultTheme";

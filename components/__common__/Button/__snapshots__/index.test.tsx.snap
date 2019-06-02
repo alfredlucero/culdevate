@@ -2,7 +2,7 @@
 
 exports[`<Button /> should render Button component 1`] = `
 <button
-  class="sc-bdVaJa cvGAQy"
+  class="sc-bdVaJa kYTJmo"
   kind="primary"
   type="button"
 >

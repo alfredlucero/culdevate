@@ -1,6 +1,5 @@
 import React, { Component } from "react";
-import styled, { ThemeProvider, createGlobalStyle } from "styled-components";
-import "../../../moduleTypes/styled-components.d.ts";
+import styled, { ThemeProvider, createGlobalStyle } from "../../../@types/styled-components/index";
 import Meta from "../Meta";
 import { culdevateThemes } from "../../defaultTheme";
 import { CuldevateTheme } from "../../themeTypes";

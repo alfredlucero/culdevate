@@ -1,4 +1,7 @@
-import { configure } from "@storybook/react";
+import { configure, addDecorator } from "@storybook/react";
+import { jsxDecorator } from 'storybook-addon-jsx';
+
+addDecorator(jsxDecorator);
 
 const req = require.context("../components", true, /.stories.tsx$/);
 function loadStories() {

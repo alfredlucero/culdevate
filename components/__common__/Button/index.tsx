@@ -13,7 +13,7 @@ const StyledButton = styled.button<StyledButtonProps>`
   border: none;
   border-radius: 0.25rem;
   cursor: pointer;
-  font-weight: 600;
+  font-weight: 500;
 
   ${({ size }) =>
     size === "small" &&

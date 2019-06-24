@@ -13,7 +13,8 @@
     "cypress:open": "cypress open",
     "cypress:run": "cypress run",
     "now-build": "next build",
-    "typecheck": "tsc --project tsconfig.json"
+    "typecheck": "tsc --project tsconfig.json",
+    "start:mockapi": "node jsonServer.js"
   },
   "repository": {
     "type": "git",
@@ -33,10 +34,11 @@
     "@fortawesome/fontawesome-svg-core": "^1.2.17",
     "@fortawesome/free-solid-svg-icons": "^5.8.1",
     "@fortawesome/react-fontawesome": "^0.1.4",
+    "axios": "^0.18.0",
     "next": "^8.0.4",
     "react": "^16.8.6",
     "react-dom": "^16.8.6",
-    "styled-components": "^4.2.0"
+    "styled-components": "^4.2.1"
   },
   "devDependencies": {
     "@babel/core": "^7.4.3",
@@ -47,7 +49,7 @@
     "@types/node": "^11.13.4",
     "@types/react": "^16.8.16",
     "@types/storybook__react": "^4.0.1",
-    "@types/styled-components": "^4.1.14",
+    "@types/styled-components": "^4.1.15",
     "@typescript-eslint/eslint-plugin": "^1.6.0",
     "@typescript-eslint/parser": "^1.6.0",
     "@zeit/next-typescript": "^1.1.1",
@@ -62,12 +64,15 @@
     "fork-ts-checker-webpack-plugin": "^1.0.2",
     "husky": "^1.3.1",
     "jest": "^24.7.1",
+    "jest-dom": "^3.2.1",
+    "json-server": "^0.14.2",
     "lint-staged": "^8.1.5",
     "prettier": "^1.17.0",
     "react-testing-library": "^6.1.2",
+    "storybook-addon-jsx": "^7.1.2",
     "ts-jest": "^24.0.2",
     "ts-loader": "^5.3.3",
-    "typescript": "^3.5.0-dev.20190504",
+    "typescript": "^3.5.1",
     "webpack": "^4.30.0"
   },
   "husky": {

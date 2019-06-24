@@ -1,18 +1,17 @@
 import React, { Component } from "react";
-import styled, { ThemeProvider, createGlobalStyle } from "styled-components";
+import styled, { ThemeProvider, createGlobalStyle } from "../../../@types/styled-components/index";
 import Meta from "../Meta";
-import { culdevateDefaultTheme } from "../../defaultTheme";
+import { culdevateThemes } from "../../defaultTheme";
+import { CuldevateTheme } from "../../themeTypes";
 
 const StyledPage = styled.div`
-  background: ${props => props.theme.colors.white};
+  background: ${props => props.theme.semanticColors.primaryBgColor};
 `;
 
-// TODO: figure out typing for this to work with createGlobalStyle
-// The theme props should be already known as it is under a ThemeProvider
-const GlobalStyle = createGlobalStyle<any>`
+const GlobalStyle = createGlobalStyle<{ theme: CuldevateTheme }>`
   html {
     box-sizing: border-box;
-    font-size: 10px;
+    font-size: ${props => props.theme.fontSize.baseFontSize};
   }
   *, *:before, *:after {
     box-sizing: inherit;
@@ -20,17 +19,18 @@ const GlobalStyle = createGlobalStyle<any>`
   body {
     padding: 0;
     margin: 0;
-    font-size: 1.5rem;
+    font-size: ${props => props.theme.fontSize.bodyFontSize};
     line-height: 2;
-    font-family: ${props => props.theme.fonts.bodyFontFamily};
-    color: ${props => props.theme.colors.gray};
+    font-family: ${props => props.theme.fontFamily.bodyFontFamily};
+    color: ${props => props.theme.semanticColors.normalTextColor};
   }
 `;
 
 class Page extends Component {
   public render() {
     return (
-      <ThemeProvider theme={culdevateDefaultTheme}>
+      // TODO: be able to toggle between themes
+      <ThemeProvider theme={culdevateThemes.light}>
         <StyledPage>
           <Meta />
           <GlobalStyle />

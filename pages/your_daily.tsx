@@ -1,12 +1,12 @@
 import React from "react";
 import Link from "next/link";
 
-const Home: React.FC<{}> = () => {
+const YourDaily: React.FC<{}> = () => {
   return (
     <div>
       <nav>
-        <Link href="/your_daily">
-          <a>Your Daily</a>
+        <Link href="/">
+          <a>Home</a>
         </Link>
         <Link href="/endeavors">
           <a>Endeavors</a>
@@ -16,9 +16,10 @@ const Home: React.FC<{}> = () => {
         </Link>
       </nav>
       <h1>Culdevate</h1>
-      <h2>Home</h2>
+      <h2>Your Daily</h2>
+      <p>Highlights, Insights, Breakthroughs, and Learnings</p>
     </div>
   );
 };
 
-export default Home;
+export default YourDaily;

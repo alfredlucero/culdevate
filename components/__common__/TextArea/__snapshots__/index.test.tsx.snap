@@ -1,0 +1,29 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`<TextArea /> should render the text area 1`] = `
+<div
+  class="sc-bdVaJa bPGLpq"
+>
+  <label
+    for="some-text-area-id"
+  >
+    
+     
+    
+  </label>
+  <textarea
+    aria-describedby=""
+    class="sc-bwzfXH gAQYSD"
+    id="some-text-area-id"
+    name="textAreaName"
+    placeholder=""
+  >
+    someTextAreaInput
+  </textarea>
+  <em
+    class="sc-htpNat kbZKBX"
+    data-testid="textAreaInfo"
+    id=""
+  />
+</div>
+`;

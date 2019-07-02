@@ -32,13 +32,8 @@
   },
   "husky": {
     "hooks": {
-      "pre-commit": "npm run lint:all && lint-staged",
+      "pre-commit": "npm run lint:all && git add -A",
       "pre-push": "npm run prepush"
     }
-  },
-  "lint-staged": {
-    "{frontend,backend}/**/*.{js,jsx,ts,tsx}": [
-      "git add ."
-    ]
   }
 }

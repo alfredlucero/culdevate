@@ -9,7 +9,7 @@
     "start": "next start",
     "storybook": "start-storybook -p 6006 -c .storybook",
     "test": "jest",
-    "lint": "tsc --noEmit && eslint '{components,pages}/**/*.{js,jsx,ts,tsx}' --quiet --fix",
+    "lint": "tsc --noEmit && eslint '{cypress,components,pages}/**/*.{js,jsx,ts,tsx}' --quiet --fix",
     "cypress:open": "cypress open",
     "cypress:run": "cypress run",
     "now-build": "next build",

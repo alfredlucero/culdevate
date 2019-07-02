@@ -80,7 +80,7 @@ module.exports = async (req: NowRequest, res: NowResponse) => {
 
   const test = await Promise.resolve({ blah: "test" });
 
-  const blah = { test: "mate"   };
+  const blah = { test: "mate" };
   console.log(blah);
 
   console.log(test);

@@ -4,7 +4,9 @@
   "description": "cultivate your development; full stack web app for culdevate",
   "main": "index.js",
   "scripts": {
-    "dev": "now dev"
+    "dev": "now dev",
+    "lint:all": "make lint-all",
+    "prepush": "make run-all-unit-tests"
   },
   "repository": {
     "type": "git",
@@ -30,13 +32,12 @@
   },
   "husky": {
     "hooks": {
-      "pre-commit": "make lint-all && lint-staged",
-      "pre-push": "make run-all-unit-tests"
+      "pre-commit": "npm run lint:all && lint-staged",
+      "pre-push": "npm run prepush"
     }
   },
   "lint-staged": {
-    "*.{js,jsx,ts,tsx}": [
-      "eslint . --fix",
+    "{frontend,backend}/**/*.{js,jsx,ts,tsx}": [
       "git add"
     ]
   }

@@ -79,7 +79,6 @@ module.exports = async (req: NowRequest, res: NowResponse) => {
   console.log(req);
 
   const test = await Promise.resolve({ blah: "test" });
-  s;
 
   console.log(test);
   res.json(sampleRecaps);

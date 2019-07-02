@@ -4,7 +4,8 @@
   "description": "Culdevate backend serverless functions connected to MongoDB backend",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"No tests in backend yet!\" && exit 0"
+    "test": "echo \"No tests in backend yet!\" && exit 0",
+    "lint": "tsc --noEmit && eslint '**/*.{js,jsx,ts,tsx}' --quiet --fix"
   },
   "author": "",
   "license": "ISC",

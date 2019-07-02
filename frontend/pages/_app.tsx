@@ -22,7 +22,7 @@ class CuldevateApp extends App {
     return (
       <Container>
         <Page>
-          <Component {...pageProps} />
+          <Component {...pageProps} />w{" "}
         </Page>
       </Container>
     );

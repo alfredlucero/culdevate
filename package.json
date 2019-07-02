@@ -38,7 +38,7 @@
   },
   "lint-staged": {
     "{frontend,backend}/**/*.{js,jsx,ts,tsx}": [
-      "git add"
+      "git add ."
     ]
   }
 }

@@ -16,7 +16,7 @@ class CuldevateApp extends App {
 
   public render() {
     const { Component, pageProps } = this.props;
-    const test = {blah: "blah"};
+    const test = { blah: "blah"  };
     console.log(test);
 
     return (

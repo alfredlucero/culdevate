@@ -6,6 +6,10 @@
     { "language": "typescript", "autoFix": true },
     { "language": "typescriptreact", "autoFix": true }
   ],
+  "eslint.workingDirectories": [
+    { "directory": "./frontend", "changeProcessCWD": true },
+    { "directory": "./backend", "changeProcessCWD": true }
+  ],
   "editor.formatOnSave": true,
   "[javascript]": {
     "editor.formatOnSave": false
@@ -19,5 +23,4 @@
   "[typescriptreact]": {
     "editor.formatOnSave": false
   },
-  "typescript.tsdk": "node_modules/typescript/lib"
 }

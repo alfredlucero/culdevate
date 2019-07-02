@@ -1,0 +1,29 @@
+{
+  "name": "culdevate-backend",
+  "version": "1.0.0",
+  "description": "Culdevate backend serverless functions connected to MongoDB backend",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"No tests in backend yet!\" && exit 0"
+  },
+  "author": "",
+  "license": "ISC",
+  "devDependencies": {
+    "@now/node": "^0.11.0",
+    "@types/node": "^12.0.10",
+    "@typescript-eslint/eslint-plugin": "^1.11.0",
+    "@typescript-eslint/parser": "^1.11.0",
+    "eslint": "^6.0.1",
+    "eslint-config-prettier": "^6.0.0",
+    "eslint-plugin-prettier": "^3.1.0",
+    "prettier": "^1.18.2",
+    "ts-node": "^8.3.0"
+  },
+  "dependencies": {
+    "@types/express": "^4.17.0",
+    "@types/mongoose": "^5.5.7",
+    "express": "^4.17.1",
+    "mongoose": "^5.6.2",
+    "typescript": "^3.5.2"
+  }
+}

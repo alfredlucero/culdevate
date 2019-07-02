@@ -1,0 +1,9 @@
+{
+  "extends": "../tsconfig.json",
+  "baseUrl": "./",
+  "outDir": "./dist",
+  "module": "esnext",
+  "target": "esnext",
+  "include": ["./pages/**/*", "./components/**/*", "./@types/**/*"],
+  "exclude": ["./node_modules", "./cypress/**/*"]
+}

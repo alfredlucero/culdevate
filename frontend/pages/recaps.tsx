@@ -34,7 +34,7 @@ const RecapsPage: NextFunctionComponent<RecapsPageProps> = ({ recaps }) => {
 
 function getRecaps(): Promise<RecapsPageProps> {
   return axios
-    .get<RecapProps[]>("http://localhost:4567/recaps")
+    .get<RecapProps[]>("http://localhost:3000/api/recaps") // localhost:4567/recaps for mock json server
     .then((response: AxiosResponse<RecapProps[]>) => {
       return { recaps: response.data };
     })

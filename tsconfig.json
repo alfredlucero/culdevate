@@ -1,14 +1,14 @@
 {
   "compilerOptions": {
+    "target": "es5",
+    "module": "commonjs",
+    "jsx": "react",
     "allowJs": true,
     "allowSyntheticDefaultImports": true,
-    "baseUrl": "./",
-    "outDir": "./dist",
-    "esModuleInterop": true,
-    "jsx": "react",
-    "lib": ["dom", "esnext"],
-    "module": "esnext",
     "moduleResolution": "node",
+    "sourceMap": true,
+    "lib": ["dom", "esnext"],
+    "esModuleInterop": true,
     "noEmit": true,
     "noUnusedLocals": true,
     "noUnusedParameters": true,
@@ -16,10 +16,6 @@
     "removeComments": false,
     "strictNullChecks": true,
     "skipLibCheck": true,
-    "sourceMap": true,
-    "strict": true,
-    "target": "esnext"
-  },
-  "include": ["./pages/**/*", "./components/**/*", "./@types/**/*"],
-  "exclude": ["./node_modules", "./cypress/**/*"]
+    "strict": true
+  }
 }

@@ -5,6 +5,7 @@
   "main": "index.js",
   "scripts": {
     "dev": "now dev",
+    "install:all": "make install-all",
     "lint:all": "make lint-all",
     "prepush": "make run-all-unit-tests"
   },

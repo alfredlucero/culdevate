@@ -7,10 +7,7 @@
     "allowSyntheticDefaultImports": true,
     "moduleResolution": "node",
     "sourceMap": true,
-    "lib": [
-      "dom",
-      "esnext"
-    ],
+    "lib": ["dom", "esnext"],
     "esModuleInterop": true,
     "noEmit": true,
     "noUnusedLocals": true,
@@ -19,6 +16,6 @@
     "removeComments": false,
     "strictNullChecks": true,
     "skipLibCheck": true,
-    "strict": true,
+    "strict": true
   }
 }

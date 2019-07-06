@@ -5,5 +5,8 @@
     { "src": "frontend/next.config.js", "use": "@now/next" },
     { "src": "backend/**/*.ts", "use": "@now/node" }
   ],
-  "routes": [{ "src": "/api/(.*)", "dest": "/backend/$1" }, { "src": "/(.*)", "dest": "/frontend/$1" }]
+  "routes": [{ "src": "/api/(.*)", "dest": "/backend/$1" }, { "src": "/(.*)", "dest": "/frontend/$1" }],
+  "env": {
+    "MONGODB_URI": "@mongodb_uri"
+  }
 }

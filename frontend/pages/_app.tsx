@@ -1,7 +1,6 @@
 import React from "react";
 import App, { Container, NextAppContext } from "next/app";
 import Page from "../components/__common__/Page";
-import console = require("console");
 
 class CuldevateApp extends App {
   public static async getInitialProps({ Component, ctx }: NextAppContext) {

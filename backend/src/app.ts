@@ -6,6 +6,8 @@ import bodyParser from "body-parser";
 import cors from 'cors';
 // Allows us to compress responses back
 import compression from 'compression';
+// Logging requests/responses to console
+import logger from 'morgan';
 // Routes
 import CuldevationsRoutes from "./culdevations/culdevations.routes";
 
@@ -28,6 +30,8 @@ class App {
     this.app.use(cors());
     // By default, compresses all responses
     this.app.use(compression());
+    // Logging response output like :method :url :status :response-time ms - :res[content-length
+    this.app.use(logger('dev'));
   }
 
   private initializeRoutes() {

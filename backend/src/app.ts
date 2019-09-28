@@ -37,7 +37,7 @@ class App {
     // By default, compresses all responses
     this.app.use(compression());
     // Logging response output like :method :url :status :response-time ms - :res[content-length
-    this.app.use(logger("dev"));
+    // this.app.use(logger("dev"));
     // User authentication based on strategies i.e. local, facebook, twitter
     this.app.use(passport.initialize());
   }

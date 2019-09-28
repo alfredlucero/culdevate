@@ -1,8 +1,8 @@
 import { Request } from "express";
 
 interface MockRequest {
-  body?: Object;
-  params?: Object;
+  body?: any;
+  params?: any;
 }
 
 export const mockRequest = ({

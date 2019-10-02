@@ -1,6 +1,6 @@
 import { Request, Response } from "express";
-import UsersDao from "./users.dao";
-import { IUser } from "./users.model";
+import UsersDao from "../users/users.dao";
+import { IUser } from "../users/users.model";
 
 const AuthController = {
   async signup(req: Request, res: Response) {

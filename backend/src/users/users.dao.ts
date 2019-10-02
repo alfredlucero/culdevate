@@ -1,7 +1,7 @@
 import UserModel, { IUser } from "./users.model";
 
 interface UserCredentials {
-  email: IUser["email"];
+  username: IUser["username"];
   password: IUser["password"];
 }
 
@@ -10,12 +10,12 @@ const UsersDao = {
     return UserModel.findById(userId);
   },
 
-  findUserByEmail(email: IUser["email"]) {
-    return UserModel.findOne({ email });
+  findUserByUsername(username: IUser["username"]) {
+    return UserModel.findOne({ username });
   },
 
-  findUserByCredentials(credentials: UserCredentials) {
-    return UserModel.findOne(credentials);
+  findUserByEmail(email: IUser["email"]) {
+    return UserModel.findOne({ email });
   },
 
   createUser(user: IUser) {

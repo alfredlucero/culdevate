@@ -14,6 +14,8 @@ import logger from "morgan";
 import passport from "passport";
 // Routes
 import CuldevationsRoutes from "./culdevations/culdevations.routes";
+// Configs
+import { configurePassport } from "./passportConfig";
 
 class App {
   public app: Application;
@@ -21,6 +23,7 @@ class App {
   constructor() {
     this.app = express();
 
+    configurePassport();
     this.initializeMiddlewares();
     this.initializeRoutes();
   }
@@ -37,8 +40,8 @@ class App {
     // By default, compresses all responses
     this.app.use(compression());
     // Logging response output like :method :url :status :response-time ms - :res[content-length
-    // this.app.use(logger("dev"));
-    // User authentication based on strategies i.e. local, facebook, twitter
+    this.app.use(logger("dev"));
+    // User authentication based on strategies i.e. local, jwt, social media
     this.app.use(passport.initialize());
   }
 

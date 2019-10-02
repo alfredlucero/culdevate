@@ -12,6 +12,7 @@ describe("Users Dao", () => {
   let userOne, userOneModel;
   beforeEach(async () => {
     userOne = {
+      username: "userone",
       email: "userone@test.com",
       password: "!Useronepassword123",
     };
@@ -23,37 +24,40 @@ describe("Users Dao", () => {
   test("should find user by id", async () => {
     const actualFoundUser = await UsersDao.findUserById(userOneModel._id);
 
+    expect(actualFoundUser.username).toBe(userOneModel.username);
     expect(actualFoundUser.email).toBe(userOneModel.email);
+  });
+
+  test("should find user by username", async () => {
+    const actualFoundUser = await UsersDao.findUserByUsername(
+      userOneModel.username
+    );
+
+    expect(actualFoundUser._id).toEqual(userOneModel._id);
   });
 
   test("should find user by email", async () => {
     const actualFoundUser = await UsersDao.findUserByEmail(userOne.email);
 
-    expect(actualFoundUser.email).toBe(userOneModel.email);
-  });
-
-  test("should find user by credentials", async () => {
-    const actualFoundUser = await UsersDao.findUserByCredentials({
-      email: userOne.email,
-      password: userOne.password,
-    });
-
-    expect(actualFoundUser.email).toBe(userOneModel.email);
+    expect(actualFoundUser._id).toEqual(userOneModel._id);
   });
 
   test("should create a user", async () => {
     const userToCreate = {
+      username: "createduser",
       email: "createduser@test.com",
       password: "!Createduserpassword123",
     };
     const actualCreatedUser = await UsersDao.createUser(userToCreate);
     const foundCreatedUser = await UsersDao.findUserById(actualCreatedUser._id);
 
+    expect(foundCreatedUser.username).toBe(userToCreate.username);
     expect(foundCreatedUser.email).toBe(userToCreate.email);
   });
 
   test("should update user by id", async () => {
     const updatedUser = {
+      username: "updateduser",
       email: "updatedemail@test.com",
     };
     const actualUpdatedUser = await UsersDao.updateUserById(
@@ -62,6 +66,7 @@ describe("Users Dao", () => {
     );
     const foundUpdatedUser = await UsersDao.findUserById(actualUpdatedUser._id);
 
+    expect(foundUpdatedUser.username).toBe(updatedUser.username);
     expect(foundUpdatedUser.email).toBe(updatedUser.email);
   });
 

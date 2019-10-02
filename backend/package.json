@@ -18,7 +18,7 @@
   "author": "alfienitylucero",
   "license": "ISC",
   "dependencies": {
-    "bcryptjs": "^2.4.3",
+    "bcrypt": "^3.0.6",
     "body-parser": "^1.19.0",
     "compression": "^1.7.4",
     "cookie-parser": "^1.4.4",
@@ -34,7 +34,7 @@
     "typescript": "^3.5.3"
   },
   "devDependencies": {
-    "@types/bcryptjs": "^2.4.2",
+    "@types/bcrypt": "^3.0.0",
     "@types/compression": "^1.0.1",
     "@types/cookie-parser": "^1.4.2",
     "@types/cors": "^2.8.6",

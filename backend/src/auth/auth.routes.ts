@@ -10,7 +10,7 @@ const AuthRoutes = {
 
     this.router.get("/login", AuthController.login);
 
-    this.router.get("/logout", AuthController.logout);
+    // Logout will be through the frontend and clearing the JWT cookie
 
     // Future Auth niceties
     // /reset_password and /forgot_password?

@@ -10,7 +10,7 @@ describe("Culdevations Model", () => {
     });
 
     validCuldevationModel.validate(err => {
-      expect(err).toBeFalsy();
+      expect(err).toBeNull();
       done();
     });
   });

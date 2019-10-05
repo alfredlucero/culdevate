@@ -1,10 +1,5 @@
 import UserModel, { IUser } from "./users.model";
 
-interface UserCredentials {
-  username: IUser["username"];
-  password: IUser["password"];
-}
-
 const UsersDao = {
   findUserById(userId: string) {
     return UserModel.findById(userId);

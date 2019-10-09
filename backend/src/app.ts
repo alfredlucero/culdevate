@@ -10,12 +10,8 @@ import cors from "cors";
 import compression from "compression";
 // Logging requests/responses to console
 import logger from "morgan";
-// For user authentication based on strategies i.e. local, facebook, twitter
-import passport from "passport";
 // Routes
 import CuldevationsRoutes from "./culdevations/culdevations.routes";
-// Configs
-import { configurePassport } from "./passportConfig";
 
 class App {
   public app: Application;
@@ -23,7 +19,6 @@ class App {
   constructor() {
     this.app = express();
 
-    configurePassport();
     this.initializeMiddlewares();
     this.initializeRoutes();
   }
@@ -41,8 +36,6 @@ class App {
     this.app.use(compression());
     // Logging response output like :method :url :status :response-time ms - :res[content-length
     this.app.use(logger("dev"));
-    // User authentication based on strategies i.e. local, jwt, social media
-    this.app.use(passport.initialize());
   }
 
   private initializeRoutes() {

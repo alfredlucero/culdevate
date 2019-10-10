@@ -12,6 +12,7 @@ import compression from "compression";
 import logger from "morgan";
 // Routes
 import CuldevationsRoutes from "./culdevations/culdevations.routes";
+import AuthRoutes from "./auth/auth.routes";
 
 class App {
   public app: Application;
@@ -39,11 +40,16 @@ class App {
   }
 
   private initializeRoutes() {
-    // /culdevations/**/* CRUD
+    // Routes: /culdevations/**/* CRUD
+    // Purpose: examples to learn how to set up and test everything
     this.app.use(
       CuldevationsRoutes.path,
       CuldevationsRoutes.initializeRoutes()
     );
+
+    // Routes: /auth/**/*
+    // Purpose: for User Authentication
+    this.app.use(AuthRoutes.path, AuthRoutes.initializeRoutes());
   }
 }
 

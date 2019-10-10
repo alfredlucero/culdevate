@@ -17,6 +17,9 @@ interface UserCredentials {
 const AuthController = {
   async signup(req: Request, res: Response) {
     const signupUser: SignupUser = req.body;
+
+    // TODO: validate signup user and return 400 if invalid
+
     try {
       const isUserWithSameUsername = await UsersDao.findUserByUsername(
         signupUser.username
@@ -85,6 +88,8 @@ const AuthController = {
     const userCredentials: UserCredentials = req.body;
     const { username, password } = userCredentials;
 
+    // TODO: validate user credentials and return 400 if invalid
+
     try {
       const foundUser = await UsersDao.findUserByUsername(username);
       if (foundUser) {
@@ -110,10 +115,10 @@ const AuthController = {
           // TODO: use error handling middleware
           res.status(401).json({ message: "Passwords do not match." });
         }
+      } else {
+        // TODO: use error handling middleware
+        res.status(401).json({ message: "Username not found." });
       }
-
-      // TODO: use error handling middleware
-      res.status(401).json({ message: "Username not found." });
     } catch (err) {
       // TODO: use error handling middleware
       res.status(500).json({ message: "Internal server error - login" });

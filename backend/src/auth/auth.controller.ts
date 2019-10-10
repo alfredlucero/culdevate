@@ -25,8 +25,7 @@ const AuthController = {
         signupUser.username
       );
       if (isUserWithSameUsername) {
-        // TODO: use error handling middleware
-        res.status(400).json({ message: "Username is already taken." });
+        return res.status(400).json({ message: "Username is already taken." });
       }
 
       try {
@@ -34,8 +33,7 @@ const AuthController = {
           signupUser.email
         );
         if (isUserWithSameEmail) {
-          // TODO: use error handling middleware
-          res.status(400).json({ message: "Email is already taken." });
+          return res.status(400).json({ message: "Email is already taken." });
         }
 
         const hashedPassword = await UserModel.hashPassword(
@@ -58,26 +56,22 @@ const AuthController = {
           const jwtSecret = process.env.JWT_SECRET || "someJwtSecret";
           jwt.sign(jwtPayload, jwtSecret, function jwtSignCallback(err, token) {
             if (err) {
-              // TODO: use error handling middleware
-              res
+              return res
                 .status(500)
                 .json({ message: "Failed to sign and generate JWT." });
             }
 
-            res.status(200).json({ token: `Bearer ${token}` });
+            return res.status(200).json({ token });
           });
         } catch (err) {
-          // TODO: use error handling middleware
           res.status(500).json({ message: "Failed to create user." });
         }
       } catch (err) {
-        // TODO: use error handling middleware
         res
           .status(500)
           .json({ message: "Failed to determine if email is already taken." });
       }
     } catch (err) {
-      // TODO: use error handling middleware
       res
         .status(500)
         .json({ message: "Failed to determine if username is already taken." });
@@ -103,7 +97,6 @@ const AuthController = {
           const jwtSecret = process.env.JWT_SECRET || "someJwtSecret";
           jwt.sign(jwtPayload, jwtSecret, function jwtSignCallback(err, token) {
             if (err) {
-              // TODO: use error handling middleware
               res
                 .status(500)
                 .json({ message: "Failed to sign and generate JWT." });
@@ -112,16 +105,15 @@ const AuthController = {
             res.status(200).json({ token: `Bearer ${token}` });
           });
         } else {
-          // TODO: use error handling middleware
           res.status(401).json({ message: "Passwords do not match." });
         }
       } else {
-        // TODO: use error handling middleware
         res.status(401).json({ message: "Username not found." });
       }
     } catch (err) {
-      // TODO: use error handling middleware
-      res.status(500).json({ message: "Internal server error - login" });
+      res.status(500).json({
+        message: "Failed to determine if username exists.",
+      });
     }
   },
 };

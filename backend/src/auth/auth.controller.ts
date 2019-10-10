@@ -97,18 +97,18 @@ const AuthController = {
           const jwtSecret = process.env.JWT_SECRET || "someJwtSecret";
           jwt.sign(jwtPayload, jwtSecret, function jwtSignCallback(err, token) {
             if (err) {
-              res
+              return res
                 .status(500)
                 .json({ message: "Failed to sign and generate JWT." });
             }
 
-            res.status(200).json({ token: `Bearer ${token}` });
+            return res.status(200).json({ token });
           });
         } else {
-          res.status(401).json({ message: "Passwords do not match." });
+          return res.status(401).json({ message: "Passwords do not match." });
         }
       } else {
-        res.status(401).json({ message: "Username not found." });
+        return res.status(401).json({ message: "Username not found." });
       }
     } catch (err) {
       res.status(500).json({

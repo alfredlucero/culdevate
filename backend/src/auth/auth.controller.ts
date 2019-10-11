@@ -3,15 +3,20 @@ import jwt from "jsonwebtoken";
 import UsersDao from "../users/users.dao";
 import UserModel, { IUser } from "../users/users.model";
 
-interface SignupUser {
+export interface SignupUser {
   username: IUser["username"];
   email: IUser["email"];
   password: IUser["password"];
 }
 
-interface UserCredentials {
+export interface UserCredentials {
   username: IUser["username"];
   password: IUser["password"];
+}
+
+export interface AuthTokenPayload {
+  id: string;
+  username: IUser["username"];
 }
 
 const AuthController = {
@@ -49,7 +54,7 @@ const AuthController = {
           const createdUser = await UsersDao.createUser(userToCreate);
 
           const { _id: id, username } = createdUser;
-          const jwtPayload = {
+          const jwtPayload: AuthTokenPayload = {
             id,
             username,
           };

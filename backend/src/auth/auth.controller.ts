@@ -2,6 +2,7 @@ import { Request, Response } from "express";
 import jwt from "jsonwebtoken";
 import UsersDao from "../users/users.dao";
 import UserModel, { IUser } from "../users/users.model";
+import { AuthTokenPayload } from "../interfaces/authTokenPayload";
 
 export interface SignupUser {
   username: IUser["username"];
@@ -12,11 +13,6 @@ export interface SignupUser {
 export interface UserCredentials {
   username: IUser["username"];
   password: IUser["password"];
-}
-
-export interface AuthTokenPayload {
-  id: string;
-  username: IUser["username"];
 }
 
 const AuthController = {

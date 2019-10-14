@@ -1,8 +1,7 @@
 import request from "supertest";
 import jwt from "jsonwebtoken";
 import app from "../app";
-import AuthRoutes from "./auth.routes";
-import { AuthTokenPayload } from "./auth.controller";
+import { AuthTokenPayload } from "../interfaces/authTokenPayload";
 import { SignupUser, UserCredentials } from "./auth.controller";
 import UsersDao from "../users/users.dao";
 import UsersModel, { IUser } from "../users/users.model";

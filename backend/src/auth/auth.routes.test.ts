@@ -33,9 +33,20 @@ describe("Auth Routes", () => {
 
   const signupEndpoint = "/auth/signup";
   describe(`${signupEndpoint}`, () => {
-    test("should fail to sign up user with validation errors", () => {
-      // TODO: implement this once validation logic is in
-      expect(true).toBe(true);
+    test("should fail to sign up user with validation errors", async () => {
+      const invalidSignupUser = {
+        username: "ab",
+        email: "email@test.com",
+        password: "testing123",
+      };
+
+      await request(app)
+        .post(signupEndpoint)
+        .send(invalidSignupUser)
+        .expect(400)
+        .then(response => {
+          expect(response.body.message).toContain("username");
+        });
     });
 
     test("should fail to sign up user if username already exists", async () => {
@@ -98,9 +109,19 @@ describe("Auth Routes", () => {
 
   const loginEndpoint = "/auth/login";
   describe(`${loginEndpoint}`, () => {
-    test("should fail to login user with validation errors", () => {
-      // TODO: implement this once validation logic is in
-      expect(true).toBe(true);
+    test("should fail to login user with validation errors", async () => {
+      const invalidUserCredentials = {
+        username: "username",
+        password: "aa",
+      };
+
+      await request(app)
+        .post(loginEndpoint)
+        .send(invalidUserCredentials)
+        .expect(400)
+        .then(response => {
+          expect(response.body.message).toContain("password");
+        });
     });
 
     test("should fail to login user if the username does not exist", async () => {

@@ -6,7 +6,7 @@ import { mockNext } from "../testUtils/mockNext";
 
 describe("Validation Middleware", () => {
   describe("Given a schema and request property to validate the schema against", () => {
-    const sampleUserSchema = Joi.object({
+    const sampleUserSchema = Joi.object().keys({
       username: Joi.string().required(),
       password: Joi.string().required(),
     });

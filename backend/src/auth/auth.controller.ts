@@ -19,8 +19,6 @@ const AuthController = {
   async signup(req: Request, res: Response) {
     const signupUser: SignupUser = req.body;
 
-    // TODO: validate signup user and return 400 if invalid
-
     try {
       const isUserWithSameUsername = await UsersDao.findUserByUsername(
         signupUser.username

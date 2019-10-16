@@ -1,4 +1,5 @@
 import React from "react";
 import ReactDOM from "react-dom";
+import App from "./App";
 
-ReactDOM.render(<h1>Culdevate</h1>, document.getElementById("culdevate-root"));
+ReactDOM.render(<App />, document.getElementById("culdevate-root"));

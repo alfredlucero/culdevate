@@ -14,6 +14,13 @@ module.exports = {
   output: {
     path: __dirname + "/dist",
     filename: "dist/[name].[contenthash].js",
+    // Specifies base path for all the assets within your application
+    publicPath: "/",
+  },
+  devServer: {
+    port: 8080,
+    // Redirects 404s to /index.html file
+    historyApiFallback: true,
   },
   resolve: {
     extensions: [".ts", ".tsx", ".js"],

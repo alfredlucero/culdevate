@@ -5,11 +5,12 @@ import LoginPage from "./pages/Login";
 import SignupPage from "./pages/Signup";
 import RecapsPage from "./pages/Recaps";
 import ImpactsPage from "./pages/Impacts";
+import "./App.css";
 
 const App = () => {
   return (
     <Router>
-      <h1>Culdevate</h1>
+      <h1 className="font-mono text-4xl text-gray-800">Culdevate</h1>
 
       <Switch>
         {/* Public (Unauthenticated Routes) */}

@@ -2,7 +2,7 @@ import React from "react";
 
 const LandingPage = () => {
   return (
-    <div>
+    <div data-testid="landingPage">
       <h2>Culdevate Landing</h2>
     </div>
   );

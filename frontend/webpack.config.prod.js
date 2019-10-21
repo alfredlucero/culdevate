@@ -1,0 +1,49 @@
+const { CleanWebpackPlugin } = require("clean-webpack-plugin");
+const HtmlWebpackPlugin = require("html-webpack-plugin");
+const MiniCssExtractPlugin = require("mini-css-extract-plugin");
+const {
+  tsLoader,
+  postCssLoader,
+  devServer,
+  prodOptimization,
+} = require("./webpack.config.base.js");
+
+module.exports = {
+  mode: "production",
+  entry: { main: "./src/main.tsx" },
+  devtool: "cheap-module-source-map",
+  module: {
+    rules: [tsLoader, postCssLoader],
+  },
+  plugins: [
+    new CleanWebpackPlugin({
+      cleanAfterEveryBuildPatterns: ["dist"],
+    }),
+    new MiniCssExtractPlugin({
+      filename: "[id].[contenthash].css",
+      chunkFilename: "[id].[contenthash].css",
+    }),
+    new HtmlWebpackPlugin({
+      template: "src/templates/index.html",
+      inject: true,
+      minify: {
+        collapseInlineTagWhitespace: true,
+        collapseWhitespace: true,
+        minifyCSS: true,
+        minifyJS: true,
+      },
+    }),
+  ],
+  output: {
+    path: __dirname + "/dist",
+    filename: "dist/[name].[chunkhash].js",
+    sourceMapFilename: "[file].map",
+    pathinfo: true,
+    publicPath: "/",
+  },
+  devServer,
+  optimization: prodOptimization,
+  resolve: {
+    extensions: [".ts", ".tsx", ".js", ".json"],
+  },
+};

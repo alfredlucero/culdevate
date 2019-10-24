@@ -1,17 +1,17 @@
 import mongoose from "mongoose";
 import bcrypt from "bcrypt";
 
-export interface IUser {
+export interface User {
   username: string;
   email: string;
   password: string;
 }
 
-export interface IUserDocument extends IUser, mongoose.Document {
+export interface UserDocument extends User, mongoose.Document {
   comparePassword(plaintextPassword: string): Promise<boolean>;
 }
 
-export interface IUserModel extends mongoose.Model<IUserDocument> {
+export interface UserModel extends mongoose.Model<UserDocument> {
   hashPassword(plaintextPassword: string): Promise<string>;
 }
 
@@ -36,30 +36,20 @@ const userSchema = new mongoose.Schema({
 });
 
 // Instance Methods
-userSchema.method("comparePassword", async function comparePassword(
-  plaintextPassword: string
-) {
+userSchema.method("comparePassword", async function comparePassword(plaintextPassword: string) {
   const hashedPassword = this.password;
-  const isPasswordMatch = await bcrypt.compare(
-    plaintextPassword,
-    hashedPassword
-  );
+  const isPasswordMatch = await bcrypt.compare(plaintextPassword, hashedPassword);
   return isPasswordMatch;
 });
 
 // Static Methods
 const BCRYPT_SALT_ROUNDS = 12;
 
-userSchema.static("hashPassword", async function hashPassword(
-  plaintextPassword: string
-) {
-  const hashedPassword = await bcrypt.hash(
-    plaintextPassword,
-    BCRYPT_SALT_ROUNDS
-  );
+userSchema.static("hashPassword", async function hashPassword(plaintextPassword: string) {
+  const hashedPassword = await bcrypt.hash(plaintextPassword, BCRYPT_SALT_ROUNDS);
   return hashedPassword;
 });
 
-const UserModel = mongoose.model<IUserDocument, IUserModel>("User", userSchema);
+const UserModel = mongoose.model<UserDocument, UserModel>("User", userSchema);
 
 export default UserModel;

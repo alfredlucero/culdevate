@@ -8,17 +8,9 @@ const AuthRoutes = {
   router: Router(),
 
   initializeRoutes() {
-    this.router.post(
-      "/signup",
-      validationMiddleware(SignupUserSchema, "body"),
-      AuthController.signup
-    );
+    this.router.post("/signup", validationMiddleware(SignupUserSchema, "body"), AuthController.signup);
 
-    this.router.post(
-      "/login",
-      validationMiddleware(UserCredentialsSchema, "body"),
-      AuthController.login
-    );
+    this.router.post("/login", validationMiddleware(UserCredentialsSchema, "body"), AuthController.login);
 
     // Logout will be through the frontend and clearing the JWT cookie
     // such that the JWT cookie will no longer be passed through the

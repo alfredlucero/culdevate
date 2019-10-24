@@ -29,9 +29,7 @@ describe("Users Dao", () => {
   });
 
   test("should find user by username", async () => {
-    const actualFoundUser = await UsersDao.findUserByUsername(
-      userOneModel.username
-    );
+    const actualFoundUser = await UsersDao.findUserByUsername(userOneModel.username);
 
     expect(actualFoundUser._id).toEqual(userOneModel._id);
   });
@@ -60,10 +58,7 @@ describe("Users Dao", () => {
       username: "updateduser",
       email: "updatedemail@test.com",
     };
-    const actualUpdatedUser = await UsersDao.updateUserById(
-      userOneModel._id,
-      updatedUser
-    );
+    const actualUpdatedUser = await UsersDao.updateUserById(userOneModel._id, updatedUser);
     const foundUpdatedUser = await UsersDao.findUserById(actualUpdatedUser._id);
 
     expect(foundUpdatedUser.username).toBe(updatedUser.username);
@@ -72,9 +67,7 @@ describe("Users Dao", () => {
 
   test("should remove user by id", async () => {
     const actualRemovedUser = await UsersDao.removeUserById(userOneModel._id);
-    const findRemovedUserResult = await UsersDao.findUserById(
-      actualRemovedUser._id
-    );
+    const findRemovedUserResult = await UsersDao.findUserById(actualRemovedUser._id);
 
     expect(findRemovedUserResult).toBeNull();
   });

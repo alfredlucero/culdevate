@@ -1,6 +1,6 @@
 import { Request, Response } from "express";
 import CuldevationsDao from "./culdevations.dao";
-import { ICuldevation } from "./culdevations.model";
+import { Culdevation } from "./culdevations.model";
 
 const CuldevationsController = {
   async getAllCuldevations(req: Request, res: Response) {
@@ -17,31 +17,23 @@ const CuldevationsController = {
     const culdevationId = req.params.culdevationId;
 
     try {
-      const foundCuldevation = await CuldevationsDao.findCuldevationById(
-        culdevationId
-      );
+      const foundCuldevation = await CuldevationsDao.findCuldevationById(culdevationId);
 
       if (foundCuldevation) {
         res.status(200).json(foundCuldevation);
       } else {
-        res
-          .status(404)
-          .json({ message: "Failed to find culdevation with matching id" });
+        res.status(404).json({ message: "Failed to find culdevation with matching id" });
       }
     } catch (err) {
-      res
-        .status(500)
-        .json({ message: "Failed to retrieve culdevation details" });
+      res.status(500).json({ message: "Failed to retrieve culdevation details" });
     }
   },
 
   async createCuldevation(req: Request, res: Response) {
-    const culdevation: ICuldevation = req.body;
+    const culdevation: Culdevation = req.body;
 
     try {
-      const createdCuldevation = await CuldevationsDao.createCuldevation(
-        culdevation
-      );
+      const createdCuldevation = await CuldevationsDao.createCuldevation(culdevation);
 
       res.status(201).json(createdCuldevation);
     } catch (err) {
@@ -51,20 +43,15 @@ const CuldevationsController = {
 
   async updateCuldevation(req: Request, res: Response) {
     const culdevationId = req.params.culdevationId;
-    const culdevation: ICuldevation = req.body;
+    const culdevation: Culdevation = req.body;
 
     try {
-      const updatedCuldevation = await CuldevationsDao.updateCuldevationById(
-        culdevationId,
-        culdevation
-      );
+      const updatedCuldevation = await CuldevationsDao.updateCuldevationById(culdevationId, culdevation);
 
       if (updatedCuldevation) {
         res.status(200).json(updatedCuldevation);
       } else {
-        res
-          .status(404)
-          .json({ message: "Failed to find matching culdevation to update" });
+        res.status(404).json({ message: "Failed to find matching culdevation to update" });
       }
     } catch (err) {
       res.status(500).json({ message: "Failed to update culdevation" });
@@ -75,16 +62,12 @@ const CuldevationsController = {
     const culdevationId = req.params.culdevationId;
 
     try {
-      const deletedCuldevation = await CuldevationsDao.removeCuldevationById(
-        culdevationId
-      );
+      const deletedCuldevation = await CuldevationsDao.removeCuldevationById(culdevationId);
 
       if (deletedCuldevation) {
         res.status(200).json(deletedCuldevation);
       } else {
-        res
-          .status(404)
-          .json({ message: "Failed to find matching culdevation to delete" });
+        res.status(404).json({ message: "Failed to find matching culdevation to delete" });
       }
     } catch (err) {
       res.status(500).json({ message: "Failed to delete culdevation" });

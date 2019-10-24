@@ -42,10 +42,7 @@ class App {
   private initializeRoutes() {
     // Routes: /culdevations/**/* CRUD
     // Purpose: examples to learn how to set up and test everything
-    this.app.use(
-      CuldevationsRoutes.path,
-      CuldevationsRoutes.initializeRoutes()
-    );
+    this.app.use(CuldevationsRoutes.path, CuldevationsRoutes.initializeRoutes());
 
     // Routes: /auth/**/*
     // Purpose: for User Authentication

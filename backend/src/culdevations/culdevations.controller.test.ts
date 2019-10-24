@@ -18,10 +18,8 @@ describe("Culdevations Controller", () => {
       ];
       const findAllCuldevationsSpy = (jest.spyOn(
         CuldevationsDao,
-        "findAllCuldevations"
-      ) as jest.SpyInstance).mockImplementation(() =>
-        Promise.resolve(culdevations)
-      );
+        "findAllCuldevations",
+      ) as jest.SpyInstance).mockImplementation(() => Promise.resolve(culdevations));
 
       await CuldevationsController.getAllCuldevations(req, res);
 
@@ -36,7 +34,7 @@ describe("Culdevations Controller", () => {
       const res = mockResponse();
       const findAllCuldevationsSpy = (jest.spyOn(
         CuldevationsDao,
-        "findAllCuldevations"
+        "findAllCuldevations",
       ) as jest.SpyInstance).mockImplementation(() => {
         // Can also do throw new Error("500 error");
         return Promise.reject("500 error");
@@ -66,10 +64,8 @@ describe("Culdevations Controller", () => {
       };
       const findCuldevationByIdSpy = (jest.spyOn(
         CuldevationsDao,
-        "findCuldevationById"
-      ) as jest.SpyInstance).mockImplementation(() =>
-        Promise.resolve(foundCuldevation)
-      );
+        "findCuldevationById",
+      ) as jest.SpyInstance).mockImplementation(() => Promise.resolve(foundCuldevation));
 
       await CuldevationsController.getCuldevationDetails(req, res);
 
@@ -87,7 +83,7 @@ describe("Culdevations Controller", () => {
       const res = mockResponse();
       const findCuldevationByIdSpy = (jest.spyOn(
         CuldevationsDao,
-        "findCuldevationById"
+        "findCuldevationById",
       ) as jest.SpyInstance).mockImplementation(() => Promise.resolve(null));
 
       await CuldevationsController.getCuldevationDetails(req, res);
@@ -108,10 +104,8 @@ describe("Culdevations Controller", () => {
       const res = mockResponse();
       const findCuldevationByIdSpy = (jest.spyOn(
         CuldevationsDao,
-        "findCuldevationById"
-      ) as jest.SpyInstance).mockImplementation(() =>
-        Promise.reject("500 error")
-      );
+        "findCuldevationById",
+      ) as jest.SpyInstance).mockImplementation(() => Promise.reject("500 error"));
 
       await CuldevationsController.getCuldevationDetails(req, res);
 
@@ -138,10 +132,8 @@ describe("Culdevations Controller", () => {
       const res = mockResponse();
       const createCuldevationSpy = (jest.spyOn(
         CuldevationsDao,
-        "createCuldevation"
-      ) as jest.SpyInstance).mockImplementation(() =>
-        Promise.resolve(culdevation)
-      );
+        "createCuldevation",
+      ) as jest.SpyInstance).mockImplementation(() => Promise.resolve(culdevation));
 
       await CuldevationsController.createCuldevation(req, res);
 
@@ -164,10 +156,8 @@ describe("Culdevations Controller", () => {
       const res = mockResponse();
       const createCuldevationSpy = (jest.spyOn(
         CuldevationsDao,
-        "createCuldevation"
-      ) as jest.SpyInstance).mockImplementation(() =>
-        Promise.reject("500 error")
-      );
+        "createCuldevation",
+      ) as jest.SpyInstance).mockImplementation(() => Promise.reject("500 error"));
 
       await CuldevationsController.createCuldevation(req, res);
 
@@ -195,17 +185,12 @@ describe("Culdevations Controller", () => {
       const res = mockResponse();
       const updateCuldevationSpy = (jest.spyOn(
         CuldevationsDao,
-        "updateCuldevationById"
-      ) as jest.SpyInstance).mockImplementation(() =>
-        Promise.resolve(culdevation)
-      );
+        "updateCuldevationById",
+      ) as jest.SpyInstance).mockImplementation(() => Promise.resolve(culdevation));
 
       await CuldevationsController.updateCuldevation(req, res);
 
-      expect(updateCuldevationSpy).toHaveBeenCalledWith(
-        culdevationId,
-        culdevation
-      );
+      expect(updateCuldevationSpy).toHaveBeenCalledWith(culdevationId, culdevation);
 
       expect(res.status).toHaveBeenCalledWith(200);
       expect(res.json).toHaveBeenCalledWith(culdevation);
@@ -225,15 +210,12 @@ describe("Culdevations Controller", () => {
       const res = mockResponse();
       const updateCuldevationSpy = (jest.spyOn(
         CuldevationsDao,
-        "updateCuldevationById"
+        "updateCuldevationById",
       ) as jest.SpyInstance).mockImplementation(() => Promise.resolve(null));
 
       await CuldevationsController.updateCuldevation(req, res);
 
-      expect(updateCuldevationSpy).toHaveBeenCalledWith(
-        culdevationId,
-        culdevation
-      );
+      expect(updateCuldevationSpy).toHaveBeenCalledWith(culdevationId, culdevation);
 
       expect(res.status).toHaveBeenCalledWith(404);
       expect(res.json).toHaveBeenCalledWith({
@@ -255,17 +237,12 @@ describe("Culdevations Controller", () => {
       const res = mockResponse();
       const updateCuldevationSpy = (jest.spyOn(
         CuldevationsDao,
-        "updateCuldevationById"
-      ) as jest.SpyInstance).mockImplementation(() =>
-        Promise.reject("500 error")
-      );
+        "updateCuldevationById",
+      ) as jest.SpyInstance).mockImplementation(() => Promise.reject("500 error"));
 
       await CuldevationsController.updateCuldevation(req, res);
 
-      expect(updateCuldevationSpy).toHaveBeenCalledWith(
-        culdevationId,
-        culdevation
-      );
+      expect(updateCuldevationSpy).toHaveBeenCalledWith(culdevationId, culdevation);
 
       expect(res.status).toHaveBeenCalledWith(500);
       expect(res.json).toHaveBeenCalledWith({
@@ -289,10 +266,8 @@ describe("Culdevations Controller", () => {
       const res = mockResponse();
       const removeCuldevationByIdSpy = (jest.spyOn(
         CuldevationsDao,
-        "removeCuldevationById"
-      ) as jest.SpyInstance).mockImplementation(() =>
-        Promise.resolve(culdevationToDelete)
-      );
+        "removeCuldevationById",
+      ) as jest.SpyInstance).mockImplementation(() => Promise.resolve(culdevationToDelete));
 
       await CuldevationsController.deleteCuldevation(req, res);
 
@@ -310,7 +285,7 @@ describe("Culdevations Controller", () => {
       const res = mockResponse();
       const removeCuldevationByIdSpy = (jest.spyOn(
         CuldevationsDao,
-        "removeCuldevationById"
+        "removeCuldevationById",
       ) as jest.SpyInstance).mockImplementation(() => Promise.resolve(null));
 
       await CuldevationsController.deleteCuldevation(req, res);
@@ -331,10 +306,8 @@ describe("Culdevations Controller", () => {
       const res = mockResponse();
       const removeCuldevationByIdSpy = (jest.spyOn(
         CuldevationsDao,
-        "removeCuldevationById"
-      ) as jest.SpyInstance).mockImplementation(() =>
-        Promise.reject("500 error")
-      );
+        "removeCuldevationById",
+      ) as jest.SpyInstance).mockImplementation(() => Promise.reject("500 error"));
 
       await CuldevationsController.deleteCuldevation(req, res);
 

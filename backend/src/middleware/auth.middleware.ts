@@ -4,17 +4,12 @@ import UsersDao from "../users/users.dao";
 import { RequestWithUser } from "../interfaces/requestWithUser";
 import { AuthTokenPayload } from "../interfaces/authTokenPayload";
 
-const authMiddleware = async (
-  req: RequestWithUser,
-  res: Response,
-  next: NextFunction
-) => {
+const authMiddleware = async (req: RequestWithUser, res: Response, next: NextFunction) => {
   // Extract JWT from Authorization: Bearer <JWT> header
   const authHeader = req.header("Authorization");
   if (!authHeader) {
     return res.status(401).json({
-      message:
-        "No Authorization header passed. Please try authenticating again.",
+      message: "No Authorization header passed. Please try authenticating again.",
     });
   }
   const token = authHeader.replace("Bearer", "").trim();
@@ -46,8 +41,7 @@ const authMiddleware = async (
     next();
   } catch (error) {
     res.status(401).json({
-      message:
-        "Failed to determine if user matched the token. Please try authenticating again.",
+      message: "Failed to determine if user matched the token. Please try authenticating again.",
     });
   }
 };

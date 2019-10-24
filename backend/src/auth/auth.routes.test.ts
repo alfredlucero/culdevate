@@ -4,7 +4,7 @@ import app from "../app";
 import { AuthTokenPayload } from "../interfaces/authTokenPayload";
 import { SignupUser, UserCredentials } from "./auth.controller";
 import UsersDao from "../users/users.dao";
-import UsersModel, { IUser } from "../users/users.model";
+import UsersModel, { User } from "../users/users.model";
 import DbTestHelper from "../testUtils/dbTestHelper";
 
 const dbTestHelper = new DbTestHelper();
@@ -15,16 +15,14 @@ describe("Auth Routes", () => {
     await dbTestHelper.startDb();
   });
 
-  const existingUser: IUser = {
+  const existingUser: User = {
     username: "existinguser",
     email: "existingemail@test.com",
     password: "existingpassword123",
   };
   let existingUserModel;
   beforeEach(async () => {
-    const hashedExistingUserPassword = await UsersModel.hashPassword(
-      existingUser.password
-    );
+    const hashedExistingUserPassword = await UsersModel.hashPassword(existingUser.password);
     existingUserModel = await UsersDao.createUser({
       ...existingUser,
       password: hashedExistingUserPassword,
@@ -96,10 +94,7 @@ describe("Auth Routes", () => {
           expect(response.body).toHaveProperty("token");
 
           const token = response.body.token;
-          const decodedTokenPayload = jwt.verify(
-            token,
-            process.env.JWT_SECRET
-          ) as AuthTokenPayload;
+          const decodedTokenPayload = jwt.verify(token, process.env.JWT_SECRET) as AuthTokenPayload;
           const { username } = decodedTokenPayload;
 
           expect(username).toBe(signupUser.username);
@@ -172,10 +167,7 @@ describe("Auth Routes", () => {
           expect(response.body).toHaveProperty("token");
 
           const token = response.body.token;
-          const decodedTokenPayload = jwt.verify(
-            token,
-            process.env.JWT_SECRET
-          ) as AuthTokenPayload;
+          const decodedTokenPayload = jwt.verify(token, process.env.JWT_SECRET) as AuthTokenPayload;
           const { username } = decodedTokenPayload;
 
           expect(username).toBe(existingUser.username);

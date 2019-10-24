@@ -8,12 +8,9 @@ export const setupDatabase = () => {
   // To avoid deprecation warnings for using findOneAndUpdate or findOneAndDelete
   mongoose.set("useFindAndModify", false);
 
-  mongoose.connect(
-    `mongodb+srv://${MONGO_USER}:${MONGO_PASSWORD}${MONGO_PATH}`,
-    {
-      useNewUrlParser: true,
-    }
-  );
+  mongoose.connect(`mongodb+srv://${MONGO_USER}:${MONGO_PASSWORD}${MONGO_PATH}`, {
+    useNewUrlParser: true,
+  });
 
   mongoose.connection.on("connected", function() {
     console.log("Connected to MongoDB instance!");
@@ -29,9 +26,7 @@ export const setupDatabase = () => {
 
   process.on("SIGINT", function() {
     mongoose.connection.close(function() {
-      console.log(
-        "Mongoose default connection is disconnected due to application termination!"
-      );
+      console.log("Mongoose default connection is disconnected due to application termination!");
       process.exit(0);
     });
   });

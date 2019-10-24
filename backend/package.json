@@ -8,7 +8,20 @@
     "dev": "ts-node ./src/server.ts",
     "start": "nodemon ./dist/server.js",
     "prod": "npm run build && npm run start",
-    "test": "jest"
+    "test": "jest",
+    "lint": "tsc --noEmit && eslint --fix './src/**/*.{js,ts}'"
+  },
+  "husky": {
+    "hooks": {
+      "pre-commit": "tsc --noEmit && lint-staged",
+      "pre-push": "npm run test"
+    }
+  },
+  "lint-staged": {
+    "*.{js,ts}": [
+      "eslint . --fix",
+      "git add"
+    ]
   },
   "keywords": [
     "culdevate-backend",
@@ -45,10 +58,18 @@
     "@types/mongoose": "^5.5.11",
     "@types/morgan": "^1.7.37",
     "@types/supertest": "^2.0.8",
+    "@typescript-eslint/eslint-plugin": "^2.5.0",
+    "@typescript-eslint/parser": "^2.5.0",
     "dotenv": "^8.0.0",
     "envalid": "^5.0.0",
+    "eslint": "^6.5.1",
+    "eslint-config-prettier": "^6.4.0",
+    "eslint-plugin-prettier": "^3.1.1",
+    "husky": "^3.0.9",
     "jest": "^24.8.0",
+    "lint-staged": "^9.4.2",
     "mongodb-memory-server": "^5.2.0",
+    "prettier": "^1.18.2",
     "supertest": "^4.0.2",
     "ts-jest": "^24.0.2"
   }

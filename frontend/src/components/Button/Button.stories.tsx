@@ -3,5 +3,7 @@ import { storiesOf } from "@storybook/react";
 import Button from "./index";
 
 storiesOf("Common/Button", module).add("Default", () => (
-  <Button variant="primary">Primary</Button>
+  <Button variant="primary" onClick={() => {}}>
+    Primary
+  </Button>
 ));

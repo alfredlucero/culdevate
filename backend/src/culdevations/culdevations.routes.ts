@@ -10,25 +10,16 @@ const CuldevationsRoutes = {
     this.router.get("/", CuldevationsController.getAllCuldevations);
 
     // GET /culdevations/:culdevationId
-    this.router.get(
-      "/:culdevationId",
-      CuldevationsController.getCuldevationDetails
-    );
+    this.router.get("/:culdevationId", CuldevationsController.getCuldevationDetails);
 
     // POST /culdevations
     this.router.post("/", CuldevationsController.createCuldevation);
 
     // PUT /culdevations/:culdevationId
-    this.router.put(
-      "/:culdevationId",
-      CuldevationsController.updateCuldevation
-    );
+    this.router.put("/:culdevationId", CuldevationsController.updateCuldevation);
 
     // DELETE /culdevations/:culdevationId
-    this.router.delete(
-      "/:culdevationId",
-      CuldevationsController.deleteCuldevation
-    );
+    this.router.delete("/:culdevationId", CuldevationsController.deleteCuldevation);
 
     return this.router;
   },

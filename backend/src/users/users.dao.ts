@@ -1,25 +1,25 @@
-import UserModel, { IUser } from "./users.model";
+import UserModel, { User } from "./users.model";
 
 const UsersDao = {
   findUserById(userId: string) {
     return UserModel.findById(userId);
   },
 
-  findUserByUsername(username: IUser["username"]) {
+  findUserByUsername(username: User["username"]) {
     return UserModel.findOne({ username });
   },
 
-  findUserByEmail(email: IUser["email"]) {
+  findUserByEmail(email: User["email"]) {
     return UserModel.findOne({ email });
   },
 
-  createUser(user: IUser) {
+  createUser(user: User) {
     const createdUser = new UserModel(user);
 
     return createdUser.save();
   },
 
-  updateUserById(userId: string, updatedUser: Partial<IUser>) {
+  updateUserById(userId: string, updatedUser: Partial<User>) {
     return UserModel.findOneAndUpdate({ _id: userId }, updatedUser, {
       new: true,
     });

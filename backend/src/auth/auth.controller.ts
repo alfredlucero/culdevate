@@ -1,18 +1,18 @@
 import { Request, Response } from "express";
 import jwt from "jsonwebtoken";
 import UsersDao from "../users/users.dao";
-import UserModel, { IUser } from "../users/users.model";
+import UserModel, { User } from "../users/users.model";
 import { AuthTokenPayload } from "../interfaces/authTokenPayload";
 
 export interface SignupUser {
-  username: IUser["username"];
-  email: IUser["email"];
-  password: IUser["password"];
+  username: User["username"];
+  email: User["email"];
+  password: User["password"];
 }
 
 export interface UserCredentials {
-  username: IUser["username"];
-  password: IUser["password"];
+  username: User["username"];
+  password: User["password"];
 }
 
 const AuthController = {
@@ -20,24 +20,18 @@ const AuthController = {
     const signupUser: SignupUser = req.body;
 
     try {
-      const isUserWithSameUsername = await UsersDao.findUserByUsername(
-        signupUser.username
-      );
+      const isUserWithSameUsername = await UsersDao.findUserByUsername(signupUser.username);
       if (isUserWithSameUsername) {
         return res.status(400).json({ message: "Username is already taken." });
       }
 
       try {
-        const isUserWithSameEmail = await UsersDao.findUserByEmail(
-          signupUser.email
-        );
+        const isUserWithSameEmail = await UsersDao.findUserByEmail(signupUser.email);
         if (isUserWithSameEmail) {
           return res.status(400).json({ message: "Email is already taken." });
         }
 
-        const hashedPassword = await UserModel.hashPassword(
-          signupUser.password
-        );
+        const hashedPassword = await UserModel.hashPassword(signupUser.password);
         const userToCreate = {
           username: signupUser.username,
           email: signupUser.email,
@@ -55,9 +49,7 @@ const AuthController = {
           const jwtSecret = process.env.JWT_SECRET || "someJwtSecret";
           jwt.sign(jwtPayload, jwtSecret, function jwtSignCallback(err, token) {
             if (err) {
-              return res
-                .status(500)
-                .json({ message: "Failed to sign and generate JWT." });
+              return res.status(500).json({ message: "Failed to sign and generate JWT." });
             }
 
             return res.status(200).json({ token });
@@ -66,14 +58,10 @@ const AuthController = {
           res.status(500).json({ message: "Failed to create user." });
         }
       } catch (err) {
-        res
-          .status(500)
-          .json({ message: "Failed to determine if email is already taken." });
+        res.status(500).json({ message: "Failed to determine if email is already taken." });
       }
     } catch (err) {
-      res
-        .status(500)
-        .json({ message: "Failed to determine if username is already taken." });
+      res.status(500).json({ message: "Failed to determine if username is already taken." });
     }
   },
 
@@ -96,9 +84,7 @@ const AuthController = {
           const jwtSecret = process.env.JWT_SECRET || "someJwtSecret";
           jwt.sign(jwtPayload, jwtSecret, function jwtSignCallback(err, token) {
             if (err) {
-              return res
-                .status(500)
-                .json({ message: "Failed to sign and generate JWT." });
+              return res.status(500).json({ message: "Failed to sign and generate JWT." });
             }
 
             return res.status(200).json({ token });

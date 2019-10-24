@@ -16,7 +16,7 @@ class DbTestHelper {
       },
       err => {
         if (err) console.error(err);
-      }
+      },
     );
 
     // In order to chain mongoose requests with .then/.catch or use async/await
@@ -35,7 +35,7 @@ class DbTestHelper {
   async cleanUpDb() {
     const collections = await mongoose.connection.db.collections();
 
-    for (let collection of collections) {
+    for (const collection of collections) {
       await collection.drop();
     }
   }

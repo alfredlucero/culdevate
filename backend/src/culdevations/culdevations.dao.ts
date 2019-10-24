@@ -1,4 +1,4 @@
-import CuldevationModel, { ICuldevation } from "./culdevations.model";
+import CuldevationModel, { Culdevation } from "./culdevations.model";
 
 // Define the Data Accesss Object, where we actually make MongoDB calls to the backend to decouple
 // accessing lower-level APIs and provide mocking for unit tests
@@ -11,21 +11,14 @@ const CuldevationsDao = {
     return CuldevationModel.findById(culdevationId);
   },
 
-  createCuldevation(culdevation: ICuldevation) {
+  createCuldevation(culdevation: Culdevation) {
     const createdCuldevation = new CuldevationModel(culdevation);
 
     return createdCuldevation.save();
   },
 
-  updateCuldevationById(
-    culdevationId: string,
-    updatedCuldevation: ICuldevation
-  ) {
-    return CuldevationModel.findOneAndUpdate(
-      { _id: culdevationId },
-      updatedCuldevation,
-      { new: true }
-    );
+  updateCuldevationById(culdevationId: string, updatedCuldevation: Culdevation) {
+    return CuldevationModel.findOneAndUpdate({ _id: culdevationId }, updatedCuldevation, { new: true });
   },
 
   removeCuldevationById(culdevationId: string) {

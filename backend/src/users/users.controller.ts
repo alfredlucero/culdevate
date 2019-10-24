@@ -1,6 +1,6 @@
 import { Request, Response } from "express";
 import UsersDao from "./users.dao";
-import { IUser } from "./users.model";
+import { User } from "./users.model";
 
 const UsersController = {};
 

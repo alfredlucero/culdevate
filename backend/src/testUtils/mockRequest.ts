@@ -5,10 +5,7 @@ interface MockRequest {
   params?: any;
 }
 
-export const mockRequest = ({
-  body = {},
-  params = {},
-}: MockRequest): Request => {
+export const mockRequest = ({ body = {}, params = {} }: MockRequest): Request => {
   const req = {} as Request;
 
   req.body = body;

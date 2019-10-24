@@ -1,15 +1,15 @@
 import mongoose from "mongoose";
 
-export interface ICuldevation {
+export interface Culdevation {
   culdevator: string;
   title: string;
   description: string;
   score: number;
 }
 
-// ICuldevation is the typing from the TS perspective that we will be using on the client-side
+// Culdevation is the typing from the TS perspective that we will be using on the client-side
 // Extending mongoose.Document allows us to call things like save(), findById(), and other Model functions
-export interface ICuldevationModel extends ICuldevation, mongoose.Document {}
+export interface CuldevationModel extends Culdevation, mongoose.Document {}
 
 const culdevationSchema = new mongoose.Schema({
   // This seems redundant but it's necessary to define the schema because TypeScript
@@ -21,9 +21,9 @@ const culdevationSchema = new mongoose.Schema({
   score: { type: Number, required: true },
 });
 
-const CuldevationModel = mongoose.model<ICuldevationModel>(
+const CuldevationModel = mongoose.model<CuldevationModel>(
   "Culdevation", // Collection will be called Culdevations
-  culdevationSchema // Schema to validate objects against
+  culdevationSchema, // Schema to validate objects against
 );
 
 export default CuldevationModel;

@@ -18,10 +18,9 @@ describe("Auth Controller", () => {
       const res = mockResponse();
 
       // Mock out username already exists
-      const findUserByUsernameSpy = (jest.spyOn(
-        UsersDao,
-        "findUserByUsername"
-      ) as jest.SpyInstance).mockImplementation(() => Promise.resolve({}));
+      const findUserByUsernameSpy = (jest.spyOn(UsersDao, "findUserByUsername") as jest.SpyInstance).mockImplementation(
+        () => Promise.resolve({}),
+      );
 
       await AuthController.signup(req, res);
 
@@ -44,11 +43,8 @@ describe("Auth Controller", () => {
       const res = mockResponse();
 
       // Mock out failing to determine if username exists
-      const findUserByUsernameSpy = (jest.spyOn(
-        UsersDao,
-        "findUserByUsername"
-      ) as jest.SpyInstance).mockImplementation(() =>
-        Promise.reject("Failed to determine if username exists.")
+      const findUserByUsernameSpy = (jest.spyOn(UsersDao, "findUserByUsername") as jest.SpyInstance).mockImplementation(
+        () => Promise.reject("Failed to determine if username exists."),
       );
 
       await AuthController.signup(req, res);
@@ -72,16 +68,14 @@ describe("Auth Controller", () => {
       const res = mockResponse();
 
       // Mock out username does not exist
-      const findUserByUsernameSpy = (jest.spyOn(
-        UsersDao,
-        "findUserByUsername"
-      ) as jest.SpyInstance).mockImplementation(() => Promise.resolve(null));
+      const findUserByUsernameSpy = (jest.spyOn(UsersDao, "findUserByUsername") as jest.SpyInstance).mockImplementation(
+        () => Promise.resolve(null),
+      );
 
       // Mock out email exists already
-      const findUserByEmailSpy = (jest.spyOn(
-        UsersDao,
-        "findUserByEmail"
-      ) as jest.SpyInstance).mockImplementation(() => Promise.resolve({}));
+      const findUserByEmailSpy = (jest.spyOn(UsersDao, "findUserByEmail") as jest.SpyInstance).mockImplementation(() =>
+        Promise.resolve({}),
+      );
 
       await AuthController.signup(req, res);
 
@@ -105,17 +99,13 @@ describe("Auth Controller", () => {
       const res = mockResponse();
 
       // Mock out username does not exist
-      const findUserByUsernameSpy = (jest.spyOn(
-        UsersDao,
-        "findUserByUsername"
-      ) as jest.SpyInstance).mockImplementation(() => Promise.resolve(null));
+      const findUserByUsernameSpy = (jest.spyOn(UsersDao, "findUserByUsername") as jest.SpyInstance).mockImplementation(
+        () => Promise.resolve(null),
+      );
 
       // Mock out failing to determine if email already exists
-      const findUserByEmailSpy = (jest.spyOn(
-        UsersDao,
-        "findUserByEmail"
-      ) as jest.SpyInstance).mockImplementation(() =>
-        Promise.reject("Cannot tell if email already exists")
+      const findUserByEmailSpy = (jest.spyOn(UsersDao, "findUserByEmail") as jest.SpyInstance).mockImplementation(() =>
+        Promise.reject("Cannot tell if email already exists"),
       );
 
       await AuthController.signup(req, res);
@@ -140,23 +130,18 @@ describe("Auth Controller", () => {
       const res = mockResponse();
 
       // Mock out username does not exist
-      const findUserByUsernameSpy = (jest.spyOn(
-        UsersDao,
-        "findUserByUsername"
-      ) as jest.SpyInstance).mockImplementation(() => Promise.resolve(null));
+      const findUserByUsernameSpy = (jest.spyOn(UsersDao, "findUserByUsername") as jest.SpyInstance).mockImplementation(
+        () => Promise.resolve(null),
+      );
 
       // Mock out email does not exist
-      const findUserByEmailSpy = (jest.spyOn(
-        UsersDao,
-        "findUserByEmail"
-      ) as jest.SpyInstance).mockImplementation(() => Promise.resolve(null));
+      const findUserByEmailSpy = (jest.spyOn(UsersDao, "findUserByEmail") as jest.SpyInstance).mockImplementation(() =>
+        Promise.resolve(null),
+      );
 
       // Mock out failing to create user
-      const createUserSpy = (jest.spyOn(
-        UsersDao,
-        "createUser"
-      ) as jest.SpyInstance).mockImplementation(() =>
-        Promise.reject("Failed to create user")
+      const createUserSpy = (jest.spyOn(UsersDao, "createUser") as jest.SpyInstance).mockImplementation(() =>
+        Promise.reject("Failed to create user"),
       );
 
       await AuthController.signup(req, res);
@@ -182,30 +167,22 @@ describe("Auth Controller", () => {
       const res = mockResponse();
 
       // Mock out username does not exist
-      const findUserByUsernameSpy = (jest.spyOn(
-        UsersDao,
-        "findUserByUsername"
-      ) as jest.SpyInstance).mockImplementation(() => Promise.resolve(null));
+      const findUserByUsernameSpy = (jest.spyOn(UsersDao, "findUserByUsername") as jest.SpyInstance).mockImplementation(
+        () => Promise.resolve(null),
+      );
 
       // Mock out email does not exist
-      const findUserByEmailSpy = (jest.spyOn(
-        UsersDao,
-        "findUserByEmail"
-      ) as jest.SpyInstance).mockImplementation(() => Promise.resolve(null));
+      const findUserByEmailSpy = (jest.spyOn(UsersDao, "findUserByEmail") as jest.SpyInstance).mockImplementation(() =>
+        Promise.resolve(null),
+      );
 
       // Mock out successfully creating a user
-      const createUserSpy = (jest.spyOn(
-        UsersDao,
-        "createUser"
-      ) as jest.SpyInstance).mockImplementation(() =>
-        Promise.resolve({ _id: "1234", username: "user" })
+      const createUserSpy = (jest.spyOn(UsersDao, "createUser") as jest.SpyInstance).mockImplementation(() =>
+        Promise.resolve({ _id: "1234", username: "user" }),
       );
 
       // Mock out failing to sign JWT
-      const jwtSpy = (jest.spyOn(
-        jwt,
-        "sign"
-      ) as jest.SpyInstance).mockImplementation((payload, secret, callback) => {
+      const jwtSpy = (jest.spyOn(jwt, "sign") as jest.SpyInstance).mockImplementation((payload, secret, callback) => {
         callback(true, null);
       });
 
@@ -233,31 +210,23 @@ describe("Auth Controller", () => {
       const res = mockResponse();
 
       // Mock out username does not exist
-      const findUserByUsernameSpy = (jest.spyOn(
-        UsersDao,
-        "findUserByUsername"
-      ) as jest.SpyInstance).mockImplementation(() => Promise.resolve(null));
+      const findUserByUsernameSpy = (jest.spyOn(UsersDao, "findUserByUsername") as jest.SpyInstance).mockImplementation(
+        () => Promise.resolve(null),
+      );
 
       // Mock out email does not exist
-      const findUserByEmailSpy = (jest.spyOn(
-        UsersDao,
-        "findUserByEmail"
-      ) as jest.SpyInstance).mockImplementation(() => Promise.resolve(null));
+      const findUserByEmailSpy = (jest.spyOn(UsersDao, "findUserByEmail") as jest.SpyInstance).mockImplementation(() =>
+        Promise.resolve(null),
+      );
 
       // Mock out successfully creating a user
-      const createUserSpy = (jest.spyOn(
-        UsersDao,
-        "createUser"
-      ) as jest.SpyInstance).mockImplementation(() =>
-        Promise.resolve({ _id: "1234", username: "user" })
+      const createUserSpy = (jest.spyOn(UsersDao, "createUser") as jest.SpyInstance).mockImplementation(() =>
+        Promise.resolve({ _id: "1234", username: "user" }),
       );
 
       // Mock out successfully signing a JWT
       const token = "jwt_token";
-      const jwtSpy = (jest.spyOn(
-        jwt,
-        "sign"
-      ) as jest.SpyInstance).mockImplementation((payload, secret, callback) => {
+      const jwtSpy = (jest.spyOn(jwt, "sign") as jest.SpyInstance).mockImplementation((payload, secret, callback) => {
         callback(false, token);
       });
 
@@ -286,10 +255,9 @@ describe("Auth Controller", () => {
       const res = mockResponse();
 
       // Mock out failing to find matching username
-      const findUserByUsernameSpy = (jest.spyOn(
-        UsersDao,
-        "findUserByUsername"
-      ) as jest.SpyInstance).mockImplementation(() => Promise.resolve(null));
+      const findUserByUsernameSpy = (jest.spyOn(UsersDao, "findUserByUsername") as jest.SpyInstance).mockImplementation(
+        () => Promise.resolve(null),
+      );
 
       await AuthController.login(req, res);
 
@@ -311,11 +279,8 @@ describe("Auth Controller", () => {
       const res = mockResponse();
 
       // Mock out failing to determine if username exists
-      const findUserByUsernameSpy = (jest.spyOn(
-        UsersDao,
-        "findUserByUsername"
-      ) as jest.SpyInstance).mockImplementation(() =>
-        Promise.reject("Failed to determine if username exists")
+      const findUserByUsernameSpy = (jest.spyOn(UsersDao, "findUserByUsername") as jest.SpyInstance).mockImplementation(
+        () => Promise.reject("Failed to determine if username exists"),
       );
 
       await AuthController.login(req, res);
@@ -342,17 +307,13 @@ describe("Auth Controller", () => {
         _id: "user_id",
         username: "user",
       });
-      const userComparePasswordSpy = (jest.spyOn(
-        foundUser,
-        "comparePassword"
-      ) as jest.SpyInstance).mockImplementation(() => Promise.resolve(false));
+      const userComparePasswordSpy = (jest.spyOn(foundUser, "comparePassword") as jest.SpyInstance).mockImplementation(
+        () => Promise.resolve(false),
+      );
 
       // Mock out found user
-      const findUserByUsernameSpy = (jest.spyOn(
-        UsersDao,
-        "findUserByUsername"
-      ) as jest.SpyInstance).mockImplementation(() =>
-        Promise.resolve(foundUser)
+      const findUserByUsernameSpy = (jest.spyOn(UsersDao, "findUserByUsername") as jest.SpyInstance).mockImplementation(
+        () => Promise.resolve(foundUser),
       );
 
       await AuthController.login(req, res);
@@ -380,24 +341,17 @@ describe("Auth Controller", () => {
         _id: "user_id",
         username: "user",
       });
-      const userComparePasswordSpy = (jest.spyOn(
-        foundUser,
-        "comparePassword"
-      ) as jest.SpyInstance).mockImplementation(() => Promise.resolve(true));
+      const userComparePasswordSpy = (jest.spyOn(foundUser, "comparePassword") as jest.SpyInstance).mockImplementation(
+        () => Promise.resolve(true),
+      );
 
       // Mock out found user
-      const findUserByUsernameSpy = (jest.spyOn(
-        UsersDao,
-        "findUserByUsername"
-      ) as jest.SpyInstance).mockImplementation(() =>
-        Promise.resolve(foundUser)
+      const findUserByUsernameSpy = (jest.spyOn(UsersDao, "findUserByUsername") as jest.SpyInstance).mockImplementation(
+        () => Promise.resolve(foundUser),
       );
 
       // Mock out failing to sign JWT
-      const jwtSpy = (jest.spyOn(
-        jwt,
-        "sign"
-      ) as jest.SpyInstance).mockImplementation((payload, secret, callback) => {
+      const jwtSpy = (jest.spyOn(jwt, "sign") as jest.SpyInstance).mockImplementation((payload, secret, callback) => {
         callback(true, null);
       });
 
@@ -427,25 +381,18 @@ describe("Auth Controller", () => {
         _id: "user_id",
         username: "user",
       });
-      const userComparePasswordSpy = (jest.spyOn(
-        foundUser,
-        "comparePassword"
-      ) as jest.SpyInstance).mockImplementation(() => Promise.resolve(true));
+      const userComparePasswordSpy = (jest.spyOn(foundUser, "comparePassword") as jest.SpyInstance).mockImplementation(
+        () => Promise.resolve(true),
+      );
 
       // Mock out found user
-      const findUserByUsernameSpy = (jest.spyOn(
-        UsersDao,
-        "findUserByUsername"
-      ) as jest.SpyInstance).mockImplementation(() =>
-        Promise.resolve(foundUser)
+      const findUserByUsernameSpy = (jest.spyOn(UsersDao, "findUserByUsername") as jest.SpyInstance).mockImplementation(
+        () => Promise.resolve(foundUser),
       );
 
       // Mock out signed JWT
       const token = "jwt_token";
-      const jwtSpy = (jest.spyOn(
-        jwt,
-        "sign"
-      ) as jest.SpyInstance).mockImplementation((payload, secret, callback) => {
+      const jwtSpy = (jest.spyOn(jwt, "sign") as jest.SpyInstance).mockImplementation((payload, secret, callback) => {
         callback(false, token);
       });
 

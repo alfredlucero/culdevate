@@ -19,9 +19,7 @@ describe("Culdevations Routes (/culdevations/**/*)", () => {
       description: "Culdevation One Description",
       score: 1,
     };
-    culdevationOneModel = await CuldevationsDao.createCuldevation(
-      culdevationOne
-    );
+    culdevationOneModel = await CuldevationsDao.createCuldevation(culdevationOne);
 
     culdevationTwo = {
       culdevator: "Culdevator Two",
@@ -29,9 +27,7 @@ describe("Culdevations Routes (/culdevations/**/*)", () => {
       description: "Culdevation Two Description",
       score: 2,
     };
-    culdevationTwoModel = await CuldevationsDao.createCuldevation(
-      culdevationTwo
-    );
+    culdevationTwoModel = await CuldevationsDao.createCuldevation(culdevationTwo);
   });
 
   test("should return some culdevations for GET /culdevations", async () => {
@@ -93,11 +89,7 @@ describe("Culdevations Routes (/culdevations/**/*)", () => {
       .expect("Content-Type", /json/)
       .expect(200)
       .then(response => {
-        expect(response.body).toMatchObject([
-          culdevationOne,
-          culdevationTwo,
-          culdevationToCreate,
-        ]);
+        expect(response.body).toMatchObject([culdevationOne, culdevationTwo, culdevationToCreate]);
       });
   });
 

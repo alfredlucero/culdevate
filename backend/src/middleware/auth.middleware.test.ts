@@ -1,7 +1,7 @@
 import jwt from "jsonwebtoken";
 import authMiddleware from "./auth.middleware";
 import UsersDao from "../users/users.dao";
-import { IUser } from "../users/users.model";
+import { User } from "../users/users.model";
 import { AuthTokenPayload } from "../interfaces/authTokenPayload";
 import { mockRequestWithUser } from "../testUtils/mockRequestWithUser";
 import { mockResponse } from "../testUtils/mockResponse";
@@ -17,8 +17,7 @@ describe("Auth Middleware", () => {
 
     expect(res.status).toHaveBeenCalledWith(401);
     expect(res.json).toHaveBeenCalledWith({
-      message:
-        "No Authorization header passed. Please try authenticating again.",
+      message: "No Authorization header passed. Please try authenticating again.",
     });
   });
 
@@ -41,18 +40,14 @@ describe("Auth Middleware", () => {
     const next = mockNext();
 
     // Mock out decoded token from Authorization header
-    const jwtSpy = (jest.spyOn(
-      jwt,
-      "verify"
-    ) as jest.SpyInstance).mockImplementation(
-      () => ({ username: "user", id: "user_id" } as AuthTokenPayload)
+    const jwtSpy = (jest.spyOn(jwt, "verify") as jest.SpyInstance).mockImplementation(
+      () => ({ username: "user", id: "user_id" } as AuthTokenPayload),
     );
 
     // Mock out no matching user
-    const findUserByIdSpy = (jest.spyOn(
-      UsersDao,
-      "findUserById"
-    ) as jest.SpyInstance).mockImplementation(() => Promise.resolve(null));
+    const findUserByIdSpy = (jest.spyOn(UsersDao, "findUserById") as jest.SpyInstance).mockImplementation(() =>
+      Promise.resolve(null),
+    );
 
     await authMiddleware(req, res, next);
 
@@ -71,27 +66,20 @@ describe("Auth Middleware", () => {
     const next = mockNext();
 
     // Mock out decoded token from Authorization header
-    const jwtSpy = (jest.spyOn(
-      jwt,
-      "verify"
-    ) as jest.SpyInstance).mockImplementation(
-      () => ({ username: "user", id: "user_id" } as AuthTokenPayload)
+    const jwtSpy = (jest.spyOn(jwt, "verify") as jest.SpyInstance).mockImplementation(
+      () => ({ username: "user", id: "user_id" } as AuthTokenPayload),
     );
 
     // Mock out failing to determine a matching user
-    const findUserByIdSpy = (jest.spyOn(
-      UsersDao,
-      "findUserById"
-    ) as jest.SpyInstance).mockImplementation(() =>
-      Promise.reject("Failed to determine if user is matching the token id.")
+    const findUserByIdSpy = (jest.spyOn(UsersDao, "findUserById") as jest.SpyInstance).mockImplementation(() =>
+      Promise.reject("Failed to determine if user is matching the token id."),
     );
 
     await authMiddleware(req, res, next);
 
     expect(res.status).toHaveBeenCalledWith(401);
     expect(res.json).toHaveBeenCalledWith({
-      message:
-        "Failed to determine if user matched the token. Please try authenticating again.",
+      message: "Failed to determine if user matched the token. Please try authenticating again.",
     });
 
     jwtSpy.mockRestore();
@@ -104,23 +92,19 @@ describe("Auth Middleware", () => {
     const next = mockNext();
 
     // Mock out decoded token from Authorization header
-    const jwtSpy = (jest.spyOn(
-      jwt,
-      "verify"
-    ) as jest.SpyInstance).mockImplementation(
-      () => ({ username: "user", id: "user_id" } as AuthTokenPayload)
+    const jwtSpy = (jest.spyOn(jwt, "verify") as jest.SpyInstance).mockImplementation(
+      () => ({ username: "user", id: "user_id" } as AuthTokenPayload),
     );
 
     // Mock out matching user
-    const user: IUser = {
+    const user: User = {
       username: "user",
       email: "user@test.com",
       password: "testing123",
     };
-    const findUserByIdSpy = (jest.spyOn(
-      UsersDao,
-      "findUserById"
-    ) as jest.SpyInstance).mockImplementation(() => Promise.resolve(user));
+    const findUserByIdSpy = (jest.spyOn(UsersDao, "findUserById") as jest.SpyInstance).mockImplementation(() =>
+      Promise.resolve(user),
+    );
 
     await authMiddleware(req, res, next);
 

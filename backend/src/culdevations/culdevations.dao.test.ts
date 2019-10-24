@@ -39,9 +39,7 @@ describe("Culdevations Dao", () => {
   });
 
   test("should find culdevation by id", async () => {
-    const actualFoundCuldevation = await CuldevationsDao.findCuldevationById(
-      culdevationOneModel._id
-    );
+    const actualFoundCuldevation = await CuldevationsDao.findCuldevationById(culdevationOneModel._id);
     const expectedFoundCuldevation = culdevationOne;
 
     expect(actualFoundCuldevation).toMatchObject(expectedFoundCuldevation);
@@ -54,12 +52,8 @@ describe("Culdevations Dao", () => {
       description: "Culdevation One Description",
       score: 1,
     };
-    const actualCreatedCuldevation = await CuldevationsDao.createCuldevation(
-      culdevationToCreate
-    );
-    const foundCreatedCuldevation = await CuldevationsDao.findCuldevationById(
-      actualCreatedCuldevation._id
-    );
+    const actualCreatedCuldevation = await CuldevationsDao.createCuldevation(culdevationToCreate);
+    const foundCreatedCuldevation = await CuldevationsDao.findCuldevationById(actualCreatedCuldevation._id);
 
     expect(foundCreatedCuldevation).toMatchObject(culdevationToCreate);
   });
@@ -73,22 +67,16 @@ describe("Culdevations Dao", () => {
     };
     const actualUpdatedCuldevation = await CuldevationsDao.updateCuldevationById(
       culdevationOneModel._id,
-      updatedCuldevation
+      updatedCuldevation,
     );
-    const foundUpdatedCuldevation = await CuldevationsDao.findCuldevationById(
-      actualUpdatedCuldevation._id
-    );
+    const foundUpdatedCuldevation = await CuldevationsDao.findCuldevationById(actualUpdatedCuldevation._id);
 
     expect(foundUpdatedCuldevation).toMatchObject(updatedCuldevation);
   });
 
   test("should be able to remove culdevation by id", async () => {
-    const actualRemovedCuldevation = await CuldevationsDao.removeCuldevationById(
-      culdevationOneModel._id
-    );
-    const findRemovedCuldevationResult = await CuldevationsDao.findCuldevationById(
-      actualRemovedCuldevation._id
-    );
+    const actualRemovedCuldevation = await CuldevationsDao.removeCuldevationById(culdevationOneModel._id);
+    const findRemovedCuldevationResult = await CuldevationsDao.findCuldevationById(actualRemovedCuldevation._id);
 
     expect(findRemovedCuldevationResult).toBeNull();
   });

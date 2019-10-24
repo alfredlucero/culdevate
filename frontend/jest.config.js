@@ -23,6 +23,13 @@ module.exports = {
   // Module file extensions for importing
   moduleFileExtensions: ["ts", "tsx", "js", "jsx", "json", "node"],
 
+  // Stubbing out file imports like .css files
+  moduleNameMapper: {
+    "\\.(jpg|jpeg|png|gif|eot|otf|webp|svg|ttf|woff|woff2|mp4|webm|wav|mp3|m4a|aac|oga)$":
+      "<rootDir>/__mocks__/fileMock.js",
+    "\\.(css|less|scss|sass)$": "<rootDir>/__mocks__/styleMock.js",
+  },
+
   // Set URL for jsdom environment for us to access location.href
   testURL: "http://localhost/",
 };

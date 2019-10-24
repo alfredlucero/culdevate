@@ -5,7 +5,9 @@ const LandingPage = () => {
   return (
     <div data-testid="landingPage">
       <h2>Culdevate Landing</h2>
-      <Button variant="primary">Get Started!</Button>
+      <Button variant="primary" onClick={() => {}}>
+        Get Started!
+      </Button>
     </div>
   );
 };

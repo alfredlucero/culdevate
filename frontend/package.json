@@ -10,6 +10,18 @@
     "test": "jest",
     "storybook": "start-storybook -p 9001"
   },
+  "husky": {
+    "hooks": {
+      "pre-commit": "tsc --noEmit && lint-staged",
+      "pre-push": "npm run test"
+    }
+  },
+  "lint-staged": {
+    "*.{js,ts,tsx,jsx}": [
+      "eslint . --fix",
+      "git add"
+    ]
+  },
   "keywords": [
     "culdevate-frontend",
     "frontend",
@@ -37,15 +49,24 @@
     "@types/react": "^16.9.7",
     "@types/react-dom": "^16.9.2",
     "@types/react-router-dom": "^5.1.0",
+    "@typescript-eslint/eslint-plugin": "^2.5.0",
+    "@typescript-eslint/parser": "^2.5.0",
     "autoprefixer": "^9.6.5",
     "babel-loader": "^8.0.6",
     "clean-webpack-plugin": "^3.0.0",
     "css-loader": "^3.2.0",
+    "eslint": "^6.5.1",
+    "eslint-config-prettier": "^6.4.0",
+    "eslint-plugin-prettier": "^3.1.1",
+    "eslint-plugin-react": "^7.16.0",
     "file-loader": "^4.2.0",
     "html-webpack-plugin": "^3.2.0",
+    "husky": "^3.0.9",
     "jest": "^24.9.0",
+    "lint-staged": "^9.4.2",
     "mini-css-extract-plugin": "^0.8.0",
     "postcss-loader": "^3.0.0",
+    "prettier": "^1.18.2",
     "ts-jest": "^24.1.0",
     "ts-loader": "^6.2.0",
     "typescript": "^3.6.4",

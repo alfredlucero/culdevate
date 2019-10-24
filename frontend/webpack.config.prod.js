@@ -1,12 +1,7 @@
 const { CleanWebpackPlugin } = require("clean-webpack-plugin");
 const HtmlWebpackPlugin = require("html-webpack-plugin");
 const MiniCssExtractPlugin = require("mini-css-extract-plugin");
-const {
-  tsLoader,
-  postCssLoader,
-  devServer,
-  prodOptimization,
-} = require("./webpack.config.base.js");
+const { tsLoader, postCssLoader, devServer, prodOptimization } = require("./webpack.config.base.js");
 
 module.exports = {
   mode: "production",

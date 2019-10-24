@@ -2,14 +2,7 @@ const path = require("path");
 const MiniCssExtractPlugin = require("mini-css-extract-plugin");
 
 const fileLoader = {
-  exclude: [
-    /\.html$/,
-    /\.(js|jsx|ts|tsx)$/,
-    /\.css$/,
-    /\.scss$/,
-    /\.json$/,
-    /\.less$/,
-  ],
+  exclude: [/\.html$/, /\.(js|jsx|ts|tsx)$/, /\.css$/, /\.scss$/, /\.json$/, /\.less$/],
   loader: "file-loader",
   query: {
     name: "static/media/[name].[hash:8].[ext]",

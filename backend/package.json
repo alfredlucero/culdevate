@@ -5,9 +5,9 @@
   "main": "index.js",
   "scripts": {
     "build": "tsc",
-    "dev": "ts-node ./src/server.ts",
-    "start": "nodemon ./dist/server.js",
-    "prod": "npm run build && npm run start",
+    "start": "ts-node ./src/server.ts",
+    "dev": "nodemon",
+    "prod": "npm run build && npm run dev",
     "test": "jest",
     "lint": "tsc --noEmit && eslint --fix './src/**/*.{js,ts}'"
   },
@@ -22,6 +22,17 @@
       "eslint . --fix",
       "git add"
     ]
+  },
+  "nodemonConfig": {
+    "ignore": [
+      "**/*.test.ts",
+      "node_modules"
+    ],
+    "watch": [
+      "src"
+    ],
+    "exec": "npm run start",
+    "ext": "ts"
   },
   "keywords": [
     "culdevate-backend",

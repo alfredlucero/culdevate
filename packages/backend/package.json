@@ -4,18 +4,14 @@
   "description": "backend RESTAPI for culdevate",
   "main": "index.js",
   "scripts": {
+    "setup": "npm ci",
     "build": "tsc",
     "start": "ts-node ./src/server.ts",
     "dev": "nodemon",
     "prod": "npm run build && npm run dev",
     "test": "jest",
-    "lint": "tsc --noEmit && eslint --fix './src/**/*.{js,ts}'"
-  },
-  "husky": {
-    "hooks": {
-      "pre-commit": "tsc --noEmit && lint-staged",
-      "pre-push": "npm run test"
-    }
+    "lint": "tsc --noEmit && eslint --fix './src/**/*.{js,ts}'",
+    "precommit": "tsc --noEmit && lint-staged"
   },
   "lint-staged": {
     "*.{js,ts}": [
@@ -76,7 +72,6 @@
     "eslint": "^6.5.1",
     "eslint-config-prettier": "^6.4.0",
     "eslint-plugin-prettier": "^3.1.1",
-    "husky": "^3.0.9",
     "jest": "^24.8.0",
     "lint-staged": "^9.4.2",
     "mongodb-memory-server": "^5.2.0",

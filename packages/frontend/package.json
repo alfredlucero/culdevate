@@ -4,18 +4,14 @@
   "description": "frontend UI for culdevate",
   "main": "src/Main.tsx",
   "scripts": {
+    "setup": "npm ci",
     "build": "webpack -p --config ./webpack.config.prod.js",
     "dev": "webpack-dev-server --config ./webpack.config.dev.js -d --content-base ./dist",
     "prod": "webpack-dev-server --config ./webpack.config.prod.js",
     "test": "jest",
     "storybook": "start-storybook -p 9001",
-    "lint": "tsc --noEmit && eslint --fix './src/**/*.{js,ts,jsx,tsx}'"
-  },
-  "husky": {
-    "hooks": {
-      "pre-commit": "tsc --noEmit && lint-staged",
-      "pre-push": "npm run test"
-    }
+    "lint": "tsc --noEmit && eslint --fix './src/**/*.{js,ts,jsx,tsx}'",
+    "precommit": "tsc --noEmit && lint-staged"
   },
   "lint-staged": {
     "*.{js,ts,tsx,jsx}": [
@@ -62,7 +58,6 @@
     "eslint-plugin-react": "^7.16.0",
     "file-loader": "^4.2.0",
     "html-webpack-plugin": "^3.2.0",
-    "husky": "^3.0.9",
     "jest": "^24.9.0",
     "lint-staged": "^9.4.2",
     "mini-css-extract-plugin": "^0.8.0",

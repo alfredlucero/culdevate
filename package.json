@@ -1,0 +1,41 @@
+{
+  "name": "culdevate",
+  "version": "1.0.0",
+  "description": "culdevate full stack web application",
+  "main": "index.js",
+  "scripts": {
+    "setup_packages": "lerna run setup --stream",
+    "dev": "lerna run dev --concurrency 2 --stream",
+    "lint": "lerna run lint --stream",
+    "precommit": "lerna run precommit --concurrency 2 --stream",
+    "test": "lerna run test --concurrency 2 --stream"
+  },
+  "husky": {
+    "hooks": {
+      "pre-commit": "npm run precommit",
+      "pre-push": "npm run test"
+    }
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/alfredlucero/culdevate.git"
+  },
+  "keywords": [
+    "culdevate",
+    "culdevate",
+    "monorepo",
+    "culdevate",
+    "full",
+    "stack"
+  ],
+  "author": "alfienity",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/alfredlucero/culdevate/issues"
+  },
+  "homepage": "https://github.com/alfredlucero/culdevate#readme",
+  "devDependencies": {
+    "husky": "^3.0.9",
+    "lerna": "^3.18.3"
+  }
+}

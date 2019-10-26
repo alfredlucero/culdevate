@@ -16,10 +16,12 @@ const AuthRoutes = {
     // such that the JWT cookie will no longer be passed through the
     // Authorization: bearer <token> header
 
-    // Future Auth niceties
+    // Future Auth Niceties
     // /reset_password and/or /forgot_password
     // /confirm_email
     // /resend_email_confirmation
+
+    // Future Social Media Login/Signups
     // /login and /signup through Facebook, Twitter, GSuite
 
     return this.router;

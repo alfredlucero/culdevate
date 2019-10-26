@@ -8,6 +8,9 @@ Install all dependencies with `npm ci`.
 
 Install all package dependencies with `npm run setup_packages`.
 
+After installing all the package dependencies, you can run the
+dev servers for frontend and backend at the same time with `npm run dev`.
+
 ## Running Helpful Scripts across all Packages
 
 To lint all the packages, run `npm run lint`.

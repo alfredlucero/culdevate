@@ -16,7 +16,6 @@ export const SignupUserSchema = Joi.object().keys({
     .email()
     .required(),
   // TODO: force 1 capital letter and 1 special character into this validation
-  // Figure out a better way to find aggregate errors
   password: Joi.string()
     .min(PASSWORD_MIN_LENGTH)
     .max(PASSWORD_MAX_LENGTH)

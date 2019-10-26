@@ -4,14 +4,14 @@
 
 To install run this command
 
-``` npm ci ```
+`npm ci`
 
 To start up the backend server you can run this command
 
-``` npm run dev ```
+`npm run dev`
 
 ## Unit and Integration Tests
 
 To start up the Unit and Integration Tests you can run this command
 
-``` npm run test ```
+`npm run test`

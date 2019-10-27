@@ -14,7 +14,7 @@ const LandingPage = () => {
       <Heading className="text-center mb-4" variant="h3">
         cultivate your development
       </Heading>
-      <Text className="text-center mb-4" variant="p">
+      <Text className="text-center mb-6" variant="p">
         your private career highlights
         <br />
         recap your experiences

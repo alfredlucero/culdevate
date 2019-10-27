@@ -12,7 +12,7 @@ const NavigationPublic = () => {
 
       <div>
         <Link to="/login">
-          <Button variant="secondary" onClick={() => {}} testId="navLoginButton">
+          <Button className="mr-2" variant="secondary" onClick={() => {}} testId="navLoginButton">
             Login
           </Button>
         </Link>

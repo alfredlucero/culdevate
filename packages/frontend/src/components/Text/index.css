@@ -1,0 +1,15 @@
+.text-normal {
+  @apply text-base;
+}
+
+.text-small {
+  @apply text-sm;
+}
+
+.text-bold {
+  @apply font-bold;
+}
+
+.text-italic {
+  @apply italic;
+}

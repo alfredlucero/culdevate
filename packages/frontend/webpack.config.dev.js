@@ -1,3 +1,4 @@
+const webpack = require("webpack");
 const { CleanWebpackPlugin } = require("clean-webpack-plugin");
 const HtmlWebpackPlugin = require("html-webpack-plugin");
 const MiniCssExtractPlugin = require("mini-css-extract-plugin");
@@ -28,6 +29,8 @@ module.exports = {
       filename: "[name].[contenthash].css",
       chunkFilename: "[id].[contenthash].css",
     }),
+    // TODO: set up dotenv and separate env files for us to use eventually
+    new webpack.DefinePlugin({ "process.env.API_HOST": "http://localhost:3000" }),
   ],
   devServer,
   resolve: {

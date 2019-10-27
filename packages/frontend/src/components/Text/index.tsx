@@ -26,7 +26,7 @@ const Text: React.FC<TextProps> = ({
   if (variant === "span") {
     return (
       <span
-        className={`${cn("text-normal", {
+        className={`${cn("text", "text-normal", {
           "text-small": small,
           "text-italic": italic,
           "text-bold": bold,
@@ -42,7 +42,7 @@ const Text: React.FC<TextProps> = ({
   if (variant === "p") {
     return (
       <p
-        className={`${cn("text-normal", {
+        className={`${cn("text", "text-normal", {
           "text-small": small,
           "text-italic": italic,
           "text-bold": bold,

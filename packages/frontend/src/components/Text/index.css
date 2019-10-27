@@ -1,3 +1,7 @@
+.text {
+  @apply font-sans text-gray-800;
+}
+
 .text-normal {
   @apply text-base;
 }

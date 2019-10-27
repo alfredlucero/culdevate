@@ -1,3 +1,7 @@
+.heading {
+  @apply font-mono font-bold text-gray-800;
+}
+
 .heading-1 {
   @apply text-4xl;
 }

@@ -22,7 +22,7 @@ const Heading: React.FC<HeadingProps> = ({
   if (variant === "h1") {
     return (
       <h1
-        className={`${cn("heading-1", {
+        className={`${cn("heading", "heading-1", {
           "heading-italic": italic,
         })} ${className}`}
         {...(testId !== "" ? { "data-testid": testId } : {})}
@@ -36,7 +36,7 @@ const Heading: React.FC<HeadingProps> = ({
   if (variant === "h2") {
     return (
       <h2
-        className={`${cn("heading-2", {
+        className={`${cn("heading", "heading-2", {
           "heading-italic": italic,
         })} ${className}`}
         {...(testId !== "" ? { "data-testid": testId } : {})}
@@ -50,7 +50,7 @@ const Heading: React.FC<HeadingProps> = ({
   if (variant === "h3") {
     return (
       <h3
-        className={`${cn("heading-3", {
+        className={`${cn("heading", "heading-3", {
           "heading-italic": italic,
         })} ${className}`}
         {...(testId !== "" ? { "data-testid": testId } : {})}
@@ -64,7 +64,7 @@ const Heading: React.FC<HeadingProps> = ({
   if (variant === "h4") {
     return (
       <h4
-        className={`${cn("heading-4", {
+        className={`${cn("heading", "heading-4", {
           "heading-italic": italic,
         })} ${className}`}
         {...(testId !== "" ? { "data-testid": testId } : {})}

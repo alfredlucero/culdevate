@@ -5,12 +5,15 @@ import LoginPage from "./pages/Login";
 import SignupPage from "./pages/Signup";
 import RecapsPage from "./pages/Recaps";
 import ImpactsPage from "./pages/Impacts";
+import NavigationPublic from "./components/NavigationPublic";
 import "./App.css";
 
 const App = () => {
+  // TODO: check for auth cookie to determine if we should redirect the user to login page from authenticated page
+  // TODO: add navigation when authenticated
   return (
     <Router>
-      <h1 className="font-mono text-4xl text-gray-800">Culdevate</h1>
+      <NavigationPublic />
 
       <Switch>
         {/* Public (Unauthenticated Routes) */}
@@ -25,12 +28,14 @@ const App = () => {
         </Route>
 
         {/* Authenticated Routes */}
+        {/* TODO: Dashboard */}
         <Route path="/recaps">
           <RecapsPage />
         </Route>
         <Route path="/impacts">
           <ImpactsPage />
         </Route>
+        {/* TODO: Reviews */}
       </Switch>
     </Router>
   );

@@ -1,0 +1,37 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`<Button /> should render danger variant without error 1`] = `
+<div>
+  <button
+    class="btn btn-danger btn-danger:hover extra-button-class"
+    data-testid="buttonTestId"
+    type="reset"
+  >
+    Danger Button
+  </button>
+</div>
+`;
+
+exports[`<Button /> should render primary variant without error 1`] = `
+<div>
+  <button
+    class="btn btn-primary btn-primary:hover extra-button-class"
+    data-testid="buttonTestId"
+    type="button"
+  >
+    Primary Button
+  </button>
+</div>
+`;
+
+exports[`<Button /> should render secondary variant without error 1`] = `
+<div>
+  <button
+    class="btn btn-secondary btn-secondary:hover extra-button-class"
+    data-testid="buttonTestId"
+    type="submit"
+  >
+    Secondary Button
+  </button>
+</div>
+`;

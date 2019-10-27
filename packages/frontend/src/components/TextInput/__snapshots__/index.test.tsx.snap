@@ -1,0 +1,20 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`<TextInput /> should render without error 1`] = `
+<div>
+  <div
+    class="extra-input-class"
+  >
+    
+    <input
+      aria-required="false"
+      class="text-input"
+      data-testid="inputTestId"
+      id="text-input-id"
+      placeholder=""
+      type="text"
+      value="value"
+    />
+  </div>
+</div>
+`;

@@ -3,13 +3,23 @@ import { storiesOf } from "@storybook/react";
 import Button from "./index";
 
 storiesOf("Common/Button", module)
-  .add("Default", () => (
+  .add("Primary", () => (
     <Button variant="primary" onClick={() => {}}>
       Primary
     </Button>
   ))
-  .add("Disabled", () => (
+  .add("Primary Disabled", () => (
     <Button variant="primary" onClick={() => {}} disabled={true}>
       Primary Disabled
+    </Button>
+  ))
+  .add("Secondary", () => (
+    <Button variant="secondary" onClick={() => {}}>
+      Secondary
+    </Button>
+  ))
+  .add("Secondary Disabled", () => (
+    <Button variant="secondary" onClick={() => {}} disabled={true}>
+      Secondary Disabled
     </Button>
   ));

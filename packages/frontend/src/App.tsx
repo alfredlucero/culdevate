@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useMemo } from "react";
 import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
 import LandingPage from "./pages/Landing";
 import LoginPage from "./pages/Login";
@@ -7,12 +7,14 @@ import RecapsPage from "./pages/Recaps";
 import ImpactsPage from "./pages/Impacts";
 import NavigationPublic from "./components/NavigationPublic";
 import NavigationAuth from "./components/NavigationAuth";
+import AuthTokenCookie from "./utils/authTokenCookie";
 import "./App.css";
 
 const App = () => {
   // TODO: check for auth cookie to determine if we should redirect the user to login page from authenticated page
+  const authTokenCookie = useMemo(() => AuthTokenCookie.getCookie(), []);
   // TODO: add navigation when authenticated
-  const isAuthenticated = false;
+  const isAuthenticated = authTokenCookie;
 
   return (
     <Router>

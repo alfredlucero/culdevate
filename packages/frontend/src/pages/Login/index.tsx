@@ -1,6 +1,11 @@
 import React, { useState } from "react";
+import { AxiosError } from "axios";
 import { useFormik } from "formik";
 import { userCredentialsSchema } from "../../validations/user.schema";
+import { login } from "../../services/auth.service";
+import { UserCredentials } from "../../interfaces/auth.interface";
+import { ResponseError } from "../../interfaces/responseError.interface";
+import AuthTokenCookie from "../../utils/authTokenCookie";
 import Heading from "../../components/Heading";
 import Text from "../../components/Text";
 import Card from "../../components/Card";
@@ -10,20 +15,35 @@ import Link from "../../components/Link";
 import "./index.css";
 
 const LoginPage = () => {
-  const [isLoggingIn, setIsLoggingIn] = useState<boolean>(false);
+  const [isLoggingIn, setIsLoggingIn] = useState(false);
+  // TODO: Redirect to dashboard if authenticated with react-router-dom
+  const [isAuthenticated, setIsAuthenticated] = useState(false);
+  const [loginError, setLoginError] = useState("");
   const { handleSubmit, handleChange, handleBlur, values, touched, errors } = useFormik({
     initialValues: {
       username: "",
       password: "",
     },
     onSubmit: values => {
-      // TODO: make fetch calls here
+      const userCredentials: UserCredentials = {
+        username: values.username,
+        password: values.password,
+      };
+
       setIsLoggingIn(true);
-      setTimeout(() => {
-        console.log("Timeout over!");
-        setIsLoggingIn(false);
-      }, 1000);
-      console.log("Values: ", values);
+
+      login(userCredentials)
+        .then(response => {
+          setIsAuthenticated(true);
+          setIsLoggingIn(false);
+          AuthTokenCookie.setCookie(response.data.token);
+        })
+        .catch((error: AxiosError<ResponseError>) => {
+          const loginError =
+            (error.response && error.response.data.message) || "Login failed due to some issue. Please try again!";
+          setLoginError(loginError);
+          setIsLoggingIn(false);
+        });
     },
     validationSchema: userCredentialsSchema,
   });
@@ -90,6 +110,7 @@ const LoginPage = () => {
               </Link>
             </div>
           </form>
+          {loginError !== "" && <p>{loginError}</p>}
         </Card>
         <Text variant="p" small={true} className="mt-2">
           Need to create an account?{" "}

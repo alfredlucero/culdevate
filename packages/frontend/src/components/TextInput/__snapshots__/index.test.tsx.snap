@@ -11,6 +11,7 @@ exports[`<TextInput /> should render without error 1`] = `
       class="text-input"
       data-testid="inputTestId"
       id="text-input-id"
+      name="text-input-id"
       placeholder=""
       type="text"
       value="value"

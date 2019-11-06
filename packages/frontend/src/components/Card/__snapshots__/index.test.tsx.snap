@@ -1,0 +1,14 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`<Card /> should render without error 1`] = `
+<div>
+  <div
+    class="card extra-card-class"
+    data-testid="someCardTestId"
+  >
+    <p>
+      Children
+    </p>
+  </div>
+</div>
+`;

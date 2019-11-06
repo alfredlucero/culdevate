@@ -5,6 +5,7 @@ import "./index.css";
 
 interface TextInputProps extends CommonProps {
   onChange: (e: React.FormEvent<HTMLInputElement>) => void;
+  onBlur?: (e: React.FocusEvent) => void;
   value: string;
   id: string;
   type: "text" | "password";
@@ -22,6 +23,7 @@ const TextInput: React.FC<TextInputProps> = ({
   value,
   id,
   type,
+  onBlur = () => {},
   required = false,
   valid = true,
   errorInfo = "",
@@ -34,7 +36,7 @@ const TextInput: React.FC<TextInputProps> = ({
   ...passThroughProps
 }) => {
   return (
-    <div className={className}>
+    <div {...(className !== "" ? { className } : {})}>
       {label && (
         <label className="text-input-label" htmlFor={id}>
           {label} {required ? "(required)" : ""}
@@ -45,7 +47,9 @@ const TextInput: React.FC<TextInputProps> = ({
         className={cn("text-input", { "text-input-error": !valid, "text-input-disabled": disabled })}
         value={value}
         id={id}
+        name={id}
         onChange={onChange}
+        onBlur={onBlur}
         type={type}
         placeholder={placeholder}
         disabled={disabled}

@@ -1,23 +1,25 @@
 import React, { useState } from "react";
+import { Redirect } from "react-router-dom";
 import { AxiosError } from "axios";
 import { useFormik } from "formik";
 import { userCredentialsSchema } from "../../validations/user.schema";
 import { login } from "../../services/auth.service";
 import { UserCredentials } from "../../interfaces/auth.interface";
 import { ResponseError } from "../../interfaces/responseError.interface";
-import AuthTokenCookie from "../../utils/authTokenCookie";
 import Heading from "../../components/Heading";
 import Text from "../../components/Text";
 import Card from "../../components/Card";
 import TextInput from "../../components/TextInput";
 import Button from "../../components/Button";
 import Link from "../../components/Link";
+import { useAuth } from "../../AuthProvider";
 import "./index.css";
 
 const LoginPage = () => {
   const [isLoggingIn, setIsLoggingIn] = useState(false);
   // TODO: Redirect to dashboard if authenticated with react-router-dom
   const [isAuthenticated, setIsAuthenticated] = useState(false);
+  const { saveAuthToken } = useAuth();
   const [loginError, setLoginError] = useState("");
   const { handleSubmit, handleChange, handleBlur, values, touched, errors } = useFormik({
     initialValues: {
@@ -34,9 +36,9 @@ const LoginPage = () => {
 
       login(userCredentials)
         .then(response => {
-          setIsAuthenticated(true);
           setIsLoggingIn(false);
-          AuthTokenCookie.setCookie(response.data.token);
+          setIsAuthenticated(true);
+          saveAuthToken(response.data.token);
         })
         .catch((error: AxiosError<ResponseError>) => {
           const loginError =
@@ -47,6 +49,11 @@ const LoginPage = () => {
     },
     validationSchema: userCredentialsSchema,
   });
+
+  // TODO: redirect to referrer page
+  if (isAuthenticated) {
+    return <Redirect to="/recaps" />;
+  }
 
   const isLogInDisabled =
     Boolean(errors.password || errors.username) || values.username === "" || values.password === "";

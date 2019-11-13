@@ -69,8 +69,6 @@ const AuthController = {
     const userCredentials: UserCredentials = req.body;
     const { username, password } = userCredentials;
 
-    // TODO: validate user credentials and return 400 if invalid
-
     try {
       const foundUser = await UsersDao.findUserByUsername(username);
       if (foundUser) {

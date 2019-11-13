@@ -4,5 +4,11 @@ import "core-js/es";
 import React from "react";
 import ReactDOM from "react-dom";
 import App from "./App";
+import { AuthProvider } from "./AuthProvider";
 
-ReactDOM.render(<App />, document.getElementById("culdevate-root"));
+ReactDOM.render(
+  <AuthProvider>
+    <App />
+  </AuthProvider>,
+  document.getElementById("culdevate-root"),
+);

@@ -1,5 +1,5 @@
-import React, { useMemo } from "react";
-import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
+import React from "react";
+import { BrowserRouter as Router, Switch, Route, Redirect } from "react-router-dom";
 import LandingPage from "./pages/Landing";
 import LoginPage from "./pages/Login";
 import SignupPage from "./pages/Signup";
@@ -7,18 +7,15 @@ import RecapsPage from "./pages/Recaps";
 import ImpactsPage from "./pages/Impacts";
 import NavigationPublic from "./components/NavigationPublic";
 import NavigationAuth from "./components/NavigationAuth";
-import AuthTokenCookie from "./utils/authTokenCookie";
+import { useAuth } from "./AuthProvider";
 import "./App.css";
 
 const App = () => {
-  // TODO: check for auth cookie to determine if we should redirect the user to login page from authenticated page
-  const authTokenCookie = useMemo(() => AuthTokenCookie.getCookie(), []);
-  // TODO: add navigation when authenticated
-  const isAuthenticated = authTokenCookie;
-
+  const { isAuthenticated } = useAuth();
+  console.log("isAuthenticated", isAuthenticated());
   return (
     <Router>
-      {!isAuthenticated && (
+      {!isAuthenticated() && (
         <div className="culdevate-root-public">
           <div className="culdevate-nav-public">
             <NavigationPublic />
@@ -35,12 +32,23 @@ const App = () => {
               <Route path="/signup">
                 <SignupPage />
               </Route>
+              {/* Redirect attempts to go to authenticated routes back to login page */}
+              <Route path="/recaps">
+                <Redirect to="/login" />
+              </Route>
+              <Route path="/impacts">
+                <Redirect to="/login" />
+              </Route>
+              {/* TODO: show a 404 page here for no matching route */}
+              <Route path="*">
+                <div>404 not found</div>
+              </Route>
             </Switch>
           </main>
         </div>
       )}
 
-      {isAuthenticated && (
+      {isAuthenticated() && (
         <div className="culdevate-root-auth">
           <div className="culdevate-nav-auth">
             <NavigationAuth />
@@ -56,6 +64,20 @@ const App = () => {
                 <ImpactsPage />
               </Route>
               {/* TODO: Reviews */}
+              {/* Redirect public routes to an authenticated page if already logged in */}
+              <Route path="/">
+                <Redirect to="/recaps"></Redirect>
+              </Route>
+              <Route path="/login">
+                <Redirect to="/recaps"></Redirect>
+              </Route>
+              <Route path="/signup">
+                <Redirect to="/recaps"></Redirect>
+              </Route>
+              {/* TODO: show a 404 page here for no matching route */}
+              <Route path="*">
+                <div>404 not found</div>
+              </Route>
             </Switch>
           </main>
         </div>

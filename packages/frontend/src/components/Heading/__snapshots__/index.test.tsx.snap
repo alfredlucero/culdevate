@@ -3,7 +3,7 @@
 exports[`<Heading /> should render header four variant without error 1`] = `
 <div>
   <h4
-    class="heading heading-4 extra-heading-class"
+    class="font-mono font-bold text-gray-800 text-xl extra-heading-class"
     data-testid="headingTestId"
   >
     Header Four Content
@@ -14,7 +14,7 @@ exports[`<Heading /> should render header four variant without error 1`] = `
 exports[`<Heading /> should render header one variant without error 1`] = `
 <div>
   <h1
-    class="heading heading-1 extra-heading-class"
+    class="font-mono font-bold text-gray-800 text-4xl extra-heading-class"
     data-testid="headingTestId"
   >
     Header One Content
@@ -25,7 +25,7 @@ exports[`<Heading /> should render header one variant without error 1`] = `
 exports[`<Heading /> should render header three variant without error 1`] = `
 <div>
   <h3
-    class="heading heading-3 extra-heading-class"
+    class="font-mono font-bold text-gray-800 text-2xl extra-heading-class"
     data-testid="headingTestId"
   >
     Header Three Content
@@ -36,7 +36,7 @@ exports[`<Heading /> should render header three variant without error 1`] = `
 exports[`<Heading /> should render header two variant without error 1`] = `
 <div>
   <h2
-    class="heading heading-2 extra-heading-class"
+    class="font-mono font-bold text-gray-800 text-3xl extra-heading-class"
     data-testid="headingTestId"
   >
     Header Two Content

@@ -42,7 +42,6 @@ describe("<Button />", () => {
       </Button>,
     );
 
-    expect(getByTestId(buttonTestId)).toHaveClass("btn-disabled");
     expect(getByTestId(buttonTestId)).toBeDisabled();
   });
 

@@ -1,7 +1,6 @@
 import React from "react";
 import cn from "classnames";
 import { CommonProps } from "../commonProps";
-import "./index.css";
 
 interface HeadingProps extends CommonProps {
   variant: HeadingVariant;
@@ -10,6 +9,8 @@ interface HeadingProps extends CommonProps {
 }
 
 type HeadingVariant = "h1" | "h2" | "h3" | "h4";
+
+const headingBaseClasses = ["font-mono", "font-bold", "text-gray-800"];
 
 const Heading: React.FC<HeadingProps> = ({
   variant,
@@ -22,7 +23,7 @@ const Heading: React.FC<HeadingProps> = ({
   if (variant === "h1") {
     return (
       <h1
-        className={`${cn("heading", "heading-1", {
+        className={`${cn(headingBaseClasses, "text-4xl", {
           "heading-italic": italic,
         })} ${className}`}
         {...(testId !== "" ? { "data-testid": testId } : {})}
@@ -36,8 +37,8 @@ const Heading: React.FC<HeadingProps> = ({
   if (variant === "h2") {
     return (
       <h2
-        className={`${cn("heading", "heading-2", {
-          "heading-italic": italic,
+        className={`${cn(headingBaseClasses, "text-3xl", {
+          italic: italic,
         })} ${className}`}
         {...(testId !== "" ? { "data-testid": testId } : {})}
         {...passThroughProps}
@@ -50,8 +51,8 @@ const Heading: React.FC<HeadingProps> = ({
   if (variant === "h3") {
     return (
       <h3
-        className={`${cn("heading", "heading-3", {
-          "heading-italic": italic,
+        className={`${cn(headingBaseClasses, "text-2xl", {
+          italic: italic,
         })} ${className}`}
         {...(testId !== "" ? { "data-testid": testId } : {})}
         {...passThroughProps}
@@ -64,8 +65,8 @@ const Heading: React.FC<HeadingProps> = ({
   if (variant === "h4") {
     return (
       <h4
-        className={`${cn("heading", "heading-4", {
-          "heading-italic": italic,
+        className={`${cn(headingBaseClasses, "text-xl", {
+          italic: italic,
         })} ${className}`}
         {...(testId !== "" ? { "data-testid": testId } : {})}
         {...passThroughProps}

@@ -1,7 +1,6 @@
 import React from "react";
 import cn from "classnames";
 import { CommonProps } from "../commonProps";
-import "./index.css";
 
 interface CardProps extends CommonProps {
   children: React.ReactNode;
@@ -9,7 +8,11 @@ interface CardProps extends CommonProps {
 
 const Card: React.FC<CardProps> = ({ children, className = "", testId = "", ...passThroughProps }) => {
   return (
-    <div className={cn("card", className)} {...(testId !== "" ? { "data-testid": testId } : {})} {...passThroughProps}>
+    <div
+      className={cn("bg-white", "shadow-md", "rounded", "px-8", "py-6", className)}
+      {...(testId !== "" ? { "data-testid": testId } : {})}
+      {...passThroughProps}
+    >
       {children}
     </div>
   );

@@ -3,7 +3,7 @@
 exports[`<Text /> should render paragraph variant without error 1`] = `
 <div>
   <p
-    class="text text-normal extra-text-class"
+    class="font-sans text-gray-800 text-base extra-text-class"
     data-testid="textTestId"
   >
     Paragraph Content
@@ -14,7 +14,7 @@ exports[`<Text /> should render paragraph variant without error 1`] = `
 exports[`<Text /> should render span variant without error 1`] = `
 <div>
   <span
-    class="text text-normal extra-text-class"
+    class="font-sans text-gray-800 text-base extra-text-class"
     data-testid="textTestId"
   >
     Span Content

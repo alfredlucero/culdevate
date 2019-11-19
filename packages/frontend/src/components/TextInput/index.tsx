@@ -1,7 +1,6 @@
 import React from "react";
 import cn from "classnames";
 import { CommonProps } from "../commonProps";
-import "./index.css";
 
 interface TextInputProps extends CommonProps {
   onChange: (e: React.FormEvent<HTMLInputElement>) => void;
@@ -17,6 +16,21 @@ interface TextInputProps extends CommonProps {
   disabled?: boolean;
   placeholder?: string;
 }
+
+const textInputBaseClasses = [
+  "shadow",
+  "appearance-none",
+  "border",
+  "w-full",
+  "py-2",
+  "px-3",
+  "text-gray-700",
+  "leading-tight",
+  "focus:outline-none",
+  "focus:shadow-outline",
+];
+const textInputErrorClasses = ["border-red-500"];
+const textInputDisabledClasses = ["bg-gray-200", "opacity-75"];
 
 const TextInput: React.FC<TextInputProps> = ({
   onChange,
@@ -38,13 +52,17 @@ const TextInput: React.FC<TextInputProps> = ({
   return (
     <div {...(className !== "" ? { className } : {})}>
       {label && (
-        <label className="text-input-label" htmlFor={id}>
+        <label className="block text-gray-700 text-sm font-bold mb-2" htmlFor={id}>
           {label} {required ? "(required)" : ""}
         </label>
       )}
 
       <input
-        className={cn("text-input", { "text-input-error": !valid, "text-input-disabled": disabled })}
+        className={cn(
+          textInputBaseClasses,
+          !valid ? textInputErrorClasses : [],
+          disabled ? textInputDisabledClasses : [],
+        )}
         value={value}
         id={id}
         name={id}
@@ -58,9 +76,9 @@ const TextInput: React.FC<TextInputProps> = ({
         {...passThroughProps}
       />
 
-      {valid && textInfo !== "" && <p className="text-input-info">{textInfo}</p>}
+      {valid && textInfo !== "" && <p className="text-gray-700 text-xs italic mt-2">{textInfo}</p>}
 
-      {!valid && errorInfo !== "" && <p className="text-input-error-info">{errorInfo}</p>}
+      {!valid && errorInfo !== "" && <p className="text-red-500 text-xs italic mt-2">{errorInfo}</p>}
     </div>
   );
 };

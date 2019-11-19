@@ -22,4 +22,14 @@ storiesOf("Common/Button", module)
     <Button type="button" variant="secondary" onClick={() => {}} disabled={true}>
       Secondary Disabled
     </Button>
+  ))
+  .add("Danger", () => (
+    <Button type="reset" variant="danger" onClick={() => {}}>
+      Danger
+    </Button>
+  ))
+  .add("Danger Disabled", () => (
+    <Button type="button" variant="danger" onClick={() => {}} disabled={true}>
+      Danger Disabled
+    </Button>
   ));

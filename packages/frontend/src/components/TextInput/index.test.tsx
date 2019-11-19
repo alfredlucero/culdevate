@@ -65,7 +65,7 @@ describe("<TextInput />", () => {
     expect(container).toHaveTextContent(textInfo);
   });
 
-  test("should render input error outline and inline error info if invalid and error present", () => {
+  test("should render inline error info if invalid and error present", () => {
     const errorInfo = "Error Info";
     const { container, getByTestId } = render(
       <TextInput
@@ -80,7 +80,6 @@ describe("<TextInput />", () => {
       />,
     );
 
-    expect(getByTestId(inputTestId)).toHaveClass("text-input-error");
     expect(container).toHaveTextContent(errorInfo);
   });
 
@@ -98,22 +97,6 @@ describe("<TextInput />", () => {
     );
 
     expect(getByPlaceholderText(placeholder)).toBeVisible();
-  });
-
-  test("should render disabled state if disabled", () => {
-    const { getByTestId } = render(
-      <TextInput id="text-input-id" value="" type="text" onChange={() => {}} testId={inputTestId} disabled={true} />,
-    );
-
-    expect(getByTestId(inputTestId)).toBeDisabled();
-  });
-
-  test("should render disabled state if disabled", () => {
-    const { getByTestId } = render(
-      <TextInput id="text-input-id" value="" type="text" onChange={() => {}} testId={inputTestId} disabled={true} />,
-    );
-
-    expect(getByTestId(inputTestId)).toBeDisabled();
   });
 
   test("should render disabled state if disabled", () => {

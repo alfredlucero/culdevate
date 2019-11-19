@@ -3,7 +3,7 @@
 exports[`<Link /> should render external link without error 1`] = `
 <div>
   <a
-    class="link extra-link-class"
+    class="font-bold text-teal-500 hover:text-teal-800 extra-link-class"
     data-testid="externalLinkId"
     href="https://external.com"
     rel="noopener noreferrer"
@@ -17,7 +17,7 @@ exports[`<Link /> should render external link without error 1`] = `
 exports[`<Link /> should render internal link without error 1`] = `
 <div>
   <a
-    class="link extra-link-class"
+    class="font-bold text-teal-500 hover:text-teal-800 extra-link-class"
     data-testid="internalLinkId"
     href="/login"
   >

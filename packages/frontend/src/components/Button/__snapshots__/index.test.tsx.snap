@@ -3,7 +3,7 @@
 exports[`<Button /> should render danger variant without error 1`] = `
 <div>
   <button
-    class="btn btn-danger btn-danger:hover extra-button-class"
+    class="font-bold py-2 px-4 rounded font-bold py-2 px-4 rounded bg-red-500 text-white hover:bg-red-700 extra-button-class"
     data-testid="buttonTestId"
     type="reset"
   >
@@ -15,7 +15,7 @@ exports[`<Button /> should render danger variant without error 1`] = `
 exports[`<Button /> should render primary variant without error 1`] = `
 <div>
   <button
-    class="btn btn-primary btn-primary:hover extra-button-class"
+    class="font-bold py-2 px-4 rounded font-bold py-2 px-4 rounded bg-teal-500 text-white hover:bg-teal-700 extra-button-class"
     data-testid="buttonTestId"
     type="button"
   >
@@ -27,7 +27,7 @@ exports[`<Button /> should render primary variant without error 1`] = `
 exports[`<Button /> should render secondary variant without error 1`] = `
 <div>
   <button
-    class="btn btn-secondary btn-secondary:hover extra-button-class"
+    class="font-bold py-2 px-4 rounded bg-transparent text-teal-700 border border-teal-500 hover:bg-teal-500 hover:text-white hover:border-transparent extra-button-class"
     data-testid="buttonTestId"
     type="submit"
   >

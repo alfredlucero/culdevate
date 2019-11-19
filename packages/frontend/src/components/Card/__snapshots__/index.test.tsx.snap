@@ -3,7 +3,7 @@
 exports[`<Card /> should render without error 1`] = `
 <div>
   <div
-    class="card extra-card-class"
+    class="bg-white shadow-md rounded px-8 py-6 extra-card-class"
     data-testid="someCardTestId"
   >
     <p>

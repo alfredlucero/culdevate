@@ -24,34 +24,4 @@ describe("<Text />", () => {
 
     expect(container).toMatchSnapshot();
   });
-
-  test("should render small class when small", () => {
-    const { getByTestId } = render(
-      <Text variant="p" small={true} testId={textTestId}>
-        Paragraph Content
-      </Text>,
-    );
-
-    expect(getByTestId(textTestId)).toHaveClass("text-small");
-  });
-
-  test("should render bold class when bold", () => {
-    const { getByTestId } = render(
-      <Text variant="p" bold={true} testId={textTestId}>
-        Paragraph Content
-      </Text>,
-    );
-
-    expect(getByTestId(textTestId)).toHaveClass("text-bold");
-  });
-
-  test("should render italic class when italic", () => {
-    const { getByTestId } = render(
-      <Text variant="p" italic={true} testId={textTestId}>
-        Paragraph Content
-      </Text>,
-    );
-
-    expect(getByTestId(textTestId)).toHaveClass("text-italic");
-  });
 });

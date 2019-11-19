@@ -2,13 +2,14 @@ import React from "react";
 import { Link as RouterLink } from "react-router-dom";
 import cn from "classnames";
 import { CommonProps } from "../commonProps";
-import "./index.css";
 
 interface LinkProps extends CommonProps {
   href: string;
   type: "internal" | "external";
   children: React.ReactNode;
 }
+
+const linkBaseClasses = ["font-bold", "text-teal-500", "hover:text-teal-800"];
 
 const Link: React.FC<LinkProps> = ({ href, type, children, testId = "", className = "", ...passThroughProps }) => {
   // Internal links utilize the React Router links to navigate
@@ -18,7 +19,7 @@ const Link: React.FC<LinkProps> = ({ href, type, children, testId = "", classNam
     return (
       <RouterLink
         to={href}
-        className={cn("link", className)}
+        className={cn(linkBaseClasses, className)}
         {...(testId !== "" ? { "data-testid": testId } : {})}
         {...passThroughProps}
       >
@@ -34,7 +35,7 @@ const Link: React.FC<LinkProps> = ({ href, type, children, testId = "", classNam
     return (
       <a
         href={href}
-        className={cn("link", className)}
+        className={cn(linkBaseClasses, className)}
         target="_blank"
         rel="noopener noreferrer"
         {...(testId !== "" ? { "data-testid": testId } : {})}

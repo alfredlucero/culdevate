@@ -30,7 +30,7 @@ module.exports = {
       chunkFilename: "[id].[contenthash].css",
     }),
     // TODO: set up dotenv and separate env files for us to use eventually
-    new webpack.DefinePlugin({ "process.env.API_HOST": "http://localhost:3000" }),
+    new webpack.DefinePlugin({ "process.env.API_HOST": JSON.stringify("http://localhost:3000") }),
   ],
   devServer,
   resolve: {

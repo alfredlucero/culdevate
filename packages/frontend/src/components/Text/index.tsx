@@ -1,7 +1,6 @@
 import React from "react";
 import cn from "classnames";
 import { CommonProps } from "../commonProps";
-import "./index.css";
 
 interface TextProps extends CommonProps {
   variant: TextVariant;
@@ -12,6 +11,8 @@ interface TextProps extends CommonProps {
 }
 
 type TextVariant = "p" | "span";
+
+const textBaseClasses = ["font-sans", "text-gray-800", "text-base"];
 
 const Text: React.FC<TextProps> = ({
   variant,
@@ -26,10 +27,10 @@ const Text: React.FC<TextProps> = ({
   if (variant === "span") {
     return (
       <span
-        className={`${cn("text", "text-normal", {
-          "text-small": small,
-          "text-italic": italic,
-          "text-bold": bold,
+        className={`${cn(textBaseClasses, {
+          "text-sm": small,
+          italic: italic,
+          "font-bold": bold,
         })} ${className}`}
         {...(testId !== "" ? { "data-testid": testId } : {})}
         {...passThroughProps}
@@ -42,10 +43,10 @@ const Text: React.FC<TextProps> = ({
   if (variant === "p") {
     return (
       <p
-        className={`${cn("text", "text-normal", {
-          "text-small": small,
-          "text-italic": italic,
-          "text-bold": bold,
+        className={`${cn(textBaseClasses, {
+          "text-sm": small,
+          italic: italic,
+          "font-bold": bold,
         })} ${className}`}
         {...(testId !== "" ? { "data-testid": testId } : {})}
         {...passThroughProps}

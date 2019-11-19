@@ -4,22 +4,32 @@ import Button from "./index";
 
 storiesOf("Common/Button", module)
   .add("Primary", () => (
-    <Button variant="primary" onClick={() => {}}>
+    <Button type="button" variant="primary" onClick={() => {}}>
       Primary
     </Button>
   ))
   .add("Primary Disabled", () => (
-    <Button variant="primary" onClick={() => {}} disabled={true}>
+    <Button type="submit" variant="primary" onClick={() => {}} disabled={true}>
       Primary Disabled
     </Button>
   ))
   .add("Secondary", () => (
-    <Button variant="secondary" onClick={() => {}}>
+    <Button type="reset" variant="secondary" onClick={() => {}}>
       Secondary
     </Button>
   ))
   .add("Secondary Disabled", () => (
-    <Button variant="secondary" onClick={() => {}} disabled={true}>
+    <Button type="button" variant="secondary" onClick={() => {}} disabled={true}>
       Secondary Disabled
+    </Button>
+  ))
+  .add("Danger", () => (
+    <Button type="reset" variant="danger" onClick={() => {}}>
+      Danger
+    </Button>
+  ))
+  .add("Danger Disabled", () => (
+    <Button type="button" variant="danger" onClick={() => {}} disabled={true}>
+      Danger Disabled
     </Button>
   ));

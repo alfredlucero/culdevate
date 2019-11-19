@@ -1,0 +1,45 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`<Heading /> should render header four variant without error 1`] = `
+<div>
+  <h4
+    class="font-mono font-bold text-gray-800 text-xl extra-heading-class"
+    data-testid="headingTestId"
+  >
+    Header Four Content
+  </h4>
+</div>
+`;
+
+exports[`<Heading /> should render header one variant without error 1`] = `
+<div>
+  <h1
+    class="font-mono font-bold text-gray-800 text-4xl extra-heading-class"
+    data-testid="headingTestId"
+  >
+    Header One Content
+  </h1>
+</div>
+`;
+
+exports[`<Heading /> should render header three variant without error 1`] = `
+<div>
+  <h3
+    class="font-mono font-bold text-gray-800 text-2xl extra-heading-class"
+    data-testid="headingTestId"
+  >
+    Header Three Content
+  </h3>
+</div>
+`;
+
+exports[`<Heading /> should render header two variant without error 1`] = `
+<div>
+  <h2
+    class="font-mono font-bold text-gray-800 text-3xl extra-heading-class"
+    data-testid="headingTestId"
+  >
+    Header Two Content
+  </h2>
+</div>
+`;

@@ -1,0 +1,23 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`<Text /> should render paragraph variant without error 1`] = `
+<div>
+  <p
+    class="font-sans text-gray-800 text-base extra-text-class"
+    data-testid="textTestId"
+  >
+    Paragraph Content
+  </p>
+</div>
+`;
+
+exports[`<Text /> should render span variant without error 1`] = `
+<div>
+  <span
+    class="font-sans text-gray-800 text-base extra-text-class"
+    data-testid="textTestId"
+  >
+    Span Content
+  </span>
+</div>
+`;

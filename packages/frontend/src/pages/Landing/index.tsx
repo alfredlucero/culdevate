@@ -26,7 +26,7 @@ const LandingPage = () => {
       </Text>
       <div className="w-full flex justify-center">
         <Link to="/signup">
-          <Button variant="primary" onClick={() => {}}>
+          <Button type="button" variant="primary" onClick={() => {}}>
             Get Started
           </Button>
         </Link>

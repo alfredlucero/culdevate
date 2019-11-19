@@ -17,7 +17,6 @@ import "./index.css";
 
 const LoginPage = () => {
   const [isLoggingIn, setIsLoggingIn] = useState(false);
-  // TODO: Redirect to dashboard if authenticated with react-router-dom
   const [isAuthenticated, setIsAuthenticated] = useState(false);
   const { saveAuthToken } = useAuth();
   const [loginError, setLoginError] = useState("");
@@ -59,7 +58,7 @@ const LoginPage = () => {
     Boolean(errors.password || errors.username) || values.username === "" || values.password === "";
 
   return (
-    <div className="flex justify-center bg-gray-100 h-full">
+    <div data-testid="loginPage" className="flex justify-center bg-gray-100 h-full">
       <div className="login flex flex-col justify-center">
         <div className="text-center mb-4">
           <Heading variant="h2" className="mb-3">
@@ -117,7 +116,11 @@ const LoginPage = () => {
               </Link>
             </div>
           </form>
-          {loginError !== "" && <p>{loginError}</p>}
+          {loginError !== "" && (
+            <Text variant="p" testId="loginError">
+              {loginError}
+            </Text>
+          )}
         </Card>
         <Text variant="p" small={true} className="mt-2">
           Need to create an account?{" "}

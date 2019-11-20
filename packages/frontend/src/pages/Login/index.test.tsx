@@ -18,7 +18,7 @@ describe("<LoginPage />", () => {
     expect(getByTestId("loginPage")).toBeVisible();
   });
 
-  test("should redirect to signup route when clicking create account link", async () => {
+  test("should redirect to signup route when clicking create account link", () => {
     const { getByTestId, container } = render(
       <MemoryRouter initialEntries={["/login"]}>
         <Switch>
@@ -121,7 +121,7 @@ describe("<LoginPage />", () => {
     expect(recapsPage).toBeVisible();
   });
 
-  test("should show login error after failing to login", async () => {
+  test("should show login error after failing to log in", async () => {
     const { getByTestId, findByTestId } = render(
       <MemoryRouter>
         <LoginPage />

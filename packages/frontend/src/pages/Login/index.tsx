@@ -40,8 +40,7 @@ const LoginPage = () => {
           saveAuthToken(response.data.token);
         })
         .catch((error: AxiosError<ResponseError>) => {
-          const loginError =
-            (error.response && error.response.data.message) || "Login failed due to some issue. Please try again!";
+          const loginError = (error.response && error.response.data.message) || "Login failed. Please try again!";
           setLoginError(loginError);
           setIsLoggingIn(false);
         });

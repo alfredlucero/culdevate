@@ -1,5 +1,5 @@
 import React from "react";
-import { BrowserRouter as Router, Switch, Route, Redirect } from "react-router-dom";
+import { BrowserRouter as Router, Switch, Route, Redirect, useHistory } from "react-router-dom";
 import LandingPage from "./pages/Landing";
 import LoginPage from "./pages/Login";
 import SignupPage from "./pages/Signup";
@@ -11,8 +11,8 @@ import { useAuth } from "./AuthProvider";
 import "./App.css";
 
 const App = () => {
-  const { isAuthenticated } = useAuth();
-  console.log("isAuthenticated", isAuthenticated());
+  const { isAuthenticated, logOut } = useAuth();
+
   return (
     <Router>
       {!isAuthenticated() && (
@@ -33,10 +33,19 @@ const App = () => {
                 <SignupPage />
               </Route>
               {/* Redirect attempts to go to authenticated routes back to login page */}
+              <Route path="/dashboard">
+                <Redirect to="/login" />
+              </Route>
               <Route path="/recaps">
                 <Redirect to="/login" />
               </Route>
               <Route path="/impacts">
+                <Redirect to="/login" />
+              </Route>
+              <Route path="/selfreviews">
+                <Redirect to="/login" />
+              </Route>
+              <Route path="/profile">
                 <Redirect to="/login" />
               </Route>
               {/* TODO: show a 404 page here for no matching route */}
@@ -51,19 +60,20 @@ const App = () => {
       {isAuthenticated() && (
         <div className="culdevate-root-auth">
           <div className="culdevate-nav-auth">
-            <NavigationAuth />
+            <NavigationAuth username="alfienity" onLogOut={logOut} />
           </div>
 
           <main role="main" className="culdevate-main-auth">
             <Switch>
-              {/* TODO: Dashboard */}
+              <Route path="/dashboard"></Route>
               <Route path="/recaps">
                 <RecapsPage />
               </Route>
               <Route path="/impacts">
                 <ImpactsPage />
               </Route>
-              {/* TODO: Reviews */}
+              <Route path="/selfreviews"></Route>
+              <Route path="/profile"></Route>
               {/* Redirect public routes to an authenticated page if already logged in */}
               <Route path="/">
                 <Redirect to="/recaps"></Redirect>

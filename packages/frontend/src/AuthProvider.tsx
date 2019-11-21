@@ -6,6 +6,7 @@ interface AuthContextValue {
   removeAuthToken: () => void;
   isAuthenticated: () => boolean;
   authToken: string | null;
+  logOut: () => void;
 }
 
 const AuthContext = createContext<AuthContextValue>({
@@ -13,6 +14,7 @@ const AuthContext = createContext<AuthContextValue>({
   removeAuthToken: () => {},
   isAuthenticated: () => false,
   authToken: null,
+  logOut: () => {},
 });
 
 interface AuthProviderProps {
@@ -35,6 +37,10 @@ const AuthProvider: React.FC<AuthProviderProps> = ({ children }) => {
     return authToken !== null;
   };
 
+  const logOut = () => {
+    removeAuthToken();
+  };
+
   useEffect(() => {
     if (authToken !== null) {
       AuthTokenLocalStorage.setAuthToken(authToken);
@@ -44,7 +50,7 @@ const AuthProvider: React.FC<AuthProviderProps> = ({ children }) => {
   }, [authToken]);
 
   return (
-    <AuthContext.Provider value={{ authToken, saveAuthToken, removeAuthToken, isAuthenticated }}>
+    <AuthContext.Provider value={{ authToken, saveAuthToken, removeAuthToken, isAuthenticated, logOut }}>
       {children}
     </AuthContext.Provider>
   );

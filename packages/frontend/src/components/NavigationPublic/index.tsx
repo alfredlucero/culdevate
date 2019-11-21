@@ -5,7 +5,7 @@ import Button from "../Button";
 
 const NavigationPublic = () => {
   return (
-    <nav className="p-6 flex justify-between">
+    <nav className="p-3 flex justify-between items-center">
       <Heading variant="h1">
         <Link to="/">culdevate</Link>
       </Heading>

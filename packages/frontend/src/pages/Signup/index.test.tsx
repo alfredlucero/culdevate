@@ -69,6 +69,22 @@ describe("<SignupPage />", () => {
     expect(getByTestId("signupButton")).toBeDisabled();
   });
 
+  test("should show inline error and disabled signup button for invalid password", async () => {
+    const { getByTestId, findByText } = render(
+      <MemoryRouter>
+        <SignupPage />
+      </MemoryRouter>,
+    );
+
+    fireEvent.change(getByTestId("passwordInput"), { target: { value: "2short" } });
+    fireEvent.blur(getByTestId("passwordInput"));
+
+    const passwordError = await findByText(passwordErrors.lessThanMin);
+
+    expect(passwordError).toBeVisible();
+    expect(getByTestId("signupButton")).toBeDisabled();
+  });
+
   test("should show inline error and disabled signup button for mismatched passwords", async () => {
     const { getByTestId, findByText } = render(
       <MemoryRouter>

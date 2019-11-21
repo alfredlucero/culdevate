@@ -1,14 +1,14 @@
 import React from "react";
 import Heading from "../../components/Heading";
 
-const RecapsPage = () => {
+const ProfilePage = () => {
   return (
-    <div data-testid="recapsPage">
+    <div data-testid="profilePage">
       <Heading variant="h2" className="p-6">
-        Recaps
+        Profile
       </Heading>
     </div>
   );
 };
 
-export default RecapsPage;
+export default ProfilePage;

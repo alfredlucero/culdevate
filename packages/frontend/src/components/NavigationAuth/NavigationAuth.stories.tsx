@@ -6,7 +6,14 @@ import NavigationAuth from "./index";
 storiesOf("Common/Navigation Auth", module).add("Default", () => (
   <div>
     <Router>
-      <NavigationAuth />
+      <div style={{ width: "250px", height: "100vh" }}>
+        <NavigationAuth
+          username="alfienity"
+          onLogOut={() => {
+            console.log("Logging out!");
+          }}
+        />
+      </div>
     </Router>
   </div>
 ));

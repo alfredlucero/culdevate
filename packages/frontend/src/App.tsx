@@ -1,12 +1,15 @@
 import React from "react";
-import { BrowserRouter as Router, Switch, Route, Redirect, useHistory } from "react-router-dom";
+import { BrowserRouter as Router, Switch, Route, Redirect } from "react-router-dom";
 import LandingPage from "./pages/Landing";
 import LoginPage from "./pages/Login";
 import SignupPage from "./pages/Signup";
+import ProfilePage from "./pages/Profile";
+import DashboardPage from "./pages/Dashboard";
 import RecapsPage from "./pages/Recaps";
 import ImpactsPage from "./pages/Impacts";
-import NavigationPublic from "./components/NavigationPublic";
-import NavigationAuth from "./components/NavigationAuth";
+import SelfReviewsPage from "./pages/SelfReviews";
+import NavigationPublic, { PublicRoutes } from "./components/NavigationPublic";
+import NavigationAuth, { AuthRoutes } from "./components/NavigationAuth";
 import { useAuth } from "./AuthProvider";
 import "./App.css";
 
@@ -23,30 +26,30 @@ const App = () => {
 
           <main role="main" className="culdevate-main-public">
             <Switch>
-              <Route exact path="/">
+              <Route exact path={PublicRoutes.landing}>
                 <LandingPage />
               </Route>
-              <Route path="/login">
+              <Route exact path={PublicRoutes.login}>
                 <LoginPage />
               </Route>
-              <Route path="/signup">
+              <Route exact path={PublicRoutes.signup}>
                 <SignupPage />
               </Route>
               {/* Redirect attempts to go to authenticated routes back to login page */}
-              <Route path="/dashboard">
-                <Redirect to="/login" />
+              <Route path={AuthRoutes.dashboard}>
+                <Redirect to={PublicRoutes.login} />
               </Route>
-              <Route path="/recaps">
-                <Redirect to="/login" />
+              <Route path={AuthRoutes.recaps}>
+                <Redirect to={PublicRoutes.login} />
               </Route>
-              <Route path="/impacts">
-                <Redirect to="/login" />
+              <Route path={AuthRoutes.impacts}>
+                <Redirect to={PublicRoutes.login} />
               </Route>
-              <Route path="/selfreviews">
-                <Redirect to="/login" />
+              <Route path={AuthRoutes.selfReviews}>
+                <Redirect to={PublicRoutes.login} />
               </Route>
-              <Route path="/profile">
-                <Redirect to="/login" />
+              <Route path={AuthRoutes.profile}>
+                <Redirect to={PublicRoutes.login} />
               </Route>
               {/* TODO: show a 404 page here for no matching route */}
               <Route path="*">
@@ -65,24 +68,30 @@ const App = () => {
 
           <main role="main" className="culdevate-main-auth">
             <Switch>
-              <Route path="/dashboard"></Route>
-              <Route path="/recaps">
+              <Route path={AuthRoutes.profile}>
+                <ProfilePage />
+              </Route>
+              <Route path={AuthRoutes.dashboard}>
+                <DashboardPage />
+              </Route>
+              <Route path={AuthRoutes.recaps}>
                 <RecapsPage />
               </Route>
-              <Route path="/impacts">
+              <Route path={AuthRoutes.impacts}>
                 <ImpactsPage />
               </Route>
-              <Route path="/selfreviews"></Route>
-              <Route path="/profile"></Route>
+              <Route path={AuthRoutes.selfReviews}>
+                <SelfReviewsPage />
+              </Route>
               {/* Redirect public routes to an authenticated page if already logged in */}
-              <Route path="/">
-                <Redirect to="/recaps"></Redirect>
+              <Route path={PublicRoutes.landing}>
+                <Redirect to={AuthRoutes.recaps}></Redirect>
               </Route>
-              <Route path="/login">
-                <Redirect to="/recaps"></Redirect>
+              <Route path={PublicRoutes.login}>
+                <Redirect to={AuthRoutes.recaps}></Redirect>
               </Route>
-              <Route path="/signup">
-                <Redirect to="/recaps"></Redirect>
+              <Route path={PublicRoutes.signup}>
+                <Redirect to={AuthRoutes.recaps}></Redirect>
               </Route>
               {/* TODO: show a 404 page here for no matching route */}
               <Route path="*">

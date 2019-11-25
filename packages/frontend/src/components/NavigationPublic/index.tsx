@@ -3,6 +3,12 @@ import { Link } from "react-router-dom";
 import Heading from "../Heading";
 import Button from "../Button";
 
+export const PublicRoutes = {
+  landing: "/",
+  login: "/login",
+  signup: "/signup",
+};
+
 const NavigationPublic = () => {
   return (
     <nav className="p-3 flex justify-between items-center">

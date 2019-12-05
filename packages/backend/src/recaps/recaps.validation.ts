@@ -3,6 +3,7 @@ import Joi from "@hapi/joi";
 export const MAX_BULLETPOINT_LENGTH = 1000;
 export const MAX_BULLETPOINTS = 20;
 export const MAX_GENERAL_LENGTH = 254;
+export const MAX_URL_LENGTH = 2048;
 
 const RecapWorkExperienceSchema = Joi.object({
   title: Joi.string()
@@ -43,6 +44,24 @@ const RecapAccomplishmentsSchema = Joi.object({
     .required(),
   type: Joi.string()
     .valid("Personal", "Service", "Featured", "School", "Career")
+    .required(),
+});
+
+const RecapPublicationsSchema = Joi.object({
+  title: Joi.string()
+    .max(MAX_GENERAL_LENGTH)
+    .required(),
+  type: Joi.string()
+    .valid("Book", "Journal", "Newspaper", "Magazine", "Blog")
+    .required(),
+  coauthors: Joi.string()
+    .max(MAX_GENERAL_LENGTH)
+    .required(),
+  publisher: Joi.string()
+    .max(MAX_GENERAL_LENGTH)
+    .required(),
+  url: Joi.string()
+    .max(MAX_URL_LENGTH)
     .required(),
 });
 
@@ -109,6 +128,7 @@ export const RecapSchema = Joi.object({
       "WorkExperience",
       "Education",
       "Accomplishments",
+      "Publications",
       "Skills",
       "SideProjects",
       "Organizations",
@@ -125,6 +145,9 @@ export const RecapSchema = Joi.object({
   })
   .when(Joi.object({ kind: "Accomplishments" }).unknown(), {
     then: RecapAccomplishmentsSchema,
+  })
+  .when(Joi.object({ kind: "Publications" }).unknown(), {
+    then: RecapPublicationsSchema,
   })
   .when(Joi.object({ kind: "Skills" }).unknown(), {
     then: RecapSkillsSchema,

@@ -1,15 +1,14 @@
 import {
-  RecapBaseModel,
   RecapWorkExperienceModel,
   RecapEducationModel,
   RecapAccomplishmentsModel,
+  RecapPublicationsModel,
   RecapSkillsModel,
   RecapSideProjectsModel,
   RecapOrganizationsModel,
   RecapReferencesModel,
   RecapOtherModel,
 } from "./recaps.model";
-import { MAX_BULLETPOINTS, MAX_BULLETPOINT_LENGTH, MAX_GENERAL_LENGTH } from "./recaps.validation";
 
 describe("Recaps Model", () => {
   describe("When forming RecapWorkExperience", () => {
@@ -106,6 +105,41 @@ describe("Recaps Model", () => {
       const validationErrors = invalidRecapAccomplishmentsModel.validateSync();
 
       expect(validationErrors.errors.title).toBeTruthy();
+    });
+  });
+
+  describe("When forming RecapPublications", () => {
+    test("should validate without error given all required properties", () => {
+      const validRecapPublicationsModel = new RecapPublicationsModel({
+        startDate: new Date(),
+        endDate: new Date(),
+        bulletPoints: [],
+        title: "Publications Title",
+        type: "Blog",
+        coauthors: "Coauthors",
+        publisher: "Publisher",
+        url: "Url",
+      });
+
+      const validationErrors = validRecapPublicationsModel.validateSync();
+
+      expect(validationErrors).toBeFalsy();
+    });
+
+    test("should have validation error without required type property", () => {
+      const invalidRecapPublicationsModel = new RecapPublicationsModel({
+        startDate: new Date(),
+        endDate: new Date(),
+        bulletPoints: [],
+        title: "Publications Title",
+        coauthors: "Coauthors",
+        publisher: "Publisher",
+        url: "Url",
+      });
+
+      const validationErrors = invalidRecapPublicationsModel.validateSync();
+
+      expect(validationErrors.errors.type).toBeTruthy();
     });
   });
 

@@ -1,5 +1,5 @@
 import mongoose from "mongoose";
-import { MAX_BULLETPOINT_LENGTH, MAX_BULLETPOINTS, MAX_GENERAL_LENGTH } from "./recaps.validation";
+import { MAX_BULLETPOINT_LENGTH, MAX_BULLETPOINTS, MAX_GENERAL_LENGTH, MAX_URL_LENGTH } from "./recaps.validation";
 
 export interface RecapBase {
   kind: RecapKind;
@@ -12,6 +12,7 @@ export type RecapKind =
   | "WorkExperience"
   | "Education"
   | "Accomplishments"
+  | "Publications"
   | "Skills"
   | "SideProjects"
   | "Organizations"
@@ -129,7 +130,30 @@ const RecapAccomplishments = RecapBaseModel.discriminator("Accomplishments", rec
 export const RecapAccomplishmentsModel = mongoose.model<RecapAccomplishmentsModel>("Accomplishments");
 
 // Publications
-// type: Book, Scholarly Journal, Blog, Online Article, Newspaper, Magazine, Self-Publication, Other
+
+export interface RecapPublications {
+  title: string;
+  type: PublicationType;
+  coauthors: string;
+  publisher: string;
+  url: string;
+}
+
+export type PublicationType = "Book" | "Journal" | "Newspaper" | "Magazine" | "Blog";
+
+const recapPublicationsSchema = new mongoose.Schema({
+  title: { type: String, required: true, maxlength: MAX_GENERAL_LENGTH },
+  type: { type: String, required: true, enum: ["Book", "Journal", "Newspaper", "Magazine", "Blog"] },
+  coauthors: { type: String, required: true, maxlength: MAX_GENERAL_LENGTH },
+  publisher: { type: String, required: true, maxlength: MAX_GENERAL_LENGTH },
+  url: { type: String, required: true, maxlength: MAX_URL_LENGTH },
+});
+
+export interface RecapPublicationsModel extends RecapBaseModel, RecapPublications {}
+
+const RecapPublications = RecapBaseModel.discriminator("Publications", recapPublicationsSchema);
+
+export const RecapPublicationsModel = mongoose.model<RecapPublicationsModel>("Publications");
 
 // Skills
 

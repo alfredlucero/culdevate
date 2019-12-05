@@ -177,6 +177,46 @@ describe("Recap Validation", () => {
     });
   });
 
+  describe("When validating RecapPublications", () => {
+    test("should be valid given required properties", () => {
+      const { error } = RecapSchema.validate({
+        ...formBaseRecap("Publications"),
+        title: "Publication Title",
+        type: "Book",
+        coauthors: "Coauthors",
+        publisher: "Publisher",
+        url: "url.com",
+      });
+
+      expect(error).toBeFalsy();
+    });
+
+    test("should be invalid given unknown type", () => {
+      const { error } = RecapSchema.validate({
+        ...formBaseRecap("Publications"),
+        title: "Publication Title",
+        type: "Unknown",
+        coauthors: "Coauthors",
+        publisher: "Publisher",
+        url: "url.com",
+      });
+
+      expect(error).toBeTruthy();
+    });
+
+    test("should be invalid given unknown property", () => {
+      const { error } = RecapSchema.validate({
+        ...formBaseRecap("Publications"),
+        title: "Publication Title",
+        type: "Journal",
+        coauthors: "Coauthors",
+        publisher: "Publisher",
+      });
+
+      expect(error).toBeTruthy();
+    });
+  });
+
   describe("When validating RecapSideProjects", () => {
     test("should be valid given required properties", () => {
       const { error } = RecapSchema.validate({

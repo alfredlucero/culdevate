@@ -50,7 +50,7 @@ describe("Recap Validation", () => {
         title: "Work Title",
         location: "Work Location",
         company: "Work Company",
-        employmentType: "partTime",
+        employmentType: "Part-Time",
       });
 
       expect(error).toBeFalsy();
@@ -62,7 +62,7 @@ describe("Recap Validation", () => {
         title: "Work Title",
         location: "Work Location",
         company: "Work Company",
-        employmentType: "partTime",
+        employmentType: "Part-Time",
         wrongProperty: "wrongProperty",
       });
 
@@ -116,17 +116,27 @@ describe("Recap Validation", () => {
       const { error } = RecapSchema.validate({
         ...formBaseRecap("Accomplishments"),
         title: "Accomplishments Title",
-        type: "Accomplishment Type",
+        type: "Career",
       });
 
       expect(error).toBeFalsy();
+    });
+
+    test("should be invalid when given unknown type", () => {
+      const { error } = RecapSchema.validate({
+        ...formBaseRecap("Accomplishments"),
+        title: "Accomplishments Title",
+        type: "Unknown",
+      });
+
+      expect(error).toBeTruthy();
     });
 
     test("should be invalid when given unknown property", () => {
       const { error } = RecapSchema.validate({
         ...formBaseRecap("Accomplishments"),
         title: "Accomplishments Title",
-        type: "Accomplishment Type",
+        type: "Personal",
         wrongProperty: "wrongProperty",
       });
 
@@ -139,15 +149,27 @@ describe("Recap Validation", () => {
       const { error } = RecapSchema.validate({
         ...formBaseRecap("Skills"),
         title: "Skills Title",
+        proficiency: "Novice",
       });
 
       expect(error).toBeFalsy();
+    });
+
+    test("should be invalid given unknown proficiency", () => {
+      const { error } = RecapSchema.validate({
+        ...formBaseRecap("Skills"),
+        title: "Skills Title",
+        proficiency: "Unknown",
+      });
+
+      expect(error).toBeTruthy();
     });
 
     test("should be invalid when given unknown property", () => {
       const { error } = RecapSchema.validate({
         ...formBaseRecap("Skills"),
         title: "Skills Title",
+        proficiency: "Advanced",
         wrongProperty: "wrongProperty",
       });
 
@@ -160,6 +182,7 @@ describe("Recap Validation", () => {
       const { error } = RecapSchema.validate({
         ...formBaseRecap("SideProjects"),
         title: "Side Project Title",
+        creators: "Creators",
       });
 
       expect(error).toBeFalsy();
@@ -169,6 +192,7 @@ describe("Recap Validation", () => {
       const { error } = RecapSchema.validate({
         ...formBaseRecap("SideProjects"),
         title: "Side Project Title",
+        creators: "Creators",
         wrongProperty: "wrongProperty",
       });
 

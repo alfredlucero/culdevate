@@ -56,13 +56,13 @@ export interface RecapWorkExperience {
   employmentType: EmploymentType;
 }
 
-export type EmploymentType = "partTime" | "fullTime";
+export type EmploymentType = "Part-Time" | "Full-Time";
 
 const recapWorkExperienceSchema = new mongoose.Schema({
   title: { type: String, required: true, maxlength: MAX_GENERAL_LENGTH },
   location: { type: String, required: true, maxlength: MAX_GENERAL_LENGTH },
   company: { type: String, required: true, maxlength: MAX_GENERAL_LENGTH },
-  employmentType: { type: String, required: true, enum: ["partTime", "fullTime"] },
+  employmentType: { type: String, required: true, enum: ["Part-Time", "Full-Time"] },
 });
 
 export interface RecapWorkExperienceModel extends RecapBaseModel, RecapWorkExperience {}
@@ -99,8 +99,15 @@ export const RecapEducationModel = mongoose.model<RecapEducationModel>("Educatio
 
 export interface RecapAccomplishments {
   title: string;
-  type: string;
+  type: AccomplishmentsType;
 }
+
+export type AccomplishmentsType =
+  | "Personal" // Mentorship, Health, Fitness, Learning, etc.
+  | "Service" // Volunteer, Community Service, Philanthropy, etc.
+  | "Featured" // Presentations, Conferences, TV Shows, Public Interviews, Podcasts, Radio, etc.
+  | "School" // Test Score, Scholarship, Honor Roll, Clubs, Organizations, etc.
+  | "Career"; // Promotion, Work Awards, etc.
 
 const recapAccomplishmentsSchema = new mongoose.Schema({
   title: {
@@ -111,7 +118,7 @@ const recapAccomplishmentsSchema = new mongoose.Schema({
   type: {
     type: String,
     required: true,
-    maxlength: MAX_GENERAL_LENGTH,
+    enum: ["Personal", "Service", "Featured", "School", "Career"],
   },
 });
 
@@ -121,14 +128,21 @@ const RecapAccomplishments = RecapBaseModel.discriminator("Accomplishments", rec
 
 export const RecapAccomplishmentsModel = mongoose.model<RecapAccomplishmentsModel>("Accomplishments");
 
+// Publications
+// type: Book, Scholarly Journal, Blog, Online Article, Newspaper, Magazine, Self-Publication, Other
+
 // Skills
 
 export interface RecapSkills {
   title: string;
+  proficiency: SkillsProficiency;
 }
+
+export type SkillsProficiency = "Novice" | "Intermediate" | "Advanced" | "Expert";
 
 const recapSkillsSchema = new mongoose.Schema({
   title: { type: String, required: true, maxlength: MAX_GENERAL_LENGTH },
+  proficiency: { type: String, required: true, enum: ["Novice", "Intermediate", "Advanced", "Expert"] },
 });
 
 export interface RecapSkillsModel extends RecapBaseModel, RecapSkills {}
@@ -141,10 +155,12 @@ export const RecapSkillsModel = mongoose.model<RecapSkillsModel>("Skills");
 
 export interface RecapSideProjects {
   title: string;
+  creators: string;
 }
 
 const recapSideProjectsSchema = new mongoose.Schema({
   title: { type: String, required: true, maxlength: MAX_GENERAL_LENGTH },
+  creators: { type: String, required: true, maxlength: MAX_GENERAL_LENGTH },
 });
 
 export interface RecapSideProjectsModel extends RecapBaseModel, RecapSideProjects {}

@@ -15,7 +15,7 @@ const RecapWorkExperienceSchema = Joi.object({
     .max(MAX_GENERAL_LENGTH)
     .required(),
   employmentType: Joi.string()
-    .valid("partTime", "fullTime")
+    .valid("Part-Time", "Full-Time")
     .required(),
 });
 
@@ -42,7 +42,7 @@ const RecapAccomplishmentsSchema = Joi.object({
     .max(MAX_GENERAL_LENGTH)
     .required(),
   type: Joi.string()
-    .max(MAX_GENERAL_LENGTH)
+    .valid("Personal", "Service", "Featured", "School", "Career")
     .required(),
 });
 
@@ -50,10 +50,16 @@ const RecapSkillsSchema = Joi.object({
   title: Joi.string()
     .max(MAX_GENERAL_LENGTH)
     .required(),
+  proficiency: Joi.string()
+    .valid("Novice", "Intermediate", "Advanced", "Expert")
+    .required(),
 });
 
 const RecapSideProjectsSchema = Joi.object({
   title: Joi.string()
+    .max(MAX_GENERAL_LENGTH)
+    .required(),
+  creators: Joi.string()
     .max(MAX_GENERAL_LENGTH)
     .required(),
 });

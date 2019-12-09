@@ -42,22 +42,22 @@ const recapBaseSchema = new mongoose.Schema(
   recapBaseOptions,
 );
 
-export interface RecapBaseModel extends RecapBase, mongoose.Document {}
+interface RecapBaseDocument extends RecapBase, mongoose.Document {}
 
 // Base Recap model from which other Recap models will inherit from based on the
 // the value of the "kind" discriminator
-export const RecapBaseModel = mongoose.model<RecapBaseModel>("Recap", recapBaseSchema);
+export const RecapBaseModel = mongoose.model<RecapBaseDocument>("Recap", recapBaseSchema);
 
 // Work Experience
 
-export interface RecapWorkExperience {
+interface RecapWorkExperienceKind {
   title: string;
   location: string;
   company: string;
   employmentType: EmploymentType;
 }
 
-export type EmploymentType = "Part-Time" | "Full-Time";
+type EmploymentType = "Part-Time" | "Full-Time";
 
 const recapWorkExperienceSchema = new mongoose.Schema({
   title: { type: String, required: true, maxlength: MAX_GENERAL_LENGTH },
@@ -66,15 +66,20 @@ const recapWorkExperienceSchema = new mongoose.Schema({
   employmentType: { type: String, required: true, enum: ["Part-Time", "Full-Time"] },
 });
 
-export interface RecapWorkExperienceModel extends RecapBaseModel, RecapWorkExperience {}
+interface RecapWorkExperienceDocument extends RecapBaseDocument, RecapWorkExperienceKind {}
 
-const RecapWorkExperience = RecapBaseModel.discriminator("WorkExperience", recapWorkExperienceSchema);
+export const RecapWorkExperienceModel = RecapBaseModel.discriminator<RecapWorkExperienceDocument>(
+  "WorkExperience",
+  recapWorkExperienceSchema,
+);
 
-export const RecapWorkExperienceModel = mongoose.model<RecapWorkExperienceModel>("WorkExperience");
+export interface RecapWorkExperience extends RecapBase, RecapWorkExperienceKind {
+  kind: "WorkExperience";
+}
 
 // Education
 
-export interface RecapEducation {
+interface RecapEducationKind {
   school: string;
   location: string;
   degree: string;
@@ -90,20 +95,25 @@ const recapEducationSchema = new mongoose.Schema({
   grade: { type: String, required: true, maxlength: MAX_GENERAL_LENGTH },
 });
 
-export interface RecapEducationModel extends RecapBaseModel, RecapEducation {}
+interface RecapEducationDocument extends RecapBaseDocument, RecapEducationKind {}
 
-const RecapEducation = RecapBaseModel.discriminator("Education", recapEducationSchema);
+export const RecapEducationModel = RecapBaseModel.discriminator<RecapEducationDocument>(
+  "Education",
+  recapEducationSchema,
+);
 
-export const RecapEducationModel = mongoose.model<RecapEducationModel>("Education");
+export interface RecapEducation extends RecapBase, RecapEducationKind {
+  kind: "Education";
+}
 
 // Accomplishments
 
-export interface RecapAccomplishments {
+interface RecapAccomplishmentsKind {
   title: string;
   type: AccomplishmentsType;
 }
 
-export type AccomplishmentsType =
+type AccomplishmentsType =
   | "Personal" // Mentorship, Health, Fitness, Learning, etc.
   | "Service" // Volunteer, Community Service, Philanthropy, etc.
   | "Featured" // Presentations, Conferences, TV Shows, Public Interviews, Podcasts, Radio, etc.
@@ -123,15 +133,20 @@ const recapAccomplishmentsSchema = new mongoose.Schema({
   },
 });
 
-export interface RecapAccomplishmentsModel extends RecapBaseModel, RecapAccomplishments {}
+interface RecapAccomplishmentsDocument extends RecapBaseDocument, RecapAccomplishmentsKind {
+  kind: "Accomplishments";
+}
 
-const RecapAccomplishments = RecapBaseModel.discriminator("Accomplishments", recapAccomplishmentsSchema);
+export const RecapAccomplishmentsModel = RecapBaseModel.discriminator<RecapAccomplishmentsDocument>(
+  "Accomplishments",
+  recapAccomplishmentsSchema,
+);
 
-export const RecapAccomplishmentsModel = mongoose.model<RecapAccomplishmentsModel>("Accomplishments");
+export interface RecapAccomplishments extends RecapBase, RecapAccomplishmentsKind {}
 
 // Publications
 
-export interface RecapPublications {
+interface RecapPublicationsKind {
   title: string;
   type: PublicationType;
   coauthors: string;
@@ -139,7 +154,7 @@ export interface RecapPublications {
   url: string;
 }
 
-export type PublicationType = "Book" | "Journal" | "Newspaper" | "Magazine" | "Blog";
+type PublicationType = "Book" | "Journal" | "Newspaper" | "Magazine" | "Blog";
 
 const recapPublicationsSchema = new mongoose.Schema({
   title: { type: String, required: true, maxlength: MAX_GENERAL_LENGTH },
@@ -149,35 +164,42 @@ const recapPublicationsSchema = new mongoose.Schema({
   url: { type: String, required: true, maxlength: MAX_URL_LENGTH },
 });
 
-export interface RecapPublicationsModel extends RecapBaseModel, RecapPublications {}
+interface RecapPublicationsDocument extends RecapBaseDocument, RecapPublicationsKind {}
 
-const RecapPublications = RecapBaseModel.discriminator("Publications", recapPublicationsSchema);
+export const RecapPublicationsModel = RecapBaseModel.discriminator<RecapPublicationsDocument>(
+  "Publications",
+  recapPublicationsSchema,
+);
 
-export const RecapPublicationsModel = mongoose.model<RecapPublicationsModel>("Publications");
+export interface RecapPublications extends RecapBase, RecapPublicationsKind {
+  kind: "Publications";
+}
 
 // Skills
 
-export interface RecapSkills {
+interface RecapSkillsKind {
   title: string;
   proficiency: SkillsProficiency;
 }
 
-export type SkillsProficiency = "Novice" | "Intermediate" | "Advanced" | "Expert";
+type SkillsProficiency = "Novice" | "Intermediate" | "Advanced" | "Expert";
 
 const recapSkillsSchema = new mongoose.Schema({
   title: { type: String, required: true, maxlength: MAX_GENERAL_LENGTH },
   proficiency: { type: String, required: true, enum: ["Novice", "Intermediate", "Advanced", "Expert"] },
 });
 
-export interface RecapSkillsModel extends RecapBaseModel, RecapSkills {}
+interface RecapSkillsDocument extends RecapBaseDocument, RecapSkillsKind {}
 
-const RecapSkills = RecapBaseModel.discriminator("Skills", recapSkillsSchema);
+export const RecapSkillsModel = RecapBaseModel.discriminator<RecapSkillsDocument>("Skills", recapSkillsSchema);
 
-export const RecapSkillsModel = mongoose.model<RecapSkillsModel>("Skills");
+export interface RecapSkills extends RecapBase, RecapSkillsKind {
+  kind: "Skills";
+}
 
 // Side Projects
 
-export interface RecapSideProjects {
+interface RecapSideProjectsKind {
   title: string;
   creators: string;
 }
@@ -187,15 +209,20 @@ const recapSideProjectsSchema = new mongoose.Schema({
   creators: { type: String, required: true, maxlength: MAX_GENERAL_LENGTH },
 });
 
-export interface RecapSideProjectsModel extends RecapBaseModel, RecapSideProjects {}
+interface RecapSideProjectsDocument extends RecapBaseDocument, RecapSideProjectsKind {}
 
-const RecapSideProjects = RecapBaseModel.discriminator("SideProjects", recapSideProjectsSchema);
+export const RecapSideProjectsModel = RecapBaseModel.discriminator<RecapSideProjectsDocument>(
+  "SideProjects",
+  recapSideProjectsSchema,
+);
 
-export const RecapSideProjectsModel = mongoose.model<RecapSideProjectsModel>("SideProjects");
+export interface RecapSideProjects extends RecapBase, RecapSideProjectsKind {
+  kind: "SideProjects";
+}
 
 // Organizations
 
-export interface RecapOrganizations {
+interface RecapOrganizationsKind {
   organizationName: string;
   location: string;
   positions: string;
@@ -207,37 +234,47 @@ const recapOrganizationsSchema = new mongoose.Schema({
   positions: { type: String, required: true, maxlength: MAX_GENERAL_LENGTH },
 });
 
-export interface RecapOrganizationsModel extends RecapBaseModel, RecapOrganizations {}
+interface RecapOrganizationsDocument extends RecapBaseDocument, RecapOrganizationsKind {}
 
-const RecapOrganizations = RecapBaseModel.discriminator("Organizations", recapOrganizationsSchema);
+export const RecapOrganizationsModel = RecapBaseModel.discriminator<RecapOrganizationsDocument>(
+  "Organizations",
+  recapOrganizationsSchema,
+);
 
-export const RecapOrganizationsModel = mongoose.model<RecapOrganizationsModel>("Organizations");
+export interface RecapOrganizations extends RecapBase, RecapOrganizationsKind {
+  kind: "Organizations";
+}
 
 // References
 
-export interface RecapReferences {
+interface RecapReferencesKind {
   company: string;
   title: string;
   phoneNumber: string;
   email: string;
 }
 
-export const recapReferencesSchema = new mongoose.Schema({
+const recapReferencesSchema = new mongoose.Schema({
   company: { type: String, required: true, maxlength: MAX_GENERAL_LENGTH },
   title: { type: String, required: true, maxlength: MAX_GENERAL_LENGTH },
   phoneNumber: { type: String, required: true, maxlength: MAX_GENERAL_LENGTH },
   email: { type: String, required: true, maxlength: MAX_GENERAL_LENGTH },
 });
 
-export interface RecapReferencesModel extends RecapBaseModel, RecapReferences {}
+interface RecapReferencesDocument extends RecapBaseDocument, RecapReferencesKind {}
 
-const RecapReferences = RecapBaseModel.discriminator("References", recapReferencesSchema);
+export const RecapReferencesModel = RecapBaseModel.discriminator<RecapReferencesDocument>(
+  "References",
+  recapReferencesSchema,
+);
 
-export const RecapReferencesModel = mongoose.model<RecapReferencesModel>("References");
+export interface RecapReferences extends RecapBase, RecapReferencesKind {
+  kind: "References";
+}
 
 // Other
 
-export interface RecapOther {
+interface RecapOtherKind {
   title: string;
 }
 
@@ -245,8 +282,21 @@ const recapOtherSchema = new mongoose.Schema({
   title: { type: String, required: true, maxlength: MAX_GENERAL_LENGTH },
 });
 
-export interface RecapOtherModel extends RecapBaseModel, RecapOther {}
+interface RecapOtherDocument extends RecapBaseDocument, RecapOtherKind {}
 
-const RecapOther = RecapBaseModel.discriminator("Other", recapOtherSchema);
+export const RecapOtherModel = RecapBaseModel.discriminator<RecapOtherDocument>("Other", recapOtherSchema);
 
-export const RecapOtherModel = mongoose.model<RecapOtherModel>("Other");
+export interface RecapOther extends RecapBase, RecapOtherKind {
+  kind: "Other";
+}
+
+export type Recap =
+  | RecapWorkExperience
+  | RecapEducation
+  | RecapAccomplishments
+  | RecapPublications
+  | RecapSkills
+  | RecapSideProjects
+  | RecapOrganizations
+  | RecapReferences
+  | RecapOther;

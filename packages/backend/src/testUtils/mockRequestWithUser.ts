@@ -1,15 +1,14 @@
-import { RequestWithUser } from "../interfaces/requestWithUser";
-import { User } from "../users/users.model";
+import { RequestWithUser, UserData } from "../interfaces/requestWithUser";
 
 interface MockRequestWithUser {
-  user?: User;
+  user?: UserData;
   authHeader?: string | null;
   body?: any;
   params?: any;
 }
 
 export const mockRequestWithUser = ({
-  user = {} as User,
+  user = {} as UserData,
   authHeader = "Bearer token",
   body = {},
   params = {},

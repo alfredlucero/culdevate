@@ -13,6 +13,7 @@ import logger from "morgan";
 // Routes
 import CuldevationsRoutes from "./culdevations/culdevations.routes";
 import AuthRoutes from "./auth/auth.routes";
+import RecapsRoutes from "./recaps/recaps.routes";
 
 class App {
   public app: Application;
@@ -45,8 +46,12 @@ class App {
     this.app.use(CuldevationsRoutes.path, CuldevationsRoutes.initializeRoutes());
 
     // Routes: /auth/**/*
-    // Purpose: for User Authentication
+    // Purpose: for User Authentication i.e. signup, login
     this.app.use(AuthRoutes.path, AuthRoutes.initializeRoutes());
+
+    // Routes: /recaps/**/*
+    // Purpose: for Recaps CRUD
+    this.app.use(RecapsRoutes.path, RecapsRoutes.initializeRoutes());
   }
 }
 

@@ -13,8 +13,8 @@ import {
 } from "./recaps.model";
 
 const RecapsDao = {
-  findAllRecaps() {
-    return RecapBaseModel.find();
+  findAllRecaps(userId: string) {
+    return RecapBaseModel.find({ userId });
   },
 
   findRecapById(recapId: string) {
@@ -55,7 +55,7 @@ const RecapsDao = {
     }
   },
 
-  updateRecapById(recapId: string, updatedRecap: Recap) {
+  updateRecapById({ recapId, updatedRecap }: { recapId: string; updatedRecap: Recap }) {
     switch (updatedRecap.kind) {
       case "WorkExperience":
         return RecapWorkExperienceModel.findOneAndUpdate({ _id: recapId }, updatedRecap, { new: true });

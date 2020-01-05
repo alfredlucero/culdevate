@@ -9,8 +9,11 @@ import {
   RecapReferencesModel,
   RecapOtherModel,
 } from "./recaps.model";
+import { generateObjectId } from "../testUtils/generateObjectId";
 
 describe("Recaps Model", () => {
+  const userId = generateObjectId();
+
   describe("When forming RecapWorkExperience", () => {
     test("should validate without error given all required properties", () => {
       const validRecapWorkExperienceModel = new RecapWorkExperienceModel({
@@ -21,6 +24,7 @@ describe("Recaps Model", () => {
         location: "Work Location",
         company: "Work Company",
         employmentType: "Part-Time",
+        userId,
       });
 
       const validationErrors = validRecapWorkExperienceModel.validateSync();
@@ -36,6 +40,7 @@ describe("Recaps Model", () => {
         location: "Work Location",
         company: "Work Company",
         employmentType: "Part-Time",
+        userId,
       });
 
       const validationErrors = invalidRecapWorkExperienceModel.validateSync();
@@ -55,6 +60,7 @@ describe("Recaps Model", () => {
         degree: "Degree",
         fieldOfStudy: "Field of Study",
         grade: "Alumnus",
+        userId,
       });
 
       const validationErrors = validRecapEducationModel.validateSync();
@@ -71,6 +77,7 @@ describe("Recaps Model", () => {
         degree: "Degree",
         fieldOfStudy: "Field of Study",
         grade: "Alumnus",
+        userId,
       });
 
       const validationErrors = invalidRecapEducationModel.validateSync();
@@ -87,6 +94,7 @@ describe("Recaps Model", () => {
         bulletPoints: [],
         title: "Accomplishments Title",
         type: "Career",
+        userId,
       });
 
       const validationErrors = validRecapAccomplishmentsModel.validateSync();
@@ -100,6 +108,7 @@ describe("Recaps Model", () => {
         endDate: new Date(),
         bulletPoints: [],
         type: "School",
+        userId,
       });
 
       const validationErrors = invalidRecapAccomplishmentsModel.validateSync();
@@ -119,6 +128,7 @@ describe("Recaps Model", () => {
         coauthors: "Coauthors",
         publisher: "Publisher",
         url: "Url",
+        userId,
       });
 
       const validationErrors = validRecapPublicationsModel.validateSync();
@@ -135,6 +145,7 @@ describe("Recaps Model", () => {
         coauthors: "Coauthors",
         publisher: "Publisher",
         url: "Url",
+        userId,
       });
 
       const validationErrors = invalidRecapPublicationsModel.validateSync();
@@ -151,6 +162,7 @@ describe("Recaps Model", () => {
         bulletPoints: [],
         title: "Skill",
         proficiency: "Novice",
+        userId,
       });
 
       const validationErrors = validRecapSkillsModel.validateSync();
@@ -164,6 +176,7 @@ describe("Recaps Model", () => {
         endDate: new Date(),
         bulletPoints: [],
         title: "Skill",
+        userId,
       });
 
       const validationErrors = invalidRecapSkillsModel.validateSync();
@@ -180,6 +193,7 @@ describe("Recaps Model", () => {
         bulletPoints: [],
         title: "Side Project",
         creators: "Creators",
+        userId,
       });
 
       const validationErrors = validRecapSideProjectsModel.validateSync();
@@ -193,6 +207,7 @@ describe("Recaps Model", () => {
         endDate: new Date(),
         bulletPoints: [],
         title: "Side Project",
+        userId,
       });
 
       const validationErrors = invalidRecapSideProjectsModel.validateSync();
@@ -210,6 +225,7 @@ describe("Recaps Model", () => {
         organizationName: "Organization",
         location: "Location",
         positions: "Positions",
+        userId,
       });
 
       const validationErrors = validRecapOrganizationsModel.validateSync();
@@ -224,6 +240,7 @@ describe("Recaps Model", () => {
         bulletPoints: [],
         organizationName: "Organization",
         location: "Location",
+        userId,
       });
 
       const validationErrors = invalidRecapOrganizationsModel.validateSync();
@@ -242,6 +259,7 @@ describe("Recaps Model", () => {
         title: "Reference Title",
         phoneNumber: "911",
         email: "reference@email.com",
+        userId,
       });
 
       const validationErrors = validRecapReferencesModel.validateSync();
@@ -257,6 +275,7 @@ describe("Recaps Model", () => {
         company: "Company",
         title: "Reference Title",
         phoneNumber: "911",
+        userId,
       });
 
       const validationErrors = invalidRecapReferencesModel.validateSync();
@@ -272,6 +291,7 @@ describe("Recaps Model", () => {
         endDate: new Date(),
         bulletPoints: [],
         title: "Other Title",
+        userId,
       });
 
       const validationErrors = validRecapOtherModel.validateSync();
@@ -284,6 +304,7 @@ describe("Recaps Model", () => {
         startDate: new Date(),
         endDate: new Date(),
         bulletPoints: [],
+        userId,
       });
 
       const validationErrors = invalidRecapOtherModel.validateSync();

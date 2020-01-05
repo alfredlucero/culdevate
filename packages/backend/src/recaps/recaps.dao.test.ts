@@ -1,36 +1,30 @@
 import RecapsDao from "./recaps.dao";
 import {
-  RecapBaseModel,
-  RecapKind,
-  RecapBase,
   RecapWorkExperienceModel,
   RecapWorkExperience,
-  RecapEducationModel,
   RecapEducation,
-  RecapAccomplishmentsModel,
   RecapAccomplishments,
-  RecapPublicationsModel,
   RecapPublications,
   RecapSkillsModel,
   RecapSkills,
-  RecapSideProjectsModel,
   RecapSideProjects,
-  RecapOrganizationsModel,
   RecapOrganizations,
-  RecapReferencesModel,
   RecapReferences,
   RecapOtherModel,
   RecapOther,
-  Recap,
 } from "./recaps.model";
 import DbTestHelper from "../testUtils/dbTestHelper";
+import { generateObjectId } from "../testUtils/generateObjectId";
 
 const dbTestHelper = new DbTestHelper();
 
+const userId = generateObjectId();
+const userIdString = userId.toString();
 const formBaseRecap = () => ({
   startDate: new Date(),
   endDate: new Date(),
   bulletPoints: [],
+  userId,
 });
 
 describe("Recaps Dao", () => {
@@ -59,7 +53,7 @@ describe("Recaps Dao", () => {
 
     await Promise.all([workExperienceRecapModel.save(), skillsRecapModel.save()]);
 
-    const actualFoundRecaps = await RecapsDao.findAllRecaps();
+    const actualFoundRecaps = await RecapsDao.findAllRecaps(userIdString);
     const expectedFoundRecaps = [workExperienceRecap, skillsRecap];
 
     // Workaround to compare these objects: https://github.com/facebook/jest/issues/8475
@@ -228,7 +222,10 @@ describe("Recaps Dao", () => {
       company: "Updated Company",
       employmentType: "Part-Time",
     };
-    const actualUpdatedRecap = await RecapsDao.updateRecapById(createdRecap._id, updatedWorkExperienceRecap);
+    const actualUpdatedRecap = await RecapsDao.updateRecapById({
+      recapId: createdRecap._id,
+      updatedRecap: updatedWorkExperienceRecap,
+    });
     const foundUpdatedRecap = await RecapsDao.findRecapById(actualUpdatedRecap._id);
 
     expect(foundUpdatedRecap.toObject()).toMatchObject(updatedWorkExperienceRecap);
@@ -254,7 +251,10 @@ describe("Recaps Dao", () => {
       degree: "Updated Degree",
       grade: "Updated Grade",
     };
-    const actualUpdatedRecap = await RecapsDao.updateRecapById(createdRecap._id, updatedEducationRecap);
+    const actualUpdatedRecap = await RecapsDao.updateRecapById({
+      recapId: createdRecap._id,
+      updatedRecap: updatedEducationRecap,
+    });
     const foundUpdatedRecap = await RecapsDao.findRecapById(actualUpdatedRecap._id);
 
     expect(foundUpdatedRecap.toObject()).toMatchObject(updatedEducationRecap);
@@ -274,7 +274,10 @@ describe("Recaps Dao", () => {
       type: "Personal",
       title: "Updated Title",
     };
-    const actualUpdatedRecap = await RecapsDao.updateRecapById(createdRecap._id, updatedAccomplishmentsRecap);
+    const actualUpdatedRecap = await RecapsDao.updateRecapById({
+      recapId: createdRecap._id,
+      updatedRecap: updatedAccomplishmentsRecap,
+    });
     const foundUpdatedRecap = await RecapsDao.findRecapById(actualUpdatedRecap._id);
 
     expect(foundUpdatedRecap.toObject()).toMatchObject(updatedAccomplishmentsRecap);
@@ -300,7 +303,10 @@ describe("Recaps Dao", () => {
       url: "Updated Url",
       publisher: "Updated Publisher",
     };
-    const actualUpdatedRecap = await RecapsDao.updateRecapById(createdRecap._id, updatedPublicationsRecap);
+    const actualUpdatedRecap = await RecapsDao.updateRecapById({
+      recapId: createdRecap._id,
+      updatedRecap: updatedPublicationsRecap,
+    });
     const foundUpdatedRecap = await RecapsDao.findRecapById(actualUpdatedRecap._id);
 
     expect(foundUpdatedRecap.toObject()).toMatchObject(updatedPublicationsRecap);
@@ -320,7 +326,10 @@ describe("Recaps Dao", () => {
       title: "Updated Title",
       proficiency: "Novice",
     };
-    const actualUpdatedRecap = await RecapsDao.updateRecapById(createdRecap._id, updatedSkillsRecap);
+    const actualUpdatedRecap = await RecapsDao.updateRecapById({
+      recapId: createdRecap._id,
+      updatedRecap: updatedSkillsRecap,
+    });
     const foundUpdatedRecap = await RecapsDao.findRecapById(actualUpdatedRecap._id);
 
     expect(foundUpdatedRecap.toObject()).toMatchObject(updatedSkillsRecap);
@@ -340,7 +349,10 @@ describe("Recaps Dao", () => {
       title: "Updated Title",
       creators: "Updated Creators",
     };
-    const actualUpdatedRecap = await RecapsDao.updateRecapById(createdRecap._id, updatedSideProjectsRecap);
+    const actualUpdatedRecap = await RecapsDao.updateRecapById({
+      recapId: createdRecap._id,
+      updatedRecap: updatedSideProjectsRecap,
+    });
     const foundUpdatedRecap = await RecapsDao.findRecapById(actualUpdatedRecap._id);
 
     expect(foundUpdatedRecap.toObject()).toMatchObject(updatedSideProjectsRecap);
@@ -362,7 +374,10 @@ describe("Recaps Dao", () => {
       positions: "Updated Positions",
       location: "Updated Location",
     };
-    const actualUpdatedRecap = await RecapsDao.updateRecapById(createdRecap._id, updatedOrganizationsRecap);
+    const actualUpdatedRecap = await RecapsDao.updateRecapById({
+      recapId: createdRecap._id,
+      updatedRecap: updatedOrganizationsRecap,
+    });
     const foundUpdatedRecap = await RecapsDao.findRecapById(actualUpdatedRecap._id);
 
     expect(foundUpdatedRecap.toObject()).toMatchObject(updatedOrganizationsRecap);
@@ -386,7 +401,10 @@ describe("Recaps Dao", () => {
       phoneNumber: "562",
       email: "updatedemail@domain.com",
     };
-    const actualUpdatedRecap = await RecapsDao.updateRecapById(createdRecap._id, updatedReferencesRecap);
+    const actualUpdatedRecap = await RecapsDao.updateRecapById({
+      recapId: createdRecap._id,
+      updatedRecap: updatedReferencesRecap,
+    });
     const foundUpdatedRecap = await RecapsDao.findRecapById(actualUpdatedRecap._id);
 
     expect(foundUpdatedRecap.toObject()).toMatchObject(updatedReferencesRecap);
@@ -404,7 +422,10 @@ describe("Recaps Dao", () => {
       ...otherRecap,
       title: "Updated Title",
     };
-    const actualUpdatedRecap = await RecapsDao.updateRecapById(createdRecap._id, updatedOtherRecap);
+    const actualUpdatedRecap = await RecapsDao.updateRecapById({
+      recapId: createdRecap._id,
+      updatedRecap: updatedOtherRecap,
+    });
     const foundUpdatedRecap = await RecapsDao.findRecapById(actualUpdatedRecap._id);
 
     expect(foundUpdatedRecap.toObject()).toMatchObject(updatedOtherRecap);

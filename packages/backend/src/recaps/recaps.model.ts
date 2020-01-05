@@ -1,4 +1,5 @@
 import mongoose from "mongoose";
+import { UserDocument } from "../users/users.model";
 import { MAX_BULLETPOINT_LENGTH, MAX_BULLETPOINTS, MAX_GENERAL_LENGTH, MAX_URL_LENGTH } from "./recaps.validation";
 
 export interface RecapBase {
@@ -6,6 +7,7 @@ export interface RecapBase {
   startDate?: Date;
   endDate?: Date;
   bulletPoints: string[];
+  userId: UserDocument["_id"];
 }
 
 export type RecapKind =
@@ -38,6 +40,7 @@ const recapBaseSchema = new mongoose.Schema(
       required: true,
       maxlength: MAX_BULLETPOINTS,
     },
+    userId: { type: mongoose.Schema.Types.ObjectId, required: true },
   },
   recapBaseOptions,
 );

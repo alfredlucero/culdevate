@@ -37,7 +37,11 @@ const authMiddleware = async (req: RequestWithUser, res: Response, next: NextFun
     }
 
     // Pass logged in user data to authenticated routes for them to use
-    req.user = user;
+    req.user = {
+      username: user.username,
+      email: user.email,
+      id,
+    };
     next();
   } catch (error) {
     res.status(401).json({

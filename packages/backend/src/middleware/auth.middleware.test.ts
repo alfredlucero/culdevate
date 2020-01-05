@@ -92,8 +92,9 @@ describe("Auth Middleware", () => {
     const next = mockNext();
 
     // Mock out decoded token from Authorization header
+    const userId = "user_id";
     const jwtSpy = (jest.spyOn(jwt, "verify") as jest.SpyInstance).mockImplementation(
-      () => ({ username: "user", id: "user_id" } as AuthTokenPayload),
+      () => ({ username: "user", id: userId } as AuthTokenPayload),
     );
 
     // Mock out matching user
@@ -108,7 +109,11 @@ describe("Auth Middleware", () => {
 
     await authMiddleware(req, res, next);
 
-    expect(req.user).toMatchObject(user);
+    expect(req.user).toMatchObject({
+      username: user.username,
+      email: user.email,
+      id: userId,
+    });
     expect(next).toHaveBeenCalled();
 
     jwtSpy.mockRestore();

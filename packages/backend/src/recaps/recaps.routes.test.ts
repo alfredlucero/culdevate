@@ -78,6 +78,70 @@ describe("Recaps Routes", () => {
     });
   });
 
+  describe("PATCH /recaps", () => {
+    test("should fail to update recap with validation errors", async () => {
+      const validOtherRecap = {
+        kind: "Other",
+        bulletPoints: [],
+        title: "Other Title",
+      };
+
+      let otherRecapId;
+      await request(app)
+        .post("/recaps")
+        .set("Authorization", `Bearer ${authToken}`)
+        .send(validOtherRecap)
+        .expect(201)
+        .then(response => {
+          otherRecapId = response.body._id;
+        });
+
+      const invalidUpdatedOtherRecap = {
+        ...validOtherRecap,
+        incorrectProperty: "Blah",
+      };
+      await request(app)
+        .patch(`/recaps/${otherRecapId}`)
+        .set("Authorization", `Bearer ${authToken}`)
+        .send(invalidUpdatedOtherRecap)
+        .expect(400)
+        .then(response => {
+          expect(response.body).toMatchObject({ message: `"incorrectProperty" is not allowed` });
+        });
+    });
+
+    test("should be able to update a recap", async () => {
+      const validOtherRecap = {
+        kind: "Other",
+        bulletPoints: [],
+        title: "Other Title",
+      };
+
+      let otherRecapId;
+      await request(app)
+        .post("/recaps")
+        .set("Authorization", `Bearer ${authToken}`)
+        .send(validOtherRecap)
+        .expect(201)
+        .then(response => {
+          otherRecapId = response.body._id;
+        });
+
+      const updatedOtherRecap = {
+        ...validOtherRecap,
+        title: "Updated Other Title",
+      };
+      await request(app)
+        .patch(`/recaps/${otherRecapId}`)
+        .set("Authorization", `Bearer ${authToken}`)
+        .send(updatedOtherRecap)
+        .expect(200)
+        .then(response => {
+          expect(response.body).toMatchObject(updatedOtherRecap);
+        });
+    });
+  });
+
   afterEach(async () => {
     await dbTestHelper.cleanUpDb();
   });

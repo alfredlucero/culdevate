@@ -12,6 +12,14 @@ const RecapsRoutes = {
     // POST /recaps
     this.router.post("/", authMiddleware, validationMiddleware(RecapSchema, "body"), RecapsController.createRecap);
 
+    // PATCH /recaps/:recapId
+    this.router.patch(
+      "/:recapId",
+      authMiddleware,
+      validationMiddleware(RecapSchema, "body"),
+      RecapsController.updateRecap,
+    );
+
     return this.router;
   },
 };

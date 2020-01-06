@@ -40,6 +40,19 @@ describe("Recaps Routes", () => {
   });
 
   describe("POST /recaps", () => {
+    test("should fail to create a recap without proper authorization", async () => {
+      const validOtherRecap = {
+        kind: "Other",
+        bulletPoints: [],
+        title: "Other Title",
+      };
+
+      await request(app)
+        .post("/recaps")
+        .send(validOtherRecap)
+        .expect(401);
+    });
+
     test("should fail to create a recap with validation errors", async () => {
       const invalidOtherRecapWithoutTitle = {
         kind: "Other",
@@ -79,6 +92,19 @@ describe("Recaps Routes", () => {
   });
 
   describe("PATCH /recaps", () => {
+    test("should fail to update recap without proper authorization", async () => {
+      const validOtherRecap = {
+        kind: "Other",
+        bulletPoints: [],
+        title: "Other Title",
+      };
+
+      await request(app)
+        .patch("/recaps/recapId")
+        .send(validOtherRecap)
+        .expect(401);
+    });
+
     test("should fail to update recap with validation errors", async () => {
       const validOtherRecap = {
         kind: "Other",

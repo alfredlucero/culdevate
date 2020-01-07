@@ -1,5 +1,7 @@
 import request from "supertest";
 import app from "../app";
+import { Recap } from "../recaps/recaps.model";
+import RecapsDao from "../recaps/recaps.dao";
 import UsersDao from "../users/users.dao";
 import UsersModel, { User } from "../users/users.model";
 import { UserCredentials } from "../auth/auth.controller";
@@ -21,6 +23,14 @@ describe("Recaps Routes", () => {
   };
   let existingUserModel;
   let authToken;
+  const otherUserId = generateObjectIdString();
+  const otherUserRecap: Recap = {
+    kind: "Other",
+    bulletPoints: [],
+    title: "Other User",
+    userId: otherUserId,
+  };
+  let otherUserRecapId;
   beforeEach(async () => {
     const hashedExistingUserPassword = await UsersModel.hashPassword(existingUser.password);
     existingUserModel = await UsersDao.createUser({
@@ -38,6 +48,9 @@ describe("Recaps Routes", () => {
       .then(response => {
         authToken = response.body.token;
       });
+
+    const createdOtherUserRecap = await RecapsDao.createRecap(otherUserRecap);
+    otherUserRecapId = createdOtherUserRecap._id;
   });
 
   describe("POST /recaps", () => {
@@ -137,6 +150,22 @@ describe("Recaps Routes", () => {
         });
     });
 
+    test("should fail to update another user's recap", async () => {
+      const validOtherRecap = {
+        kind: "Other",
+        bulletPoints: [],
+        title: "Other Title",
+      };
+      await request(app)
+        .patch(`/recaps/${otherUserRecapId}`)
+        .set("Authorization", `Bearer ${authToken}`)
+        .send(validOtherRecap)
+        .expect(404)
+        .then(response => {
+          expect(response.body).toMatchObject({ message: "Failed to find matching recap to update" });
+        });
+    });
+
     test("should be able to update a recap", async () => {
       const validOtherRecap = {
         kind: "Other",
@@ -187,6 +216,14 @@ describe("Recaps Routes", () => {
             message: "Failed to find matching recap to delete",
           });
         });
+    });
+
+    test("should fail to delete another user's recap", async () => {
+      await request(app)
+        .delete(`/recaps/${otherUserRecapId}`)
+        .set("Authorization", `Bearer ${authToken}`)
+        .expect(404)
+        .then(response => expect(response.body).toMatchObject({ message: "Failed to find matching recap to delete" }));
     });
 
     test("should successfully delete an existing recap", async () => {

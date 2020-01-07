@@ -35,6 +35,22 @@ const RecapsController = {
       res.status(500).json({ message: "Failed to update recap." });
     }
   },
+
+  async deleteRecap(req: RequestWithUser, res: Response) {
+    const recapId = req.params.recapId;
+
+    try {
+      const deletedRecap = await RecapsDao.removeRecapById(recapId);
+
+      if (deletedRecap) {
+        res.status(200).json(deletedRecap);
+      } else {
+        res.status(404).json({ message: "Failed to find matching recap to delete" });
+      }
+    } catch (err) {
+      res.status(500).json({ message: "Failed to delete recap" });
+    }
+  },
 };
 
 export default RecapsController;

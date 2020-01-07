@@ -142,4 +142,94 @@ describe("Recaps Controller", () => {
       updateRecapByIdSpy.mockRestore();
     });
   });
+
+  describe("When deleting a recap", () => {
+    test("should return 200 status with deleted recap on success", async () => {
+      const recap: Recap = {
+        kind: "Other",
+        bulletPoints: [],
+        title: "Other Title",
+        userId,
+      };
+      const req = mockRequestWithUser({
+        params: {
+          recapId,
+        },
+        user: {
+          username: "user",
+          email: "user@test.com",
+          id: userId,
+        },
+      });
+      const res = mockResponse();
+      const deleteRecapByIdSpy = (jest.spyOn(RecapsDao, "removeRecapById") as jest.SpyInstance).mockImplementation(
+        () => recap,
+      );
+
+      await RecapsController.deleteRecap(req, res);
+
+      expect(deleteRecapByIdSpy).toHaveBeenCalledWith(recapId);
+
+      expect(res.status).toHaveBeenCalledWith(200);
+      expect(res.json).toHaveBeenCalledWith(recap);
+
+      deleteRecapByIdSpy.mockRestore();
+    });
+
+    test("should return 404 status with message for unmatched id", async () => {
+      const req = mockRequestWithUser({
+        params: {
+          recapId,
+        },
+        user: {
+          username: "user",
+          email: "user@test.com",
+          id: userId,
+        },
+      });
+      const res = mockResponse();
+      const deleteRecapByIdSpy = (jest.spyOn(RecapsDao, "removeRecapById") as jest.SpyInstance).mockImplementation(
+        () => null,
+      );
+
+      await RecapsController.deleteRecap(req, res);
+
+      expect(deleteRecapByIdSpy).toHaveBeenCalledWith(recapId);
+
+      expect(res.status).toHaveBeenCalledWith(404);
+      expect(res.json).toHaveBeenCalledWith({
+        message: "Failed to find matching recap to delete",
+      });
+
+      deleteRecapByIdSpy.mockRestore();
+    });
+
+    test("should return 500 status with message on server error", async () => {
+      const req = mockRequestWithUser({
+        params: {
+          recapId,
+        },
+        user: {
+          username: "user",
+          email: "user@test.com",
+          id: userId,
+        },
+      });
+      const res = mockResponse();
+      const deleteRecapByIdSpy = (jest.spyOn(RecapsDao, "removeRecapById") as jest.SpyInstance).mockImplementation(() =>
+        Promise.reject("500 error"),
+      );
+
+      await RecapsController.deleteRecap(req, res);
+
+      expect(deleteRecapByIdSpy).toHaveBeenCalledWith(recapId);
+
+      expect(res.status).toHaveBeenCalledWith(500);
+      expect(res.json).toHaveBeenCalledWith({
+        message: "Failed to delete recap",
+      });
+
+      deleteRecapByIdSpy.mockRestore();
+    });
+  });
 });

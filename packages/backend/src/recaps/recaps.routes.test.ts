@@ -176,7 +176,7 @@ describe("Recaps Routes", () => {
         .expect(401);
     });
 
-    test("should return 404 after trying to delete non-existent recap", async () => {
+    test("should fail to delete non-existent recap", async () => {
       const notFoundRecapId = generateObjectIdString();
       await request(app)
         .delete(`/recaps/${notFoundRecapId}`)
@@ -189,7 +189,7 @@ describe("Recaps Routes", () => {
         });
     });
 
-    test("should return 200 with deleted recap after deleting recap", async () => {
+    test("should successfully delete an existing recap", async () => {
       const validOtherRecap = {
         kind: "Other",
         bulletPoints: [],

@@ -1,9 +1,12 @@
 import request from "supertest";
 import app from "../app";
+import { Recap } from "../recaps/recaps.model";
+import RecapsDao from "../recaps/recaps.dao";
 import UsersDao from "../users/users.dao";
 import UsersModel, { User } from "../users/users.model";
 import { UserCredentials } from "../auth/auth.controller";
 import DbTestHelper from "../testUtils/dbTestHelper";
+import { generateObjectIdString } from "../testUtils/generateObjectId";
 
 const dbTestHelper = new DbTestHelper();
 process.env.JWT_SECRET = "someJwtSecret";
@@ -20,6 +23,14 @@ describe("Recaps Routes", () => {
   };
   let existingUserModel;
   let authToken;
+  const otherUserId = generateObjectIdString();
+  const otherUserRecap: Recap = {
+    kind: "Other",
+    bulletPoints: [],
+    title: "Other User",
+    userId: otherUserId,
+  };
+  let otherUserRecapId;
   beforeEach(async () => {
     const hashedExistingUserPassword = await UsersModel.hashPassword(existingUser.password);
     existingUserModel = await UsersDao.createUser({
@@ -37,6 +48,9 @@ describe("Recaps Routes", () => {
       .then(response => {
         authToken = response.body.token;
       });
+
+    const createdOtherUserRecap = await RecapsDao.createRecap(otherUserRecap);
+    otherUserRecapId = createdOtherUserRecap._id;
   });
 
   describe("POST /recaps", () => {
@@ -91,7 +105,7 @@ describe("Recaps Routes", () => {
     });
   });
 
-  describe("PATCH /recaps", () => {
+  describe("PATCH /recaps/:recapId", () => {
     test("should fail to update recap without proper authorization", async () => {
       const validOtherRecap = {
         kind: "Other",
@@ -136,6 +150,22 @@ describe("Recaps Routes", () => {
         });
     });
 
+    test("should fail to update another user's recap", async () => {
+      const validOtherRecap = {
+        kind: "Other",
+        bulletPoints: [],
+        title: "Other Title",
+      };
+      await request(app)
+        .patch(`/recaps/${otherUserRecapId}`)
+        .set("Authorization", `Bearer ${authToken}`)
+        .send(validOtherRecap)
+        .expect(404)
+        .then(response => {
+          expect(response.body).toMatchObject({ message: "Failed to find matching recap to update" });
+        });
+    });
+
     test("should be able to update a recap", async () => {
       const validOtherRecap = {
         kind: "Other",
@@ -164,6 +194,61 @@ describe("Recaps Routes", () => {
         .expect(200)
         .then(response => {
           expect(response.body).toMatchObject(updatedOtherRecap);
+        });
+    });
+  });
+
+  describe("DELETE /recaps/:recapId", () => {
+    test("should fail to delete a recap without proper authorization", async () => {
+      await request(app)
+        .delete("/recaps/unauthorized")
+        .expect(401);
+    });
+
+    test("should fail to delete non-existent recap", async () => {
+      const notFoundRecapId = generateObjectIdString();
+      await request(app)
+        .delete(`/recaps/${notFoundRecapId}`)
+        .set("Authorization", `Bearer ${authToken}`)
+        .expect(404)
+        .then(response => {
+          expect(response.body).toMatchObject({
+            message: "Failed to find matching recap to delete",
+          });
+        });
+    });
+
+    test("should fail to delete another user's recap", async () => {
+      await request(app)
+        .delete(`/recaps/${otherUserRecapId}`)
+        .set("Authorization", `Bearer ${authToken}`)
+        .expect(404)
+        .then(response => expect(response.body).toMatchObject({ message: "Failed to find matching recap to delete" }));
+    });
+
+    test("should successfully delete an existing recap", async () => {
+      const validOtherRecap = {
+        kind: "Other",
+        bulletPoints: [],
+        title: "Other Title",
+      };
+
+      let otherRecapId;
+      await request(app)
+        .post("/recaps")
+        .set("Authorization", `Bearer ${authToken}`)
+        .send(validOtherRecap)
+        .expect(201)
+        .then(response => {
+          otherRecapId = response.body._id;
+        });
+
+      await request(app)
+        .delete(`/recaps/${otherRecapId}`)
+        .set("Authorization", `Bearer ${authToken}`)
+        .expect(200)
+        .then(response => {
+          expect(response.body).toMatchObject(validOtherRecap);
         });
     });
   });

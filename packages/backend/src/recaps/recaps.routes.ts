@@ -20,6 +20,9 @@ const RecapsRoutes = {
       RecapsController.updateRecap,
     );
 
+    // DELETE /recaps/:recapId
+    this.router.delete("/:recapId", authMiddleware, RecapsController.deleteRecap);
+
     return this.router;
   },
 };

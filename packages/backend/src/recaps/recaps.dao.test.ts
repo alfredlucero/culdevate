@@ -76,6 +76,25 @@ describe("Recaps Dao", () => {
     expect(actualFoundRecap.toObject()).toMatchObject(expectedFoundRecap);
   });
 
+  test("should find recap by id and user id", async () => {
+    const otherRecap: RecapOther = {
+      ...formBaseRecap(),
+      kind: "Other",
+      title: "Other Title",
+    };
+    const otherRecapModel = new RecapOtherModel(otherRecap);
+
+    await otherRecapModel.save();
+
+    const actualFoundRecap = await RecapsDao.findRecapByIdAndUserId({
+      recapId: otherRecapModel._id,
+      userId: userIdString,
+    });
+    const expectedFoundRecap = otherRecap;
+
+    expect(actualFoundRecap.toObject()).toMatchObject(expectedFoundRecap);
+  });
+
   test("should be able to create a work experience recap", async () => {
     const workExperienceRecap: RecapWorkExperience = {
       ...formBaseRecap(),

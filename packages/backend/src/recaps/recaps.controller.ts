@@ -20,6 +20,25 @@ const RecapsController = {
     }
   },
 
+  // async getAllRecaps(req: RequestWithUser, res: Response) {},
+
+  async getRecapDetails(req: RequestWithUser, res: Response) {
+    const currentUser = req.user;
+    const recapId = req.params.recapId;
+
+    try {
+      const foundRecap = await RecapsDao.findRecapByIdAndUserId({ recapId, userId: currentUser.id });
+
+      if (foundRecap) {
+        res.status(200).json(foundRecap);
+      } else {
+        res.status(404).json({ message: "Failed to find matching recap details" });
+      }
+    } catch (err) {
+      res.status(500).json({ message: "Failed to find recap details" });
+    }
+  },
+
   async updateRecap(req: RequestWithUser, res: Response) {
     const currentUser = req.user;
     const recapId = req.params.recapId;

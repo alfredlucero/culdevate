@@ -105,6 +105,71 @@ describe("Recaps Routes", () => {
     });
   });
 
+  describe("GET /recaps/:recapId", () => {
+    test("should fail to get recap details without proper authorization", async () => {
+      await request(app)
+        .get("/recaps/recapId")
+        .expect(401);
+    });
+
+    test("should fail to get recap details of recap that no longer exists", async () => {
+      const validOtherRecap = {
+        kind: "Other",
+        bulletPoints: [],
+        title: "Other Title",
+      };
+
+      let otherRecapId;
+      await request(app)
+        .post("/recaps")
+        .set("Authorization", `Bearer ${authToken}`)
+        .send(validOtherRecap)
+        .expect(201)
+        .then(response => {
+          otherRecapId = response.body._id;
+        });
+
+      await request(app)
+        .delete(`/recaps/${otherRecapId}`)
+        .set("Authorization", `Bearer ${authToken}`)
+        .expect(200);
+
+      await request(app)
+        .get(`/recaps/${otherRecapId}`)
+        .set("Authorization", `Bearer ${authToken}`)
+        .expect(404)
+        .then(response => {
+          expect(response.body).toMatchObject({ message: "Failed to find matching recap details" });
+        });
+    });
+
+    test("should get recap details of existing recap", async () => {
+      const validOtherRecap = {
+        kind: "Other",
+        bulletPoints: [],
+        title: "Other Title",
+      };
+
+      let otherRecapId;
+      await request(app)
+        .post("/recaps")
+        .set("Authorization", `Bearer ${authToken}`)
+        .send(validOtherRecap)
+        .expect(201)
+        .then(response => {
+          otherRecapId = response.body._id;
+        });
+
+      await request(app)
+        .get(`/recaps/${otherRecapId}`)
+        .set("Authorization", `Bearer ${authToken}`)
+        .expect(200)
+        .then(response => {
+          expect(response.body).toMatchObject(validOtherRecap);
+        });
+    });
+  });
+
   describe("PATCH /recaps/:recapId", () => {
     test("should fail to update recap without proper authorization", async () => {
       const validOtherRecap = {

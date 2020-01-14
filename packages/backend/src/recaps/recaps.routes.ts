@@ -12,6 +12,9 @@ const RecapsRoutes = {
     // POST /recaps
     this.router.post("/", authMiddleware, validationMiddleware(RecapSchema, "body"), RecapsController.createRecap);
 
+    // GET /recaps/:recapId
+    this.router.get("/:recapId", authMiddleware, RecapsController.getRecapDetails);
+
     // PATCH /recaps/:recapId
     this.router.patch(
       "/:recapId",

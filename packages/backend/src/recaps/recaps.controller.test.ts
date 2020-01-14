@@ -73,6 +73,96 @@ describe("Recaps Controller", () => {
     });
   });
 
+  describe("When reading a recap's details", () => {
+    test("should return 200 status with recap details on success", async () => {
+      const foundRecap: Recap = {
+        kind: "Skills",
+        proficiency: "Advanced",
+        bulletPoints: [],
+        title: "Skills Title",
+        userId,
+      };
+      const req = mockRequestWithUser({
+        params: {
+          recapId,
+        },
+        user: {
+          username: "user",
+          email: "user@test.com",
+          id: userId,
+        },
+      });
+      const res = mockResponse();
+      const findRecapByIdAndUserIdSpy = (jest.spyOn(
+        RecapsDao,
+        "findRecapByIdAndUserId",
+      ) as jest.SpyInstance).mockImplementation(() => foundRecap);
+
+      await RecapsController.getRecapDetails(req, res);
+
+      expect(findRecapByIdAndUserIdSpy).toHaveBeenCalledWith({ recapId, userId });
+
+      expect(res.status).toHaveBeenCalledWith(200);
+      expect(res.json).toHaveBeenCalledWith(foundRecap);
+
+      findRecapByIdAndUserIdSpy.mockRestore();
+    });
+
+    test("should return 404 status with message on unmatched recap id", async () => {
+      const req = mockRequestWithUser({
+        params: {
+          recapId,
+        },
+        user: {
+          username: "user",
+          email: "user@test.com",
+          id: userId,
+        },
+      });
+      const res = mockResponse();
+      const findRecapByIdAndUserIdSpy = (jest.spyOn(
+        RecapsDao,
+        "findRecapByIdAndUserId",
+      ) as jest.SpyInstance).mockImplementation(() => null);
+
+      await RecapsController.getRecapDetails(req, res);
+
+      expect(findRecapByIdAndUserIdSpy).toHaveBeenCalledWith({ recapId, userId });
+
+      expect(res.status).toHaveBeenCalledWith(404);
+      expect(res.json).toHaveBeenCalledWith({ message: "Failed to find matching recap details" });
+
+      findRecapByIdAndUserIdSpy.mockRestore();
+    });
+
+    test("should return 500 status with message on find recap by id server error", async () => {
+      const req = mockRequestWithUser({
+        params: {
+          recapId,
+        },
+        user: {
+          username: "user",
+          email: "user@test.com",
+          id: userId,
+        },
+      });
+      const res = mockResponse();
+      const findRecapByIdAndUserIdSpy = (jest.spyOn(
+        RecapsDao,
+        "findRecapByIdAndUserId",
+      ) as jest.SpyInstance).mockImplementation(() => Promise.reject("500 error"));
+
+      await RecapsController.getRecapDetails(req, res);
+
+      expect(findRecapByIdAndUserIdSpy).toHaveBeenCalledWith({ recapId, userId });
+
+      expect(res.status).toHaveBeenCalledWith(500);
+      expect(res.json).toHaveBeenCalledWith({ message: "Failed to find recap details" });
+
+      findRecapByIdAndUserIdSpy.mockRestore();
+    });
+  });
+
   describe("When updating a recap", () => {
     test("should return 200 status with updated recap data on success", async () => {
       const recap: Recap = {

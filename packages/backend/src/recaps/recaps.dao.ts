@@ -21,6 +21,10 @@ const RecapsDao = {
     return RecapBaseModel.findById(recapId);
   },
 
+  findRecapByIdAndUserId({ recapId, userId }: { recapId: string; userId: string }) {
+    return RecapBaseModel.findOne({ userId, _id: recapId });
+  },
+
   createRecap(recap: Recap) {
     switch (recap.kind) {
       case "WorkExperience":

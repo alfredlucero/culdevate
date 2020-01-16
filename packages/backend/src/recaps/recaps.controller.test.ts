@@ -73,6 +73,63 @@ describe("Recaps Controller", () => {
     });
   });
 
+  describe("When reading all recaps for a user", () => {
+    test("should return 200 status with recaps on success", async () => {
+      const foundRecaps: Recap[] = [
+        {
+          kind: "Skills",
+          proficiency: "Advanced",
+          bulletPoints: [],
+          title: "Skills Title",
+          userId,
+        },
+      ];
+      const req = mockRequestWithUser({
+        user: {
+          username: "user",
+          email: "user@test.com",
+          id: userId,
+        },
+      });
+      const res = mockResponse();
+      const findAllRecapsSpy = (jest.spyOn(RecapsDao, "findAllRecaps") as jest.SpyInstance).mockImplementation(
+        () => foundRecaps,
+      );
+
+      await RecapsController.getAllRecaps(req, res);
+
+      expect(findAllRecapsSpy).toHaveBeenCalledWith(userId);
+
+      expect(res.status).toHaveBeenCalledWith(200);
+      expect(res.json).toHaveBeenCalledWith(foundRecaps);
+
+      findAllRecapsSpy.mockRestore();
+    });
+
+    test("should return 500 status with message on server error", async () => {
+      const req = mockRequestWithUser({
+        user: {
+          username: "user",
+          email: "user@test.com",
+          id: userId,
+        },
+      });
+      const res = mockResponse();
+      const findAllRecapsSpy = (jest.spyOn(RecapsDao, "findAllRecaps") as jest.SpyInstance).mockImplementation(() =>
+        Promise.reject("500 error"),
+      );
+
+      await RecapsController.getAllRecaps(req, res);
+
+      expect(findAllRecapsSpy).toHaveBeenCalledWith(userId);
+
+      expect(res.status).toHaveBeenCalledWith(500);
+      expect(res.json).toHaveBeenCalledWith({ message: "Failed to find recaps for user" });
+
+      findAllRecapsSpy.mockRestore();
+    });
+  });
+
   describe("When reading a recap's details", () => {
     test("should return 200 status with recap details on success", async () => {
       const foundRecap: Recap = {

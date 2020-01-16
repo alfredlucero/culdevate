@@ -105,6 +105,36 @@ describe("Recaps Routes", () => {
     });
   });
 
+  describe("GET /recaps", () => {
+    test("should fail to get all recaps without proper authorization", async () => {
+      await request(app)
+        .get(`/recaps`)
+        .expect(401);
+    });
+
+    test("should get all recaps for a user", async () => {
+      const validOtherRecap = {
+        kind: "Other",
+        bulletPoints: [],
+        title: "Other Title",
+      };
+
+      await request(app)
+        .post("/recaps")
+        .set("Authorization", `Bearer ${authToken}`)
+        .send(validOtherRecap)
+        .expect(201);
+
+      await request(app)
+        .get(`/recaps`)
+        .set("Authorization", `Bearer ${authToken}`)
+        .expect(200)
+        .then(response => {
+          expect(response.body).toMatchObject([validOtherRecap]);
+        });
+    });
+  });
+
   describe("GET /recaps/:recapId", () => {
     test("should fail to get recap details without proper authorization", async () => {
       await request(app)

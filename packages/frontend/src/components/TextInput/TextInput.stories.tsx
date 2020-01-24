@@ -48,20 +48,6 @@ storiesOf("Common/Text Input", module)
         label="Username"
         valid={true}
         textInfo="Please provide a username."
-        disabled={true}
-      />
-    </div>
-  ))
-  .add("Inline Text Info", () => (
-    <div style={{ width: "400px", padding: "30px" }}>
-      <TextInput
-        id="text-input"
-        value="testuser123"
-        onChange={() => {}}
-        type="text"
-        label="Username"
-        valid={true}
-        textInfo="Please provide a username."
       />
     </div>
   ))

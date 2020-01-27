@@ -23,13 +23,21 @@ describe("<TextInput />", () => {
   test("should render label if present", () => {
     const label = "Input Label";
     const { getByLabelText } = render(
-      <TextInput id="text-input-id" value="value" type="text" onChange={() => {}} testId={inputTestId} label={label} />,
+      <TextInput
+        id="text-input-id"
+        value="value"
+        type="text"
+        onChange={() => {}}
+        testId={inputTestId}
+        label={label}
+        required={true}
+      />,
     );
 
     expect(getByLabelText(label)).toBeVisible();
   });
 
-  test("should render required label if present and required", () => {
+  test("should render label if present", () => {
     const label = "Input Label";
     const { getByLabelText, getByTestId } = render(
       <TextInput
@@ -43,8 +51,26 @@ describe("<TextInput />", () => {
       />,
     );
 
-    expect(getByLabelText(`${label} (required)`)).toBeVisible();
+    expect(getByLabelText(`${label}`)).toBeVisible();
     expect(getByTestId(inputTestId)).toBeRequired();
+  });
+
+  test("should render label with optional if present and not required", () => {
+    const label = "Input Label";
+    const { getByLabelText, getByTestId } = render(
+      <TextInput
+        id="text-input-id"
+        value="value"
+        type="text"
+        onChange={() => {}}
+        testId={inputTestId}
+        label={label}
+        required={false}
+      />,
+    );
+
+    expect(getByLabelText(`${label} (optional)`)).toBeVisible();
+    expect(getByTestId(inputTestId)).not.toBeRequired();
   });
 
   test("should render inline text info if valid and info present", () => {
@@ -67,7 +93,7 @@ describe("<TextInput />", () => {
 
   test("should render inline error info if invalid and error present", () => {
     const errorInfo = "Error Info";
-    const { container, getByTestId } = render(
+    const { container } = render(
       <TextInput
         id="text-input-id"
         value="value"

@@ -28,6 +28,7 @@ const textInputBaseClasses = [
   "leading-tight",
   "focus:outline-none",
   "focus:shadow-outline",
+  "rounded",
 ];
 const textInputErrorClasses = ["border-red-500"];
 const textInputDisabledClasses = ["bg-gray-200", "opacity-75"];
@@ -53,7 +54,7 @@ const TextInput: React.FC<TextInputProps> = ({
     <div {...(className !== "" ? { className } : {})}>
       {label && (
         <label className="block text-gray-700 text-sm font-bold mb-2" htmlFor={id}>
-          {label} {required ? "(required)" : ""}
+          {label} {required ? "" : "(optional)"}
         </label>
       )}
 

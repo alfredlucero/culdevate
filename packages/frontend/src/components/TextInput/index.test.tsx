@@ -93,7 +93,7 @@ describe("<TextInput />", () => {
 
   test("should render inline error info if invalid and error present", () => {
     const errorInfo = "Error Info";
-    const { container, getByTestId } = render(
+    const { container } = render(
       <TextInput
         id="text-input-id"
         value="value"

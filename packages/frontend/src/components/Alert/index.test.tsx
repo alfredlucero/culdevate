@@ -8,16 +8,16 @@ describe("<Alert />", () => {
   test("should render without error", () => {
     const { container } = render(
       <div>
-        <Alert variant="success" onClose={() => {}} isVisible={true} testId={alertTestId} className="extra-alert-class">
+        <Alert variant="success" onHide={() => {}} isShowing={true} testId={alertTestId} className="extra-alert-class">
           Success Alert
         </Alert>
-        <Alert variant="warning" onClose={() => {}} isVisible={true} testId={alertTestId} className="extra-alert-class">
+        <Alert variant="warning" onHide={() => {}} isShowing={true} testId={alertTestId} className="extra-alert-class">
           Warning Alert
         </Alert>
-        <Alert variant="info" onClose={() => {}} isVisible={true} testId={alertTestId} className="extra-alert-class">
+        <Alert variant="info" onHide={() => {}} isShowing={true} testId={alertTestId} className="extra-alert-class">
           Info Alert
         </Alert>
-        <Alert variant="danger" onClose={() => {}} isVisible={true} testId={alertTestId} className="extra-alert-class">
+        <Alert variant="danger" onHide={() => {}} isShowing={true} testId={alertTestId} className="extra-alert-class">
           Danger Alert
         </Alert>
       </div>,
@@ -26,9 +26,9 @@ describe("<Alert />", () => {
     expect(container).toMatchSnapshot();
   });
 
-  test("should not exist when the alert is not visible", () => {
+  test("should not exist when the alert is not showing", () => {
     const { queryByTestId } = render(
-      <Alert variant="success" onClose={() => {}} isVisible={false} testId={alertTestId}>
+      <Alert variant="success" onHide={() => {}} isShowing={false} testId={alertTestId}>
         Success Alert
       </Alert>,
     );
@@ -36,16 +36,16 @@ describe("<Alert />", () => {
     expect(queryByTestId(alertTestId)).toBeNull();
   });
 
-  test("should call onClose callback when clicking the alert", () => {
-    const onCloseMock = jest.fn();
+  test("should call onHide callback when clicking the alert", () => {
+    const onHideMock = jest.fn();
     const { getByTestId } = render(
-      <Alert variant="success" onClose={onCloseMock} isVisible={true} testId={alertTestId}>
+      <Alert variant="success" onHide={onHideMock} isShowing={true} testId={alertTestId}>
         Success Alert
       </Alert>,
     );
 
     fireEvent.click(getByTestId(alertTestId));
 
-    expect(onCloseMock).toHaveBeenCalled();
+    expect(onHideMock).toHaveBeenCalled();
   });
 });

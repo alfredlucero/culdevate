@@ -3,9 +3,9 @@ import cn from "classnames";
 import { CommonProps } from "../commonProps";
 
 interface AlertProps extends CommonProps {
-  isVisible: boolean;
+  isShowing: boolean;
   variant: AlertVariant;
-  onClose: () => void;
+  onHide: () => void;
   children: React.ReactNode;
 }
 
@@ -31,15 +31,15 @@ const alertDangerTextClass = "text-red-700";
 const alertDangerClasses = [alertDangerTextClass, "bg-red-100", "border-red-500"];
 
 const Alert: React.FC<AlertProps> = ({
-  isVisible,
+  isShowing,
   variant,
-  onClose,
+  onHide,
   children,
   testId = "",
   className = "",
   ...passThroughProps
 }) => {
-  if (!isVisible) {
+  if (!isShowing) {
     return null;
   }
 
@@ -52,7 +52,7 @@ const Alert: React.FC<AlertProps> = ({
         ...(variant === "warning" ? alertWarningClasses : []),
         ...(variant === "danger" ? alertDangerClasses : []),
       )} ${className}`}
-      onClick={onClose}
+      onClick={onHide}
       role="alert"
       {...(testId !== "" ? { "data-testid": testId } : {})}
       {...passThroughProps}

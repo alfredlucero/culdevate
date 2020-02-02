@@ -72,8 +72,8 @@ const TextInput: React.FC<TextInputProps> = ({
         type={type}
         placeholder={placeholder}
         disabled={disabled}
-        data-testid={testId}
         aria-required={required}
+        {...(testId !== "" ? { "data-testid": testId } : {})}
         {...passThroughProps}
       />
 

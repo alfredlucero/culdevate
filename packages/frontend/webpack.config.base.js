@@ -40,7 +40,11 @@ const tsLoader = {
 
 const postCssLoader = {
   test: /\.css$/,
-  exclude: /node_modules/,
+  include: [
+    path.resolve(__dirname, "src"),
+    path.resolve(__dirname, "node_modules/react-datepicker/dist/react-datepicker.css"),
+  ],
+  // exclude: /node_modules/,
   use: [
     {
       // Extracts CSS into separate files; CSS file per JS file which contains CSS

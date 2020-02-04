@@ -1,0 +1,27 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`<DatePicker /> should render without error 1`] = `
+<div>
+  <div
+    class="extra-date-class"
+  >
+    
+    <div
+      class="react-datepicker-wrapper"
+    >
+      <div
+        class="react-datepicker__input-container"
+      >
+        <input
+          class="shadow appearance-none border w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline rounded"
+          data-testid="datePickerTestId"
+          id="datePicker"
+          placeholder=""
+          type="text"
+          value="02/03/2020"
+        />
+      </div>
+    </div>
+  </div>
+</div>
+`;

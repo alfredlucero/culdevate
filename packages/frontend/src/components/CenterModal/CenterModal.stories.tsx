@@ -9,7 +9,7 @@ const onHide = () => {
   console.log("Hide Center Modal!");
 };
 
-storiesOf("Common/CenterModal", module).add("Showing Example", () => (
+storiesOf("Common/Center Modal", module).add("Showing Example", () => (
   <CenterModal isShowing={true} onHide={onHide}>
     <Heading variant="h3">Center Modal Title</Heading>
     <Text variant="p" className="py-4">

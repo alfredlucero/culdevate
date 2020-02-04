@@ -7,7 +7,13 @@ describe("<DatePicker />", () => {
 
   test("should render without error", () => {
     const { container } = render(
-      <DatePicker id="datePicker" selected={new Date("2020/02/03")} onChange={() => {}} className="extra-date-class" />,
+      <DatePicker
+        id="datePicker"
+        selected={new Date("2020/02/03")}
+        onChange={() => {}}
+        className="extra-date-class"
+        testId={datePickerTestId}
+      />,
     );
 
     expect(container).toMatchSnapshot();

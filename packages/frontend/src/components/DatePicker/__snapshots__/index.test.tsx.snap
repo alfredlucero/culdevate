@@ -14,6 +14,7 @@ exports[`<DatePicker /> should render without error 1`] = `
       >
         <input
           class="shadow appearance-none border w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline rounded"
+          data-testid="datePickerTestId"
           id="datePicker"
           placeholder=""
           type="text"

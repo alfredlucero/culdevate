@@ -22,23 +22,6 @@ describe("<TextInput />", () => {
 
   test("should render label if present", () => {
     const label = "Input Label";
-    const { getByLabelText } = render(
-      <TextInput
-        id="text-input-id"
-        value="value"
-        type="text"
-        onChange={() => {}}
-        testId={inputTestId}
-        label={label}
-        required={true}
-      />,
-    );
-
-    expect(getByLabelText(label)).toBeVisible();
-  });
-
-  test("should render label if present", () => {
-    const label = "Input Label";
     const { getByLabelText, getByTestId } = render(
       <TextInput
         id="text-input-id"
@@ -51,7 +34,7 @@ describe("<TextInput />", () => {
       />,
     );
 
-    expect(getByLabelText(`${label}`)).toBeVisible();
+    expect(getByLabelText(label)).toBeVisible();
     expect(getByTestId(inputTestId)).toBeRequired();
   });
 

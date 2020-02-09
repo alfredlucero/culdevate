@@ -35,13 +35,15 @@ const BulletPointInput: React.FC<BulletPointInputProps> = ({
         "px-4",
         "py-6",
         "rounded",
-        "hover:shadow-md",
+        "shadow-md",
+        "bg-white",
         "hover:bg-blue-100",
         "cursor-pointer",
         className,
       )}
       {...passThroughProps}
     >
+      <Icon variant="bulletpoint" size="medium" className="mr-4 text-teal-500" />
       <TextInput
         onChange={onChange}
         onBlur={onBlur}
@@ -59,7 +61,7 @@ const BulletPointInput: React.FC<BulletPointInputProps> = ({
         variant="trash"
         size="medium"
         onClick={onClickDelete}
-        className={cn("text-red-700", "hover:text-red-900", "cursor-pointer")}
+        className={cn("text-red-500", "hover:text-red-700", "cursor-pointer")}
         testId={testId ? `${testId}DeleteIcon` : ""}
       />
     </div>

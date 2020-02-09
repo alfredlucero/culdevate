@@ -47,7 +47,7 @@ storiesOf("RecapsPage/BulletPointInput", module)
     />
   ))
   .add("Multiple Inputs", () => (
-    <div>
+    <div className="p-4 bg-gray-300">
       <BulletPointInput
         onChange={onChange}
         onBlur={onBlur}
@@ -56,6 +56,7 @@ storiesOf("RecapsPage/BulletPointInput", module)
         value=""
         valid={true}
         errorInfo=""
+        className="mb-2"
       />
       <BulletPointInput
         onChange={onChange}
@@ -65,6 +66,7 @@ storiesOf("RecapsPage/BulletPointInput", module)
         value="valid bullet point"
         valid={true}
         errorInfo=""
+        className="mb-2"
       />
       <BulletPointInput
         onChange={onChange}

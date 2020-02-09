@@ -3,9 +3,28 @@
 exports[`<BulletPointInput /> should render without error 1`] = `
 <div>
   <div
-    class="flex items-start px-4 py-6 rounded hover:shadow-md hover:bg-blue-100 cursor-pointer extraBulletPointClass"
+    class="flex items-start px-4 py-6 rounded shadow-md bg-white hover:bg-blue-100 cursor-pointer extraBulletPointClass"
     data-testid="bulletPointInputTestId"
   >
+    <div
+      class="font-sans text-gray-800 text-2xl mr-4 text-teal-500"
+    >
+      <svg
+        aria-hidden="true"
+        class="svg-inline--fa fa-chevron-circle-right fa-w-16 "
+        data-icon="chevron-circle-right"
+        data-prefix="fas"
+        focusable="false"
+        role="img"
+        viewBox="0 0 512 512"
+        xmlns="http://www.w3.org/2000/svg"
+      >
+        <path
+          d="M256 8c137 0 248 111 248 248S393 504 256 504 8 393 8 256 119 8 256 8zm113.9 231L234.4 103.5c-9.4-9.4-24.6-9.4-33.9 0l-17 17c-9.4 9.4-9.4 24.6 0 33.9L285.1 256 183.5 357.6c-9.4 9.4-9.4 24.6 0 33.9l17 17c9.4 9.4 24.6 9.4 33.9 0L369.9 273c9.4-9.4 9.4-24.6 0-34z"
+          fill="currentColor"
+        />
+      </svg>
+    </div>
     <div
       class="mr-4 flex-1 cursor-none"
     >
@@ -22,7 +41,7 @@ exports[`<BulletPointInput /> should render without error 1`] = `
       />
     </div>
     <div
-      class="font-sans text-gray-800 text-2xl text-red-700 hover:text-red-900 cursor-pointer"
+      class="font-sans text-gray-800 text-2xl text-red-500 hover:text-red-700 cursor-pointer"
       data-testid="bulletPointInputTestIdDeleteIcon"
     >
       <svg

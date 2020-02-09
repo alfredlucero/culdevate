@@ -2,7 +2,7 @@ import React from "react";
 import cn from "classnames";
 import { CommonProps } from "../commonProps";
 
-interface AlertProps extends CommonProps {
+export interface AlertProps extends CommonProps {
   isShowing: boolean;
   variant: AlertVariant;
   onHide: () => void;

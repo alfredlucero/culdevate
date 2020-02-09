@@ -4,7 +4,7 @@ import { FontAwesomeIcon, FontAwesomeIconProps } from "@fortawesome/react-fontaw
 import { IconDefinition } from "@fortawesome/fontawesome-svg-core";
 import {
   faSuitcase,
-  faSchool,
+  faGraduationCap,
   faAward,
   faBook,
   faCertificate,
@@ -44,7 +44,7 @@ export type IconSize = "small" | "medium" | "large";
 
 const iconVariantToFontAwesomeMap: IconVariantToFontAwesomeMap = {
   work: faSuitcase,
-  education: faSchool,
+  education: faGraduationCap,
   accomplishments: faAward,
   publications: faBook,
   skills: faCertificate,

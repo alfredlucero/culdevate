@@ -3,7 +3,7 @@ import { Link as RouterLink } from "react-router-dom";
 import cn from "classnames";
 import { CommonProps } from "../commonProps";
 
-interface LinkProps extends CommonProps {
+export interface LinkProps extends CommonProps {
   href: string;
   type: "internal" | "external";
   children: React.ReactNode;

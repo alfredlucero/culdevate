@@ -8,7 +8,7 @@ const bulletPoints = [
   "Led the Anti-Spoofing project in building a new Single Sender Verification page and revised onboarding flows",
 ];
 
-storiesOf("Common/BulletPoint", module).add("List of Bullet Points", () => (
+storiesOf("RecapsPage/BulletPoint", module).add("List of Bullet Points", () => (
   <div>
     <ul>
       {bulletPoints.map((bulletPoint, idx) => {

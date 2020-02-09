@@ -2,7 +2,7 @@ import React from "react";
 import cn from "classnames";
 import { CommonProps } from "../commonProps";
 
-interface TextProps extends CommonProps {
+export interface TextProps extends CommonProps {
   variant: TextVariant;
   children: React.ReactNode;
   small?: boolean;

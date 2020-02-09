@@ -2,7 +2,7 @@ import React from "react";
 import cn from "classnames";
 import { CommonProps } from "../commonProps";
 
-interface CardProps extends CommonProps {
+export interface CardProps extends CommonProps {
   children: React.ReactNode;
 }
 

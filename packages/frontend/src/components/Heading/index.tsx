@@ -2,7 +2,7 @@ import React from "react";
 import cn from "classnames";
 import { CommonProps } from "../commonProps";
 
-interface HeadingProps extends CommonProps {
+export interface HeadingProps extends CommonProps {
   variant: HeadingVariant;
   children: React.ReactNode;
   italic?: boolean;

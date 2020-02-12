@@ -8,6 +8,7 @@ exports[`<BulletPoint /> should render without error 1`] = `
   >
     <div
       class="font-sans text-gray-800 text-2xl mr-2 text-teal-500"
+      id=""
     >
       <svg
         aria-hidden="true"

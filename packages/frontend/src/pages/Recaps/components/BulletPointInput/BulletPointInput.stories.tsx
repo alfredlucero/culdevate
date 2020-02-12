@@ -2,7 +2,7 @@ import React from "react";
 import { storiesOf } from "@storybook/react";
 import BulletPointInput from "./index";
 
-const onClickDelete = () => {
+const onDelete = () => {
   console.log("Clicked delete bullet point!");
 };
 const onChange = () => {
@@ -17,7 +17,7 @@ storiesOf("RecapsPage/BulletPointInput", module)
     <BulletPointInput
       onChange={onChange}
       onBlur={onBlur}
-      onClickDelete={onClickDelete}
+      onDelete={onDelete}
       id="bulletpoint1"
       value=""
       valid={true}
@@ -28,7 +28,7 @@ storiesOf("RecapsPage/BulletPointInput", module)
     <BulletPointInput
       onChange={onChange}
       onBlur={onBlur}
-      onClickDelete={onClickDelete}
+      onDelete={onDelete}
       id="bulletpoint1"
       value="valid bullet point"
       valid={true}
@@ -39,7 +39,7 @@ storiesOf("RecapsPage/BulletPointInput", module)
     <BulletPointInput
       onChange={onChange}
       onBlur={onBlur}
-      onClickDelete={onClickDelete}
+      onDelete={onDelete}
       id="bulletpoint1"
       value="invalid bullet point"
       valid={false}
@@ -51,31 +51,32 @@ storiesOf("RecapsPage/BulletPointInput", module)
       <BulletPointInput
         onChange={onChange}
         onBlur={onBlur}
-        onClickDelete={onClickDelete}
+        onDelete={onDelete}
         id="bulletpoint1"
         value=""
         valid={true}
         errorInfo=""
-        className="mb-2"
+        className="mb-2 bg-white"
       />
       <BulletPointInput
         onChange={onChange}
         onBlur={onBlur}
-        onClickDelete={onClickDelete}
+        onDelete={onDelete}
         id="bulletpoint1"
         value="valid bullet point"
         valid={true}
         errorInfo=""
-        className="mb-2"
+        className="mb-2 bg-white"
       />
       <BulletPointInput
         onChange={onChange}
         onBlur={onBlur}
-        onClickDelete={onClickDelete}
+        onDelete={onDelete}
         id="bulletpoint1"
         value="invalid bullet point"
         valid={false}
         errorInfo="Bullet point is invalid"
+        className="mb-2 bg-white"
       />
     </div>
   ));

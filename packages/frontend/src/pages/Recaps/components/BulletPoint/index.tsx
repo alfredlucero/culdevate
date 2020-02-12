@@ -4,7 +4,7 @@ import Icon from "../../../../components/Icon";
 import Text from "../../../../components/Text";
 import { CommonProps } from "../../../../components/commonProps";
 
-interface BulletPointProps extends CommonProps {
+export interface BulletPointProps extends CommonProps {
   bulletPoint: string;
 }
 

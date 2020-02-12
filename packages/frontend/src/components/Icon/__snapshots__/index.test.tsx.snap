@@ -11,6 +11,7 @@ exports[`<Icon /> should render all icon variants without error 1`] = `
       <div
         class="font-sans text-gray-800 text-xl extra-icon-class"
         data-testid="iconTestId"
+        id=""
       >
         <svg
           aria-hidden="true"
@@ -37,6 +38,7 @@ exports[`<Icon /> should render all icon variants without error 1`] = `
       <div
         class="font-sans text-gray-800 text-xl extra-icon-class"
         data-testid="iconTestId"
+        id=""
       >
         <svg
           aria-hidden="true"
@@ -63,6 +65,7 @@ exports[`<Icon /> should render all icon variants without error 1`] = `
       <div
         class="font-sans text-gray-800 text-xl extra-icon-class"
         data-testid="iconTestId"
+        id=""
       >
         <svg
           aria-hidden="true"
@@ -89,6 +92,7 @@ exports[`<Icon /> should render all icon variants without error 1`] = `
       <div
         class="font-sans text-gray-800 text-xl extra-icon-class"
         data-testid="iconTestId"
+        id=""
       >
         <svg
           aria-hidden="true"
@@ -115,6 +119,7 @@ exports[`<Icon /> should render all icon variants without error 1`] = `
       <div
         class="font-sans text-gray-800 text-xl extra-icon-class"
         data-testid="iconTestId"
+        id=""
       >
         <svg
           aria-hidden="true"
@@ -141,6 +146,7 @@ exports[`<Icon /> should render all icon variants without error 1`] = `
       <div
         class="font-sans text-gray-800 text-xl extra-icon-class"
         data-testid="iconTestId"
+        id=""
       >
         <svg
           aria-hidden="true"
@@ -167,6 +173,7 @@ exports[`<Icon /> should render all icon variants without error 1`] = `
       <div
         class="font-sans text-gray-800 text-xl extra-icon-class"
         data-testid="iconTestId"
+        id=""
       >
         <svg
           aria-hidden="true"
@@ -193,6 +200,7 @@ exports[`<Icon /> should render all icon variants without error 1`] = `
       <div
         class="font-sans text-gray-800 text-xl extra-icon-class"
         data-testid="iconTestId"
+        id=""
       >
         <svg
           aria-hidden="true"
@@ -219,6 +227,7 @@ exports[`<Icon /> should render all icon variants without error 1`] = `
       <div
         class="font-sans text-gray-800 text-xl extra-icon-class"
         data-testid="iconTestId"
+        id=""
       >
         <svg
           aria-hidden="true"
@@ -245,6 +254,7 @@ exports[`<Icon /> should render all icon variants without error 1`] = `
       <div
         class="font-sans text-gray-800 text-xl extra-icon-class"
         data-testid="iconTestId"
+        id=""
       >
         <svg
           aria-hidden="true"
@@ -271,6 +281,7 @@ exports[`<Icon /> should render all icon variants without error 1`] = `
       <div
         class="font-sans text-gray-800 text-xl extra-icon-class"
         data-testid="iconTestId"
+        id=""
       >
         <svg
           aria-hidden="true"
@@ -297,6 +308,7 @@ exports[`<Icon /> should render all icon variants without error 1`] = `
       <div
         class="font-sans text-gray-800 text-xl extra-icon-class"
         data-testid="iconTestId"
+        id=""
       >
         <svg
           aria-hidden="true"
@@ -323,6 +335,7 @@ exports[`<Icon /> should render all icon variants without error 1`] = `
       <div
         class="font-sans text-gray-800 text-xl extra-icon-class"
         data-testid="iconTestId"
+        id=""
       >
         <svg
           aria-hidden="true"

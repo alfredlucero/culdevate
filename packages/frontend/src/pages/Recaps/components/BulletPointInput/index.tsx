@@ -4,8 +4,8 @@ import TextInput, { TextInputProps } from "../../../../components/TextInput";
 import Icon from "../../../../components/Icon";
 import { CommonProps } from "../../../../components/commonProps";
 
-interface BulletPointInputProps extends CommonProps {
-  onClickDelete: (e: React.MouseEvent) => void;
+export interface BulletPointInputProps extends CommonProps {
+  onDelete: (e: React.MouseEvent) => void;
   onChange: TextInputProps["onChange"];
   onBlur: TextInputProps["onBlur"];
   value: TextInputProps["value"];
@@ -15,7 +15,7 @@ interface BulletPointInputProps extends CommonProps {
 }
 
 const BulletPointInput: React.FC<BulletPointInputProps> = ({
-  onClickDelete,
+  onDelete,
   onChange,
   onBlur,
   value,
@@ -29,18 +29,7 @@ const BulletPointInput: React.FC<BulletPointInputProps> = ({
   return (
     <div
       {...(testId !== "" ? { "data-testid": testId } : {})}
-      className={cn(
-        "flex",
-        "items-start",
-        "px-4",
-        "py-6",
-        "rounded",
-        "shadow-md",
-        "bg-white",
-        "hover:bg-blue-100",
-        "cursor-pointer",
-        className,
-      )}
+      className={cn("flex", "items-start", "px-4", "py-6", "rounded", "shadow-md", "cursor-pointer", className)}
       {...passThroughProps}
     >
       <Icon variant="bulletpoint" size="medium" className="mr-4 text-teal-500" />
@@ -55,13 +44,14 @@ const BulletPointInput: React.FC<BulletPointInputProps> = ({
         type="text"
         placeholder="Provide your highlights and results..."
         testId={testId ? `${testId}Input` : ""}
-        className={cn("mr-4", "flex-1", "cursor-none")}
+        className={cn("mr-4", "flex-1")}
       />
       <Icon
         variant="trash"
         size="medium"
-        onClick={onClickDelete}
+        onClick={onDelete}
         className={cn("text-red-500", "hover:text-red-700", "cursor-pointer")}
+        id={id}
         testId={testId ? `${testId}DeleteIcon` : ""}
       />
     </div>

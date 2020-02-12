@@ -3,11 +3,12 @@
 exports[`<BulletPointInput /> should render without error 1`] = `
 <div>
   <div
-    class="flex items-start px-4 py-6 rounded shadow-md bg-white hover:bg-blue-100 cursor-pointer extraBulletPointClass"
+    class="flex items-start px-4 py-6 rounded shadow-md cursor-pointer extraBulletPointClass"
     data-testid="bulletPointInputTestId"
   >
     <div
       class="font-sans text-gray-800 text-2xl mr-4 text-teal-500"
+      id=""
     >
       <svg
         aria-hidden="true"
@@ -26,7 +27,7 @@ exports[`<BulletPointInput /> should render without error 1`] = `
       </svg>
     </div>
     <div
-      class="mr-4 flex-1 cursor-none"
+      class="mr-4 flex-1"
     >
       
       <input
@@ -43,6 +44,7 @@ exports[`<BulletPointInput /> should render without error 1`] = `
     <div
       class="font-sans text-gray-800 text-2xl text-red-500 hover:text-red-700 cursor-pointer"
       data-testid="bulletPointInputTestIdDeleteIcon"
+      id="bulletpointid"
     >
       <svg
         aria-hidden="true"

@@ -22,6 +22,7 @@ import { CommonProps } from "../commonProps";
 export interface IconProps extends CommonProps, Omit<FontAwesomeIconProps, "icon" | "size"> {
   variant: IconVariant;
   size: IconSize;
+  id?: string;
   onClick?: (e: React.MouseEvent) => void;
 }
 
@@ -66,11 +67,13 @@ const Icon: React.FC<IconProps> = ({
   variant,
   size,
   onClick = () => {},
+  id = "",
   testId = "",
   className = "",
   ...restOfIconProps
 }) => {
   const icon = iconVariantToFontAwesomeMap[variant];
+
   return (
     <div
       onClick={onClick}
@@ -84,6 +87,7 @@ const Icon: React.FC<IconProps> = ({
         },
         className,
       )}
+      id={id}
       {...(testId !== "" ? { "data-testid": testId } : {})}
     >
       <FontAwesomeIcon icon={icon} {...restOfIconProps} />

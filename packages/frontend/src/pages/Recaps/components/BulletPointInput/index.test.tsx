@@ -10,7 +10,7 @@ describe("<BulletPointInput />", () => {
       <BulletPointInput
         onChange={() => {}}
         onBlur={() => {}}
-        onClickDelete={() => {}}
+        onDelete={() => {}}
         id="bulletpointid"
         value="bullet point description"
         valid={true}
@@ -29,7 +29,7 @@ describe("<BulletPointInput />", () => {
       <BulletPointInput
         onChange={() => {}}
         onBlur={() => {}}
-        onClickDelete={() => {}}
+        onDelete={() => {}}
         id="bulletpointid"
         value="invalid bullet point"
         valid={false}
@@ -47,7 +47,7 @@ describe("<BulletPointInput />", () => {
       <BulletPointInput
         onChange={() => {}}
         onBlur={() => {}}
-        onClickDelete={() => {}}
+        onDelete={() => {}}
         id="bulletpointid"
         value="valid bullet point"
         valid={true}
@@ -59,13 +59,13 @@ describe("<BulletPointInput />", () => {
     expect(getByTestId(bulletPointInputTestId).textContent).not.toContain(errorInfo);
   });
 
-  test("should call onClickDelete when clicking the input's delete icon", () => {
-    const onClickDeleteMock = jest.fn();
+  test("should call onDelete when clicking the input's delete icon", () => {
+    const onDeleteMock = jest.fn();
     const { getByTestId } = render(
       <BulletPointInput
         onChange={() => {}}
         onBlur={() => {}}
-        onClickDelete={onClickDeleteMock}
+        onDelete={onDeleteMock}
         id="bulletpointid"
         value="valid bullet point"
         valid={true}
@@ -76,6 +76,6 @@ describe("<BulletPointInput />", () => {
 
     fireEvent.click(getByTestId(`${bulletPointInputTestId}DeleteIcon`));
 
-    expect(onClickDeleteMock).toHaveBeenCalled();
+    expect(onDeleteMock).toHaveBeenCalled();
   });
 });

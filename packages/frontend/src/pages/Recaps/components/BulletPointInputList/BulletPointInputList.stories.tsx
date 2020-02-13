@@ -51,7 +51,6 @@ const StatefulBulletPointInputList = () => {
 
   const handleDeleteBulletPointInput = (e: React.MouseEvent) => {
     const { id } = e.currentTarget;
-    console.log("Deleteid: ", id);
 
     const newBulletPointInputList = bulletPointInputList
       .filter(bulletPointInputListItem => {

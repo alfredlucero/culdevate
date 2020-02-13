@@ -1,13 +1,21 @@
 import * as yup from "yup";
+import { formRequiredError, formMinLengthError, formMaxLengthError } from "./formErrorMessages";
 
 const USERNAME_MIN_LENGTH = 3;
 const USERNAME_MAX_LENGTH = 30;
 
+enum UserFields {
+  username = "Username",
+  email = "Email",
+  password = "Password",
+  confirmPassword = "Confirm Password",
+}
+
 export const usernameErrors = {
-  required: "Username is a required field.",
+  required: formRequiredError({ field: UserFields.username }),
   alphanumeric: "Username must be letters or numbers.",
-  lessThanMin: `Username must be at least ${USERNAME_MIN_LENGTH} characters.`,
-  greaterThanMax: `Username must be at most ${USERNAME_MAX_LENGTH} characters.`,
+  lessThanMin: formMinLengthError({ field: UserFields.username, minLength: USERNAME_MIN_LENGTH }),
+  greaterThanMax: formMaxLengthError({ field: UserFields.username, maxLength: USERNAME_MAX_LENGTH }),
 };
 
 export const usernameSchema = yup
@@ -18,7 +26,7 @@ export const usernameSchema = yup
   .max(USERNAME_MAX_LENGTH, usernameErrors.greaterThanMax);
 
 export const emailErrors = {
-  required: "Email is a required field",
+  required: formRequiredError({ field: UserFields.email }),
   email: "Email must be a valid format.",
 };
 
@@ -31,9 +39,9 @@ const PASSWORD_MIN_LENGTH = 8;
 const PASSWORD_MAX_LENGTH = 30;
 
 export const passwordErrors = {
-  required: "Password is a required field.",
-  lessThanMin: `Password must be at least ${PASSWORD_MIN_LENGTH} characters.`,
-  greaterThanMax: `Password must be at most ${PASSWORD_MAX_LENGTH} characters.`,
+  required: formRequiredError({ field: UserFields.password }),
+  lessThanMin: formMinLengthError({ field: UserFields.password, minLength: PASSWORD_MIN_LENGTH }),
+  greaterThanMax: formMaxLengthError({ field: UserFields.password, maxLength: PASSWORD_MAX_LENGTH }),
 };
 
 export const passwordSchema = yup
@@ -43,7 +51,7 @@ export const passwordSchema = yup
   .max(PASSWORD_MAX_LENGTH, passwordErrors.greaterThanMax);
 
 export const confirmPasswordErrors = {
-  required: "Confirm Password is required.",
+  required: formRequiredError({ field: UserFields.confirmPassword }),
   mismatch: "Passwords must match.",
 };
 

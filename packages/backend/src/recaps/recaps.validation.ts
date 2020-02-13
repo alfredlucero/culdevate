@@ -1,5 +1,7 @@
 import Joi from "@hapi/joi";
 
+// TODO: replace with yup for validation
+
 export const MAX_BULLETPOINT_LENGTH = 1000;
 export const MAX_BULLETPOINTS = 20;
 export const MAX_GENERAL_LENGTH = 254;
@@ -15,6 +17,7 @@ const RecapWorkExperienceSchema = Joi.object({
   company: Joi.string()
     .max(MAX_GENERAL_LENGTH)
     .required(),
+  // TODO: add more employment types
   employmentType: Joi.string()
     .valid("Part-Time", "Full-Time")
     .required(),
@@ -42,6 +45,7 @@ const RecapAccomplishmentsSchema = Joi.object({
   title: Joi.string()
     .max(MAX_GENERAL_LENGTH)
     .required(),
+  // TODO: add other
   type: Joi.string()
     .valid("Personal", "Service", "Featured", "School", "Career")
     .required(),
@@ -51,6 +55,7 @@ const RecapPublicationsSchema = Joi.object({
   title: Joi.string()
     .max(MAX_GENERAL_LENGTH)
     .required(),
+  // TODO: add other
   type: Joi.string()
     .valid("Book", "Journal", "Newspaper", "Magazine", "Blog")
     .required(),

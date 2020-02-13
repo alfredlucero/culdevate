@@ -1,5 +1,6 @@
 import Joi from "@hapi/joi";
 
+// TODO: replace with yup
 const USERNAME_MIN_LENGTH = 3;
 const USERNAME_MAX_LENGTH = 30;
 

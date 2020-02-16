@@ -19,5 +19,11 @@
   "[typescriptreact]": {
     "editor.formatOnSave": false
   },
-  "eslint.workingDirectories": ["packages/backend", "packages/frontend"]
+  "eslint.workingDirectories": [
+    "packages/backend",
+    "packages/frontend"
+  ],
+  "editor.codeActionsOnSave": {
+    "source.fixAll.eslint": true
+  }
 }

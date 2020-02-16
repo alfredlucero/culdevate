@@ -5,7 +5,7 @@ import { CommonProps } from "../commonProps";
 import "react-datepicker/dist/react-datepicker.css";
 import "./index.css";
 
-interface DatePickerProps extends ReactDatePickerProps, CommonProps {
+export interface DatePickerProps extends ReactDatePickerProps, CommonProps {
   id: string;
   valid?: boolean;
   errorInfo?: string;

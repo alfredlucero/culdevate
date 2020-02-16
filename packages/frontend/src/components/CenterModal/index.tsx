@@ -2,7 +2,7 @@ import React from "react";
 import ReactDOM from "react-dom";
 import { CommonProps } from "../commonProps";
 
-interface CenterModalProps extends CommonProps {
+export interface CenterModalProps extends CommonProps {
   isShowing: boolean;
   onHide: () => void;
   children: React.ReactNode;

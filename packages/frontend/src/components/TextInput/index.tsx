@@ -2,9 +2,9 @@ import React from "react";
 import cn from "classnames";
 import { CommonProps } from "../commonProps";
 
-interface TextInputProps extends CommonProps {
+export interface TextInputProps extends CommonProps {
   onChange: (e: React.FormEvent<HTMLInputElement>) => void;
-  onBlur?: (e: React.FocusEvent) => void;
+  onBlur?: (e: React.FocusEvent<HTMLInputElement>) => void;
   value: string;
   id: string;
   type: "text" | "password";

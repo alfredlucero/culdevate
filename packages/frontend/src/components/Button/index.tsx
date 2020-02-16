@@ -2,7 +2,7 @@ import React from "react";
 import cn from "classnames";
 import { CommonProps } from "../commonProps";
 
-interface ButtonProps extends CommonProps {
+export interface ButtonProps extends CommonProps {
   variant: ButtonVariant;
   type: ButtonType;
   children: React.ReactNode;

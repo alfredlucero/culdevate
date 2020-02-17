@@ -9,7 +9,7 @@ exports[`<Icon /> should render all icon variants without error 1`] = `
         work
       </p>
       <div
-        class="font-sans text-gray-800 text-xl extra-icon-class"
+        class="font-sans text-gray-800 text-2xl extra-icon-class"
         data-testid="iconTestId"
         id=""
       >
@@ -36,7 +36,7 @@ exports[`<Icon /> should render all icon variants without error 1`] = `
         education
       </p>
       <div
-        class="font-sans text-gray-800 text-xl extra-icon-class"
+        class="font-sans text-gray-800 text-2xl extra-icon-class"
         data-testid="iconTestId"
         id=""
       >
@@ -63,7 +63,7 @@ exports[`<Icon /> should render all icon variants without error 1`] = `
         accomplishments
       </p>
       <div
-        class="font-sans text-gray-800 text-xl extra-icon-class"
+        class="font-sans text-gray-800 text-2xl extra-icon-class"
         data-testid="iconTestId"
         id=""
       >
@@ -90,7 +90,7 @@ exports[`<Icon /> should render all icon variants without error 1`] = `
         publications
       </p>
       <div
-        class="font-sans text-gray-800 text-xl extra-icon-class"
+        class="font-sans text-gray-800 text-2xl extra-icon-class"
         data-testid="iconTestId"
         id=""
       >
@@ -117,7 +117,7 @@ exports[`<Icon /> should render all icon variants without error 1`] = `
         skills
       </p>
       <div
-        class="font-sans text-gray-800 text-xl extra-icon-class"
+        class="font-sans text-gray-800 text-2xl extra-icon-class"
         data-testid="iconTestId"
         id=""
       >
@@ -144,7 +144,7 @@ exports[`<Icon /> should render all icon variants without error 1`] = `
         projects
       </p>
       <div
-        class="font-sans text-gray-800 text-xl extra-icon-class"
+        class="font-sans text-gray-800 text-2xl extra-icon-class"
         data-testid="iconTestId"
         id=""
       >
@@ -171,7 +171,7 @@ exports[`<Icon /> should render all icon variants without error 1`] = `
         organizations
       </p>
       <div
-        class="font-sans text-gray-800 text-xl extra-icon-class"
+        class="font-sans text-gray-800 text-2xl extra-icon-class"
         data-testid="iconTestId"
         id=""
       >
@@ -198,7 +198,7 @@ exports[`<Icon /> should render all icon variants without error 1`] = `
         references
       </p>
       <div
-        class="font-sans text-gray-800 text-xl extra-icon-class"
+        class="font-sans text-gray-800 text-2xl extra-icon-class"
         data-testid="iconTestId"
         id=""
       >
@@ -225,7 +225,7 @@ exports[`<Icon /> should render all icon variants without error 1`] = `
         other
       </p>
       <div
-        class="font-sans text-gray-800 text-xl extra-icon-class"
+        class="font-sans text-gray-800 text-2xl extra-icon-class"
         data-testid="iconTestId"
         id=""
       >
@@ -252,7 +252,7 @@ exports[`<Icon /> should render all icon variants without error 1`] = `
         bulletpoint
       </p>
       <div
-        class="font-sans text-gray-800 text-xl extra-icon-class"
+        class="font-sans text-gray-800 text-2xl extra-icon-class"
         data-testid="iconTestId"
         id=""
       >
@@ -279,7 +279,7 @@ exports[`<Icon /> should render all icon variants without error 1`] = `
         x
       </p>
       <div
-        class="font-sans text-gray-800 text-xl extra-icon-class"
+        class="font-sans text-gray-800 text-2xl extra-icon-class"
         data-testid="iconTestId"
         id=""
       >
@@ -306,7 +306,7 @@ exports[`<Icon /> should render all icon variants without error 1`] = `
         trash
       </p>
       <div
-        class="font-sans text-gray-800 text-xl extra-icon-class"
+        class="font-sans text-gray-800 text-2xl extra-icon-class"
         data-testid="iconTestId"
         id=""
       >
@@ -333,7 +333,7 @@ exports[`<Icon /> should render all icon variants without error 1`] = `
         plus
       </p>
       <div
-        class="font-sans text-gray-800 text-xl extra-icon-class"
+        class="font-sans text-gray-800 text-2xl extra-icon-class"
         data-testid="iconTestId"
         id=""
       >
@@ -349,6 +349,33 @@ exports[`<Icon /> should render all icon variants without error 1`] = `
         >
           <path
             d="M416 208H272V64c0-17.67-14.33-32-32-32h-32c-17.67 0-32 14.33-32 32v144H32c-17.67 0-32 14.33-32 32v32c0 17.67 14.33 32 32 32h144v144c0 17.67 14.33 32 32 32h32c17.67 0 32-14.33 32-32V304h144c17.67 0 32-14.33 32-32v-32c0-17.67-14.33-32-32-32z"
+            fill="currentColor"
+          />
+        </svg>
+      </div>
+    </div>
+    <div>
+      <p>
+        Icon Variant: 
+        loadingFan
+      </p>
+      <div
+        class="font-sans text-gray-800 text-2xl extra-icon-class"
+        data-testid="iconTestId"
+        id=""
+      >
+        <svg
+          aria-hidden="true"
+          class="svg-inline--fa fa-fan fa-w-16 "
+          data-icon="fan"
+          data-prefix="fas"
+          focusable="false"
+          role="img"
+          viewBox="0 0 512 512"
+          xmlns="http://www.w3.org/2000/svg"
+        >
+          <path
+            d="M352.57 128c-28.09 0-54.09 4.52-77.06 12.86l12.41-123.11C289 7.31 279.81-1.18 269.33.13 189.63 10.13 128 77.64 128 159.43c0 28.09 4.52 54.09 12.86 77.06L17.75 224.08C7.31 223-1.18 232.19.13 242.67c10 79.7 77.51 141.33 159.3 141.33 28.09 0 54.09-4.52 77.06-12.86l-12.41 123.11c-1.05 10.43 8.11 18.93 18.59 17.62 79.7-10 141.33-77.51 141.33-159.3 0-28.09-4.52-54.09-12.86-77.06l123.11 12.41c10.44 1.05 18.93-8.11 17.62-18.59-10-79.7-77.51-141.33-159.3-141.33zM256 288a32 32 0 1 1 32-32 32 32 0 0 1-32 32z"
             fill="currentColor"
           />
         </svg>

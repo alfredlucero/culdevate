@@ -1,5 +1,6 @@
 import React from "react";
 import cn from "classnames";
+import LoadingIcon from "../LoadingIcon";
 import { CommonProps } from "../commonProps";
 
 export interface ButtonProps extends CommonProps {
@@ -8,6 +9,7 @@ export interface ButtonProps extends CommonProps {
   children: React.ReactNode;
   onClick: (e: React.MouseEvent) => void;
   disabled?: boolean;
+  loading?: boolean;
 }
 
 type ButtonType = "submit" | "button" | "reset";
@@ -33,6 +35,7 @@ const Button: React.FC<ButtonProps> = ({
   children,
   onClick,
   disabled = false,
+  loading = false,
   className = "",
   testId = "",
   ...passThroughProps
@@ -52,7 +55,26 @@ const Button: React.FC<ButtonProps> = ({
       {...(testId !== "" ? { "data-testid": testId } : {})}
       {...passThroughProps}
     >
-      {children}
+      <div className="flex items-center">
+        {loading && (
+          <>
+            <LoadingIcon
+              size="small"
+              className={cn(
+                {
+                  "text-teal-400": variant === "primary" || variant === "danger",
+                  "text-teal-700": variant === "secondary",
+                },
+                "mr-2",
+              )}
+              testId={testId !== "" ? `${testId}Loading` : ""}
+            />
+            {children}
+          </>
+        )}
+
+        {!loading && children}
+      </div>
     </button>
   );
 };

@@ -20,6 +20,7 @@ const iconVariants: IconVariant[] = [
   "x",
   "trash",
   "plus",
+  "loadingFan",
 ];
 
 storiesOf("Common/Icon", module)
@@ -54,6 +55,18 @@ storiesOf("Common/Icon", module)
           <div key={idx}>
             <p>Icon Variant: {iconVariant}</p>
             <Icon variant={iconVariant} size="large" onClick={onClick} />
+          </div>
+        );
+      })}
+    </div>
+  ))
+  .add("All XLarge Icons", () => (
+    <div>
+      {iconVariants.map((iconVariant, idx) => {
+        return (
+          <div key={idx}>
+            <p>Icon Variant: {iconVariant}</p>
+            <Icon variant={iconVariant} size="xlarge" onClick={onClick} />
           </div>
         );
       })}

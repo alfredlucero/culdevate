@@ -80,7 +80,7 @@ const RecapsDao = {
       case "Other":
         return RecapOtherModel.findOneAndUpdate({ _id: recapId }, updatedRecap, { new: true });
       default:
-        throw new Error("Failed to find matching recap kind to create!");
+        throw new Error("Failed to find matching recap kind to update!");
     }
   },
 

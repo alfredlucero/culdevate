@@ -35,6 +35,23 @@ describe("<Button />", () => {
     expect(container).toMatchSnapshot();
   });
 
+  test("should render loading state without error", () => {
+    const { container } = render(
+      <Button
+        variant="primary"
+        type="button"
+        loading={true}
+        testId={buttonTestId}
+        className="extra-button-class"
+        onClick={() => {}}
+      >
+        Primary Loading Button
+      </Button>,
+    );
+
+    expect(container).toMatchSnapshot();
+  });
+
   test("should render disabled state when disabled", () => {
     const { getByTestId } = render(
       <Button variant="primary" type="button" testId={buttonTestId} onClick={() => {}} disabled={true}>

@@ -8,6 +8,11 @@ storiesOf("Common/Button", module)
       Primary
     </Button>
   ))
+  .add("Primary Loading", () => (
+    <Button type="button" variant="primary" loading={true} onClick={() => {}}>
+      Primary Loading...
+    </Button>
+  ))
   .add("Primary Disabled", () => (
     <Button type="submit" variant="primary" onClick={() => {}} disabled={true}>
       Primary Disabled
@@ -18,6 +23,11 @@ storiesOf("Common/Button", module)
       Secondary
     </Button>
   ))
+  .add("Secondary Loading", () => (
+    <Button type="reset" variant="secondary" loading={true} onClick={() => {}}>
+      Secondary Loading...
+    </Button>
+  ))
   .add("Secondary Disabled", () => (
     <Button type="button" variant="secondary" onClick={() => {}} disabled={true}>
       Secondary Disabled
@@ -26,6 +36,11 @@ storiesOf("Common/Button", module)
   .add("Danger", () => (
     <Button type="reset" variant="danger" onClick={() => {}}>
       Danger
+    </Button>
+  ))
+  .add("Danger Loading", () => (
+    <Button type="reset" variant="danger" loading={true} onClick={() => {}}>
+      Danger Loading...
     </Button>
   ))
   .add("Danger Disabled", () => (

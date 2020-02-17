@@ -16,6 +16,7 @@ const iconVariants: IconVariant[] = [
   "x",
   "trash",
   "plus",
+  "loadingFan",
 ];
 
 describe("<Icon />", () => {

@@ -9,7 +9,7 @@ describe("<KindSelect />", () => {
         id="kindSelect"
         value="Work Experience"
         onChange={() => {}}
-        data-testid="Kind Select"
+        testId="kind-select-id"
         className="extra-kind-select-class"
       />,
     );

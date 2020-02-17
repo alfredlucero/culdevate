@@ -17,9 +17,17 @@ const RecapWorkExperienceSchema = Joi.object({
   company: Joi.string()
     .max(MAX_GENERAL_LENGTH)
     .required(),
-  // TODO: add more employment types
   employmentType: Joi.string()
-    .valid("Part-Time", "Full-Time")
+    .valid(
+      "Part-Time",
+      "Full-Time",
+      "Self-Employed",
+      "Freelance",
+      "Contract",
+      "Internship",
+      "Apprenticeship",
+      "Volunteer",
+    )
     .required(),
 });
 
@@ -45,9 +53,8 @@ const RecapAccomplishmentsSchema = Joi.object({
   title: Joi.string()
     .max(MAX_GENERAL_LENGTH)
     .required(),
-  // TODO: add other
   type: Joi.string()
-    .valid("Personal", "Service", "Featured", "School", "Career")
+    .valid("Personal", "Service", "Featured", "School", "Career", "Other")
     .required(),
 });
 
@@ -55,9 +62,8 @@ const RecapPublicationsSchema = Joi.object({
   title: Joi.string()
     .max(MAX_GENERAL_LENGTH)
     .required(),
-  // TODO: add other
   type: Joi.string()
-    .valid("Book", "Journal", "Newspaper", "Magazine", "Blog")
+    .valid("Book", "Journal", "Newspaper", "Magazine", "Blog", "Other")
     .required(),
   coauthors: Joi.string()
     .max(MAX_GENERAL_LENGTH)
@@ -130,19 +136,19 @@ export const RecapSchema = Joi.object({
     .required(),
   kind: Joi.string()
     .valid(
-      "WorkExperience",
+      "Work Experience",
       "Education",
       "Accomplishments",
       "Publications",
       "Skills",
-      "SideProjects",
+      "Side Projects",
       "Organizations",
       "References",
       "Other",
     )
     .required(),
 })
-  .when(Joi.object({ kind: "WorkExperience" }).unknown(), {
+  .when(Joi.object({ kind: "Work Experience" }).unknown(), {
     then: RecapWorkExperienceSchema,
   })
   .when(Joi.object({ kind: "Education" }).unknown(), {
@@ -157,7 +163,7 @@ export const RecapSchema = Joi.object({
   .when(Joi.object({ kind: "Skills" }).unknown(), {
     then: RecapSkillsSchema,
   })
-  .when(Joi.object({ kind: "SideProjects" }).unknown(), {
+  .when(Joi.object({ kind: "Side Projects" }).unknown(), {
     then: RecapSideProjectsSchema,
   })
   .when(Joi.object({ kind: "Organizations" }).unknown(), {

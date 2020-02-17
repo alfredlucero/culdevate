@@ -6,7 +6,7 @@ export const MAX_BULLETPOINTS = 20;
 export const MAX_GENERAL_LENGTH = 254;
 export const MAX_URL_LENGTH = 2048;
 
-enum RecapFields {
+export enum RecapFields {
   startDate = "Start Date",
   endDate = "End Date",
   bulletPoint = "Bullet Point",
@@ -73,12 +73,12 @@ export const RecapBaseSchema = yup.object({
     .string()
     .oneOf(
       [
-        "WorkExperience",
+        "Work Experience",
         "Education",
         "Accomplishments",
         "Publications",
         "Skills",
-        "SideProjects",
+        "Side Projects",
         "Organizations",
         "References",
         "Other",
@@ -115,7 +115,10 @@ const RecapWorkExperienceSchema = yup.object({
     .required(recapWorkExperienceErrors.companyRequired),
   employmentType: yup
     .string()
-    .oneOf(["Part-Time", "Full-Time"], recapWorkExperienceErrors.employmentTypeInvalid)
+    .oneOf(
+      ["Part-Time", "Full-Time", "Self-Employed", "Freelance", "Contract", "Internship", "Apprenticeship", "Volunteer"],
+      recapWorkExperienceErrors.employmentTypeInvalid,
+    )
     .required(recapWorkExperienceErrors.employmentTypeRequired),
 });
 
@@ -166,7 +169,7 @@ const RecapAccomplishmentsSchema = yup.object({
     .required(recapAccomplishmentsErrors.titleRequired),
   type: yup
     .string()
-    .oneOf(["Personal", "Service", "Featured", "School", "Career"], recapAccomplishmentsErrors.typeInvalid)
+    .oneOf(["Personal", "Service", "Featured", "School", "Career", "Other"], recapAccomplishmentsErrors.typeInvalid)
     .required(recapAccomplishmentsErrors.typeRequired),
 });
 
@@ -191,7 +194,7 @@ const RecapPublicationsSchema = yup.object({
     .required(recapPublicationsErrors.titleRequired),
   type: yup
     .string()
-    .oneOf(["Book", "Journal", "Newspaper", "Magazine", "Blog"], recapPublicationsErrors.typeInvalid)
+    .oneOf(["Book", "Journal", "Newspaper", "Magazine", "Blog", "Other"], recapPublicationsErrors.typeInvalid)
     .required(recapPublicationsErrors.typeRequired),
   coauthors: yup
     .string()
@@ -310,12 +313,12 @@ const RecapOtherSchema = yup.object({
     .required(recapOtherErrors.titleRequired),
 });
 
-export const RecapSchema = RecapBaseSchema.when("kind", { is: "WorkExperience", then: RecapWorkExperienceSchema })
+export const RecapSchema = RecapBaseSchema.when("kind", { is: "Work Experience", then: RecapWorkExperienceSchema })
   .when("kind", { is: "Education", then: RecapEducationSchema })
   .when("kind", { is: "Accomplishments", then: RecapAccomplishmentsSchema })
   .when("kind", { is: "Publications", then: RecapPublicationsSchema })
   .when("kind", { is: "Skills", then: RecapSkillsSchema })
-  .when("kind", { is: "SideProjects", then: RecapSideProjectsSchema })
+  .when("kind", { is: "Side Projects", then: RecapSideProjectsSchema })
   .when("kind", { is: "Organizations", then: RecapOrganizationsSchema })
   .when("kind", { is: "References", then: RecapReferencesSchema })
   .when("kind", { is: "Other", then: RecapOtherSchema });

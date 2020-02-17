@@ -27,7 +27,7 @@ const RecapsDao = {
 
   createRecap(recap: Recap) {
     switch (recap.kind) {
-      case "WorkExperience":
+      case "Work Experience":
         const workExperienceRecap = new RecapWorkExperienceModel(recap);
         return workExperienceRecap.save();
       case "Education":
@@ -42,7 +42,7 @@ const RecapsDao = {
       case "Skills":
         const skillsRecap = new RecapSkillsModel(recap);
         return skillsRecap.save();
-      case "SideProjects":
+      case "Side Projects":
         const sideProjectsRecap = new RecapSideProjectsModel(recap);
         return sideProjectsRecap.save();
       case "Organizations":
@@ -61,7 +61,7 @@ const RecapsDao = {
 
   updateRecapById({ recapId, updatedRecap }: { recapId: string; updatedRecap: Recap }) {
     switch (updatedRecap.kind) {
-      case "WorkExperience":
+      case "Work Experience":
         return RecapWorkExperienceModel.findOneAndUpdate({ _id: recapId }, updatedRecap, { new: true });
       case "Education":
         return RecapEducationModel.findOneAndUpdate({ _id: recapId }, updatedRecap, { new: true });
@@ -71,7 +71,7 @@ const RecapsDao = {
         return RecapPublicationsModel.findOneAndUpdate({ _id: recapId }, updatedRecap, { new: true });
       case "Skills":
         return RecapSkillsModel.findOneAndUpdate({ _id: recapId }, updatedRecap, { new: true });
-      case "SideProjects":
+      case "Side Projects":
         return RecapSideProjectsModel.findOneAndUpdate({ _id: recapId }, updatedRecap, { new: true });
       case "Organizations":
         return RecapOrganizationsModel.findOneAndUpdate({ _id: recapId }, updatedRecap, { new: true });

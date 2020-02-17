@@ -46,7 +46,7 @@ describe("Recap Validation", () => {
   describe("When validating RecapWorkExperience", () => {
     test("should be valid given required properties", () => {
       const { error } = RecapSchema.validate({
-        ...formBaseRecap("WorkExperience"),
+        ...formBaseRecap("Work Experience"),
         title: "Work Title",
         location: "Work Location",
         company: "Work Company",
@@ -58,7 +58,7 @@ describe("Recap Validation", () => {
 
     test("should be invalid when given unknown property", () => {
       const { error } = RecapSchema.validate({
-        ...formBaseRecap("WorkExperience"),
+        ...formBaseRecap("Work Experience"),
         title: "Work Title",
         location: "Work Location",
         company: "Work Company",
@@ -71,7 +71,7 @@ describe("Recap Validation", () => {
 
     test("should be invalid given unknown employment type", () => {
       const { error } = RecapSchema.validate({
-        ...formBaseRecap("WorkExperience"),
+        ...formBaseRecap("Work Experience"),
         title: "Work Title",
         location: "Work Location",
         company: "Work Company",
@@ -220,7 +220,7 @@ describe("Recap Validation", () => {
   describe("When validating RecapSideProjects", () => {
     test("should be valid given required properties", () => {
       const { error } = RecapSchema.validate({
-        ...formBaseRecap("SideProjects"),
+        ...formBaseRecap("Side Projects"),
         title: "Side Project Title",
         creators: "Creators",
       });
@@ -230,7 +230,7 @@ describe("Recap Validation", () => {
 
     test("should be invalid when given unknown property", () => {
       const { error } = RecapSchema.validate({
-        ...formBaseRecap("SideProjects"),
+        ...formBaseRecap("Side Projects"),
         title: "Side Project Title",
         creators: "Creators",
         wrongProperty: "wrongProperty",

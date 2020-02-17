@@ -1,0 +1,94 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`<KindSelect /> should render without error 1`] = `
+<div>
+  <div
+    class="extra-kind-select-class"
+  >
+    <label
+      class="block text-gray-700 text-sm font-bold mb-2"
+      for="kindSelect"
+    >
+      Choose what kind of recap
+       
+      
+    </label>
+    <div
+      class="inline-block relative"
+    >
+      <select
+        aria-required="true"
+        class="block appearance-none w-full bg-white border border-gray-400 hover:border-gray-500 px-4 py-2 pr-8 rounded shadow leading-tight focus:outline-none focus:shadow-outline"
+        data-testid="Kind Select"
+        id="kindSelect"
+        name="kindSelect"
+        required=""
+      >
+        <option
+          value=""
+        >
+          Kind of recap i.e. Work Experience, Education...
+        </option>
+        <option
+          value="Work Experience"
+        >
+          Work Experience
+        </option>
+        <option
+          value="Education"
+        >
+          Education
+        </option>
+        <option
+          value="Accomplishments"
+        >
+          Accomplishments
+        </option>
+        <option
+          value="Publications"
+        >
+          Publications
+        </option>
+        <option
+          value="Skills"
+        >
+          Skills
+        </option>
+        <option
+          value="Side Projects"
+        >
+          Side Projects
+        </option>
+        <option
+          value="Organizations"
+        >
+          Organizations
+        </option>
+        <option
+          value="References"
+        >
+          References
+        </option>
+        <option
+          value="Other"
+        >
+          Other
+        </option>
+      </select>
+      <div
+        class="pointer-events-none absolute inset-y-0 right-0 flex items-center px-2 text-gray-700"
+      >
+        <svg
+          class="fill-current h-4 w-4"
+          viewBox="0 0 20 20"
+          xmlns="http://www.w3.org/2000/svg"
+        >
+          <path
+            d="M9.293 12.95l.707.707L15.657 8l-1.414-1.414L10 10.828 5.757 6.586 4.343 8z"
+          />
+        </svg>
+      </div>
+    </div>
+  </div>
+</div>
+`;

@@ -35,7 +35,7 @@ describe("Recaps Dao", () => {
   test("should find all recaps", async () => {
     const workExperienceRecap: RecapWorkExperience = {
       ...formBaseRecap(),
-      kind: "WorkExperience",
+      kind: "Work Experience",
       title: "Job Title",
       location: "Job Location",
       company: "Company",
@@ -98,7 +98,7 @@ describe("Recaps Dao", () => {
   test("should be able to create a work experience recap", async () => {
     const workExperienceRecap: RecapWorkExperience = {
       ...formBaseRecap(),
-      kind: "WorkExperience",
+      kind: "Work Experience",
       title: "Job Title",
       location: "Job Location",
       company: "Company",
@@ -171,7 +171,7 @@ describe("Recaps Dao", () => {
   test("should be able to create a side projects recap", async () => {
     const sideProjectsRecap: RecapSideProjects = {
       ...formBaseRecap(),
-      kind: "SideProjects",
+      kind: "Side Projects",
       title: "Title",
       creators: "Creators",
     };
@@ -225,7 +225,7 @@ describe("Recaps Dao", () => {
   test("should be able to update a work experience recap", async () => {
     const workExperienceRecap: RecapWorkExperience = {
       ...formBaseRecap(),
-      kind: "WorkExperience",
+      kind: "Work Experience",
       title: "Job Title",
       location: "Job Location",
       company: "Company",
@@ -357,7 +357,7 @@ describe("Recaps Dao", () => {
   test("should be able to update a side projects recap", async () => {
     const sideProjectsRecap: RecapSideProjects = {
       ...formBaseRecap(),
-      kind: "SideProjects",
+      kind: "Side Projects",
       title: "Title",
       creators: "Creators",
     };

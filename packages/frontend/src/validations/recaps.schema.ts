@@ -6,7 +6,7 @@ export const MAX_BULLETPOINTS = 20;
 export const MAX_GENERAL_LENGTH = 254;
 export const MAX_URL_LENGTH = 2048;
 
-enum RecapFields {
+export enum RecapFields {
   startDate = "Start Date",
   endDate = "End Date",
   bulletPoint = "Bullet Point",

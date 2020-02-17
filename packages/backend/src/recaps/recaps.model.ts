@@ -11,12 +11,12 @@ export interface RecapBase {
 }
 
 export type RecapKind =
-  | "WorkExperience"
+  | "Work Experience"
   | "Education"
   | "Accomplishments"
   | "Publications"
   | "Skills"
-  | "SideProjects"
+  | "Side Projects"
   | "Organizations"
   | "References"
   | "Other";
@@ -60,24 +60,45 @@ interface RecapWorkExperienceKind {
   employmentType: EmploymentType;
 }
 
-type EmploymentType = "Part-Time" | "Full-Time";
+type EmploymentType =
+  | "Part-Time"
+  | "Full-Time"
+  | "Self-Employed"
+  | "Freelance"
+  | "Contract"
+  | "Internship"
+  | "Apprenticeship"
+  | "Volunteer";
 
 const recapWorkExperienceSchema = new mongoose.Schema({
   title: { type: String, required: true, maxlength: MAX_GENERAL_LENGTH },
   location: { type: String, required: true, maxlength: MAX_GENERAL_LENGTH },
   company: { type: String, required: true, maxlength: MAX_GENERAL_LENGTH },
-  employmentType: { type: String, required: true, enum: ["Part-Time", "Full-Time"] },
+  employmentType: {
+    type: String,
+    required: true,
+    enum: [
+      "Part-Time",
+      "Full-Time",
+      "Self-Employed",
+      "Freelance",
+      "Contract",
+      "Internship",
+      "Apprenticeship",
+      "Volunteer",
+    ],
+  },
 });
 
 interface RecapWorkExperienceDocument extends RecapBaseDocument, RecapWorkExperienceKind {}
 
 export const RecapWorkExperienceModel = RecapBaseModel.discriminator<RecapWorkExperienceDocument>(
-  "WorkExperience",
+  "Work Experience",
   recapWorkExperienceSchema,
 );
 
 export interface RecapWorkExperience extends RecapBase, RecapWorkExperienceKind {
-  kind: "WorkExperience";
+  kind: "Work Experience";
 }
 
 // Education
@@ -121,7 +142,8 @@ type AccomplishmentsType =
   | "Service" // Volunteer, Community Service, Philanthropy, etc.
   | "Featured" // Presentations, Conferences, TV Shows, Public Interviews, Podcasts, Radio, etc.
   | "School" // Test Score, Scholarship, Honor Roll, Clubs, Organizations, etc.
-  | "Career"; // Promotion, Work Awards, etc.
+  | "Career" // Promotion, Work Awards, etc.
+  | "Other";
 
 const recapAccomplishmentsSchema = new mongoose.Schema({
   title: {
@@ -132,7 +154,7 @@ const recapAccomplishmentsSchema = new mongoose.Schema({
   type: {
     type: String,
     required: true,
-    enum: ["Personal", "Service", "Featured", "School", "Career"],
+    enum: ["Personal", "Service", "Featured", "School", "Career", "Other"],
   },
 });
 
@@ -157,11 +179,11 @@ interface RecapPublicationsKind {
   url: string;
 }
 
-type PublicationType = "Book" | "Journal" | "Newspaper" | "Magazine" | "Blog";
+type PublicationType = "Book" | "Journal" | "Newspaper" | "Magazine" | "Blog" | "Other";
 
 const recapPublicationsSchema = new mongoose.Schema({
   title: { type: String, required: true, maxlength: MAX_GENERAL_LENGTH },
-  type: { type: String, required: true, enum: ["Book", "Journal", "Newspaper", "Magazine", "Blog"] },
+  type: { type: String, required: true, enum: ["Book", "Journal", "Newspaper", "Magazine", "Blog", "Other"] },
   coauthors: { type: String, required: true, maxlength: MAX_GENERAL_LENGTH },
   publisher: { type: String, required: true, maxlength: MAX_GENERAL_LENGTH },
   url: { type: String, required: true, maxlength: MAX_URL_LENGTH },
@@ -215,12 +237,12 @@ const recapSideProjectsSchema = new mongoose.Schema({
 interface RecapSideProjectsDocument extends RecapBaseDocument, RecapSideProjectsKind {}
 
 export const RecapSideProjectsModel = RecapBaseModel.discriminator<RecapSideProjectsDocument>(
-  "SideProjects",
+  "Side Projects",
   recapSideProjectsSchema,
 );
 
 export interface RecapSideProjects extends RecapBase, RecapSideProjectsKind {
-  kind: "SideProjects";
+  kind: "Side Projects";
 }
 
 // Organizations

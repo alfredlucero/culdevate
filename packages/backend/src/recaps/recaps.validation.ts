@@ -136,19 +136,19 @@ export const RecapSchema = Joi.object({
     .required(),
   kind: Joi.string()
     .valid(
-      "WorkExperience",
+      "Work Experience",
       "Education",
       "Accomplishments",
       "Publications",
       "Skills",
-      "SideProjects",
+      "Side Projects",
       "Organizations",
       "References",
       "Other",
     )
     .required(),
 })
-  .when(Joi.object({ kind: "WorkExperience" }).unknown(), {
+  .when(Joi.object({ kind: "Work Experience" }).unknown(), {
     then: RecapWorkExperienceSchema,
   })
   .when(Joi.object({ kind: "Education" }).unknown(), {
@@ -163,7 +163,7 @@ export const RecapSchema = Joi.object({
   .when(Joi.object({ kind: "Skills" }).unknown(), {
     then: RecapSkillsSchema,
   })
-  .when(Joi.object({ kind: "SideProjects" }).unknown(), {
+  .when(Joi.object({ kind: "Side Projects" }).unknown(), {
     then: RecapSideProjectsSchema,
   })
   .when(Joi.object({ kind: "Organizations" }).unknown(), {

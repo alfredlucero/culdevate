@@ -3,7 +3,7 @@
 exports[`<LoadingIcon /> should render without error 1`] = `
 <div>
   <div
-    class="font-sans text-gray-800 text-3xl loading-class"
+    class="font-sans text-3xl loading-class"
     data-testid="loadingIconId"
     id=""
   >

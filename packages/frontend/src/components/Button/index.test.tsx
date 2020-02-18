@@ -7,7 +7,14 @@ describe("<Button />", () => {
 
   test("should render primary variant without error", () => {
     const { container } = render(
-      <Button variant="primary" type="button" testId={buttonTestId} className="extra-button-class" onClick={() => {}}>
+      <Button
+        variant="primary"
+        type="button"
+        id="buttonId"
+        testId={buttonTestId}
+        className="extra-button-class"
+        onClick={() => {}}
+      >
         Primary Button
       </Button>,
     );

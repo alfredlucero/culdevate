@@ -21,6 +21,7 @@ const iconVariants: IconVariant[] = [
   "trash",
   "plus",
   "loadingFan",
+  "editPencil",
 ];
 
 storiesOf("Common/Icon", module)

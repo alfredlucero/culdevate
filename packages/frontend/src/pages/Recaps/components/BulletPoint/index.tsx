@@ -10,8 +10,12 @@ export interface BulletPointProps extends CommonProps {
 
 const BulletPoint: React.FC<BulletPointProps> = ({ bulletPoint, testId = "", className = "", ...passThroughProps }) => {
   return (
-    <li className={cn("flex", className)} {...(testId !== "" ? { "data-testid": testId } : {})} {...passThroughProps}>
-      <Icon variant="bulletpoint" size="medium" className="mr-2 text-teal-500" />
+    <li
+      className={cn("flex", "items-center", className)}
+      {...(testId !== "" ? { "data-testid": testId } : {})}
+      {...passThroughProps}
+    >
+      <Icon variant="bulletpoint" size="small" className="mr-2 text-teal-300" />
       <Text variant="p" className="pt-1">
         {bulletPoint}
       </Text>

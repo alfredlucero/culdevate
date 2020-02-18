@@ -82,6 +82,7 @@ interface RecapPublicationsKind {
 type PublicationType = "Book" | "Journal" | "Newspaper" | "Magazine" | "Blog" | "Other";
 
 export interface RecapPublications extends RecapBase, RecapPublicationsKind {
+  startDate: Date;
   kind: "Publications";
 }
 

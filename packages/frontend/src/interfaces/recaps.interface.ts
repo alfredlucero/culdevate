@@ -1,4 +1,5 @@
 export interface RecapBase {
+  _id: string;
   kind: RecapKind;
   startDate?: Date;
   endDate?: Date;
@@ -25,6 +26,7 @@ interface RecapWorkExperienceKind {
 }
 
 export interface RecapWorkExperience extends RecapBase, RecapWorkExperienceKind {
+  startDate: Date;
   kind: "Work Experience";
 }
 

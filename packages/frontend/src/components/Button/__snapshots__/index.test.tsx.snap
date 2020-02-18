@@ -27,7 +27,7 @@ exports[`<Button /> should render loading state without error 1`] = `
       class="flex items-center"
     >
       <div
-        class="font-sans text-gray-800 text-2xl text-teal-400 mr-2"
+        class="font-sans text-2xl text-teal-400 mr-2"
         data-testid="buttonTestIdLoading"
         id=""
       >
@@ -58,6 +58,7 @@ exports[`<Button /> should render primary variant without error 1`] = `
   <button
     class="font-bold py-2 px-4 rounded font-bold py-2 px-4 rounded bg-teal-500 text-white hover:bg-teal-700 extra-button-class"
     data-testid="buttonTestId"
+    id="buttonId"
     type="button"
   >
     <div

@@ -12,11 +12,12 @@ import {
   faUsers,
   faAddressCard,
   faHighlighter,
-  faChevronCircleRight,
+  faSquare,
   faTimes,
   faTrashAlt,
   faPlus,
   faFan,
+  faPencilAlt,
 } from "@fortawesome/free-solid-svg-icons";
 import { CommonProps } from "../commonProps";
 
@@ -41,7 +42,8 @@ export type IconVariant =
   | "x"
   | "trash"
   | "plus"
-  | "loadingFan";
+  | "loadingFan"
+  | "editPencil";
 
 export type IconSize = "small" | "medium" | "large" | "xlarge";
 
@@ -55,11 +57,12 @@ const iconVariantToFontAwesomeMap: IconVariantToFontAwesomeMap = {
   organizations: faUsers,
   references: faAddressCard,
   other: faHighlighter,
-  bulletpoint: faChevronCircleRight,
+  bulletpoint: faSquare,
   x: faTimes,
   trash: faTrashAlt,
   plus: faPlus,
   loadingFan: faFan,
+  editPencil: faPencilAlt,
 };
 
 type IconVariantToFontAwesomeMap = {
@@ -82,7 +85,6 @@ const Icon: React.FC<IconProps> = ({
       onClick={onClick}
       className={cn(
         "font-sans",
-        "text-gray-800",
         {
           "text-2xl": size === "small",
           "text-3xl": size === "medium",

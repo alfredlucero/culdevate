@@ -25,21 +25,21 @@ exports[`<BulletPointInputList /> should render without error 1`] = `
           class="flex items-start px-4 py-6 rounded shadow-md cursor-pointer mb-2"
         >
           <div
-            class="font-sans text-gray-800 text-3xl mr-4 text-teal-500"
+            class="font-sans text-3xl mr-4 text-teal-500"
             id=""
           >
             <svg
               aria-hidden="true"
-              class="svg-inline--fa fa-chevron-circle-right fa-w-16 "
-              data-icon="chevron-circle-right"
+              class="svg-inline--fa fa-square fa-w-14 "
+              data-icon="square"
               data-prefix="fas"
               focusable="false"
               role="img"
-              viewBox="0 0 512 512"
+              viewBox="0 0 448 512"
               xmlns="http://www.w3.org/2000/svg"
             >
               <path
-                d="M256 8c137 0 248 111 248 248S393 504 256 504 8 393 8 256 119 8 256 8zm113.9 231L234.4 103.5c-9.4-9.4-24.6-9.4-33.9 0l-17 17c-9.4 9.4-9.4 24.6 0 33.9L285.1 256 183.5 357.6c-9.4 9.4-9.4 24.6 0 33.9l17 17c9.4 9.4 24.6 9.4 33.9 0L369.9 273c9.4-9.4 9.4-24.6 0-34z"
+                d="M400 32H48C21.5 32 0 53.5 0 80v352c0 26.5 21.5 48 48 48h352c26.5 0 48-21.5 48-48V80c0-26.5-21.5-48-48-48z"
                 fill="currentColor"
               />
             </svg>
@@ -59,7 +59,7 @@ exports[`<BulletPointInputList /> should render without error 1`] = `
             />
           </div>
           <div
-            class="font-sans text-gray-800 text-3xl text-red-500 hover:text-red-700 cursor-pointer"
+            class="font-sans text-3xl text-red-500 hover:text-red-700 cursor-pointer"
             id="bulletpoint-0"
           >
             <svg
@@ -92,7 +92,7 @@ exports[`<BulletPointInputList /> should render without error 1`] = `
           class="flex items-center"
         >
           <div
-            class="font-sans text-gray-800 text-2xl mr-2 add-bullet-point-plus-icon"
+            class="font-sans text-2xl mr-2 add-bullet-point-plus-icon"
             id=""
           >
             <svg

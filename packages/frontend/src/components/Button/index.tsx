@@ -10,6 +10,7 @@ export interface ButtonProps extends CommonProps {
   onClick: (e: React.MouseEvent) => void;
   disabled?: boolean;
   loading?: boolean;
+  id?: string;
 }
 
 type ButtonType = "submit" | "button" | "reset";
@@ -34,6 +35,7 @@ const Button: React.FC<ButtonProps> = ({
   type,
   children,
   onClick,
+  id = "",
   disabled = false,
   loading = false,
   className = "",
@@ -52,6 +54,7 @@ const Button: React.FC<ButtonProps> = ({
       onClick={onClick}
       disabled={disabled}
       type={type}
+      {...(id !== "" ? { id } : {})}
       {...(testId !== "" ? { "data-testid": testId } : {})}
       {...passThroughProps}
     >

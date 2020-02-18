@@ -45,10 +45,10 @@ const WorkExperienceRecap: React.FC<WorkExperienceRecapProps> = ({
         </ul>
       </div>
       <div className="w-1/3 text-right">
-        <Button type="button" variant="secondary" onClick={onEdit} className="mr-2">
+        <Button id={workExperience._id} type="button" variant="secondary" onClick={onEdit} className="mr-2">
           <Icon variant="editPencil" size="small" className="mr-2" /> Edit
         </Button>
-        <Button type="button" variant="danger" onClick={onDelete}>
+        <Button id={workExperience._id} type="button" variant="danger" onClick={onDelete}>
           <Icon variant="trash" size="small" className="mr-2" />
           Delete
         </Button>

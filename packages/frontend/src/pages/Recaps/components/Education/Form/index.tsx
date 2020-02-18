@@ -1,7 +1,7 @@
 import React from "react";
 
-const WorkExperienceForm = () => {
-  return <div>Work Experience Form</div>;
+const EducationForm = () => {
+  return <div>Education Form</div>;
 };
 
-export default WorkExperienceForm;
+export default EducationForm;

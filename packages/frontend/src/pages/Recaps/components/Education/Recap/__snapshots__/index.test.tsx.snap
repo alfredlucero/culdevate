@@ -155,6 +155,7 @@ exports[`<EducationRecap /> should render without error 1`] = `
     >
       <button
         class="font-bold py-2 px-4 rounded bg-transparent text-teal-700 border border-teal-500 hover:bg-teal-500 hover:text-white hover:border-transparent mr-2"
+        id="educationId"
         type="button"
       >
         <div
@@ -185,6 +186,7 @@ exports[`<EducationRecap /> should render without error 1`] = `
       </button>
       <button
         class="font-bold py-2 px-4 rounded font-bold py-2 px-4 rounded bg-red-500 text-white hover:bg-red-700 "
+        id="educationId"
         type="button"
       >
         <div

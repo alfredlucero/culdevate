@@ -67,6 +67,7 @@ type AccomplishmentsType =
   | "Other";
 
 export interface RecapAccomplishments extends RecapBase, RecapAccomplishmentsKind {
+  startDate: Date;
   kind: "Accomplishments";
 }
 

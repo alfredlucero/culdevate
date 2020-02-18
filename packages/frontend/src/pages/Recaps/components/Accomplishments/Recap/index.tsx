@@ -8,17 +8,17 @@ import Button from "../../../../../components/Button";
 import Icon from "../../../../../components/Icon";
 import BulletPoint from "../../BulletPoint";
 import RecapIcon from "../../RecapIcon";
-import { RecapEducation } from "../../../../../interfaces/recaps.interface";
+import { RecapAccomplishments } from "../../../../../interfaces/recaps.interface";
 import { CommonProps } from "../../../../../components/commonProps";
 
-interface EducationRecapProps extends CommonProps {
-  education: RecapEducation;
+interface AccomplishmentsRecapProps extends CommonProps {
+  accomplishments: RecapAccomplishments;
   onEdit: (e: React.MouseEvent) => void;
   onDelete: (e: React.MouseEvent) => void;
 }
 
-const EducationRecap: React.FC<EducationRecapProps> = ({
-  education,
+const AccomplishmentsRecap: React.FC<AccomplishmentsRecapProps> = ({
+  accomplishments,
   onEdit,
   onDelete,
   className = "",
@@ -27,34 +27,24 @@ const EducationRecap: React.FC<EducationRecapProps> = ({
 }) => {
   return (
     <Card className={cn("p-4", "flex", className)} testId={testId} {...passThroughProps}>
-      <RecapIcon variant="education" className="mr-4" />
+      <RecapIcon variant="accomplishments" className="mr-4" />
       <div className="flex-auto">
-        <Heading variant="h4">{education.school}</Heading>
-        <Text variant="p">{education.location}</Text>
-        <Text variant="p">
-          {education.degree !== "" && `${education.degree}, `}
-          {education.fieldOfStudy}
-        </Text>
+        <Heading variant="h4">{accomplishments.title}</Heading>
         <Text variant="p" italic={true} className="text-gray-600">
-          {format(education.startDate, "yyyy")} - {education.endDate ? format(education.endDate, "yyyy") : "Present"}
-          {education.grade && (
-            <>
-              <br />
-              {education.grade}
-            </>
-          )}
+          {format(accomplishments.startDate, "MMMM dd, yyyy")}
         </Text>
+        <Text variant="p">{accomplishments.type}</Text>
         <ul className="mt-3">
-          {education.bulletPoints.map((bulletPoint, index) => (
+          {accomplishments.bulletPoints.map((bulletPoint, index) => (
             <BulletPoint bulletPoint={bulletPoint} key={index} />
           ))}
         </ul>
       </div>
       <div className="w-1/3 text-right">
-        <Button id={education._id} type="button" variant="secondary" onClick={onEdit} className="mr-2">
+        <Button id={accomplishments._id} type="button" variant="secondary" onClick={onEdit} className="mr-2">
           <Icon variant="editPencil" size="small" className="mr-2" /> Edit
         </Button>
-        <Button id={education._id} type="button" variant="danger" onClick={onDelete}>
+        <Button id={accomplishments._id} type="button" variant="danger" onClick={onDelete}>
           <Icon variant="trash" size="small" className="mr-2" />
           Delete
         </Button>
@@ -63,4 +53,4 @@ const EducationRecap: React.FC<EducationRecapProps> = ({
   );
 };
 
-export default EducationRecap;
+export default AccomplishmentsRecap;

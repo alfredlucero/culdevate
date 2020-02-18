@@ -49,6 +49,7 @@ interface RecapEducationKind {
 }
 
 export interface RecapEducation extends RecapBase, RecapEducationKind {
+  startDate: Date;
   kind: "Education";
 }
 

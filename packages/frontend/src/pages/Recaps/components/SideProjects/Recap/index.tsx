@@ -1,5 +1,6 @@
 import React from "react";
 import cn from "classnames";
+import { format } from "date-fns";
 import Card from "../../../../../components/Card";
 import Text from "../../../../../components/Text";
 import Heading from "../../../../../components/Heading";
@@ -7,17 +8,17 @@ import Button from "../../../../../components/Button";
 import Icon from "../../../../../components/Icon";
 import BulletPoint from "../../BulletPoint";
 import RecapIcon from "../../RecapIcon";
-import { RecapSkills } from "../../../../../interfaces/recaps.interface";
+import { RecapSideProjects } from "../../../../../interfaces/recaps.interface";
 import { CommonProps } from "../../../../../components/commonProps";
 
-interface SkillsRecapProps extends CommonProps {
-  skills: RecapSkills;
+interface SideProjectsRecapProps extends CommonProps {
+  sideProjects: RecapSideProjects;
   onEdit: (e: React.MouseEvent) => void;
   onDelete: (e: React.MouseEvent) => void;
 }
 
-const SkillsRecap: React.FC<SkillsRecapProps> = ({
-  skills,
+const SideProjectsRecap: React.FC<SideProjectsRecapProps> = ({
+  sideProjects,
   onEdit,
   onDelete,
   className = "",
@@ -26,21 +27,25 @@ const SkillsRecap: React.FC<SkillsRecapProps> = ({
 }) => {
   return (
     <Card className={cn("p-4", "flex", className)} testId={testId} {...passThroughProps}>
-      <RecapIcon variant="skills" className="mr-4" />
+      <RecapIcon variant="projects" className="mr-4" />
       <div className="flex-auto">
-        <Heading variant="h4">{skills.title}</Heading>
-        <Text variant="p">{skills.proficiency}</Text>
+        <Heading variant="h4">{sideProjects.title}</Heading>
+        <Text variant="p">By {sideProjects.creators}</Text>
+        <Text variant="p" italic={true} className="text-gray-600">
+          {format(sideProjects.startDate, "MMMM yyyy")} -{" "}
+          {sideProjects.endDate ? format(sideProjects.endDate, "MMMM yyyy") : "Present"}
+        </Text>
         <ul className="mt-3">
-          {skills.bulletPoints.map((bulletPoint, index) => (
+          {sideProjects.bulletPoints.map((bulletPoint, index) => (
             <BulletPoint bulletPoint={bulletPoint} key={index} />
           ))}
         </ul>
       </div>
       <div className="w-1/3 text-right">
-        <Button id={skills._id} type="button" variant="secondary" onClick={onEdit} className="mr-2">
+        <Button id={sideProjects._id} type="button" variant="secondary" onClick={onEdit} className="mr-2">
           <Icon variant="editPencil" size="small" className="mr-2" /> Edit
         </Button>
-        <Button id={skills._id} type="button" variant="danger" onClick={onDelete}>
+        <Button id={sideProjects._id} type="button" variant="danger" onClick={onDelete}>
           <Icon variant="trash" size="small" className="mr-2" />
           Delete
         </Button>
@@ -49,4 +54,4 @@ const SkillsRecap: React.FC<SkillsRecapProps> = ({
   );
 };
 
-export default SkillsRecap;
+export default SideProjectsRecap;

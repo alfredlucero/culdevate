@@ -103,6 +103,7 @@ interface RecapSideProjectsKind {
 }
 
 export interface RecapSideProjects extends RecapBase, RecapSideProjectsKind {
+  startDate: Date;
   kind: "Side Projects";
 }
 
@@ -113,6 +114,7 @@ interface RecapOrganizationsKind {
 }
 
 export interface RecapOrganizations extends RecapBase, RecapOrganizationsKind {
+  startDate: Date;
   kind: "Organizations";
 }
 
@@ -133,6 +135,8 @@ interface RecapOtherKind {
 
 export interface RecapOther extends RecapBase, RecapOtherKind {
   kind: "Other";
+  startDate: Date;
+  endDate: Date;
 }
 
 export type Recap =

@@ -103,6 +103,7 @@ interface RecapSideProjectsKind {
 }
 
 export interface RecapSideProjects extends RecapBase, RecapSideProjectsKind {
+  startDate: Date;
   kind: "Side Projects";
 }
 

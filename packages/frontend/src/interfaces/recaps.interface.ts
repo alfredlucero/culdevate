@@ -114,6 +114,7 @@ interface RecapOrganizationsKind {
 }
 
 export interface RecapOrganizations extends RecapBase, RecapOrganizationsKind {
+  startDate: Date;
   kind: "Organizations";
 }
 

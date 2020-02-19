@@ -1,6 +1,5 @@
 import React from "react";
 import cn from "classnames";
-import { format } from "date-fns";
 import Card from "../../../../../components/Card";
 import Text from "../../../../../components/Text";
 import Heading from "../../../../../components/Heading";
@@ -8,17 +7,17 @@ import Button from "../../../../../components/Button";
 import Icon from "../../../../../components/Icon";
 import BulletPoint from "../../BulletPoint";
 import RecapIcon from "../../RecapIcon";
-import { RecapOrganizations } from "../../../../../interfaces/recaps.interface";
+import { RecapReferences } from "../../../../../interfaces/recaps.interface";
 import { CommonProps } from "../../../../../components/commonProps";
 
-interface OrganizationsRecapProps extends CommonProps {
-  organizations: RecapOrganizations;
+interface ReferencesRecapProps extends CommonProps {
+  references: RecapReferences;
   onEdit: (e: React.MouseEvent) => void;
   onDelete: (e: React.MouseEvent) => void;
 }
 
-const OrganizationsRecap: React.FC<OrganizationsRecapProps> = ({
-  organizations,
+const ReferencesRecap: React.FC<ReferencesRecapProps> = ({
+  references,
   onEdit,
   onDelete,
   className = "",
@@ -27,26 +26,23 @@ const OrganizationsRecap: React.FC<OrganizationsRecapProps> = ({
 }) => {
   return (
     <Card className={cn("p-4", "flex", className)} testId={testId} {...passThroughProps}>
-      <RecapIcon variant="organizations" className="mr-4" />
+      <RecapIcon variant="references" className="mr-4" />
       <div className="flex-auto">
-        <Heading variant="h4">{organizations.organizationName}</Heading>
-        <Text variant="p">{organizations.location}</Text>
-        <Text variant="p">{organizations.positions}</Text>
-        <Text variant="p" italic={true} className="text-gray-600">
-          {format(organizations.startDate, "yyyy")} -{" "}
-          {organizations.endDate ? format(organizations.endDate, "yyyy") : "Present"}
-        </Text>
+        <Heading variant="h4">{references.title}</Heading>
+        <Text variant="p">{references.company}</Text>
+        {references.email !== "" && <Text variant="p">{references.email}</Text>}
+        {references.phoneNumber !== "" && <Text variant="p">{references.phoneNumber}</Text>}
         <ul className="mt-3">
-          {organizations.bulletPoints.map((bulletPoint, index) => (
+          {references.bulletPoints.map((bulletPoint, index) => (
             <BulletPoint bulletPoint={bulletPoint} key={index} />
           ))}
         </ul>
       </div>
       <div className="w-1/3 text-right">
-        <Button id={organizations._id} type="button" variant="secondary" onClick={onEdit} className="mr-2">
+        <Button id={references._id} type="button" variant="secondary" onClick={onEdit} className="mr-2">
           <Icon variant="editPencil" size="small" className="mr-2" /> Edit
         </Button>
-        <Button id={organizations._id} type="button" variant="danger" onClick={onDelete}>
+        <Button id={references._id} type="button" variant="danger" onClick={onDelete}>
           <Icon variant="trash" size="small" className="mr-2" />
           Delete
         </Button>
@@ -55,4 +51,4 @@ const OrganizationsRecap: React.FC<OrganizationsRecapProps> = ({
   );
 };
 
-export default OrganizationsRecap;
+export default ReferencesRecap;

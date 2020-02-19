@@ -1,6 +1,5 @@
 import React from "react";
 import cn from "classnames";
-import { format } from "date-fns";
 import Card from "../../../../../components/Card";
 import Text from "../../../../../components/Text";
 import Heading from "../../../../../components/Heading";

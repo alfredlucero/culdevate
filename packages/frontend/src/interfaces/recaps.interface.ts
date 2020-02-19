@@ -135,6 +135,8 @@ interface RecapOtherKind {
 
 export interface RecapOther extends RecapBase, RecapOtherKind {
   kind: "Other";
+  startDate: Date;
+  endDate: Date;
 }
 
 export type Recap =

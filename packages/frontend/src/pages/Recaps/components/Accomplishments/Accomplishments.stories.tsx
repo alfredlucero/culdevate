@@ -2,6 +2,7 @@ import React from "react";
 import { storiesOf } from "@storybook/react";
 import AccomplishmentsForm from "./Form";
 import AccomplishmentsRecap from "./Recap";
+import AccomplishmentsListCard from "./ListCard";
 import { RecapAccomplishments } from "../../../../interfaces/recaps.interface";
 
 const accomplishments: RecapAccomplishments = {
@@ -26,6 +27,15 @@ const onDelete = () => {
   console.log("Delete clicked!");
 };
 
+const onClickAdd = () => {
+  console.log("Add clicked!");
+};
+
+const onClickView = () => {
+  console.log("View clicked!");
+};
+
 storiesOf("RecapsPage/Accomplishments", module)
   .add("Form", () => <AccomplishmentsForm />)
-  .add("Recap", () => <AccomplishmentsRecap accomplishments={accomplishments} onEdit={onEdit} onDelete={onDelete} />);
+  .add("Recap", () => <AccomplishmentsRecap accomplishments={accomplishments} onEdit={onEdit} onDelete={onDelete} />)
+  .add("List Card", () => <AccomplishmentsListCard onClickView={onClickView} onClickAdd={onClickAdd} count={10} />);

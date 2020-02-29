@@ -4,7 +4,7 @@ import Icon from "../../../../components/Icon";
 import { CommonProps } from "../../../../components/commonProps";
 import "./index.css";
 
-interface RecapIconProps extends CommonProps {
+export interface RecapIconProps extends CommonProps {
   variant:
     | "work"
     | "education"
@@ -24,7 +24,7 @@ const RecapIcon: React.FC<RecapIconProps> = ({ variant, testId = "", className =
         "flex",
         "justify-center",
         "items-center",
-        "p-2",
+        "p-3",
         "rounded-lg",
         "bg-gray-200",
         "recap-icon",

@@ -2,6 +2,7 @@ import React from "react";
 import { storiesOf } from "@storybook/react";
 import SideProjectsForm from "./Form";
 import SideProjectsRecap from "./Recap";
+import SideProjectsListCard from "./ListCard";
 import { RecapSideProjects } from "../../../../interfaces/recaps.interface";
 
 const sideProjects: RecapSideProjects = {
@@ -23,6 +24,14 @@ const onDelete = () => {
   console.log("Delete clicked!");
 };
 
+const onClickAdd = () => {
+  console.log("Add clicked!");
+};
+
+const onClickView = () => {
+  console.log("View clicked!");
+};
+
 storiesOf("RecapsPage/SideProjects", module)
   .add("Form", () => <SideProjectsForm />)
   .add("Recap - Date Range", () => (
@@ -42,4 +51,5 @@ storiesOf("RecapsPage/SideProjects", module)
       onEdit={onEdit}
       onDelete={onDelete}
     />
-  ));
+  ))
+  .add("List Card", () => <SideProjectsListCard onClickView={onClickView} onClickAdd={onClickAdd} count={10} />);

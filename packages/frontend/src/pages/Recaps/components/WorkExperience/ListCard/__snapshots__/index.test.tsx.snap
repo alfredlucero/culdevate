@@ -1,0 +1,77 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`<WorkExperienceListCard /> should render without error 1`] = `
+<div>
+  <div
+    class="bg-white shadow-md rounded px-8 py-6 w-64 extra-list-class"
+    data-testid="testId"
+  >
+    <div
+      class="mb-6 flex justify-center"
+    >
+      <div
+        class="flex justify-center items-center p-3 rounded-lg bg-gray-200 recap-icon"
+      >
+        <div
+          class="font-sans text-3xl text-teal-400"
+          id=""
+        >
+          <svg
+            aria-hidden="true"
+            class="svg-inline--fa fa-suitcase fa-w-16 "
+            data-icon="suitcase"
+            data-prefix="fas"
+            focusable="false"
+            role="img"
+            viewBox="0 0 512 512"
+            xmlns="http://www.w3.org/2000/svg"
+          >
+            <path
+              d="M128 480h256V80c0-26.5-21.5-48-48-48H176c-26.5 0-48 21.5-48 48v400zm64-384h128v32H192V96zm320 80v256c0 26.5-21.5 48-48 48h-48V128h48c26.5 0 48 21.5 48 48zM96 480H48c-26.5 0-48-21.5-48-48V176c0-26.5 21.5-48 48-48h48v352z"
+              fill="currentColor"
+            />
+          </svg>
+        </div>
+      </div>
+    </div>
+    <h4
+      class="font-mono font-bold text-gray-800 text-xl mb-4 text-center"
+    >
+      Work Experience
+    </h4>
+    <div
+      class="flex justify-center mb-4"
+    >
+      <button
+        class="font-bold py-2 px-4 rounded bg-transparent text-teal-700 border border-teal-500 hover:bg-teal-500 hover:text-white hover:border-transparent mr-2"
+        type="button"
+      >
+        <div
+          class="flex items-center"
+        >
+          View
+        </div>
+      </button>
+      <button
+        class="font-bold py-2 px-4 rounded font-bold py-2 px-4 rounded bg-teal-500 text-white hover:bg-teal-700 "
+        type="button"
+      >
+        <div
+          class="flex items-center"
+        >
+          Add
+        </div>
+      </button>
+    </div>
+    <div
+      class="flex justify-end"
+    >
+      <div
+        class="rounded bg-gray-200 text-gray-700 text-sm p-2 w-8 flex justify-center items-center"
+      >
+        10
+      </div>
+    </div>
+  </div>
+</div>
+`;

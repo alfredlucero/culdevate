@@ -2,6 +2,7 @@ import React from "react";
 import { storiesOf } from "@storybook/react";
 import EducationForm from "./Form";
 import EducationRecap from "./Recap";
+import EducationListCard from "./ListCard";
 import { RecapEducation } from "../../../../interfaces/recaps.interface";
 
 const education: RecapEducation = {
@@ -28,6 +29,14 @@ const onEdit = () => {
 
 const onDelete = () => {
   console.log("Delete clicked!");
+};
+
+const onClickAdd = () => {
+  console.log("Add clicked!");
+};
+
+const onClickView = () => {
+  console.log("View clicked!");
 };
 
 storiesOf("RecapsPage/Education", module)
@@ -68,4 +77,5 @@ storiesOf("RecapsPage/Education", module)
       onEdit={onEdit}
       onDelete={onDelete}
     />
-  ));
+  ))
+  .add("List Card", () => <EducationListCard onClickView={onClickView} onClickAdd={onClickAdd} count={10} />);

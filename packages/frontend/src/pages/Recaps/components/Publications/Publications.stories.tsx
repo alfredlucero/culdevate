@@ -2,6 +2,7 @@ import React from "react";
 import { storiesOf } from "@storybook/react";
 import PublicationsForm from "./Form";
 import PublicationsRecap from "./Recap";
+import PublicationsListCard from "./ListCard";
 import { RecapPublications } from "../../../../interfaces/recaps.interface";
 
 const publications: RecapPublications = {
@@ -25,6 +26,15 @@ const onDelete = () => {
   console.log("Delete clicked!");
 };
 
+const onClickAdd = () => {
+  console.log("Add clicked!");
+};
+
+const onClickView = () => {
+  console.log("View clicked!");
+};
+
 storiesOf("RecapsPage/Publications", module)
   .add("Form", () => <PublicationsForm />)
-  .add("Recap", () => <PublicationsRecap publications={publications} onEdit={onEdit} onDelete={onDelete} />);
+  .add("Recap", () => <PublicationsRecap publications={publications} onEdit={onEdit} onDelete={onDelete} />)
+  .add("List Card", () => <PublicationsListCard onClickView={onClickView} onClickAdd={onClickAdd} count={10} />);

@@ -2,6 +2,7 @@ import React from "react";
 import { storiesOf } from "@storybook/react";
 import ReferencesForm from "./Form";
 import ReferencesRecap from "./Recap";
+import ReferencesListCard from "./ListCard";
 import { RecapReferences } from "../../../../interfaces/recaps.interface";
 
 const references: RecapReferences = {
@@ -26,6 +27,14 @@ const onDelete = () => {
   console.log("Delete clicked!");
 };
 
+const onClickAdd = () => {
+  console.log("Add clicked!");
+};
+
+const onClickView = () => {
+  console.log("View clicked!");
+};
+
 storiesOf("RecapsPage/References", module)
   .add("Form", () => <ReferencesForm />)
   .add("Recap", () => <ReferencesRecap references={references} onEdit={onEdit} onDelete={onDelete} />)
@@ -44,4 +53,5 @@ storiesOf("RecapsPage/References", module)
       onEdit={onEdit}
       onDelete={onDelete}
     />
-  ));
+  ))
+  .add("List Card", () => <ReferencesListCard onClickView={onClickView} onClickAdd={onClickAdd} count={10} />);

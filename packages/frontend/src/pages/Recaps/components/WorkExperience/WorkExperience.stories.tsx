@@ -2,6 +2,7 @@ import React from "react";
 import { storiesOf } from "@storybook/react";
 import WorkExperienceForm from "./Form";
 import WorkExperienceRecap from "./Recap";
+import WorkExperienceListCard from "./ListCard";
 import { RecapWorkExperience } from "../../../../interfaces/recaps.interface";
 
 const workExperience: RecapWorkExperience = {
@@ -28,6 +29,14 @@ const onDelete = () => {
   console.log("Delete clicked!");
 };
 
+const onClickAdd = () => {
+  console.log("Add clicked!");
+};
+
+const onClickView = () => {
+  console.log("View clicked!");
+};
+
 storiesOf("RecapsPage/WorkExperience", module)
   .add("Form", () => <WorkExperienceForm />)
   .add("Recap - Date Range", () => (
@@ -39,4 +48,5 @@ storiesOf("RecapsPage/WorkExperience", module)
   ))
   .add("Recap - Present", () => (
     <WorkExperienceRecap workExperience={workExperience} onEdit={onEdit} onDelete={onDelete} />
-  ));
+  ))
+  .add("List Card", () => <WorkExperienceListCard onClickView={onClickView} onClickAdd={onClickAdd} count={10} />);

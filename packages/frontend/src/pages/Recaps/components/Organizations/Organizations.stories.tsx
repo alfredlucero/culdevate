@@ -2,6 +2,7 @@ import React from "react";
 import { storiesOf } from "@storybook/react";
 import OrganizationsForm from "./Form";
 import OrganizationsRecap from "./Recap";
+import OrganizationsListCard from "./ListCard";
 import { RecapOrganizations } from "../../../../interfaces/recaps.interface";
 
 const organizations: RecapOrganizations = {
@@ -27,6 +28,14 @@ const onDelete = () => {
   console.log("Delete clicked!");
 };
 
+const onClickAdd = () => {
+  console.log("Add clicked!");
+};
+
+const onClickView = () => {
+  console.log("View clicked!");
+};
+
 storiesOf("RecapsPage/Organizations", module)
   .add("Form", () => <OrganizationsForm />)
   .add("Recap - Date Range", () => (
@@ -47,4 +56,5 @@ storiesOf("RecapsPage/Organizations", module)
       onEdit={onEdit}
       onDelete={onDelete}
     />
-  ));
+  ))
+  .add("List Card", () => <OrganizationsListCard onClickView={onClickView} onClickAdd={onClickAdd} count={10} />);

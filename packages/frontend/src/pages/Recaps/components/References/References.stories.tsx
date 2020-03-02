@@ -55,5 +55,5 @@ storiesOf("RecapsPage/References", module)
       onDelete={onDelete}
     />
   ))
-  .add("List Card", () => <ReferencesListCard onClickView={onClickView} onClickAdd={onClickAdd} count={10} />)
+  .add("List Card", () => <ReferencesListCard onClick={onClickView} />)
   .add("Empty Card", () => <ReferencesEmptyCard onClickAdd={onClickAdd} />);

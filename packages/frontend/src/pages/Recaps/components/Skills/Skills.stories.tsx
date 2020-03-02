@@ -37,5 +37,5 @@ const onClickView = () => {
 storiesOf("RecapsPage/Skills", module)
   .add("Form", () => <SkillsForm />)
   .add("Recap", () => <SkillsRecap skills={skills} onEdit={onEdit} onDelete={onDelete} />)
-  .add("List Card", () => <SkillsListCard onClickView={onClickView} onClickAdd={onClickAdd} count={10} />)
+  .add("List Card", () => <SkillsListCard onClick={onClickView} />)
   .add("Empty Card", () => <SkillsEmptyCard onClickAdd={onClickAdd} />);

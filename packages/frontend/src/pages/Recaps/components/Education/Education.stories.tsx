@@ -79,5 +79,5 @@ storiesOf("RecapsPage/Education", module)
       onDelete={onDelete}
     />
   ))
-  .add("List Card", () => <EducationListCard onClickView={onClickView} onClickAdd={onClickAdd} count={10} />)
+  .add("List Card", () => <EducationListCard onClick={onClickView} />)
   .add("Empty Card", () => <EducationEmptyCard onClickAdd={onClickAdd} />);

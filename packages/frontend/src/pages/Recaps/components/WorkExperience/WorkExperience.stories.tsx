@@ -50,5 +50,5 @@ storiesOf("RecapsPage/WorkExperience", module)
   .add("Recap - Present", () => (
     <WorkExperienceRecap workExperience={workExperience} onEdit={onEdit} onDelete={onDelete} />
   ))
-  .add("List Card", () => <WorkExperienceListCard onClickView={onClickView} onClickAdd={onClickAdd} count={10} />)
+  .add("List Card", () => <WorkExperienceListCard onClick={onClickView} />)
   .add("Empty Card", () => <WorkExperienceEmptyCard onClickAdd={onClickAdd} />);

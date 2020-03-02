@@ -85,3 +85,15 @@ exports[`<Button /> should render secondary variant without error 1`] = `
   </button>
 </div>
 `;
+
+exports[`<Button /> should render unstyled variant without error 1`] = `
+<div>
+  <button
+    class="extra-button-class"
+    data-testid="buttonTestId"
+    type="button"
+  >
+    Unstyled Button
+  </button>
+</div>
+`;

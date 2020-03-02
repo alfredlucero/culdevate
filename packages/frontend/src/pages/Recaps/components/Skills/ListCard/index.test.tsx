@@ -4,15 +4,7 @@ import SkillsListCard from "./index";
 
 describe("<SkillsListCard />", () => {
   test("should render without error", () => {
-    const { container } = render(
-      <SkillsListCard
-        onClickAdd={() => {}}
-        onClickView={() => {}}
-        count={10}
-        className="extra-list-class"
-        testId="testId"
-      />,
-    );
+    const { container } = render(<SkillsListCard onClick={() => {}} className="extra-list-class" testId="testId" />);
 
     expect(container).toMatchSnapshot();
   });

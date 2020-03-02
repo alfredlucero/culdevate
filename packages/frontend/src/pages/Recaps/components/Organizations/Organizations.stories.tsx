@@ -58,5 +58,5 @@ storiesOf("RecapsPage/Organizations", module)
       onDelete={onDelete}
     />
   ))
-  .add("List Card", () => <OrganizationsListCard onClickView={onClickView} onClickAdd={onClickAdd} count={10} />)
+  .add("List Card", () => <OrganizationsListCard onClick={onClickView} />)
   .add("Empty Card", () => <OrganizationsEmptyCard onClickAdd={onClickAdd} />);

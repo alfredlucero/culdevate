@@ -3,6 +3,7 @@ import { storiesOf } from "@storybook/react";
 import EducationForm from "./Form";
 import EducationRecap from "./Recap";
 import EducationListCard from "./ListCard";
+import EducationEmptyCard from "./EmptyCard";
 import { RecapEducation } from "../../../../interfaces/recaps.interface";
 
 const education: RecapEducation = {
@@ -78,4 +79,5 @@ storiesOf("RecapsPage/Education", module)
       onDelete={onDelete}
     />
   ))
-  .add("List Card", () => <EducationListCard onClickView={onClickView} onClickAdd={onClickAdd} count={10} />);
+  .add("List Card", () => <EducationListCard onClickView={onClickView} onClickAdd={onClickAdd} count={10} />)
+  .add("Empty Card", () => <EducationEmptyCard onClickAdd={onClickAdd} />);

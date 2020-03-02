@@ -3,7 +3,7 @@
 exports[`<RecapErrorCard /> should render without error 1`] = `
 <div>
   <div
-    class="bg-white shadow-md rounded px-8 py-6 h-56 flex flex-col justify-center items-center extra-recaps-error-card-class"
+    class="bg-white shadow-md rounded px-8 py-6 h-64 p-6 flex flex-col justify-center items-center extra-recaps-error-card-class"
     data-testid="recapsErrorCardTestId"
   >
     <div
@@ -27,7 +27,7 @@ exports[`<RecapErrorCard /> should render without error 1`] = `
       </svg>
     </div>
     <p
-      class="font-sans text-gray-800 text-base text-center mb-5"
+      class="font-sans text-gray-800 text-base text-center mb-6"
     >
       Oops! Something went wrong with fetching your Recaps!
     </p>

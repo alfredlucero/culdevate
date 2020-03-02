@@ -3,6 +3,7 @@ import { storiesOf } from "@storybook/react";
 import SideProjectsForm from "./Form";
 import SideProjectsRecap from "./Recap";
 import SideProjectsListCard from "./ListCard";
+import SideProjectsEmptyCard from "./EmptyCard";
 import { RecapSideProjects } from "../../../../interfaces/recaps.interface";
 
 const sideProjects: RecapSideProjects = {
@@ -52,4 +53,5 @@ storiesOf("RecapsPage/SideProjects", module)
       onDelete={onDelete}
     />
   ))
-  .add("List Card", () => <SideProjectsListCard onClickView={onClickView} onClickAdd={onClickAdd} count={10} />);
+  .add("List Card", () => <SideProjectsListCard onClickView={onClickView} onClickAdd={onClickAdd} count={10} />)
+  .add("Empty Card", () => <SideProjectsEmptyCard onClickAdd={onClickAdd} />);

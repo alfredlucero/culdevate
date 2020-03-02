@@ -3,6 +3,7 @@ import { storiesOf } from "@storybook/react";
 import ReferencesForm from "./Form";
 import ReferencesRecap from "./Recap";
 import ReferencesListCard from "./ListCard";
+import ReferencesEmptyCard from "./EmptyCard";
 import { RecapReferences } from "../../../../interfaces/recaps.interface";
 
 const references: RecapReferences = {
@@ -54,4 +55,5 @@ storiesOf("RecapsPage/References", module)
       onDelete={onDelete}
     />
   ))
-  .add("List Card", () => <ReferencesListCard onClickView={onClickView} onClickAdd={onClickAdd} count={10} />);
+  .add("List Card", () => <ReferencesListCard onClickView={onClickView} onClickAdd={onClickAdd} count={10} />)
+  .add("Empty Card", () => <ReferencesEmptyCard onClickAdd={onClickAdd} />);

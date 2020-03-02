@@ -3,6 +3,7 @@ import { storiesOf } from "@storybook/react";
 import SkillsForm from "./Form";
 import SkillsRecap from "./Recap";
 import SkillsListCard from "./ListCard";
+import SkillsEmptyCard from "./EmptyCard";
 import { RecapSkills } from "../../../../interfaces/recaps.interface";
 
 const skills: RecapSkills = {
@@ -36,4 +37,5 @@ const onClickView = () => {
 storiesOf("RecapsPage/Skills", module)
   .add("Form", () => <SkillsForm />)
   .add("Recap", () => <SkillsRecap skills={skills} onEdit={onEdit} onDelete={onDelete} />)
-  .add("List Card", () => <SkillsListCard onClickView={onClickView} onClickAdd={onClickAdd} count={10} />);
+  .add("List Card", () => <SkillsListCard onClickView={onClickView} onClickAdd={onClickAdd} count={10} />)
+  .add("Empty Card", () => <SkillsEmptyCard onClickAdd={onClickAdd} />);

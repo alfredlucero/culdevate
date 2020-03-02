@@ -1,0 +1,67 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`<RecapEmptyCard /> should render composable pieces without error 1`] = `
+<div>
+  <div
+    class="bg-white shadow-md rounded px-8 py-6 p-6 flex flex-col justify-center items-center extra-emptycard-class"
+    data-testid="emptyCardTestId"
+  >
+    <div
+      class="extra-icon-class"
+      data-testid="iconTestId"
+    >
+      <div
+        class="flex justify-center items-center p-3 rounded-lg bg-gray-200 recap-icon"
+      >
+        <div
+          class="font-sans text-3xl text-teal-400"
+          id=""
+        >
+          <svg
+            aria-hidden="true"
+            class="svg-inline--fa fa-suitcase fa-w-16 "
+            data-icon="suitcase"
+            data-prefix="fas"
+            focusable="false"
+            role="img"
+            viewBox="0 0 512 512"
+            xmlns="http://www.w3.org/2000/svg"
+          >
+            <path
+              d="M128 480h256V80c0-26.5-21.5-48-48-48H176c-26.5 0-48 21.5-48 48v400zm64-384h128v32H192V96zm320 80v256c0 26.5-21.5 48-48 48h-48V128h48c26.5 0 48 21.5 48 48zM96 480H48c-26.5 0-48-21.5-48-48V176c0-26.5 21.5-48 48-48h48v352z"
+              fill="currentColor"
+            />
+          </svg>
+        </div>
+      </div>
+    </div>
+    <h4
+      class="font-mono font-bold text-gray-800 text-xl extra-kind-class"
+      data-testid="kindTestId"
+    >
+      Work Experience
+    </h4>
+    <p
+      class="font-sans text-gray-800 text-base extra-description-class"
+      data-testid="descriptionTestId"
+    >
+      Recap everything about your career from internships to full-time jobs and opportunities.
+    </p>
+    <div
+      class="flex justify-center extra-actions-class"
+      data-testid="actionsTestId"
+    >
+      <button
+        class="font-bold py-2 px-4 rounded font-bold py-2 px-4 rounded bg-teal-500 text-white hover:bg-teal-700 "
+        type="button"
+      >
+        <div
+          class="flex items-center"
+        >
+          Add a Recap
+        </div>
+      </button>
+    </div>
+  </div>
+</div>
+`;

@@ -14,7 +14,7 @@ export interface ButtonProps extends CommonProps {
 }
 
 type ButtonType = "submit" | "button" | "reset";
-type ButtonVariant = "primary" | "secondary" | "danger";
+type ButtonVariant = "primary" | "secondary" | "danger" | "unstyled";
 
 const buttonBaseClasses = ["font-bold", "py-2", "px-4", "rounded"];
 const buttonDisabledClasses = ["opacity-50", "cursor-not-allowed"];
@@ -42,6 +42,22 @@ const Button: React.FC<ButtonProps> = ({
   testId = "",
   ...passThroughProps
 }) => {
+  if (variant === "unstyled") {
+    return (
+      <button
+        className={cn(disabled ? buttonDisabledClasses : [], className)}
+        onClick={onClick}
+        disabled={disabled}
+        type={type}
+        {...(id !== "" ? { id } : {})}
+        {...(testId !== "" ? { "data-testid": testId } : {})}
+        {...passThroughProps}
+      >
+        {children}
+      </button>
+    );
+  }
+
   return (
     <button
       className={`${cn(

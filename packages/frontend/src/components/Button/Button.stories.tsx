@@ -47,4 +47,21 @@ storiesOf("Common/Button", module)
     <Button type="button" variant="danger" onClick={() => {}} disabled={true}>
       Danger Disabled
     </Button>
+  ))
+  .add("Unstyled", () => (
+    <Button variant="unstyled" onClick={() => {}} type="button">
+      <div style={{ backgroundColor: "lightgreen" }}>
+        <h1>Unstyled</h1>
+        <p>Button</p>
+      </div>
+    </Button>
+  ))
+  .add("Unstyled Disabled", () => (
+    <Button variant="unstyled" onClick={() => {}} type="button" disabled={true}>
+      <div style={{ backgroundColor: "lightgreen" }}>
+        <h1>Unstyled</h1>
+        <p>Button</p>
+        <p>Disabled</p>
+      </div>
+    </Button>
   ));

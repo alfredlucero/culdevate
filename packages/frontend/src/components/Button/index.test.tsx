@@ -59,6 +59,16 @@ describe("<Button />", () => {
     expect(container).toMatchSnapshot();
   });
 
+  test("should render unstyled variant without error", () => {
+    const { container } = render(
+      <Button variant="unstyled" type="button" testId={buttonTestId} className="extra-button-class" onClick={() => {}}>
+        Unstyled Button
+      </Button>,
+    );
+
+    expect(container).toMatchSnapshot();
+  });
+
   test("should render disabled state when disabled", () => {
     const { getByTestId } = render(
       <Button variant="primary" type="button" testId={buttonTestId} onClick={() => {}} disabled={true}>

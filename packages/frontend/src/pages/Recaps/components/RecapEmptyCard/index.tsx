@@ -87,7 +87,7 @@ const EmptyCard: React.FC<CardProps> = ({ children, testId = "", className = "",
   return (
     <Card
       testId={testId}
-      className={cn("h-64", "p-4", "flex", "flex-col", "justify-center", "items-center", className)}
+      className={cn("p-6", "flex", "flex-col", "justify-center", "items-center", className)}
       {...passThroughProps}
     >
       {children}

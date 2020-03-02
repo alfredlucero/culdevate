@@ -3,7 +3,7 @@
 exports[`<OtherEmptyCard /> should render without error 1`] = `
 <div>
   <div
-    class="bg-white shadow-md rounded px-8 py-6 h-64 p-4 flex flex-col justify-center items-center extra-list-class"
+    class="bg-white shadow-md rounded px-8 py-6 p-6 flex flex-col justify-center items-center extra-list-class"
     data-testid="testId"
   >
     <div

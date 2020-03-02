@@ -18,12 +18,12 @@ const RecapsErrorCard: React.FC<RecapsErrorCardProps> = ({
 }) => {
   return (
     <Card
-      className={cn("h-56", "flex", "flex-col", "justify-center", "items-center", className)}
+      className={cn("h-64", "p-6", "flex", "flex-col", "justify-center", "items-center", className)}
       testId={testId}
       {...passThroughProps}
     >
       <Icon className={cn("text-red-400", "mb-4")} variant="exclamationTriangle" size="large" />
-      <Text variant="p" className={cn("text-center", "mb-5")}>
+      <Text variant="p" className={cn("text-center", "mb-6")}>
         Oops! Something went wrong with fetching your Recaps!
       </Text>
       <Button type="button" variant="primary" onClick={onRetry}>

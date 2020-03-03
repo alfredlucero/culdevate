@@ -23,6 +23,7 @@ const iconVariants: IconVariant[] = [
   "loadingFan",
   "editPencil",
   "exclamationTriangle",
+  "chevronLeft",
 ];
 
 storiesOf("Common/Icon", module)

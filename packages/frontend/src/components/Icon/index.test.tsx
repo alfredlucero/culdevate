@@ -19,6 +19,7 @@ const iconVariants: IconVariant[] = [
   "loadingFan",
   "editPencil",
   "exclamationTriangle",
+  "chevronLeft",
 ];
 
 describe("<Icon />", () => {

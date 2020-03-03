@@ -28,8 +28,14 @@ import Text from "../../components/Text";
       - show recap list cards with counts on them
     -> failure
       - show error card
-  - list cards
-    -> click on card add/create button
+  - landing list cards
+    -> click on card to take you to recap kind layout
+  - each layout
+    - can go back to landing list cards view
+    - empty state
+    - maintains state for banners
+    - maintains its specific create/edit/delete modals
+    - maintains its own kind's recap list
 
   
   <RecapsPage>

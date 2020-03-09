@@ -4,6 +4,7 @@ import SkillsForm from "./Form";
 import SkillsRecap from "./Recap";
 import SkillsListCard from "./ListCard";
 import SkillsEmptyCard from "./EmptyCard";
+import SkillsLayout from "./Layout";
 import { RecapSkills } from "../../../../interfaces/recaps.interface";
 
 const skills: RecapSkills = {
@@ -34,8 +35,42 @@ const onClickView = () => {
   console.log("View clicked!");
 };
 
+const onGoBackToLanding = () => {
+  console.log("Go back to landing!");
+};
+
+const onCreateRecapSuccess = () => {
+  console.log("Create recap success!");
+};
+
+const onUpdateRecapSuccess = () => {
+  console.log("Update recap success!");
+};
+
+const onDeleteRecapSuccess = () => {
+  console.log("Delete recap success!");
+};
+
 storiesOf("RecapsPage/Skills", module)
   .add("Form", () => <SkillsForm />)
   .add("Recap", () => <SkillsRecap skills={skills} onEdit={onEdit} onDelete={onDelete} />)
   .add("List Card", () => <SkillsListCard onClick={onClickView} />)
-  .add("Empty Card", () => <SkillsEmptyCard onClickAdd={onClickAdd} />);
+  .add("Empty Card", () => <SkillsEmptyCard onClickAdd={onClickAdd} />)
+  .add("Layout - Empty", () => (
+    <SkillsLayout
+      recaps={[]}
+      onGoBackToLanding={onGoBackToLanding}
+      onCreateRecapSuccess={onCreateRecapSuccess}
+      onUpdateRecapSuccess={onUpdateRecapSuccess}
+      onDeleteRecapSuccess={onDeleteRecapSuccess}
+    />
+  ))
+  .add("Layout - With Data", () => (
+    <SkillsLayout
+      recaps={[skills]}
+      onGoBackToLanding={onGoBackToLanding}
+      onCreateRecapSuccess={onCreateRecapSuccess}
+      onUpdateRecapSuccess={onUpdateRecapSuccess}
+      onDeleteRecapSuccess={onDeleteRecapSuccess}
+    />
+  ));

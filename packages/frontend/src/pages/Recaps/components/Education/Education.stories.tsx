@@ -4,6 +4,7 @@ import EducationForm from "./Form";
 import EducationRecap from "./Recap";
 import EducationListCard from "./ListCard";
 import EducationEmptyCard from "./EmptyCard";
+import EducationLayout from "./Layout";
 import { RecapEducation } from "../../../../interfaces/recaps.interface";
 
 const education: RecapEducation = {
@@ -38,6 +39,22 @@ const onClickAdd = () => {
 
 const onClickView = () => {
   console.log("View clicked!");
+};
+
+const onGoBackToLanding = () => {
+  console.log("Go back to landing!");
+};
+
+const onCreateRecapSuccess = () => {
+  console.log("Create recap success!");
+};
+
+const onUpdateRecapSuccess = () => {
+  console.log("Update recap success!");
+};
+
+const onDeleteRecapSuccess = () => {
+  console.log("Delete recap success!");
 };
 
 storiesOf("RecapsPage/Education", module)
@@ -80,4 +97,22 @@ storiesOf("RecapsPage/Education", module)
     />
   ))
   .add("List Card", () => <EducationListCard onClick={onClickView} />)
-  .add("Empty Card", () => <EducationEmptyCard onClickAdd={onClickAdd} />);
+  .add("Empty Card", () => <EducationEmptyCard onClickAdd={onClickAdd} />)
+  .add("Layout - Empty", () => (
+    <EducationLayout
+      recaps={[]}
+      onGoBackToLanding={onGoBackToLanding}
+      onCreateRecapSuccess={onCreateRecapSuccess}
+      onUpdateRecapSuccess={onUpdateRecapSuccess}
+      onDeleteRecapSuccess={onDeleteRecapSuccess}
+    />
+  ))
+  .add("Layout - With Data", () => (
+    <EducationLayout
+      recaps={[education]}
+      onGoBackToLanding={onGoBackToLanding}
+      onCreateRecapSuccess={onCreateRecapSuccess}
+      onUpdateRecapSuccess={onUpdateRecapSuccess}
+      onDeleteRecapSuccess={onDeleteRecapSuccess}
+    />
+  ));

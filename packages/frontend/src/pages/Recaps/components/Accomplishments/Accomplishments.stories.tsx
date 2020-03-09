@@ -4,6 +4,7 @@ import AccomplishmentsForm from "./Form";
 import AccomplishmentsRecap from "./Recap";
 import AccomplishmentsListCard from "./ListCard";
 import AccomplishmentsEmptyCard from "./EmptyCard";
+import AccomplishmentsLayout from "./Layout";
 import { RecapAccomplishments } from "../../../../interfaces/recaps.interface";
 
 const accomplishments: RecapAccomplishments = {
@@ -36,8 +37,42 @@ const onClickView = () => {
   console.log("View clicked!");
 };
 
+const onGoBackToLanding = () => {
+  console.log("Go back to landing!");
+};
+
+const onCreateRecapSuccess = () => {
+  console.log("Create recap success!");
+};
+
+const onUpdateRecapSuccess = () => {
+  console.log("Update recap success!");
+};
+
+const onDeleteRecapSuccess = () => {
+  console.log("Delete recap success!");
+};
+
 storiesOf("RecapsPage/Accomplishments", module)
   .add("Form", () => <AccomplishmentsForm />)
   .add("Recap", () => <AccomplishmentsRecap accomplishments={accomplishments} onEdit={onEdit} onDelete={onDelete} />)
   .add("List Card", () => <AccomplishmentsListCard onClick={onClickView} />)
-  .add("Empty Card", () => <AccomplishmentsEmptyCard onClickAdd={onClickAdd} />);
+  .add("Empty Card", () => <AccomplishmentsEmptyCard onClickAdd={onClickAdd} />)
+  .add("Layout - Empty", () => (
+    <AccomplishmentsLayout
+      recaps={[]}
+      onGoBackToLanding={onGoBackToLanding}
+      onCreateRecapSuccess={onCreateRecapSuccess}
+      onUpdateRecapSuccess={onUpdateRecapSuccess}
+      onDeleteRecapSuccess={onDeleteRecapSuccess}
+    />
+  ))
+  .add("Layout - With Data", () => (
+    <AccomplishmentsLayout
+      recaps={[accomplishments]}
+      onGoBackToLanding={onGoBackToLanding}
+      onCreateRecapSuccess={onCreateRecapSuccess}
+      onUpdateRecapSuccess={onUpdateRecapSuccess}
+      onDeleteRecapSuccess={onDeleteRecapSuccess}
+    />
+  ));

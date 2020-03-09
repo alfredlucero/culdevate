@@ -1,15 +1,15 @@
 import React from "react";
 import * as RecapLayout from "../../RecapLayout";
 import { RecapLayoutProps } from "../../RecapLayout";
-import WorkExperienceEmptyCard from "../EmptyCard";
-import WorkExperienceRecap from "../Recap";
-import { RecapWorkExperience } from "../../../../../interfaces/recaps.interface";
+import ReferencesEmptyCard from "../EmptyCard";
+import ReferencesRecap from "../Recap";
+import { RecapReferences } from "../../../../../interfaces/recaps.interface";
 
-export interface WorkExperienceLayoutProps extends RecapLayoutProps {
-  recaps: RecapWorkExperience[];
+export interface ReferencesLayoutProps extends RecapLayoutProps {
+  recaps: RecapReferences[];
 }
 
-const WorkExperienceLayout: React.FC<WorkExperienceLayoutProps> = ({
+const ReferencesLayout: React.FC<ReferencesLayoutProps> = ({
   recaps,
   onGoBackToLanding,
   onCreateRecapSuccess,
@@ -25,14 +25,14 @@ const WorkExperienceLayout: React.FC<WorkExperienceLayoutProps> = ({
     return (
       <RecapLayout.Container testId={testId} className={className} {...passThroughProps}>
         <RecapLayout.Header className="mb-8" onClickBack={() => {}}>
-          <RecapLayout.HeaderTitle>Work Experience</RecapLayout.HeaderTitle>
+          <RecapLayout.HeaderTitle>References</RecapLayout.HeaderTitle>
         </RecapLayout.Header>
         <RecapLayout.Content>
-          <WorkExperienceEmptyCard
+          <ReferencesEmptyCard
             onClickAdd={() => {
               // TODO: open up create modal
             }}
-            testId="workExperienceEmptyCard"
+            testId="referencesEmptyCard"
           />
         </RecapLayout.Content>
       </RecapLayout.Container>
@@ -47,16 +47,16 @@ const WorkExperienceLayout: React.FC<WorkExperienceLayoutProps> = ({
             // TODO: open up this recap's create modal
           }}
         >
-          Work Experience
+          References
         </RecapLayout.HeaderTitle>
         <RecapLayout.HeaderDescription>
-          Recap everything about your career from internships to full-time jobs and opportunities.
+          Recap the people you have worked with and who can vouch for you in your next move.
         </RecapLayout.HeaderDescription>
       </RecapLayout.Header>
       <RecapLayout.Content>
-        {recaps.map((workExperience, key) => (
-          <WorkExperienceRecap
-            workExperience={workExperience}
+        {recaps.map((references, key) => (
+          <ReferencesRecap
+            references={references}
             onEdit={() => {
               // TODO: open up this recap's edit modal
             }}
@@ -64,7 +64,7 @@ const WorkExperienceLayout: React.FC<WorkExperienceLayoutProps> = ({
               // TODO: open up this recap's delete modal
             }}
             key={key}
-            testId="workExperienceRecap"
+            testId="referencesRecap"
             className="mb-4"
           />
         ))}
@@ -73,4 +73,4 @@ const WorkExperienceLayout: React.FC<WorkExperienceLayoutProps> = ({
   );
 };
 
-export default WorkExperienceLayout;
+export default ReferencesLayout;

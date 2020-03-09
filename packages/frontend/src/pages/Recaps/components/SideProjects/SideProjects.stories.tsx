@@ -4,6 +4,7 @@ import SideProjectsForm from "./Form";
 import SideProjectsRecap from "./Recap";
 import SideProjectsListCard from "./ListCard";
 import SideProjectsEmptyCard from "./EmptyCard";
+import SideProjectsLayout from "./Layout";
 import { RecapSideProjects } from "../../../../interfaces/recaps.interface";
 
 const sideProjects: RecapSideProjects = {
@@ -33,6 +34,22 @@ const onClickView = () => {
   console.log("View clicked!");
 };
 
+const onGoBackToLanding = () => {
+  console.log("Go back to landing!");
+};
+
+const onCreateRecapSuccess = () => {
+  console.log("Create recap success!");
+};
+
+const onUpdateRecapSuccess = () => {
+  console.log("Update recap success!");
+};
+
+const onDeleteRecapSuccess = () => {
+  console.log("Delete recap success!");
+};
+
 storiesOf("RecapsPage/SideProjects", module)
   .add("Form", () => <SideProjectsForm />)
   .add("Recap - Date Range", () => (
@@ -54,4 +71,33 @@ storiesOf("RecapsPage/SideProjects", module)
     />
   ))
   .add("List Card", () => <SideProjectsListCard onClick={onClickView} />)
-  .add("Empty Card", () => <SideProjectsEmptyCard onClickAdd={onClickAdd} />);
+  .add("Empty Card", () => <SideProjectsEmptyCard onClickAdd={onClickAdd} />)
+  .add("Layout - Empty", () => (
+    <SideProjectsLayout
+      recaps={[]}
+      onGoBackToLanding={onGoBackToLanding}
+      onCreateRecapSuccess={onCreateRecapSuccess}
+      onUpdateRecapSuccess={onUpdateRecapSuccess}
+      onDeleteRecapSuccess={onDeleteRecapSuccess}
+    />
+  ))
+  .add("Layout - With Data", () => (
+    <SideProjectsLayout
+      recaps={[
+        sideProjects,
+        {
+          _id: sideProjects._id,
+          userId: sideProjects.userId,
+          startDate: sideProjects.startDate,
+          title: sideProjects.title,
+          creators: sideProjects.creators,
+          kind: sideProjects.kind,
+          bulletPoints: sideProjects.bulletPoints,
+        },
+      ]}
+      onGoBackToLanding={onGoBackToLanding}
+      onCreateRecapSuccess={onCreateRecapSuccess}
+      onUpdateRecapSuccess={onUpdateRecapSuccess}
+      onDeleteRecapSuccess={onDeleteRecapSuccess}
+    />
+  ));

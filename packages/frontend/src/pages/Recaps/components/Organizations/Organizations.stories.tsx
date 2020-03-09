@@ -4,6 +4,7 @@ import OrganizationsForm from "./Form";
 import OrganizationsRecap from "./Recap";
 import OrganizationsListCard from "./ListCard";
 import OrganizationsEmptyCard from "./EmptyCard";
+import OrganizationsLayout from "./Layout";
 import { RecapOrganizations } from "../../../../interfaces/recaps.interface";
 
 const organizations: RecapOrganizations = {
@@ -37,6 +38,22 @@ const onClickView = () => {
   console.log("View clicked!");
 };
 
+const onGoBackToLanding = () => {
+  console.log("Go back to landing!");
+};
+
+const onCreateRecapSuccess = () => {
+  console.log("Create recap success!");
+};
+
+const onUpdateRecapSuccess = () => {
+  console.log("Update recap success!");
+};
+
+const onDeleteRecapSuccess = () => {
+  console.log("Delete recap success!");
+};
+
 storiesOf("RecapsPage/Organizations", module)
   .add("Form", () => <OrganizationsForm />)
   .add("Recap - Date Range", () => (
@@ -59,4 +76,22 @@ storiesOf("RecapsPage/Organizations", module)
     />
   ))
   .add("List Card", () => <OrganizationsListCard onClick={onClickView} />)
-  .add("Empty Card", () => <OrganizationsEmptyCard onClickAdd={onClickAdd} />);
+  .add("Empty Card", () => <OrganizationsEmptyCard onClickAdd={onClickAdd} />)
+  .add("Layout - Empty", () => (
+    <OrganizationsLayout
+      recaps={[]}
+      onGoBackToLanding={onGoBackToLanding}
+      onCreateRecapSuccess={onCreateRecapSuccess}
+      onUpdateRecapSuccess={onUpdateRecapSuccess}
+      onDeleteRecapSuccess={onDeleteRecapSuccess}
+    />
+  ))
+  .add("Layout - With Data", () => (
+    <OrganizationsLayout
+      recaps={[organizations]}
+      onGoBackToLanding={onGoBackToLanding}
+      onCreateRecapSuccess={onCreateRecapSuccess}
+      onUpdateRecapSuccess={onUpdateRecapSuccess}
+      onDeleteRecapSuccess={onDeleteRecapSuccess}
+    />
+  ));

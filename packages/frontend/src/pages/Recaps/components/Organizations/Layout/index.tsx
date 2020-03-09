@@ -1,15 +1,15 @@
 import React from "react";
 import * as RecapLayout from "../../RecapLayout";
 import { RecapLayoutProps } from "../../RecapLayout";
-import WorkExperienceEmptyCard from "../EmptyCard";
-import WorkExperienceRecap from "../Recap";
-import { RecapWorkExperience } from "../../../../../interfaces/recaps.interface";
+import OrganizationsEmptyCard from "../EmptyCard";
+import OrganizationsRecap from "../Recap";
+import { RecapOrganizations } from "../../../../../interfaces/recaps.interface";
 
-export interface WorkExperienceLayoutProps extends RecapLayoutProps {
-  recaps: RecapWorkExperience[];
+export interface OrganizationsLayoutProps extends RecapLayoutProps {
+  recaps: RecapOrganizations[];
 }
 
-const WorkExperienceLayout: React.FC<WorkExperienceLayoutProps> = ({
+const OrganizationsLayout: React.FC<OrganizationsLayoutProps> = ({
   recaps,
   onGoBackToLanding,
   onCreateRecapSuccess,
@@ -25,14 +25,14 @@ const WorkExperienceLayout: React.FC<WorkExperienceLayoutProps> = ({
     return (
       <RecapLayout.Container testId={testId} className={className} {...passThroughProps}>
         <RecapLayout.Header className="mb-8" onClickBack={() => {}}>
-          <RecapLayout.HeaderTitle>Work Experience</RecapLayout.HeaderTitle>
+          <RecapLayout.HeaderTitle>Organizations</RecapLayout.HeaderTitle>
         </RecapLayout.Header>
         <RecapLayout.Content>
-          <WorkExperienceEmptyCard
+          <OrganizationsEmptyCard
             onClickAdd={() => {
               // TODO: open up create modal
             }}
-            testId="workExperienceEmptyCard"
+            testId="organizationsEmptyCard"
           />
         </RecapLayout.Content>
       </RecapLayout.Container>
@@ -47,16 +47,16 @@ const WorkExperienceLayout: React.FC<WorkExperienceLayoutProps> = ({
             // TODO: open up this recap's create modal
           }}
         >
-          Work Experience
+          Organizations
         </RecapLayout.HeaderTitle>
         <RecapLayout.HeaderDescription>
-          Recap everything about your career from internships to full-time jobs and opportunities.
+          Recap the organizations you were a part of and your impact in those groups.
         </RecapLayout.HeaderDescription>
       </RecapLayout.Header>
       <RecapLayout.Content>
-        {recaps.map((workExperience, key) => (
-          <WorkExperienceRecap
-            workExperience={workExperience}
+        {recaps.map((organizations, key) => (
+          <OrganizationsRecap
+            organizations={organizations}
             onEdit={() => {
               // TODO: open up this recap's edit modal
             }}
@@ -64,7 +64,7 @@ const WorkExperienceLayout: React.FC<WorkExperienceLayoutProps> = ({
               // TODO: open up this recap's delete modal
             }}
             key={key}
-            testId="workExperienceRecap"
+            testId="organizationsRecap"
             className="mb-4"
           />
         ))}
@@ -73,4 +73,4 @@ const WorkExperienceLayout: React.FC<WorkExperienceLayoutProps> = ({
   );
 };
 
-export default WorkExperienceLayout;
+export default OrganizationsLayout;

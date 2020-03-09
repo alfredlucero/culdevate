@@ -4,6 +4,7 @@ import OtherForm from "./Form";
 import OtherRecap from "./Recap";
 import OtherListCard from "./ListCard";
 import OtherEmptyCard from "./EmptyCard";
+import OtherLayout from "./Layout";
 import { RecapOther } from "../../../../interfaces/recaps.interface";
 
 const other: RecapOther = {
@@ -32,8 +33,42 @@ const onClickView = () => {
   console.log("View clicked!");
 };
 
+const onGoBackToLanding = () => {
+  console.log("Go back to landing!");
+};
+
+const onCreateRecapSuccess = () => {
+  console.log("Create recap success!");
+};
+
+const onUpdateRecapSuccess = () => {
+  console.log("Update recap success!");
+};
+
+const onDeleteRecapSuccess = () => {
+  console.log("Delete recap success!");
+};
+
 storiesOf("RecapsPage/Other", module)
   .add("Form", () => <OtherForm />)
   .add("Recap", () => <OtherRecap other={other} onEdit={onEdit} onDelete={onDelete} />)
   .add("List Card", () => <OtherListCard onClick={onClickView} />)
-  .add("Empty Card", () => <OtherEmptyCard onClickAdd={onClickAdd} />);
+  .add("Empty Card", () => <OtherEmptyCard onClickAdd={onClickAdd} />)
+  .add("Layout - Empty", () => (
+    <OtherLayout
+      recaps={[]}
+      onGoBackToLanding={onGoBackToLanding}
+      onCreateRecapSuccess={onCreateRecapSuccess}
+      onUpdateRecapSuccess={onUpdateRecapSuccess}
+      onDeleteRecapSuccess={onDeleteRecapSuccess}
+    />
+  ))
+  .add("Layout - With Data", () => (
+    <OtherLayout
+      recaps={[other]}
+      onGoBackToLanding={onGoBackToLanding}
+      onCreateRecapSuccess={onCreateRecapSuccess}
+      onUpdateRecapSuccess={onUpdateRecapSuccess}
+      onDeleteRecapSuccess={onDeleteRecapSuccess}
+    />
+  ));

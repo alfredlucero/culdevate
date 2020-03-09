@@ -4,6 +4,7 @@ import ReferencesForm from "./Form";
 import ReferencesRecap from "./Recap";
 import ReferencesListCard from "./ListCard";
 import ReferencesEmptyCard from "./EmptyCard";
+import ReferencesLayout from "./Layout";
 import { RecapReferences } from "../../../../interfaces/recaps.interface";
 
 const references: RecapReferences = {
@@ -36,6 +37,22 @@ const onClickView = () => {
   console.log("View clicked!");
 };
 
+const onGoBackToLanding = () => {
+  console.log("Go back to landing!");
+};
+
+const onCreateRecapSuccess = () => {
+  console.log("Create recap success!");
+};
+
+const onUpdateRecapSuccess = () => {
+  console.log("Update recap success!");
+};
+
+const onDeleteRecapSuccess = () => {
+  console.log("Delete recap success!");
+};
+
 storiesOf("RecapsPage/References", module)
   .add("Form", () => <ReferencesForm />)
   .add("Recap", () => <ReferencesRecap references={references} onEdit={onEdit} onDelete={onDelete} />)
@@ -56,4 +73,22 @@ storiesOf("RecapsPage/References", module)
     />
   ))
   .add("List Card", () => <ReferencesListCard onClick={onClickView} />)
-  .add("Empty Card", () => <ReferencesEmptyCard onClickAdd={onClickAdd} />);
+  .add("Empty Card", () => <ReferencesEmptyCard onClickAdd={onClickAdd} />)
+  .add("Layout - Empty", () => (
+    <ReferencesLayout
+      recaps={[]}
+      onGoBackToLanding={onGoBackToLanding}
+      onCreateRecapSuccess={onCreateRecapSuccess}
+      onUpdateRecapSuccess={onUpdateRecapSuccess}
+      onDeleteRecapSuccess={onDeleteRecapSuccess}
+    />
+  ))
+  .add("Layout - With Data", () => (
+    <ReferencesLayout
+      recaps={[references]}
+      onGoBackToLanding={onGoBackToLanding}
+      onCreateRecapSuccess={onCreateRecapSuccess}
+      onUpdateRecapSuccess={onUpdateRecapSuccess}
+      onDeleteRecapSuccess={onDeleteRecapSuccess}
+    />
+  ));

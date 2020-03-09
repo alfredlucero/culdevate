@@ -4,6 +4,7 @@ import Heading from "../../../../components/Heading";
 import Button from "../../../../components/Button";
 import Text from "../../../../components/Text";
 import Icon from "../../../../components/Icon";
+import { Recap } from "../../../../interfaces/recaps.interface";
 import { CommonProps } from "../../../../components/commonProps";
 
 interface ContainerProps extends CommonProps {
@@ -91,5 +92,12 @@ const Content: React.FC<ContentProps> = ({ children, testId = "", className = ""
     </section>
   );
 };
+
+export interface RecapLayoutProps extends CommonProps {
+  onGoBackToLanding: () => void;
+  onCreateRecapSuccess: (createdRecap: Recap) => void;
+  onUpdateRecapSuccess: (updatedRecap: Recap) => void;
+  onDeleteRecapSuccess: (recapId: string) => void;
+}
 
 export { Container, Header, HeaderTitle, HeaderDescription, Content };

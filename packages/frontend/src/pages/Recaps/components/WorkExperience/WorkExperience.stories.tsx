@@ -4,6 +4,7 @@ import WorkExperienceForm from "./Form";
 import WorkExperienceRecap from "./Recap";
 import WorkExperienceListCard from "./ListCard";
 import WorkExperienceEmptyCard from "./EmptyCard";
+import WorkExperienceLayout from "./Layout";
 import { RecapWorkExperience } from "../../../../interfaces/recaps.interface";
 
 const workExperience: RecapWorkExperience = {
@@ -38,6 +39,22 @@ const onClickView = () => {
   console.log("View clicked!");
 };
 
+const onGoBackToLanding = () => {
+  console.log("Go back to landing!");
+};
+
+const onCreateRecapSuccess = () => {
+  console.log("Create recap success!");
+};
+
+const onUpdateRecapSuccess = () => {
+  console.log("Update recap success!");
+};
+
+const onDeleteRecapSuccess = () => {
+  console.log("Delete recap success!");
+};
+
 storiesOf("RecapsPage/WorkExperience", module)
   .add("Form", () => <WorkExperienceForm />)
   .add("Recap - Date Range", () => (
@@ -51,4 +68,28 @@ storiesOf("RecapsPage/WorkExperience", module)
     <WorkExperienceRecap workExperience={workExperience} onEdit={onEdit} onDelete={onDelete} />
   ))
   .add("List Card", () => <WorkExperienceListCard onClick={onClickView} />)
-  .add("Empty Card", () => <WorkExperienceEmptyCard onClickAdd={onClickAdd} />);
+  .add("Empty Card", () => <WorkExperienceEmptyCard onClickAdd={onClickAdd} />)
+  .add("Layout - Empty", () => (
+    <WorkExperienceLayout
+      recaps={[]}
+      onGoBackToLanding={onGoBackToLanding}
+      onCreateRecapSuccess={onCreateRecapSuccess}
+      onUpdateRecapSuccess={onUpdateRecapSuccess}
+      onDeleteRecapSuccess={onDeleteRecapSuccess}
+    />
+  ))
+  .add("Layout - With Data", () => (
+    <WorkExperienceLayout
+      recaps={[
+        workExperience,
+        {
+          ...workExperience,
+          endDate: new Date("2020/03/20"),
+        },
+      ]}
+      onGoBackToLanding={onGoBackToLanding}
+      onCreateRecapSuccess={onCreateRecapSuccess}
+      onUpdateRecapSuccess={onUpdateRecapSuccess}
+      onDeleteRecapSuccess={onDeleteRecapSuccess}
+    />
+  ));

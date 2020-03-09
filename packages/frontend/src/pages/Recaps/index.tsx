@@ -6,9 +6,8 @@ import Text from "../../components/Text";
   State Management:
   - page provider - useContext, useReducer
     {
-      currentView: "All" | RecapKind
+      currentView: "all" | "landingListCards" | RecapKind
       recaps: {
-        all: [],
         workExperience: [],
         education: [],
         accomplishments: [], 
@@ -30,12 +29,12 @@ import Text from "../../components/Text";
       - show error card
   - landing list cards
     -> click on card to take you to recap kind layout
-  - each layout
-    - can go back to landing list cards view
-    - empty state
+  - each layout container connects to page state
+    - can go back to landing list cards view (resets banner states/modals too if necessary)
+    - empty state (empty card has add button)
     - maintains state for banners
     - maintains its specific create/edit/delete modals
-    - maintains its own kind's recap list
+    - maintains its own kind's recap list -> may be ordered in specific way
 
   
   <RecapsPage>

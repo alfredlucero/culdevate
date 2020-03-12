@@ -1,5 +1,6 @@
 import React from "react";
-import { BrowserRouter as Router, Switch, Route, Redirect } from "react-router-dom";
+import { Router, Switch, Route, Redirect } from "react-router-dom";
+import browserHistory from "./utils/browserHistory";
 import LandingPage from "./pages/Landing";
 import LoginPage from "./pages/Login";
 import SignupPage from "./pages/Signup";
@@ -17,7 +18,7 @@ const App = () => {
   const { isAuthenticated, logOut } = useAuth();
 
   return (
-    <Router>
+    <Router history={browserHistory}>
       {!isAuthenticated() && (
         <div className="culdevate-root-public">
           <div className="culdevate-nav-public">

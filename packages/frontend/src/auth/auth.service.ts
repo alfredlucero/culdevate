@@ -1,5 +1,5 @@
 import axios from "axios";
-import { UserCredentials, SignupUser, AuthToken } from "../interfaces/auth.interface";
+import { UserCredentials, SignupUser, AuthToken } from "./auth.interface";
 
 export const login = (userCredentials: UserCredentials) => {
   return axios.post<AuthToken>("/auth/login", userCredentials, { baseURL: process.env.API_HOST });

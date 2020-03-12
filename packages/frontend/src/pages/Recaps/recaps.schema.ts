@@ -1,5 +1,5 @@
 import * as yup from "yup";
-import { formRequiredError, formMaxLengthError } from "./formErrorMessages";
+import { formRequiredError, formMaxLengthError } from "../../utils/formErrorMessages";
 
 export const MAX_BULLETPOINT_LENGTH = 1000;
 export const MAX_BULLETPOINTS = 20;

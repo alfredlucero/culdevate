@@ -5,7 +5,7 @@ import SkillsRecap from "./Recap";
 import SkillsListCard from "./ListCard";
 import SkillsEmptyCard from "./EmptyCard";
 import SkillsLayout from "./Layout";
-import { RecapSkills } from "../../../../interfaces/recaps.interface";
+import { RecapSkills } from "../../recaps.interface";
 
 const skills: RecapSkills = {
   title: "Tagalog",

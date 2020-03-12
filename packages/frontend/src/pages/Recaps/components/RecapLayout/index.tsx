@@ -4,7 +4,7 @@ import Heading from "../../../../components/Heading";
 import Button from "../../../../components/Button";
 import Text from "../../../../components/Text";
 import Icon from "../../../../components/Icon";
-import { Recap } from "../../../../interfaces/recaps.interface";
+import { Recap } from "../../recaps.interface";
 import { CommonProps } from "../../../../components/commonProps";
 
 interface ContainerProps extends CommonProps {

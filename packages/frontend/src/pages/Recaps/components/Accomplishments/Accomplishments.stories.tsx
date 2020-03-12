@@ -5,7 +5,7 @@ import AccomplishmentsRecap from "./Recap";
 import AccomplishmentsListCard from "./ListCard";
 import AccomplishmentsEmptyCard from "./EmptyCard";
 import AccomplishmentsLayout from "./Layout";
-import { RecapAccomplishments } from "../../../../interfaces/recaps.interface";
+import { RecapAccomplishments } from "../../recaps.interface";
 
 const accomplishments: RecapAccomplishments = {
   title: "Promoted to Software Engineer 2 at SendGrid",

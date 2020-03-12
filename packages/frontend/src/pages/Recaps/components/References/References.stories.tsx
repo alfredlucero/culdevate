@@ -5,7 +5,7 @@ import ReferencesRecap from "./Recap";
 import ReferencesListCard from "./ListCard";
 import ReferencesEmptyCard from "./EmptyCard";
 import ReferencesLayout from "./Layout";
-import { RecapReferences } from "../../../../interfaces/recaps.interface";
+import { RecapReferences } from "../../recaps.interface";
 
 const references: RecapReferences = {
   title: "Andrew C. - Product Manager",

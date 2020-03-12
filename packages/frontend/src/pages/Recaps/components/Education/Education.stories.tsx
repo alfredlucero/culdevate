@@ -5,7 +5,7 @@ import EducationRecap from "./Recap";
 import EducationListCard from "./ListCard";
 import EducationEmptyCard from "./EmptyCard";
 import EducationLayout from "./Layout";
-import { RecapEducation } from "../../../../interfaces/recaps.interface";
+import { RecapEducation } from "../../recaps.interface";
 
 const education: RecapEducation = {
   kind: "Education",

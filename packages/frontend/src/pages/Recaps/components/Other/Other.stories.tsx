@@ -5,7 +5,7 @@ import OtherRecap from "./Recap";
 import OtherListCard from "./ListCard";
 import OtherEmptyCard from "./EmptyCard";
 import OtherLayout from "./Layout";
-import { RecapOther } from "../../../../interfaces/recaps.interface";
+import { RecapOther } from "../../recaps.interface";
 
 const other: RecapOther = {
   title: "Finished reading Clean Code book!",

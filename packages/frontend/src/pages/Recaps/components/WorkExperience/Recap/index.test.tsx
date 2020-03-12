@@ -1,6 +1,6 @@
 import React from "react";
 import { render } from "@testing-library/react";
-import { RecapWorkExperience } from "../../../../../interfaces/recaps.interface";
+import { RecapWorkExperience } from "../../../recaps.interface";
 import WorkExperienceRecap from "./index";
 
 const workExperience: RecapWorkExperience = {

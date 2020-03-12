@@ -5,7 +5,7 @@ import OrganizationsRecap from "./Recap";
 import OrganizationsListCard from "./ListCard";
 import OrganizationsEmptyCard from "./EmptyCard";
 import OrganizationsLayout from "./Layout";
-import { RecapOrganizations } from "../../../../interfaces/recaps.interface";
+import { RecapOrganizations } from "../../recaps.interface";
 
 const organizations: RecapOrganizations = {
   organizationName: "Zeta Mu Beta",

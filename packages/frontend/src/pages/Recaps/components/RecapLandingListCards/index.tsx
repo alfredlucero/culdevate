@@ -14,7 +14,7 @@ import ReferencesListCard from "../References/ListCard";
 import SideProjectsListCard from "../SideProjects/ListCard";
 import SkillsListCard from "../Skills/ListCard";
 import WorkExperienceListCard from "../WorkExperience/ListCard";
-import { RecapKind } from "../../../../interfaces/recaps.interface";
+import { RecapKind } from "../../recaps.interface";
 import { CommonProps } from "../../../../components/commonProps";
 
 export interface RecapLandingListCardsProps extends CommonProps {

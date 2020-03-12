@@ -5,7 +5,7 @@ import PublicationsRecap from "./Recap";
 import PublicationsListCard from "./ListCard";
 import PublicationsEmptyCard from "./EmptyCard";
 import PublicationsLayout from "./Layout";
-import { RecapPublications } from "../../../../interfaces/recaps.interface";
+import { RecapPublications } from "../../recaps.interface";
 
 const publications: RecapPublications = {
   title: "Mindfulness-based Interventions for those with PTSD",

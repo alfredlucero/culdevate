@@ -1,6 +1,6 @@
 import React from "react";
 import Select, { SelectProps, SelectOption } from "../../../../components/Select";
-import { RecapKind } from "../../../../interfaces/recaps.interface";
+import { RecapKind } from "../../recaps.interface";
 
 interface KindSelectProps extends Omit<SelectProps, "label" | "options" | "placeholder" | "required"> {
   value: RecapKind | "";

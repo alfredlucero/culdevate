@@ -1,6 +1,6 @@
 import React from "react";
 import { render } from "@testing-library/react";
-import { RecapSideProjects } from "../../../../../interfaces/recaps.interface";
+import { RecapSideProjects } from "../../../recaps.interface";
 import SideProjectsRecap from "./index";
 
 const sideProjects: RecapSideProjects = {

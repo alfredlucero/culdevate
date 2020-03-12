@@ -8,7 +8,7 @@ import Button from "../../../../../components/Button";
 import Icon from "../../../../../components/Icon";
 import BulletPoint from "../../BulletPoint";
 import RecapIcon from "../../RecapIcon";
-import { RecapEducation } from "../../../../../interfaces/recaps.interface";
+import { RecapEducation } from "../../../recaps.interface";
 import { CommonProps } from "../../../../../components/commonProps";
 
 interface EducationRecapProps extends CommonProps {

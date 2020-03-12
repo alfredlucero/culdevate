@@ -5,7 +5,7 @@ import SideProjectsRecap from "./Recap";
 import SideProjectsListCard from "./ListCard";
 import SideProjectsEmptyCard from "./EmptyCard";
 import SideProjectsLayout from "./Layout";
-import { RecapSideProjects } from "../../../../interfaces/recaps.interface";
+import { RecapSideProjects } from "../../recaps.interface";
 
 const sideProjects: RecapSideProjects = {
   title: "Zeta Mu Beta Website",

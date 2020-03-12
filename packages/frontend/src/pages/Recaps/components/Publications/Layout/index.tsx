@@ -3,7 +3,7 @@ import * as RecapLayout from "../../RecapLayout";
 import { RecapLayoutProps } from "../../RecapLayout";
 import PublicationsEmptyCard from "../EmptyCard";
 import PublicationsRecap from "../Recap";
-import { RecapPublications } from "../../../../../interfaces/recaps.interface";
+import { RecapPublications } from "../../../recaps.interface";
 
 export interface PublicationsLayoutProps extends RecapLayoutProps {
   recaps: RecapPublications[];

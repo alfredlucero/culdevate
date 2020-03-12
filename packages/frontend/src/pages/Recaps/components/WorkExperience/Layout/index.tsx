@@ -3,7 +3,7 @@ import * as RecapLayout from "../../RecapLayout";
 import { RecapLayoutProps } from "../../RecapLayout";
 import WorkExperienceEmptyCard from "../EmptyCard";
 import WorkExperienceRecap from "../Recap";
-import { RecapWorkExperience } from "../../../../../interfaces/recaps.interface";
+import { RecapWorkExperience } from "../../../recaps.interface";
 
 export interface WorkExperienceLayoutProps extends RecapLayoutProps {
   recaps: RecapWorkExperience[];

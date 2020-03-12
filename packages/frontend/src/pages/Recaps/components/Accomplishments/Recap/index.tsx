@@ -8,7 +8,7 @@ import Button from "../../../../../components/Button";
 import Icon from "../../../../../components/Icon";
 import BulletPoint from "../../BulletPoint";
 import RecapIcon from "../../RecapIcon";
-import { RecapAccomplishments } from "../../../../../interfaces/recaps.interface";
+import { RecapAccomplishments } from "../../../recaps.interface";
 import { CommonProps } from "../../../../../components/commonProps";
 
 interface AccomplishmentsRecapProps extends CommonProps {

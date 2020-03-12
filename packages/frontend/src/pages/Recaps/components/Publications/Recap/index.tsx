@@ -9,7 +9,7 @@ import Icon from "../../../../../components/Icon";
 import Link from "../../../../../components/Link";
 import BulletPoint from "../../BulletPoint";
 import RecapIcon from "../../RecapIcon";
-import { RecapPublications } from "../../../../../interfaces/recaps.interface";
+import { RecapPublications } from "../../../recaps.interface";
 import { CommonProps } from "../../../../../components/commonProps";
 
 interface PublicationsRecapProps extends CommonProps {

@@ -24,7 +24,7 @@ const OrganizationsLayout: React.FC<OrganizationsLayoutProps> = ({
   if (!hasRecaps) {
     return (
       <RecapLayout.Container testId={testId} className={className} {...passThroughProps}>
-        <RecapLayout.Header className="mb-8" onClickBack={() => {}}>
+        <RecapLayout.Header className="mb-8" onClickBack={onGoBackToLanding}>
           <RecapLayout.HeaderTitle>Organizations</RecapLayout.HeaderTitle>
         </RecapLayout.Header>
         <RecapLayout.Content>

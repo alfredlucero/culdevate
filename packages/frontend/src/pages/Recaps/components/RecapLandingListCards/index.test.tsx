@@ -3,10 +3,7 @@ import { render, fireEvent } from "@testing-library/react";
 import RecapLandingListCards, { RecapLandingListCardsProps } from "./index";
 
 const defaultProps: RecapLandingListCardsProps = {
-  onRetryFetchRecaps: () => {},
   onGoToRecapKindLayout: () => {},
-  isFetchingRecaps: false,
-  isFetchRecapsError: false,
 };
 
 describe("<RecapLandingListCards />", () => {
@@ -20,26 +17,6 @@ describe("<RecapLandingListCards />", () => {
     );
 
     expect(container).toMatchSnapshot();
-  });
-
-  test("should show loading state when fetching recaps", () => {
-    const { queryByText } = render(<RecapLandingListCards {...defaultProps} isFetchingRecaps={true} />);
-
-    expect(queryByText("Retry")).toBeNull();
-    expect(queryByText("Work Experience")).toBeNull();
-    expect(queryByText("View All")).toBeNull();
-
-    expect(queryByText("Recapping all the things you did...")).toBeTruthy();
-  });
-
-  test("should show error state when failed to fetch recaps", () => {
-    const { queryByText } = render(<RecapLandingListCards {...defaultProps} isFetchRecapsError={true} />);
-
-    expect(queryByText("Work Experience")).toBeNull();
-    expect(queryByText("Recapping all the things you did...")).toBeNull();
-    expect(queryByText("View All")).toBeNull();
-
-    expect(queryByText("Retry")).toBeTruthy();
   });
 
   test("should show list cards when successfully fetched recaps", () => {

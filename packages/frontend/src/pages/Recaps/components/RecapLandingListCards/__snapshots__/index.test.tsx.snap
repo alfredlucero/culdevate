@@ -2,7 +2,7 @@
 
 exports[`<RecapLandingListCards /> should render without error 1`] = `
 <div>
-  <section
+  <div
     class="extra-landing-list-cards-class h-screen"
     data-testid="landingListCardsTestId"
   >
@@ -425,6 +425,6 @@ exports[`<RecapLandingListCards /> should render without error 1`] = `
         </div>
       </button>
     </div>
-  </section>
+  </div>
 </div>
 `;

@@ -8,6 +8,8 @@ import { AuthProvider } from "./AuthProvider";
 import { AuthTokenLocalStorage } from "./utils/authTokenLocalStorage";
 import browserHistory from "./utils/browserHistory";
 
+axios.defaults.baseURL = process.env.API_HOST;
+
 axios.interceptors.request.use(
   config => {
     // Before any axios request, attempt to add Authorization header for authenticated requests to the backend

@@ -24,7 +24,7 @@ const WorkExperienceLayout: React.FC<WorkExperienceLayoutProps> = ({
   if (!hasRecaps) {
     return (
       <RecapLayout.Container testId={testId} className={className} {...passThroughProps}>
-        <RecapLayout.Header className="mb-8" onClickBack={() => {}}>
+        <RecapLayout.Header className="mb-8" onClickBack={onGoBackToLanding}>
           <RecapLayout.HeaderTitle>Work Experience</RecapLayout.HeaderTitle>
         </RecapLayout.Header>
         <RecapLayout.Content>

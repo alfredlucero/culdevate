@@ -41,7 +41,7 @@ const WorkExperienceLayout: React.FC<WorkExperienceLayoutProps> = ({
 
   return (
     <RecapLayout.Container testId={testId} className={className} {...passThroughProps}>
-      <RecapLayout.Header className="mb-8" onClickBack={() => {}}>
+      <RecapLayout.Header className="mb-8" onClickBack={onGoBackToLanding}>
         <RecapLayout.HeaderTitle
           onClickAdd={() => {
             // TODO: open up this recap's create modal

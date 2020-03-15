@@ -8,8 +8,8 @@ const other: RecapOther = {
   kind: "Other",
   userId: "userId",
   _id: "otherId",
-  startDate: new Date("2017/10/20"),
-  endDate: new Date("2017/12/20"),
+  startDate: new Date("2017/10/20").toISOString(),
+  endDate: new Date("2017/12/20").toISOString(),
   bulletPoints: ["Learned about how to write cleaner and more maintainable code", "Improved with code reviews"],
 };
 describe("<OtherRecap />", () => {

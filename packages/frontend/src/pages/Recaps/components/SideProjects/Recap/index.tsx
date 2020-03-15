@@ -1,6 +1,6 @@
 import React from "react";
 import cn from "classnames";
-import { format } from "date-fns";
+import { format, parseISO } from "date-fns";
 import Card from "../../../../../components/Card";
 import Text from "../../../../../components/Text";
 import Heading from "../../../../../components/Heading";
@@ -32,8 +32,8 @@ const SideProjectsRecap: React.FC<SideProjectsRecapProps> = ({
         <Heading variant="h4">{sideProjects.title}</Heading>
         <Text variant="p">By {sideProjects.creators}</Text>
         <Text variant="p" italic={true} className="text-gray-600">
-          {format(sideProjects.startDate, "MMMM yyyy")} -{" "}
-          {sideProjects.endDate ? format(sideProjects.endDate, "MMMM yyyy") : "Present"}
+          {format(parseISO(sideProjects.startDate), "MMMM yyyy")} -{" "}
+          {sideProjects.endDate ? format(parseISO(sideProjects.endDate), "MMMM yyyy") : "Present"}
         </Text>
         <ul className="mt-3">
           {sideProjects.bulletPoints.map((bulletPoint, index) => (

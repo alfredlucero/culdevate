@@ -67,7 +67,7 @@ const App = () => {
             <NavigationAuth username="alfienity" onLogOut={logOut} />
           </div>
 
-          <main role="main" className="culdevate-main-auth">
+          <main role="main" className="culdevate-main-auth max-h-screen overflow-y-scroll">
             <Switch>
               <Route path={AuthRoutes.profile}>
                 <ProfilePage />

@@ -1,8 +1,8 @@
 export interface RecapBase {
   _id: string;
   kind: RecapKind;
-  startDate?: Date;
-  endDate?: Date;
+  startDate?: string;
+  endDate?: string;
   bulletPoints: string[];
   userId: string;
 }
@@ -26,7 +26,7 @@ interface RecapWorkExperienceKind {
 }
 
 export interface RecapWorkExperience extends RecapBase, RecapWorkExperienceKind {
-  startDate: Date;
+  startDate: string;
   kind: "Work Experience";
 }
 
@@ -49,7 +49,7 @@ interface RecapEducationKind {
 }
 
 export interface RecapEducation extends RecapBase, RecapEducationKind {
-  startDate: Date;
+  startDate: string;
   kind: "Education";
 }
 
@@ -67,7 +67,7 @@ type AccomplishmentsType =
   | "Other";
 
 export interface RecapAccomplishments extends RecapBase, RecapAccomplishmentsKind {
-  startDate: Date;
+  startDate: string;
   kind: "Accomplishments";
 }
 
@@ -82,7 +82,7 @@ interface RecapPublicationsKind {
 type PublicationType = "Book" | "Journal" | "Newspaper" | "Magazine" | "Blog" | "Other";
 
 export interface RecapPublications extends RecapBase, RecapPublicationsKind {
-  startDate: Date;
+  startDate: string;
   kind: "Publications";
 }
 
@@ -103,7 +103,7 @@ interface RecapSideProjectsKind {
 }
 
 export interface RecapSideProjects extends RecapBase, RecapSideProjectsKind {
-  startDate: Date;
+  startDate: string;
   kind: "Side Projects";
 }
 
@@ -114,7 +114,7 @@ interface RecapOrganizationsKind {
 }
 
 export interface RecapOrganizations extends RecapBase, RecapOrganizationsKind {
-  startDate: Date;
+  startDate: string;
   kind: "Organizations";
 }
 
@@ -135,8 +135,8 @@ interface RecapOtherKind {
 
 export interface RecapOther extends RecapBase, RecapOtherKind {
   kind: "Other";
-  startDate: Date;
-  endDate: Date;
+  startDate: string;
+  endDate: string;
 }
 
 export type Recap =

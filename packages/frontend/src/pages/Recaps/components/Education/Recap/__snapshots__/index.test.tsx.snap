@@ -53,7 +53,8 @@ exports[`<EducationRecap /> should render without error 1`] = `
         class="font-sans text-gray-800 text-base italic text-gray-600"
       >
         2013
-         - 
+         -
+         
         2017
         <br />
         Alumnus

@@ -6,8 +6,8 @@ import SideProjectsRecap from "./index";
 const sideProjects: RecapSideProjects = {
   title: "Zeta Mu Beta Website",
   creators: "Alfred Lucero and Regine Deguzman",
-  startDate: new Date("2016/11/01"),
-  endDate: new Date("2016/12/31"),
+  startDate: new Date("2016/11/01").toISOString(),
+  endDate: new Date("2016/12/31").toISOString(),
   kind: "Side Projects",
   userId: "userId",
   _id: "sideProjectsId",

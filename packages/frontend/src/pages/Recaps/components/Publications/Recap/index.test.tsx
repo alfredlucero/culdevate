@@ -12,7 +12,7 @@ const publications: RecapPublications = {
   type: "Journal",
   bulletPoints: ["Providing meditation and cognitive behavioral therapy techniques for those with PTSD"],
   publisher: "UCI Psychology",
-  startDate: new Date("2020/10/20"),
+  startDate: new Date("2020/10/20").toISOString(),
   url: "http://psychology.journal.com",
 };
 

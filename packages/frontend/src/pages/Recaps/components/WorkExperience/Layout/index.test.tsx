@@ -13,7 +13,7 @@ const defaultProps: WorkExperienceLayoutProps = {
         "Getting better at making REST API endpoints",
         "Improving interviewing and mentoring skills",
       ],
-      startDate: new Date("2020/01/17"),
+      startDate: new Date("2020/01/17").toISOString(),
       title: "Lead Software Engineer",
       company: "Culdevate",
       location: "Long Beach, CA",

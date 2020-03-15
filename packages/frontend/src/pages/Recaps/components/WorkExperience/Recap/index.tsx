@@ -1,6 +1,6 @@
 import React from "react";
 import cn from "classnames";
-import { format } from "date-fns";
+import { format, parseISO } from "date-fns";
 import Card from "../../../../../components/Card";
 import Text from "../../../../../components/Text";
 import Heading from "../../../../../components/Heading";
@@ -34,8 +34,8 @@ const WorkExperienceRecap: React.FC<WorkExperienceRecapProps> = ({
           {workExperience.company} | {workExperience.employmentType}
         </Text>
         <Text variant="p" italic={true} className="text-gray-600">
-          {format(workExperience.startDate, "MMM yyyy")} -{" "}
-          {workExperience.endDate ? format(workExperience.endDate, "MMM yyyy") : "Present"}
+          {format(parseISO(workExperience.startDate), "MMM yyyy")} -{" "}
+          {workExperience.endDate ? format(parseISO(workExperience.endDate), "MMM yyyy") : "Present"}
         </Text>
         <Text variant="p">{workExperience.location}</Text>
         <ul className="mt-3">

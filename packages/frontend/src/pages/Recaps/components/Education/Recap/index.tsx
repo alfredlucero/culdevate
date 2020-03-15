@@ -1,6 +1,6 @@
 import React from "react";
 import cn from "classnames";
-import { format } from "date-fns";
+import { format, parseISO } from "date-fns";
 import Card from "../../../../../components/Card";
 import Text from "../../../../../components/Text";
 import Heading from "../../../../../components/Heading";
@@ -36,7 +36,8 @@ const EducationRecap: React.FC<EducationRecapProps> = ({
           {education.fieldOfStudy}
         </Text>
         <Text variant="p" italic={true} className="text-gray-600">
-          {format(education.startDate, "yyyy")} - {education.endDate ? format(education.endDate, "yyyy") : "Present"}
+          {format(parseISO(education.startDate), "yyyy")} -{" "}
+          {education.endDate ? format(parseISO(education.endDate), "yyyy") : "Present"}
           {education.grade && (
             <>
               <br />

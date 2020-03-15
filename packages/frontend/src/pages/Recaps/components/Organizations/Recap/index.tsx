@@ -1,6 +1,6 @@
 import React from "react";
 import cn from "classnames";
-import { format } from "date-fns";
+import { format, parseISO } from "date-fns";
 import Card from "../../../../../components/Card";
 import Text from "../../../../../components/Text";
 import Heading from "../../../../../components/Heading";
@@ -33,8 +33,8 @@ const OrganizationsRecap: React.FC<OrganizationsRecapProps> = ({
         <Text variant="p">{organizations.location}</Text>
         <Text variant="p">{organizations.positions}</Text>
         <Text variant="p" italic={true} className="text-gray-600">
-          {format(organizations.startDate, "yyyy")} -{" "}
-          {organizations.endDate ? format(organizations.endDate, "yyyy") : "Present"}
+          {format(parseISO(organizations.startDate), "yyyy")} -{" "}
+          {organizations.endDate ? format(parseISO(organizations.endDate), "yyyy") : "Present"}
         </Text>
         <ul className="mt-3">
           {organizations.bulletPoints.map((bulletPoint, index) => (

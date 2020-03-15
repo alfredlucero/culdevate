@@ -1,6 +1,6 @@
 import React from "react";
 import cn from "classnames";
-import { format } from "date-fns";
+import { format, parseISO } from "date-fns";
 import Card from "../../../../../components/Card";
 import Text from "../../../../../components/Text";
 import Heading from "../../../../../components/Heading";
@@ -33,7 +33,7 @@ const PublicationsRecap: React.FC<PublicationsRecapProps> = ({
         <Heading variant="h4">{publications.title}</Heading>
         <Text variant="p">By {publications.coauthors}</Text>
         <Text variant="p" italic={true} className="text-gray-600">
-          {format(publications.startDate, "MMMM dd, yyyy")}
+          {format(parseISO(publications.startDate), "MMMM dd, yyyy")}
         </Text>
         <Text variant="p">
           {publications.publisher} ({publications.type})

@@ -4,7 +4,8 @@ import EducationForm from "./Form";
 import EducationRecap from "./Recap";
 import EducationListCard from "./ListCard";
 import EducationEmptyCard from "./EmptyCard";
-import { RecapEducation } from "../../../../interfaces/recaps.interface";
+import EducationLayout from "./Layout";
+import { RecapEducation } from "../../recaps.interface";
 
 const education: RecapEducation = {
   kind: "Education",
@@ -15,8 +16,8 @@ const education: RecapEducation = {
     "Alpha Phi Sigma Honor Society",
     "Daily Bruin Web Development Intern",
   ],
-  startDate: new Date("2013/10/01"),
-  endDate: new Date("2017/06/20"),
+  startDate: new Date("2013/10/01").toISOString(),
+  endDate: new Date("2017/06/20").toISOString(),
   school: "University of California, Los Angeles",
   location: "Los Angeles, CA",
   degree: "Bachelor of Science",
@@ -38,6 +39,22 @@ const onClickAdd = () => {
 
 const onClickView = () => {
   console.log("View clicked!");
+};
+
+const onGoBackToLanding = () => {
+  console.log("Go back to landing!");
+};
+
+const onCreateRecapSuccess = () => {
+  console.log("Create recap success!");
+};
+
+const onUpdateRecapSuccess = () => {
+  console.log("Update recap success!");
+};
+
+const onDeleteRecapSuccess = () => {
+  console.log("Delete recap success!");
 };
 
 storiesOf("RecapsPage/Education", module)
@@ -79,5 +96,23 @@ storiesOf("RecapsPage/Education", module)
       onDelete={onDelete}
     />
   ))
-  .add("List Card", () => <EducationListCard onClickView={onClickView} onClickAdd={onClickAdd} count={10} />)
-  .add("Empty Card", () => <EducationEmptyCard onClickAdd={onClickAdd} />);
+  .add("List Card", () => <EducationListCard onClick={onClickView} />)
+  .add("Empty Card", () => <EducationEmptyCard onClickAdd={onClickAdd} />)
+  .add("Layout - Empty", () => (
+    <EducationLayout
+      recaps={[]}
+      onGoBackToLanding={onGoBackToLanding}
+      onCreateRecapSuccess={onCreateRecapSuccess}
+      onUpdateRecapSuccess={onUpdateRecapSuccess}
+      onDeleteRecapSuccess={onDeleteRecapSuccess}
+    />
+  ))
+  .add("Layout - With Data", () => (
+    <EducationLayout
+      recaps={[education]}
+      onGoBackToLanding={onGoBackToLanding}
+      onCreateRecapSuccess={onCreateRecapSuccess}
+      onUpdateRecapSuccess={onUpdateRecapSuccess}
+      onDeleteRecapSuccess={onDeleteRecapSuccess}
+    />
+  ));

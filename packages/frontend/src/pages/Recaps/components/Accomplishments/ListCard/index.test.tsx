@@ -5,13 +5,7 @@ import AccomplishmentsListCard from "./index";
 describe("<AccomplishmentsListCard />", () => {
   test("should render without error", () => {
     const { container } = render(
-      <AccomplishmentsListCard
-        onClickAdd={() => {}}
-        onClickView={() => {}}
-        count={10}
-        className="extra-list-class"
-        testId="testId"
-      />,
+      <AccomplishmentsListCard onClick={() => {}} className="extra-list-class" testId="testId" />,
     );
 
     expect(container).toMatchSnapshot();

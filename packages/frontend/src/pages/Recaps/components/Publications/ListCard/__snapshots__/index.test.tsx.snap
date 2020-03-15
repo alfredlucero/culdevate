@@ -2,76 +2,49 @@
 
 exports[`<PublicationsListCard /> should render without error 1`] = `
 <div>
-  <div
-    class="bg-white shadow-md rounded px-8 py-6 w-64 extra-list-class"
+  <button
+    class="w-64 hover:bg-blue-100 extra-list-class"
     data-testid="testId"
+    type="button"
   >
     <div
-      class="mb-6 flex justify-center"
+      class="bg-white shadow-md rounded px-8 py-6 h-56 flex items-center justify-center flex-col border-b-8 border-teal-400 border-solid"
+      style="background-color: inherit;"
     >
       <div
-        class="flex justify-center items-center p-3 rounded-lg bg-gray-200 recap-icon"
+        class="mb-6 flex justify-center"
       >
         <div
-          class="font-sans text-3xl text-teal-400"
-          id=""
+          class="flex justify-center items-center p-3 rounded-lg bg-gray-200 recap-icon"
         >
-          <svg
-            aria-hidden="true"
-            class="svg-inline--fa fa-book fa-w-14 "
-            data-icon="book"
-            data-prefix="fas"
-            focusable="false"
-            role="img"
-            viewBox="0 0 448 512"
-            xmlns="http://www.w3.org/2000/svg"
+          <div
+            class="font-sans text-3xl text-teal-400"
+            id=""
           >
-            <path
-              d="M448 360V24c0-13.3-10.7-24-24-24H96C43 0 0 43 0 96v320c0 53 43 96 96 96h328c13.3 0 24-10.7 24-24v-16c0-7.5-3.5-14.3-8.9-18.7-4.2-15.4-4.2-59.3 0-74.7 5.4-4.3 8.9-11.1 8.9-18.6zM128 134c0-3.3 2.7-6 6-6h212c3.3 0 6 2.7 6 6v20c0 3.3-2.7 6-6 6H134c-3.3 0-6-2.7-6-6v-20zm0 64c0-3.3 2.7-6 6-6h212c3.3 0 6 2.7 6 6v20c0 3.3-2.7 6-6 6H134c-3.3 0-6-2.7-6-6v-20zm253.4 250H96c-17.7 0-32-14.3-32-32 0-17.6 14.4-32 32-32h285.4c-1.9 17.1-1.9 46.9 0 64z"
-              fill="currentColor"
-            />
-          </svg>
+            <svg
+              aria-hidden="true"
+              class="svg-inline--fa fa-book fa-w-14 "
+              data-icon="book"
+              data-prefix="fas"
+              focusable="false"
+              role="img"
+              viewBox="0 0 448 512"
+              xmlns="http://www.w3.org/2000/svg"
+            >
+              <path
+                d="M448 360V24c0-13.3-10.7-24-24-24H96C43 0 0 43 0 96v320c0 53 43 96 96 96h328c13.3 0 24-10.7 24-24v-16c0-7.5-3.5-14.3-8.9-18.7-4.2-15.4-4.2-59.3 0-74.7 5.4-4.3 8.9-11.1 8.9-18.6zM128 134c0-3.3 2.7-6 6-6h212c3.3 0 6 2.7 6 6v20c0 3.3-2.7 6-6 6H134c-3.3 0-6-2.7-6-6v-20zm0 64c0-3.3 2.7-6 6-6h212c3.3 0 6 2.7 6 6v20c0 3.3-2.7 6-6 6H134c-3.3 0-6-2.7-6-6v-20zm253.4 250H96c-17.7 0-32-14.3-32-32 0-17.6 14.4-32 32-32h285.4c-1.9 17.1-1.9 46.9 0 64z"
+                fill="currentColor"
+              />
+            </svg>
+          </div>
         </div>
       </div>
-    </div>
-    <h4
-      class="font-mono font-bold text-gray-800 text-xl mb-4 text-center"
-    >
-      Publications
-    </h4>
-    <div
-      class="flex justify-center mb-4"
-    >
-      <button
-        class="font-bold py-2 px-4 rounded bg-transparent text-teal-700 border border-teal-500 hover:bg-teal-500 hover:text-white hover:border-transparent mr-2"
-        type="button"
+      <h4
+        class="font-mono font-bold text-gray-800 text-xl text-center"
       >
-        <div
-          class="flex items-center"
-        >
-          View
-        </div>
-      </button>
-      <button
-        class="font-bold py-2 px-4 rounded font-bold py-2 px-4 rounded bg-teal-500 text-white hover:bg-teal-700 "
-        type="button"
-      >
-        <div
-          class="flex items-center"
-        >
-          Add
-        </div>
-      </button>
+        Publications
+      </h4>
     </div>
-    <div
-      class="flex justify-end"
-    >
-      <div
-        class="rounded bg-gray-200 text-gray-700 text-sm p-2 w-8 flex justify-center items-center"
-      >
-        10
-      </div>
-    </div>
-  </div>
+  </button>
 </div>
 `;

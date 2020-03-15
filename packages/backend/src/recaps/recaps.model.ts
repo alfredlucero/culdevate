@@ -99,6 +99,7 @@ export const RecapWorkExperienceModel = RecapBaseModel.discriminator<RecapWorkEx
 
 export interface RecapWorkExperience extends RecapBase, RecapWorkExperienceKind {
   kind: "Work Experience";
+  startDate: Date;
 }
 
 // Education
@@ -128,6 +129,7 @@ export const RecapEducationModel = RecapBaseModel.discriminator<RecapEducationDo
 
 export interface RecapEducation extends RecapBase, RecapEducationKind {
   kind: "Education";
+  startDate: Date;
 }
 
 // Accomplishments
@@ -160,6 +162,7 @@ const recapAccomplishmentsSchema = new mongoose.Schema({
 
 interface RecapAccomplishmentsDocument extends RecapBaseDocument, RecapAccomplishmentsKind {
   kind: "Accomplishments";
+  startDate: Date;
 }
 
 export const RecapAccomplishmentsModel = RecapBaseModel.discriminator<RecapAccomplishmentsDocument>(
@@ -198,6 +201,7 @@ export const RecapPublicationsModel = RecapBaseModel.discriminator<RecapPublicat
 
 export interface RecapPublications extends RecapBase, RecapPublicationsKind {
   kind: "Publications";
+  startDate: Date;
 }
 
 // Skills
@@ -243,6 +247,7 @@ export const RecapSideProjectsModel = RecapBaseModel.discriminator<RecapSideProj
 
 export interface RecapSideProjects extends RecapBase, RecapSideProjectsKind {
   kind: "Side Projects";
+  startDate: Date;
 }
 
 // Organizations
@@ -268,6 +273,7 @@ export const RecapOrganizationsModel = RecapBaseModel.discriminator<RecapOrganiz
 
 export interface RecapOrganizations extends RecapBase, RecapOrganizationsKind {
   kind: "Organizations";
+  startDate: Date;
 }
 
 // References
@@ -313,6 +319,8 @@ export const RecapOtherModel = RecapBaseModel.discriminator<RecapOtherDocument>(
 
 export interface RecapOther extends RecapBase, RecapOtherKind {
   kind: "Other";
+  startDate: Date;
+  endDate: Date;
 }
 
 export type Recap =

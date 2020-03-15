@@ -409,6 +409,8 @@ describe("Recaps Controller", () => {
         bulletPoints: [],
         title: "Other Title",
         userId,
+        startDate: new Date(),
+        endDate: new Date(),
       };
       const req = mockRequestWithUser({
         params: {
@@ -530,6 +532,8 @@ describe("Recaps Controller", () => {
         bulletPoints: [],
         title: "Other Title",
         userId,
+        startDate: new Date(),
+        endDate: new Date(),
       };
       const req = mockRequestWithUser({
         params: {

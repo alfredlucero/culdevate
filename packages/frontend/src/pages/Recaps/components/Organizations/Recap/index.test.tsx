@@ -1,14 +1,14 @@
 import React from "react";
 import { render } from "@testing-library/react";
-import { RecapOrganizations } from "../../../../../interfaces/recaps.interface";
+import { RecapOrganizations } from "../../../recaps.interface";
 import OrganizationsRecap from "./index";
 
 const organizations: RecapOrganizations = {
   organizationName: "Zeta Mu Beta",
   positions: "Pledge Educator, Member",
   location: "Long Beach, CA",
-  startDate: new Date("2014/12/13"),
-  endDate: new Date("2016/03/31"),
+  startDate: new Date("2014/12/13").toISOString(),
+  endDate: new Date("2016/03/31").toISOString(),
   kind: "Organizations",
   userId: "userId",
   _id: "organizationsId",

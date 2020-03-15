@@ -5,7 +5,7 @@ import Heading from "../../../../components/Heading";
 import Text from "../../../../components/Text";
 import Button from "../../../../components/Button";
 import RecapIcon, { RecapIconProps } from "../RecapIcon";
-import { RecapKind } from "../../../../interfaces/recaps.interface";
+import { RecapKind } from "../../recaps.interface";
 import { CommonProps } from "../../../../components/commonProps";
 
 interface IconProps extends CommonProps {

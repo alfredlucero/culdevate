@@ -4,13 +4,14 @@ import SideProjectsForm from "./Form";
 import SideProjectsRecap from "./Recap";
 import SideProjectsListCard from "./ListCard";
 import SideProjectsEmptyCard from "./EmptyCard";
-import { RecapSideProjects } from "../../../../interfaces/recaps.interface";
+import SideProjectsLayout from "./Layout";
+import { RecapSideProjects } from "../../recaps.interface";
 
 const sideProjects: RecapSideProjects = {
   title: "Zeta Mu Beta Website",
   creators: "Alfred Lucero and Regine Deguzman",
-  startDate: new Date("2016/11/01"),
-  endDate: new Date("2016/12/31"),
+  startDate: new Date("2016/11/01").toISOString(),
+  endDate: new Date("2016/12/31").toISOString(),
   kind: "Side Projects",
   userId: "userId",
   _id: "sideProjectsId",
@@ -33,6 +34,22 @@ const onClickView = () => {
   console.log("View clicked!");
 };
 
+const onGoBackToLanding = () => {
+  console.log("Go back to landing!");
+};
+
+const onCreateRecapSuccess = () => {
+  console.log("Create recap success!");
+};
+
+const onUpdateRecapSuccess = () => {
+  console.log("Update recap success!");
+};
+
+const onDeleteRecapSuccess = () => {
+  console.log("Delete recap success!");
+};
+
 storiesOf("RecapsPage/SideProjects", module)
   .add("Form", () => <SideProjectsForm />)
   .add("Recap - Date Range", () => (
@@ -53,5 +70,34 @@ storiesOf("RecapsPage/SideProjects", module)
       onDelete={onDelete}
     />
   ))
-  .add("List Card", () => <SideProjectsListCard onClickView={onClickView} onClickAdd={onClickAdd} count={10} />)
-  .add("Empty Card", () => <SideProjectsEmptyCard onClickAdd={onClickAdd} />);
+  .add("List Card", () => <SideProjectsListCard onClick={onClickView} />)
+  .add("Empty Card", () => <SideProjectsEmptyCard onClickAdd={onClickAdd} />)
+  .add("Layout - Empty", () => (
+    <SideProjectsLayout
+      recaps={[]}
+      onGoBackToLanding={onGoBackToLanding}
+      onCreateRecapSuccess={onCreateRecapSuccess}
+      onUpdateRecapSuccess={onUpdateRecapSuccess}
+      onDeleteRecapSuccess={onDeleteRecapSuccess}
+    />
+  ))
+  .add("Layout - With Data", () => (
+    <SideProjectsLayout
+      recaps={[
+        sideProjects,
+        {
+          _id: sideProjects._id,
+          userId: sideProjects.userId,
+          startDate: sideProjects.startDate,
+          title: sideProjects.title,
+          creators: sideProjects.creators,
+          kind: sideProjects.kind,
+          bulletPoints: sideProjects.bulletPoints,
+        },
+      ]}
+      onGoBackToLanding={onGoBackToLanding}
+      onCreateRecapSuccess={onCreateRecapSuccess}
+      onUpdateRecapSuccess={onUpdateRecapSuccess}
+      onDeleteRecapSuccess={onDeleteRecapSuccess}
+    />
+  ));

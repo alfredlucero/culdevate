@@ -4,15 +4,16 @@ import OtherForm from "./Form";
 import OtherRecap from "./Recap";
 import OtherListCard from "./ListCard";
 import OtherEmptyCard from "./EmptyCard";
-import { RecapOther } from "../../../../interfaces/recaps.interface";
+import OtherLayout from "./Layout";
+import { RecapOther } from "../../recaps.interface";
 
 const other: RecapOther = {
   title: "Finished reading Clean Code book!",
   kind: "Other",
   userId: "userId",
   _id: "otherId",
-  startDate: new Date("2017/10/20"),
-  endDate: new Date("2017/12/20"),
+  startDate: new Date("2017/10/20").toISOString(),
+  endDate: new Date("2017/12/20").toISOString(),
   bulletPoints: ["Learned about how to write cleaner and more maintainable code", "Improved with code reviews"],
 };
 
@@ -32,8 +33,42 @@ const onClickView = () => {
   console.log("View clicked!");
 };
 
+const onGoBackToLanding = () => {
+  console.log("Go back to landing!");
+};
+
+const onCreateRecapSuccess = () => {
+  console.log("Create recap success!");
+};
+
+const onUpdateRecapSuccess = () => {
+  console.log("Update recap success!");
+};
+
+const onDeleteRecapSuccess = () => {
+  console.log("Delete recap success!");
+};
+
 storiesOf("RecapsPage/Other", module)
   .add("Form", () => <OtherForm />)
   .add("Recap", () => <OtherRecap other={other} onEdit={onEdit} onDelete={onDelete} />)
-  .add("List Card", () => <OtherListCard onClickView={onClickView} onClickAdd={onClickAdd} count={10} />)
-  .add("Empty Card", () => <OtherEmptyCard onClickAdd={onClickAdd} />);
+  .add("List Card", () => <OtherListCard onClick={onClickView} />)
+  .add("Empty Card", () => <OtherEmptyCard onClickAdd={onClickAdd} />)
+  .add("Layout - Empty", () => (
+    <OtherLayout
+      recaps={[]}
+      onGoBackToLanding={onGoBackToLanding}
+      onCreateRecapSuccess={onCreateRecapSuccess}
+      onUpdateRecapSuccess={onUpdateRecapSuccess}
+      onDeleteRecapSuccess={onDeleteRecapSuccess}
+    />
+  ))
+  .add("Layout - With Data", () => (
+    <OtherLayout
+      recaps={[other]}
+      onGoBackToLanding={onGoBackToLanding}
+      onCreateRecapSuccess={onCreateRecapSuccess}
+      onUpdateRecapSuccess={onUpdateRecapSuccess}
+      onDeleteRecapSuccess={onDeleteRecapSuccess}
+    />
+  ));

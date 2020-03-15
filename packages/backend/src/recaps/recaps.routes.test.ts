@@ -29,6 +29,8 @@ describe("Recaps Routes", () => {
     bulletPoints: [],
     title: "Other User",
     userId: otherUserId,
+    startDate: new Date(),
+    endDate: new Date(),
   };
   let otherUserRecapId;
   beforeEach(async () => {

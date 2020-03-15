@@ -1,6 +1,6 @@
 import React from "react";
 import { render } from "@testing-library/react";
-import { RecapEducation } from "../../../../../interfaces/recaps.interface";
+import { RecapEducation } from "../../../recaps.interface";
 import EducationRecap from "./index";
 
 const education: RecapEducation = {
@@ -12,8 +12,8 @@ const education: RecapEducation = {
     "Alpha Phi Sigma Honor Society",
     "Daily Bruin Web Development Intern",
   ],
-  startDate: new Date("2013/10/01"),
-  endDate: new Date("2017/06/20"),
+  startDate: new Date("2013/10/01").toISOString(),
+  endDate: new Date("2017/06/20").toISOString(),
   school: "University of California, Los Angeles",
   location: "Los Angeles, CA",
   degree: "Bachelor of Science",

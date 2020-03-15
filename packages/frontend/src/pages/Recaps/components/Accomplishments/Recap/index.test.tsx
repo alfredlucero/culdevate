@@ -1,6 +1,6 @@
 import React from "react";
 import { render } from "@testing-library/react";
-import { RecapAccomplishments } from "../../../../../interfaces/recaps.interface";
+import { RecapAccomplishments } from "../../../recaps.interface";
 import AccomplishmentsRecap from "./index";
 
 const accomplishments: RecapAccomplishments = {
@@ -14,7 +14,7 @@ const accomplishments: RecapAccomplishments = {
     "Contributed to the development and pushed the final release of the redesigned Email Activity in Backbone/Marionette",
     "Led the transition from an in-house Ruby Selenium solution to WebdriverIO and finally to Cypress for E2E tests",
   ],
-  startDate: new Date("2018/10/20"),
+  startDate: new Date("2018/10/20").toISOString(),
 };
 
 describe("<AccomplishmentsRecap />", () => {

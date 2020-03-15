@@ -1,6 +1,6 @@
 import React from "react";
 import { render } from "@testing-library/react";
-import { RecapPublications } from "../../../../../interfaces/recaps.interface";
+import { RecapPublications } from "../../../recaps.interface";
 import PublicationsRecap from "./index";
 
 const publications: RecapPublications = {
@@ -12,7 +12,7 @@ const publications: RecapPublications = {
   type: "Journal",
   bulletPoints: ["Providing meditation and cognitive behavioral therapy techniques for those with PTSD"],
   publisher: "UCI Psychology",
-  startDate: new Date("2020/10/20"),
+  startDate: new Date("2020/10/20").toISOString(),
   url: "http://psychology.journal.com",
 };
 

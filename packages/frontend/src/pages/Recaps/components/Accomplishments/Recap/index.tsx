@@ -1,6 +1,6 @@
 import React from "react";
 import cn from "classnames";
-import { format } from "date-fns";
+import { format, parseISO } from "date-fns";
 import Card from "../../../../../components/Card";
 import Text from "../../../../../components/Text";
 import Heading from "../../../../../components/Heading";
@@ -8,7 +8,7 @@ import Button from "../../../../../components/Button";
 import Icon from "../../../../../components/Icon";
 import BulletPoint from "../../BulletPoint";
 import RecapIcon from "../../RecapIcon";
-import { RecapAccomplishments } from "../../../../../interfaces/recaps.interface";
+import { RecapAccomplishments } from "../../../recaps.interface";
 import { CommonProps } from "../../../../../components/commonProps";
 
 interface AccomplishmentsRecapProps extends CommonProps {
@@ -31,7 +31,7 @@ const AccomplishmentsRecap: React.FC<AccomplishmentsRecapProps> = ({
       <div className="flex-auto">
         <Heading variant="h4">{accomplishments.title}</Heading>
         <Text variant="p" italic={true} className="text-gray-600">
-          {format(accomplishments.startDate, "MMMM dd, yyyy")}
+          {format(parseISO(accomplishments.startDate), "MMMM dd, yyyy")}
         </Text>
         <Text variant="p">{accomplishments.type}</Text>
         <ul className="mt-3">

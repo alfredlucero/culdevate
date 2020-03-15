@@ -4,7 +4,7 @@ import Card from "../../../../components/Card";
 import Heading from "../../../../components/Heading";
 import Button from "../../../../components/Button";
 import RecapIcon, { RecapIconProps } from "../RecapIcon";
-import { RecapKind } from "../../../../interfaces/recaps.interface";
+import { RecapKind } from "../../recaps.interface";
 import { CommonProps } from "../../../../components/commonProps";
 
 interface IconProps extends CommonProps {
@@ -48,77 +48,41 @@ const Kind: React.FC<KindProps> = ({ kind, className = "", testId = "", ...passT
   );
 };
 
-interface ActionsProps extends CommonProps {
-  onClickAdd: () => void;
-  onClickView: () => void;
-}
-
-const Actions: React.FC<ActionsProps> = ({
-  onClickAdd,
-  onClickView,
-  testId = "",
-  className = "",
-  ...passThroughProps
-}) => {
-  return (
-    <div
-      className={cn("flex", "justify-center", className)}
-      {...(testId !== "" ? { "data-testid": testId } : {})}
-      {...passThroughProps}
-    >
-      <Button type="button" variant="secondary" onClick={onClickView} className="mr-2">
-        View
-      </Button>
-      <Button type="button" variant="primary" onClick={onClickAdd}>
-        Add
-      </Button>
-    </div>
-  );
-};
-
-interface CountProps extends CommonProps {
-  count: number;
-}
-
-const Count: React.FC<CountProps> = ({ count, testId = "", className = "", ...passThroughProps }) => {
-  return (
-    <div
-      className={cn(
-        "rounded",
-        "bg-gray-200",
-        "text-gray-700",
-        "text-sm",
-        "p-2",
-        "w-8",
-        "flex",
-        "justify-center",
-        "items-center",
-        className,
-      )}
-      {...(testId !== "" ? { "data-testid": testId } : {})}
-      {...passThroughProps}
-    >
-      {count}
-    </div>
-  );
-};
-
 interface CardProps extends CommonProps {
   children: React.ReactNode;
+  onClick: () => void;
 }
 
 const ListCard: React.FC<CardProps> = ({ children, testId = "", className = "", ...passThroughProps }) => {
   return (
-    <Card testId={testId} className={cn("w-64", className)} {...passThroughProps}>
-      {children}
-    </Card>
+    <Button
+      type="button"
+      variant="unstyled"
+      testId={testId}
+      className={cn("w-64", "hover:bg-blue-100", className)}
+      {...passThroughProps}
+    >
+      <Card
+        className={cn(
+          "h-56",
+          "flex",
+          "items-center",
+          "justify-center",
+          "flex-col",
+          "border-b-8",
+          "border-teal-400",
+          "border-solid",
+        )}
+        {...{ style: { backgroundColor: "inherit" } }}
+      >
+        {children}
+      </Card>
+    </Button>
   );
 };
 
 export interface RecapListCardProps extends CommonProps {
-  onClickAdd: () => void;
-  onClickView: () => void;
-  count: number;
+  onClick: () => void;
 }
 
-export { ListCard, Icon, Kind, Actions, Count };
+export { ListCard, Icon, Kind };

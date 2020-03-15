@@ -1,5 +1,5 @@
 import * as yup from "yup";
-import { formRequiredError, formMinLengthError, formMaxLengthError } from "./formErrorMessages";
+import { formRequiredError, formMinLengthError, formMaxLengthError } from "../utils/formErrorMessages";
 
 const USERNAME_MIN_LENGTH = 3;
 const USERNAME_MAX_LENGTH = 30;

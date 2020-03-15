@@ -4,7 +4,8 @@ import ReferencesForm from "./Form";
 import ReferencesRecap from "./Recap";
 import ReferencesListCard from "./ListCard";
 import ReferencesEmptyCard from "./EmptyCard";
-import { RecapReferences } from "../../../../interfaces/recaps.interface";
+import ReferencesLayout from "./Layout";
+import { RecapReferences } from "../../recaps.interface";
 
 const references: RecapReferences = {
   title: "Andrew C. - Product Manager",
@@ -36,6 +37,22 @@ const onClickView = () => {
   console.log("View clicked!");
 };
 
+const onGoBackToLanding = () => {
+  console.log("Go back to landing!");
+};
+
+const onCreateRecapSuccess = () => {
+  console.log("Create recap success!");
+};
+
+const onUpdateRecapSuccess = () => {
+  console.log("Update recap success!");
+};
+
+const onDeleteRecapSuccess = () => {
+  console.log("Delete recap success!");
+};
+
 storiesOf("RecapsPage/References", module)
   .add("Form", () => <ReferencesForm />)
   .add("Recap", () => <ReferencesRecap references={references} onEdit={onEdit} onDelete={onDelete} />)
@@ -55,5 +72,23 @@ storiesOf("RecapsPage/References", module)
       onDelete={onDelete}
     />
   ))
-  .add("List Card", () => <ReferencesListCard onClickView={onClickView} onClickAdd={onClickAdd} count={10} />)
-  .add("Empty Card", () => <ReferencesEmptyCard onClickAdd={onClickAdd} />);
+  .add("List Card", () => <ReferencesListCard onClick={onClickView} />)
+  .add("Empty Card", () => <ReferencesEmptyCard onClickAdd={onClickAdd} />)
+  .add("Layout - Empty", () => (
+    <ReferencesLayout
+      recaps={[]}
+      onGoBackToLanding={onGoBackToLanding}
+      onCreateRecapSuccess={onCreateRecapSuccess}
+      onUpdateRecapSuccess={onUpdateRecapSuccess}
+      onDeleteRecapSuccess={onDeleteRecapSuccess}
+    />
+  ))
+  .add("Layout - With Data", () => (
+    <ReferencesLayout
+      recaps={[references]}
+      onGoBackToLanding={onGoBackToLanding}
+      onCreateRecapSuccess={onCreateRecapSuccess}
+      onUpdateRecapSuccess={onUpdateRecapSuccess}
+      onDeleteRecapSuccess={onDeleteRecapSuccess}
+    />
+  ));

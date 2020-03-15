@@ -1,6 +1,6 @@
 import React from "react";
 import { render } from "@testing-library/react";
-import { RecapWorkExperience } from "../../../../../interfaces/recaps.interface";
+import { RecapWorkExperience } from "../../../recaps.interface";
 import WorkExperienceRecap from "./index";
 
 const workExperience: RecapWorkExperience = {
@@ -12,7 +12,7 @@ const workExperience: RecapWorkExperience = {
     "Getting better at making REST API endpoints",
     "Improving interviewing and mentoring skills",
   ],
-  startDate: new Date("2020/01/17"),
+  startDate: new Date("2020/01/17").toISOString(),
   title: "Lead Software Engineer",
   company: "Culdevate",
   location: "Long Beach, CA",
@@ -25,7 +25,7 @@ describe("<WorkExperienceRecap />", () => {
   test("should render without error", () => {
     const { container } = render(
       <WorkExperienceRecap
-        workExperience={{ ...workExperience, endDate: new Date("2020/03/20") }}
+        workExperience={{ ...workExperience, endDate: new Date("2020/03/20").toISOString() }}
         onEdit={() => {}}
         onDelete={() => {}}
         testId={testId}

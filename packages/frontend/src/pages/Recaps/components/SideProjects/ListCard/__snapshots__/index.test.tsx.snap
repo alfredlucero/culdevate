@@ -2,76 +2,49 @@
 
 exports[`<SideProjectsListCard /> should render without error 1`] = `
 <div>
-  <div
-    class="bg-white shadow-md rounded px-8 py-6 w-64 extra-list-class"
+  <button
+    class="w-64 hover:bg-blue-100 extra-list-class"
     data-testid="testId"
+    type="button"
   >
     <div
-      class="mb-6 flex justify-center"
+      class="bg-white shadow-md rounded px-8 py-6 h-56 flex items-center justify-center flex-col border-b-8 border-teal-400 border-solid"
+      style="background-color: inherit;"
     >
       <div
-        class="flex justify-center items-center p-3 rounded-lg bg-gray-200 recap-icon"
+        class="mb-6 flex justify-center"
       >
         <div
-          class="font-sans text-3xl text-teal-400"
-          id=""
+          class="flex justify-center items-center p-3 rounded-lg bg-gray-200 recap-icon"
         >
-          <svg
-            aria-hidden="true"
-            class="svg-inline--fa fa-project-diagram fa-w-20 "
-            data-icon="project-diagram"
-            data-prefix="fas"
-            focusable="false"
-            role="img"
-            viewBox="0 0 640 512"
-            xmlns="http://www.w3.org/2000/svg"
+          <div
+            class="font-sans text-3xl text-teal-400"
+            id=""
           >
-            <path
-              d="M384 320H256c-17.67 0-32 14.33-32 32v128c0 17.67 14.33 32 32 32h128c17.67 0 32-14.33 32-32V352c0-17.67-14.33-32-32-32zM192 32c0-17.67-14.33-32-32-32H32C14.33 0 0 14.33 0 32v128c0 17.67 14.33 32 32 32h95.72l73.16 128.04C211.98 300.98 232.4 288 256 288h.28L192 175.51V128h224V64H192V32zM608 0H480c-17.67 0-32 14.33-32 32v128c0 17.67 14.33 32 32 32h128c17.67 0 32-14.33 32-32V32c0-17.67-14.33-32-32-32z"
-              fill="currentColor"
-            />
-          </svg>
+            <svg
+              aria-hidden="true"
+              class="svg-inline--fa fa-project-diagram fa-w-20 "
+              data-icon="project-diagram"
+              data-prefix="fas"
+              focusable="false"
+              role="img"
+              viewBox="0 0 640 512"
+              xmlns="http://www.w3.org/2000/svg"
+            >
+              <path
+                d="M384 320H256c-17.67 0-32 14.33-32 32v128c0 17.67 14.33 32 32 32h128c17.67 0 32-14.33 32-32V352c0-17.67-14.33-32-32-32zM192 32c0-17.67-14.33-32-32-32H32C14.33 0 0 14.33 0 32v128c0 17.67 14.33 32 32 32h95.72l73.16 128.04C211.98 300.98 232.4 288 256 288h.28L192 175.51V128h224V64H192V32zM608 0H480c-17.67 0-32 14.33-32 32v128c0 17.67 14.33 32 32 32h128c17.67 0 32-14.33 32-32V32c0-17.67-14.33-32-32-32z"
+                fill="currentColor"
+              />
+            </svg>
+          </div>
         </div>
       </div>
-    </div>
-    <h4
-      class="font-mono font-bold text-gray-800 text-xl mb-4 text-center"
-    >
-      Side Projects
-    </h4>
-    <div
-      class="flex justify-center mb-4"
-    >
-      <button
-        class="font-bold py-2 px-4 rounded bg-transparent text-teal-700 border border-teal-500 hover:bg-teal-500 hover:text-white hover:border-transparent mr-2"
-        type="button"
+      <h4
+        class="font-mono font-bold text-gray-800 text-xl text-center"
       >
-        <div
-          class="flex items-center"
-        >
-          View
-        </div>
-      </button>
-      <button
-        class="font-bold py-2 px-4 rounded font-bold py-2 px-4 rounded bg-teal-500 text-white hover:bg-teal-700 "
-        type="button"
-      >
-        <div
-          class="flex items-center"
-        >
-          Add
-        </div>
-      </button>
+        Side Projects
+      </h4>
     </div>
-    <div
-      class="flex justify-end"
-    >
-      <div
-        class="rounded bg-gray-200 text-gray-700 text-sm p-2 w-8 flex justify-center items-center"
-      >
-        10
-      </div>
-    </div>
-  </div>
+  </button>
 </div>
 `;

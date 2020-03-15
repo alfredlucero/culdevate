@@ -19,6 +19,7 @@ import {
   faFan,
   faPencilAlt,
   faExclamationTriangle,
+  faChevronLeft,
 } from "@fortawesome/free-solid-svg-icons";
 import { CommonProps } from "../commonProps";
 
@@ -45,7 +46,8 @@ export type IconVariant =
   | "plus"
   | "loadingFan"
   | "editPencil"
-  | "exclamationTriangle";
+  | "exclamationTriangle"
+  | "chevronLeft";
 
 export type IconSize = "small" | "medium" | "large" | "xlarge";
 
@@ -66,6 +68,7 @@ const iconVariantToFontAwesomeMap: IconVariantToFontAwesomeMap = {
   loadingFan: faFan,
   editPencil: faPencilAlt,
   exclamationTriangle: faExclamationTriangle,
+  chevronLeft: faChevronLeft,
 };
 
 type IconVariantToFontAwesomeMap = {

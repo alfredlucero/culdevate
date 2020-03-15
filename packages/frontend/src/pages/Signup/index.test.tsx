@@ -3,7 +3,7 @@ import { MemoryRouter, Switch, Route } from "react-router-dom";
 import { render, fireEvent } from "@testing-library/react";
 import axios from "axios";
 import SignupPage from "./index";
-import { usernameErrors, emailErrors, passwordErrors, confirmPasswordErrors } from "../../validations/user.schema";
+import { usernameErrors, emailErrors, passwordErrors, confirmPasswordErrors } from "../../auth/auth.schema";
 
 jest.mock("axios");
 const axiosMock = axios as jest.Mocked<typeof axios>;

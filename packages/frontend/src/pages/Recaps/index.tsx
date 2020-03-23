@@ -31,7 +31,6 @@ import {
   RecapOther,
   Recap,
 } from "./recaps.interface";
-import { ResponseError } from "../../interfaces/responseError.interface";
 
 /*
   State Management:
@@ -135,7 +134,9 @@ enum ActionTypes {
   GetRecapsRequest = "getRecapsRequest",
   GetRecapsSuccess = "getRecapsSuccess",
   GetRecapsFailure = "getRecapsFailure",
-  // TODO: add update/add/delete for each recap type
+  CreateRecapSuccess = "createRecapSuccess",
+  UpdateRecapSuccess = "updateRecapSuccess",
+  DeleteRecapSuccess = "deleteRecapSuccess",
 }
 
 type RecapsPageAction =
@@ -148,6 +149,18 @@ type RecapsPageAction =
     }
   | {
       type: ActionTypes.GetRecapsFailure;
+    }
+  | {
+      type: ActionTypes.CreateRecapSuccess;
+      payload: Recap;
+    }
+  | {
+      type: ActionTypes.UpdateRecapSuccess;
+      payload: Recap;
+    }
+  | {
+      type: ActionTypes.DeleteRecapSuccess;
+      payload: Recap;
     };
 
 const recapsAdapter = (recaps: Recap[]): RecapsMap => {
@@ -212,6 +225,18 @@ const recapsAdapter = (recaps: Recap[]): RecapsMap => {
   return recapsMap;
 };
 
+function createRecapForList<RecapType>(createdRecap: RecapType, recaps: RecapType[]): RecapType[] {
+  return [...recaps, createdRecap];
+}
+function updateRecapInList(updatedRecap: Recap, recaps: Recap[]): Recap[] {
+  return recaps.map(recap => {
+    return recap._id === updatedRecap._id ? updatedRecap : recap;
+  });
+}
+function deleteRecapFromList(deletedRecap: Recap, recaps: Recap[]): Recap[] {
+  return recaps.filter(recap => (recap._id !== deletedRecap._id ? true : false));
+}
+
 const recapsPageReducer = (state: RecapsPageState, action: RecapsPageAction): RecapsPageState => {
   switch (action.type) {
     case ActionTypes.GetRecapsRequest: {
@@ -237,6 +262,258 @@ const recapsPageReducer = (state: RecapsPageState, action: RecapsPageAction): Re
         isFetchingRecaps: false,
         isFetchRecapsError: true,
       };
+    }
+    case ActionTypes.CreateRecapSuccess: {
+      const createdRecap = action.payload;
+
+      switch (createdRecap.kind) {
+        case "Work Experience":
+          return {
+            ...state,
+            recapsMap: {
+              ...state.recapsMap,
+              workExperience: createRecapForList(createdRecap, state.recapsMap.workExperience),
+            },
+          };
+        case "Education":
+          return {
+            ...state,
+            recapsMap: {
+              ...state.recapsMap,
+              education: createRecapForList(createdRecap, state.recapsMap.education),
+            },
+          };
+        case "Accomplishments":
+          return {
+            ...state,
+            recapsMap: {
+              ...state.recapsMap,
+              accomplishments: createRecapForList(createdRecap, state.recapsMap.accomplishments),
+            },
+          };
+        case "Organizations":
+          return {
+            ...state,
+            recapsMap: {
+              ...state.recapsMap,
+              organizations: createRecapForList(createdRecap, state.recapsMap.organizations),
+            },
+          };
+        case "Skills":
+          return {
+            ...state,
+            recapsMap: {
+              ...state.recapsMap,
+              skills: createRecapForList(createdRecap, state.recapsMap.skills),
+            },
+          };
+        case "Side Projects":
+          return {
+            ...state,
+            recapsMap: {
+              ...state.recapsMap,
+              sideProjects: createRecapForList(createdRecap, state.recapsMap.sideProjects),
+            },
+          };
+        case "Publications":
+          return {
+            ...state,
+            recapsMap: {
+              ...state.recapsMap,
+              publications: createRecapForList(createdRecap, state.recapsMap.publications),
+            },
+          };
+        case "References":
+          return {
+            ...state,
+            recapsMap: {
+              ...state.recapsMap,
+              references: createRecapForList(createdRecap, state.recapsMap.references),
+            },
+          };
+        case "Other":
+          return {
+            ...state,
+            recapsMap: {
+              ...state.recapsMap,
+              other: createRecapForList(createdRecap, state.recapsMap.other),
+            },
+          };
+        default:
+          console.error("Invalid recap kind for ", createdRecap);
+          return state;
+      }
+    }
+    case ActionTypes.UpdateRecapSuccess: {
+      const updatedRecap = action.payload;
+
+      switch (updatedRecap.kind) {
+        case "Work Experience":
+          return {
+            ...state,
+            recapsMap: {
+              ...state.recapsMap,
+              workExperience: updateRecapInList(updatedRecap, state.recapsMap.workExperience) as RecapWorkExperience[],
+            },
+          };
+        case "Education":
+          return {
+            ...state,
+            recapsMap: {
+              ...state.recapsMap,
+              education: updateRecapInList(updatedRecap, state.recapsMap.education) as RecapEducation[],
+            },
+          };
+        case "Accomplishments":
+          return {
+            ...state,
+            recapsMap: {
+              ...state.recapsMap,
+              accomplishments: updateRecapInList(
+                updatedRecap,
+                state.recapsMap.accomplishments,
+              ) as RecapAccomplishments[],
+            },
+          };
+        case "Organizations":
+          return {
+            ...state,
+            recapsMap: {
+              ...state.recapsMap,
+              organizations: updateRecapInList(updatedRecap, state.recapsMap.organizations) as RecapOrganizations[],
+            },
+          };
+        case "Skills":
+          return {
+            ...state,
+            recapsMap: {
+              ...state.recapsMap,
+              skills: updateRecapInList(updatedRecap, state.recapsMap.skills) as RecapSkills[],
+            },
+          };
+        case "Side Projects":
+          return {
+            ...state,
+            recapsMap: {
+              ...state.recapsMap,
+              sideProjects: updateRecapInList(updatedRecap, state.recapsMap.sideProjects) as RecapSideProjects[],
+            },
+          };
+        case "Publications":
+          return {
+            ...state,
+            recapsMap: {
+              ...state.recapsMap,
+              publications: updateRecapInList(updatedRecap, state.recapsMap.publications) as RecapPublications[],
+            },
+          };
+        case "References":
+          return {
+            ...state,
+            recapsMap: {
+              ...state.recapsMap,
+              references: updateRecapInList(updatedRecap, state.recapsMap.references) as RecapReferences[],
+            },
+          };
+        case "Other":
+          return {
+            ...state,
+            recapsMap: {
+              ...state.recapsMap,
+              other: updateRecapInList(updatedRecap, state.recapsMap.other) as RecapOther[],
+            },
+          };
+        default:
+          console.error("Invalid recap kind for ", updatedRecap);
+          return state;
+      }
+    }
+    case ActionTypes.DeleteRecapSuccess: {
+      const deletedRecap = action.payload;
+
+      switch (deletedRecap.kind) {
+        case "Work Experience":
+          return {
+            ...state,
+            recapsMap: {
+              ...state.recapsMap,
+              workExperience: deleteRecapFromList(
+                deletedRecap,
+                state.recapsMap.workExperience,
+              ) as RecapWorkExperience[],
+            },
+          };
+        case "Education":
+          return {
+            ...state,
+            recapsMap: {
+              ...state.recapsMap,
+              education: deleteRecapFromList(deletedRecap, state.recapsMap.education) as RecapEducation[],
+            },
+          };
+        case "Accomplishments":
+          return {
+            ...state,
+            recapsMap: {
+              ...state.recapsMap,
+              accomplishments: deleteRecapFromList(
+                deletedRecap,
+                state.recapsMap.accomplishments,
+              ) as RecapAccomplishments[],
+            },
+          };
+        case "Organizations":
+          return {
+            ...state,
+            recapsMap: {
+              ...state.recapsMap,
+              organizations: deleteRecapFromList(deletedRecap, state.recapsMap.organizations) as RecapOrganizations[],
+            },
+          };
+        case "Skills":
+          return {
+            ...state,
+            recapsMap: {
+              ...state.recapsMap,
+              skills: deleteRecapFromList(deletedRecap, state.recapsMap.skills) as RecapSkills[],
+            },
+          };
+        case "Side Projects":
+          return {
+            ...state,
+            recapsMap: {
+              ...state.recapsMap,
+              sideProjects: deleteRecapFromList(deletedRecap, state.recapsMap.sideProjects) as RecapSideProjects[],
+            },
+          };
+        case "Publications":
+          return {
+            ...state,
+            recapsMap: {
+              ...state.recapsMap,
+              publications: deleteRecapFromList(deletedRecap, state.recapsMap.publications) as RecapPublications[],
+            },
+          };
+        case "References":
+          return {
+            ...state,
+            recapsMap: {
+              ...state.recapsMap,
+              references: deleteRecapFromList(deletedRecap, state.recapsMap.references) as RecapReferences[],
+            },
+          };
+        case "Other":
+          return {
+            ...state,
+            recapsMap: {
+              ...state.recapsMap,
+              other: deleteRecapFromList(deletedRecap, state.recapsMap.other) as RecapOther[],
+            },
+          };
+        default:
+          console.error("Invalid recap kind for ", deletedRecap);
+          return state;
+      }
     }
     default:
       return state;
@@ -280,6 +557,16 @@ const RecapsPage = () => {
 
   useEffect(fetchRecaps, []);
 
+  const onCreateRecapSuccess = (createdRecap: Recap) => {
+    dispatch({ type: ActionTypes.CreateRecapSuccess, payload: createdRecap });
+  };
+  const onUpdateRecapSuccess = (updatedRecap: Recap) => {
+    dispatch({ type: ActionTypes.UpdateRecapSuccess, payload: updatedRecap });
+  };
+  const onDeleteRecapSuccess = (deletedRecap: Recap) => {
+    dispatch({ type: ActionTypes.DeleteRecapSuccess, payload: deletedRecap });
+  };
+
   if (isFetchingRecaps) {
     return (
       <div data-testid="recapsPageLoading" className={cn("p-6", "h-screen", "flex", "flex-col")}>
@@ -321,9 +608,9 @@ const RecapsPage = () => {
         <WorkExperienceLayout
           recaps={recapsMap.workExperience}
           onGoBackToLanding={onGoBackToLanding}
-          onCreateRecapSuccess={() => {}}
-          onUpdateRecapSuccess={() => {}}
-          onDeleteRecapSuccess={() => {}}
+          onCreateRecapSuccess={onCreateRecapSuccess}
+          onUpdateRecapSuccess={onUpdateRecapSuccess}
+          onDeleteRecapSuccess={onDeleteRecapSuccess}
         />
       )}
 
@@ -331,9 +618,9 @@ const RecapsPage = () => {
         <EducationLayout
           recaps={recapsMap.education}
           onGoBackToLanding={onGoBackToLanding}
-          onCreateRecapSuccess={() => {}}
-          onUpdateRecapSuccess={() => {}}
-          onDeleteRecapSuccess={() => {}}
+          onCreateRecapSuccess={onCreateRecapSuccess}
+          onUpdateRecapSuccess={onUpdateRecapSuccess}
+          onDeleteRecapSuccess={onDeleteRecapSuccess}
         />
       )}
 
@@ -341,9 +628,9 @@ const RecapsPage = () => {
         <AccomplishmentsLayout
           recaps={recapsMap.accomplishments}
           onGoBackToLanding={onGoBackToLanding}
-          onCreateRecapSuccess={() => {}}
-          onUpdateRecapSuccess={() => {}}
-          onDeleteRecapSuccess={() => {}}
+          onCreateRecapSuccess={onCreateRecapSuccess}
+          onUpdateRecapSuccess={onUpdateRecapSuccess}
+          onDeleteRecapSuccess={onDeleteRecapSuccess}
         />
       )}
 
@@ -351,9 +638,9 @@ const RecapsPage = () => {
         <OrganizationsLayout
           recaps={recapsMap.organizations}
           onGoBackToLanding={onGoBackToLanding}
-          onCreateRecapSuccess={() => {}}
-          onUpdateRecapSuccess={() => {}}
-          onDeleteRecapSuccess={() => {}}
+          onCreateRecapSuccess={onCreateRecapSuccess}
+          onUpdateRecapSuccess={onUpdateRecapSuccess}
+          onDeleteRecapSuccess={onDeleteRecapSuccess}
         />
       )}
 
@@ -361,9 +648,9 @@ const RecapsPage = () => {
         <SkillsLayout
           recaps={recapsMap.skills}
           onGoBackToLanding={onGoBackToLanding}
-          onCreateRecapSuccess={() => {}}
-          onUpdateRecapSuccess={() => {}}
-          onDeleteRecapSuccess={() => {}}
+          onCreateRecapSuccess={onCreateRecapSuccess}
+          onUpdateRecapSuccess={onUpdateRecapSuccess}
+          onDeleteRecapSuccess={onDeleteRecapSuccess}
         />
       )}
 
@@ -371,9 +658,9 @@ const RecapsPage = () => {
         <SideProjectsLayout
           recaps={recapsMap.sideProjects}
           onGoBackToLanding={onGoBackToLanding}
-          onCreateRecapSuccess={() => {}}
-          onUpdateRecapSuccess={() => {}}
-          onDeleteRecapSuccess={() => {}}
+          onCreateRecapSuccess={onCreateRecapSuccess}
+          onUpdateRecapSuccess={onUpdateRecapSuccess}
+          onDeleteRecapSuccess={onDeleteRecapSuccess}
         />
       )}
 
@@ -381,9 +668,9 @@ const RecapsPage = () => {
         <PublicationsLayout
           recaps={recapsMap.publications}
           onGoBackToLanding={onGoBackToLanding}
-          onCreateRecapSuccess={() => {}}
-          onUpdateRecapSuccess={() => {}}
-          onDeleteRecapSuccess={() => {}}
+          onCreateRecapSuccess={onCreateRecapSuccess}
+          onUpdateRecapSuccess={onUpdateRecapSuccess}
+          onDeleteRecapSuccess={onDeleteRecapSuccess}
         />
       )}
 
@@ -391,9 +678,9 @@ const RecapsPage = () => {
         <ReferencesLayout
           recaps={recapsMap.references}
           onGoBackToLanding={onGoBackToLanding}
-          onCreateRecapSuccess={() => {}}
-          onUpdateRecapSuccess={() => {}}
-          onDeleteRecapSuccess={() => {}}
+          onCreateRecapSuccess={onCreateRecapSuccess}
+          onUpdateRecapSuccess={onUpdateRecapSuccess}
+          onDeleteRecapSuccess={onDeleteRecapSuccess}
         />
       )}
 
@@ -401,9 +688,9 @@ const RecapsPage = () => {
         <OtherLayout
           recaps={recapsMap.other}
           onGoBackToLanding={onGoBackToLanding}
-          onCreateRecapSuccess={() => {}}
-          onUpdateRecapSuccess={() => {}}
-          onDeleteRecapSuccess={() => {}}
+          onCreateRecapSuccess={onCreateRecapSuccess}
+          onUpdateRecapSuccess={onUpdateRecapSuccess}
+          onDeleteRecapSuccess={onDeleteRecapSuccess}
         />
       )}
     </div>

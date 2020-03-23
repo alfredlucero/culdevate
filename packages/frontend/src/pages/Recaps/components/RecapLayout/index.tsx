@@ -97,7 +97,7 @@ export interface RecapLayoutProps extends CommonProps {
   onGoBackToLanding: () => void;
   onCreateRecapSuccess: (createdRecap: Recap) => void;
   onUpdateRecapSuccess: (updatedRecap: Recap) => void;
-  onDeleteRecapSuccess: (recapId: string) => void;
+  onDeleteRecapSuccess: (deletedRecap: Recap) => void;
 }
 
 export { Container, Header, HeaderTitle, HeaderDescription, Content };

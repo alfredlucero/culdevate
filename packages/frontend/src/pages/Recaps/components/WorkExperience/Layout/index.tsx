@@ -1,13 +1,28 @@
-import React from "react";
+import React, { useState } from "react";
 import * as RecapLayout from "../../RecapLayout";
 import { RecapLayoutProps } from "../../RecapLayout";
 import WorkExperienceEmptyCard from "../EmptyCard";
 import WorkExperienceRecap from "../Recap";
-import { RecapWorkExperience } from "../../../recaps.interface";
+import RecapsConfirmDeleteModal from "../../RecapsConfirmDeleteModal";
+import {
+  RecapsCreateSuccessAlert,
+  RecapsCreateErrorAlert,
+  RecapsUpdateSuccessAlert,
+  RecapsUpdateErrorAlert,
+  RecapsDeleteSuccessAlert,
+  RecapsDeleteErrorAlert,
+} from "../../RecapsAlerts";
+import { Recap, RecapWorkExperience } from "../../../recaps.interface";
+import { useRecapsAlerts } from "../../../hooks/useRecapsAlerts";
+import { useDeleteRecap } from "../../../hooks/useDeleteRecap";
 
 export interface WorkExperienceLayoutProps extends RecapLayoutProps {
   recaps: RecapWorkExperience[];
 }
+
+// TODO: custom hooks to make other pages' lives simpler
+// hook for useCreateRecap
+// hook for useUpdateRecap
 
 const WorkExperienceLayout: React.FC<WorkExperienceLayoutProps> = ({
   recaps,
@@ -19,11 +34,51 @@ const WorkExperienceLayout: React.FC<WorkExperienceLayoutProps> = ({
   testId = "",
   ...passThroughProps
 }) => {
+  const {
+    alertsState,
+    showCreateSuccessAlert,
+    showCreateErrorAlert,
+    showUpdateSuccessAlert,
+    showUpdateErrorAlert,
+    showDeleteSuccessAlert,
+    showDeleteErrorAlert,
+    hideAlert,
+  } = useRecapsAlerts();
+
+  const {
+    isShowingConfirmDeleteModal,
+    isProcessingDelete,
+    onClickDeleteRecap,
+    onClickConfirmDelete,
+    onHideConfirmDeleteModal,
+  } = useDeleteRecap({
+    recaps,
+    onDeleteSuccess: (deletedRecap: Recap) => {
+      onDeleteRecapSuccess(deletedRecap);
+      showDeleteSuccessAlert();
+    },
+    onDeleteError: () => {
+      showDeleteErrorAlert();
+    },
+  });
+
   const hasRecaps = recaps.length > 0;
 
   if (!hasRecaps) {
     return (
       <RecapLayout.Container testId={testId} className={className} {...passThroughProps}>
+        <RecapsDeleteSuccessAlert
+          isShowing={alertsState.isShowingDeleteSuccessAlert}
+          onHide={hideAlert}
+          kind="Work Experience"
+          className="mb-4"
+        />
+        <RecapsDeleteErrorAlert
+          isShowing={alertsState.isShowingDeleteErrorAlert}
+          onHide={hideAlert}
+          kind="Work Experience"
+          className="mb-4"
+        />
         <RecapLayout.Header className="mb-8" onClickBack={onGoBackToLanding}>
           <RecapLayout.HeaderTitle>Work Experience</RecapLayout.HeaderTitle>
         </RecapLayout.Header>
@@ -41,6 +96,18 @@ const WorkExperienceLayout: React.FC<WorkExperienceLayoutProps> = ({
 
   return (
     <RecapLayout.Container testId={testId} className={className} {...passThroughProps}>
+      <RecapsDeleteSuccessAlert
+        isShowing={alertsState.isShowingDeleteSuccessAlert}
+        onHide={hideAlert}
+        kind="Work Experience"
+        className="mb-4"
+      />
+      <RecapsDeleteErrorAlert
+        isShowing={alertsState.isShowingDeleteErrorAlert}
+        onHide={hideAlert}
+        kind="Work Experience"
+        className="mb-4"
+      />
       <RecapLayout.Header className="mb-8" onClickBack={onGoBackToLanding}>
         <RecapLayout.HeaderTitle
           onClickAdd={() => {
@@ -60,15 +127,20 @@ const WorkExperienceLayout: React.FC<WorkExperienceLayoutProps> = ({
             onEdit={() => {
               // TODO: open up this recap's edit modal
             }}
-            onDelete={() => {
-              // TODO: open up this recap's delete modal
-            }}
+            onDelete={onClickDeleteRecap}
             key={key}
             testId="workExperienceRecap"
             className="mb-4"
           />
         ))}
       </RecapLayout.Content>
+
+      <RecapsConfirmDeleteModal
+        isShowing={isShowingConfirmDeleteModal}
+        onHide={onHideConfirmDeleteModal}
+        isProcessingDelete={isProcessingDelete}
+        onClickConfirmDelete={onClickConfirmDelete}
+      />
     </RecapLayout.Container>
   );
 };

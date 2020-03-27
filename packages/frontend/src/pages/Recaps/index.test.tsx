@@ -1,18 +1,19 @@
 import React from "react";
-import { fireEvent, render, waitForElement } from "@testing-library/react";
+import { fireEvent, render, waitForElement, waitForElementToBeRemoved } from "@testing-library/react";
 import Recaps from "./index";
 import * as RecapsService from "./recaps.service";
 
 describe("<Recaps />", () => {
-  test("should render the loading state when fetching recaps", () => {
+  test("should render the loading state when fetching recaps", async () => {
+    jest.spyOn(RecapsService, "getRecaps").mockImplementationOnce(() => Promise.reject({}));
     const { getByTestId } = render(<Recaps />);
 
     expect(getByTestId("recapsPageLoading")).toBeVisible();
+
+    await waitForElementToBeRemoved(() => getByTestId("recapsPageLoading"));
   });
 
   test("should show the error state after failing to fetch recaps", async () => {
-    jest.spyOn(RecapsService, "getRecaps").mockImplementationOnce(() => Promise.reject({}));
-
     const { getByTestId } = render(<Recaps />);
 
     await waitForElement(() => getByTestId("recapsPageError"));

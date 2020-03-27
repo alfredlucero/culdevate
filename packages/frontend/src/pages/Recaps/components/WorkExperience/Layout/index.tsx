@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React from "react";
 import * as RecapLayout from "../../RecapLayout";
 import { RecapLayoutProps } from "../../RecapLayout";
 import WorkExperienceEmptyCard from "../EmptyCard";

@@ -220,7 +220,7 @@ const recapsAdapter = (recaps: Recap[]): RecapsMap => {
     other,
   };
 
-  console.log(recapsMap);
+  // console.log(recapsMap);
 
   return recapsMap;
 };
@@ -541,8 +541,7 @@ const RecapsPage = () => {
       type: ActionTypes.GetRecapsRequest,
     });
     getRecaps()
-      .then(response => {
-        const recaps = response.data;
+      .then(recaps => {
         dispatch({
           type: ActionTypes.GetRecapsSuccess,
           payload: recaps,

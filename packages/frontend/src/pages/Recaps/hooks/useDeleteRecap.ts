@@ -47,8 +47,7 @@ export const useDeleteRecap = ({ recaps, onDeleteSuccess, onDeleteError }: UseDe
 
     setIsProcessingDelete(true);
     deleteRecap(selectedRecap._id)
-      .then(response => {
-        const deletedRecap = response.data;
+      .then(deletedRecap => {
         setSelectedRecap(null);
         setIsProcessingDelete(false);
         setIsShowingConfirmDeleteModal(false);

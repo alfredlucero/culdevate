@@ -33,7 +33,7 @@ const RecapsConfirmDeleteModal: React.FC<RecapsConfirmDeleteModalProps> = ({
         </Button>
         <Button type="button" variant="primary" onClick={onClickConfirmDelete} loading={isProcessingDelete}>
           {isProcessingDelete && <>Deleting...</>}
-          {!isProcessingDelete && <>Delete</>}
+          {!isProcessingDelete && <>Confirm Delete</>}
         </Button>
       </div>
     </CenterModal>

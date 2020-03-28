@@ -26,7 +26,7 @@ const RecapsDeleteErrorAlert: React.FC<RecapsDeleteErrorAlertProps> = ({
       className={className}
       {...passThroughProps}
     >
-      Something went wrong with deleting a {kind} Recap! Please try again or let us know if there is an issue!
+      Something went wrong with deleting the {kind} Recap! Please try again or let us know if there is an issue!
     </Alert>
   );
 };

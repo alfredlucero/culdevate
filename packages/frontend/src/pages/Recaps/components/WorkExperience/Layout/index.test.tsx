@@ -74,7 +74,7 @@ describe("<WorkExperienceLayout />", () => {
     await waitForElementToBeRemoved(() => queryByText("Are you sure you want to delete this?"));
 
     expect(onDeleteRecapSuccessMock).toHaveBeenCalled();
-    const successAlert = await findByText("You have successfully deleted a Work Experience Recap!");
+    const successAlert = await findByText("You have successfully deleted the Work Experience Recap!");
     expect(successAlert).toBeVisible();
   });
 
@@ -95,7 +95,7 @@ describe("<WorkExperienceLayout />", () => {
     await waitForElementToBeRemoved(() => queryByText("Are you sure you want to delete this?"));
 
     expect(onDeleteRecapSuccessMock).not.toHaveBeenCalled();
-    const errorAlert = await findByText("Something went wrong with deleting a Work Experience Recap!", {
+    const errorAlert = await findByText("Something went wrong with deleting the Work Experience Recap!", {
       exact: false,
     });
     expect(errorAlert).toBeVisible();

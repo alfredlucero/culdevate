@@ -3,7 +3,18 @@ import * as RecapLayout from "../../RecapLayout";
 import { RecapLayoutProps } from "../../RecapLayout";
 import PublicationsEmptyCard from "../EmptyCard";
 import PublicationsRecap from "../Recap";
-import { RecapPublications } from "../../../recaps.interface";
+import RecapsConfirmDeleteModal from "../../RecapsConfirmDeleteModal";
+import {
+  RecapsCreateSuccessAlert,
+  RecapsCreateErrorAlert,
+  RecapsUpdateSuccessAlert,
+  RecapsUpdateErrorAlert,
+  RecapsDeleteSuccessAlert,
+  RecapsDeleteErrorAlert,
+} from "../../RecapsAlerts";
+import { Recap, RecapPublications } from "../../../recaps.interface";
+import { useRecapsAlerts } from "../../../hooks/useRecapsAlerts";
+import { useDeleteRecap } from "../../../hooks/useDeleteRecap";
 
 export interface PublicationsLayoutProps extends RecapLayoutProps {
   recaps: RecapPublications[];
@@ -19,11 +30,51 @@ const PublicationsLayout: React.FC<PublicationsLayoutProps> = ({
   testId = "",
   ...passThroughProps
 }) => {
+  const {
+    alertsState,
+    showCreateSuccessAlert,
+    showCreateErrorAlert,
+    showUpdateSuccessAlert,
+    showUpdateErrorAlert,
+    showDeleteSuccessAlert,
+    showDeleteErrorAlert,
+    hideAlert,
+  } = useRecapsAlerts();
+
+  const {
+    isShowingConfirmDeleteModal,
+    isProcessingDelete,
+    onClickDeleteRecap,
+    onClickConfirmDelete,
+    onHideConfirmDeleteModal,
+  } = useDeleteRecap({
+    recaps,
+    onDeleteSuccess: (deletedRecap: Recap) => {
+      onDeleteRecapSuccess(deletedRecap);
+      showDeleteSuccessAlert();
+    },
+    onDeleteError: () => {
+      showDeleteErrorAlert();
+    },
+  });
+
   const hasRecaps = recaps.length > 0;
 
   if (!hasRecaps) {
     return (
       <RecapLayout.Container testId={testId} className={className} {...passThroughProps}>
+        <RecapsDeleteSuccessAlert
+          isShowing={alertsState.isShowingDeleteSuccessAlert}
+          onHide={hideAlert}
+          kind="Publications"
+          className="mb-4"
+        />
+        <RecapsDeleteErrorAlert
+          isShowing={alertsState.isShowingDeleteErrorAlert}
+          onHide={hideAlert}
+          kind="Publications"
+          className="mb-4"
+        />
         <RecapLayout.Header className="mb-8" onClickBack={onGoBackToLanding}>
           <RecapLayout.HeaderTitle>Publications</RecapLayout.HeaderTitle>
         </RecapLayout.Header>
@@ -41,6 +92,18 @@ const PublicationsLayout: React.FC<PublicationsLayoutProps> = ({
 
   return (
     <RecapLayout.Container testId={testId} className={className} {...passThroughProps}>
+      <RecapsDeleteSuccessAlert
+        isShowing={alertsState.isShowingDeleteSuccessAlert}
+        onHide={hideAlert}
+        kind="Publications"
+        className="mb-4"
+      />
+      <RecapsDeleteErrorAlert
+        isShowing={alertsState.isShowingDeleteErrorAlert}
+        onHide={hideAlert}
+        kind="Publications"
+        className="mb-4"
+      />
       <RecapLayout.Header className="mb-8" onClickBack={onGoBackToLanding}>
         <RecapLayout.HeaderTitle
           onClickAdd={() => {
@@ -60,15 +123,20 @@ const PublicationsLayout: React.FC<PublicationsLayoutProps> = ({
             onEdit={() => {
               // TODO: open up this recap's edit modal
             }}
-            onDelete={() => {
-              // TODO: open up this recap's delete modal
-            }}
+            onDelete={onClickDeleteRecap}
             key={key}
             testId="publicationsRecap"
             className="mb-4"
           />
         ))}
       </RecapLayout.Content>
+
+      <RecapsConfirmDeleteModal
+        isShowing={isShowingConfirmDeleteModal}
+        onHide={onHideConfirmDeleteModal}
+        isProcessingDelete={isProcessingDelete}
+        onClickConfirmDelete={onClickConfirmDelete}
+      />
     </RecapLayout.Container>
   );
 };

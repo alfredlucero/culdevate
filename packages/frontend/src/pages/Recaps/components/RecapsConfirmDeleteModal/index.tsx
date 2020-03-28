@@ -31,9 +31,9 @@ const RecapsConfirmDeleteModal: React.FC<RecapsConfirmDeleteModalProps> = ({
         <Button type="button" variant="secondary" onClick={onHide} className="mr-2">
           Cancel
         </Button>
-        <Button type="button" variant="primary" onClick={onClickConfirmDelete} loading={isProcessingDelete}>
+        <Button type="button" variant="danger" onClick={onClickConfirmDelete} loading={isProcessingDelete}>
           {isProcessingDelete && <>Deleting...</>}
-          {!isProcessingDelete && <>Delete</>}
+          {!isProcessingDelete && <>Confirm Delete</>}
         </Button>
       </div>
     </CenterModal>

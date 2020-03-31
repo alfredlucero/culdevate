@@ -86,21 +86,21 @@ const BulletPointInputList: React.FC<BulletPointInputListProps> = ({
                 </Draggable>
               ))}
               {provided.placeholder}
+              <div className="flex justify-center">
+                <Button
+                  variant="secondary"
+                  type="button"
+                  disabled={isAddBulletPointInputDisabled}
+                  onClick={onAddBulletPointInput}
+                  className="mt-4 flex items-center"
+                >
+                  <Icon variant="plus" size="small" className="mr-2 add-bullet-point-plus-icon" />
+                  Add Bullet Point
+                </Button>
+              </div>
             </div>
           )}
         </Droppable>
-        <div className="flex justify-center">
-          <Button
-            variant="secondary"
-            type="button"
-            disabled={isAddBulletPointInputDisabled}
-            onClick={onAddBulletPointInput}
-            className="mt-4 flex items-center"
-          >
-            <Icon variant="plus" size="small" className="mr-2 add-bullet-point-plus-icon" />
-            Add Bullet Point
-          </Button>
-        </div>
       </div>
     </DragDropContext>
   );

@@ -30,7 +30,7 @@ export interface RecapWorkExperience extends RecapBase, RecapWorkExperienceKind 
   kind: "Work Experience";
 }
 
-type EmploymentType =
+export type EmploymentType =
   | "Part-Time"
   | "Full-Time"
   | "Self-Employed"

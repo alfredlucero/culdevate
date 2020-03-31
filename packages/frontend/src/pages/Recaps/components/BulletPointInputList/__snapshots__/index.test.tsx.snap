@@ -25,7 +25,7 @@ exports[`<BulletPointInputList /> should render without error 1`] = `
           class="flex items-start px-4 py-6 rounded shadow-md cursor-pointer mb-2"
         >
           <div
-            class="font-sans text-3xl mr-4 text-teal-500"
+            class="font-sans text-2xl mr-4 text-teal-300"
             id=""
           >
             <svg
@@ -80,40 +80,40 @@ exports[`<BulletPointInputList /> should render without error 1`] = `
           </div>
         </div>
       </div>
-    </div>
-    <div
-      class="flex justify-center"
-    >
-      <button
-        class="font-bold py-2 px-4 rounded bg-transparent text-teal-700 border border-teal-500 hover:bg-teal-500 hover:text-white hover:border-transparent mt-4 flex items-center"
-        type="button"
+      <div
+        class="flex justify-center"
       >
-        <div
-          class="flex items-center"
+        <button
+          class="font-bold py-2 px-4 rounded bg-transparent text-teal-700 border border-teal-500 hover:bg-teal-500 hover:text-white hover:border-transparent mt-4 flex items-center"
+          type="button"
         >
           <div
-            class="font-sans text-2xl mr-2 add-bullet-point-plus-icon"
-            id=""
+            class="flex items-center"
           >
-            <svg
-              aria-hidden="true"
-              class="svg-inline--fa fa-plus fa-w-14 "
-              data-icon="plus"
-              data-prefix="fas"
-              focusable="false"
-              role="img"
-              viewBox="0 0 448 512"
-              xmlns="http://www.w3.org/2000/svg"
+            <div
+              class="font-sans text-2xl mr-2 add-bullet-point-plus-icon"
+              id=""
             >
-              <path
-                d="M416 208H272V64c0-17.67-14.33-32-32-32h-32c-17.67 0-32 14.33-32 32v144H32c-17.67 0-32 14.33-32 32v32c0 17.67 14.33 32 32 32h144v144c0 17.67 14.33 32 32 32h32c17.67 0 32-14.33 32-32V304h144c17.67 0 32-14.33 32-32v-32c0-17.67-14.33-32-32-32z"
-                fill="currentColor"
-              />
-            </svg>
+              <svg
+                aria-hidden="true"
+                class="svg-inline--fa fa-plus fa-w-14 "
+                data-icon="plus"
+                data-prefix="fas"
+                focusable="false"
+                role="img"
+                viewBox="0 0 448 512"
+                xmlns="http://www.w3.org/2000/svg"
+              >
+                <path
+                  d="M416 208H272V64c0-17.67-14.33-32-32-32h-32c-17.67 0-32 14.33-32 32v144H32c-17.67 0-32 14.33-32 32v32c0 17.67 14.33 32 32 32h144v144c0 17.67 14.33 32 32 32h32c17.67 0 32-14.33 32-32V304h144c17.67 0 32-14.33 32-32v-32c0-17.67-14.33-32-32-32z"
+                  fill="currentColor"
+                />
+              </svg>
+            </div>
+            Add Bullet Point
           </div>
-          Add Bullet Point
-        </div>
-      </button>
+        </button>
+      </div>
     </div>
   </div>
 </div>

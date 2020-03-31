@@ -61,14 +61,16 @@ export const recapBaseErrors = {
   kindRequired: formRequiredError({ field: RecapFields.kind }),
 };
 
+export const BulletPointsSchema = yup
+  .array()
+  .of(yup.string().max(MAX_BULLETPOINT_LENGTH, recapBaseErrors.bulletPointMaxLength))
+  .max(MAX_BULLETPOINTS, recapBaseErrors.bulletPointsMax)
+  .required(recapBaseErrors.bulletPointsRequired);
+
 export const RecapBaseSchema = yup.object({
   startDate: yup.date().notRequired(),
   endDate: yup.date().notRequired(),
-  bulletPoints: yup
-    .array()
-    .of(yup.string().max(MAX_BULLETPOINT_LENGTH, recapBaseErrors.bulletPointMaxLength))
-    .max(MAX_BULLETPOINTS, recapBaseErrors.bulletPointsMax)
-    .required(recapBaseErrors.bulletPointsRequired),
+  bulletPoints: BulletPointsSchema,
   kind: yup
     .string()
     .oneOf(

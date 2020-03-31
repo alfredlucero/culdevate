@@ -2,6 +2,7 @@ import React, { useState } from "react";
 import { DropResult } from "react-beautiful-dnd";
 import { storiesOf } from "@storybook/react";
 import BulletPointInputList, { BulletPointInputListItem } from "./index";
+import { useBulletPointInputList } from "../../hooks/useBulletPointInputList";
 
 const StatefulBulletPointInputList = () => {
   const [bulletPointInputList, setBulletPointInputList] = useState<BulletPointInputListItem[]>([
@@ -13,7 +14,7 @@ const StatefulBulletPointInputList = () => {
     },
   ]);
 
-  const handleChangeBulletPointInput = (e: React.FormEvent<HTMLInputElement>) => {
+  const handleChangeBulletPointInput = (e: React.ChangeEvent<HTMLInputElement>) => {
     const { value, id } = e.currentTarget;
 
     const newBulletPointList = bulletPointInputList.map(bulletPointInputListItem => {
@@ -128,4 +129,33 @@ const StatefulBulletPointInputList = () => {
   );
 };
 
-storiesOf("RecapsPage/BulletPointInputList", module).add("Stateful Example", () => <StatefulBulletPointInputList />);
+const UseBulletPointInputExample = () => {
+  const {
+    bulletPointInputList,
+    onDragEnd,
+    onChangeBulletPointInput,
+    onBlurBulletPointInput,
+    onDeleteBulletPointInput,
+    onAddBulletPointInput,
+    isAddBulletPointInputDisabled,
+  } = useBulletPointInputList({ initialBulletPoints: [], idPrefix: "bulletpoint" });
+
+  return (
+    <div>
+      <p>Bullet Point Input List</p>
+      <BulletPointInputList
+        bulletPointInputList={bulletPointInputList}
+        onDragEnd={onDragEnd}
+        onChangeBulletPointInput={onChangeBulletPointInput}
+        onBlurBulletPointInput={onBlurBulletPointInput}
+        onDeleteBulletPointInput={onDeleteBulletPointInput}
+        onAddBulletPointInput={onAddBulletPointInput}
+        isAddBulletPointInputDisabled={isAddBulletPointInputDisabled}
+      />
+    </div>
+  );
+};
+
+storiesOf("RecapsPage/BulletPointInputList", module)
+  .add("Stateful Example", () => <StatefulBulletPointInputList />)
+  .add("useBulletPointInput example", () => <UseBulletPointInputExample />);

@@ -6,9 +6,7 @@ import SideProjectsRecap from "../Recap";
 import RecapsConfirmDeleteModal from "../../RecapsConfirmDeleteModal";
 import {
   RecapsCreateSuccessAlert,
-  RecapsCreateErrorAlert,
   RecapsUpdateSuccessAlert,
-  RecapsUpdateErrorAlert,
   RecapsDeleteSuccessAlert,
   RecapsDeleteErrorAlert,
 } from "../../RecapsAlerts";
@@ -33,9 +31,7 @@ const SideProjectsLayout: React.FC<SideProjectsLayoutProps> = ({
   const {
     alertsState,
     showCreateSuccessAlert,
-    showCreateErrorAlert,
     showUpdateSuccessAlert,
-    showUpdateErrorAlert,
     showDeleteSuccessAlert,
     showDeleteErrorAlert,
     hideAlert,

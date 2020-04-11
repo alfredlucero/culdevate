@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import * as RecapLayout from "../../RecapLayout";
 import { RecapLayoutProps } from "../../RecapLayout";
 import WorkExperienceEmptyCard from "../EmptyCard";
@@ -6,12 +6,13 @@ import WorkExperienceRecap from "../Recap";
 import RecapsConfirmDeleteModal from "../../RecapsConfirmDeleteModal";
 import {
   RecapsCreateSuccessAlert,
-  RecapsCreateErrorAlert,
   RecapsUpdateSuccessAlert,
-  RecapsUpdateErrorAlert,
   RecapsDeleteSuccessAlert,
   RecapsDeleteErrorAlert,
 } from "../../RecapsAlerts";
+import RecapWorkExperienceForm from "../Form";
+import RecapsCreateModal from "../../RecapsCreateModal";
+import RecapsEditModal from "../../RecapsEditModal";
 import { Recap, RecapWorkExperience } from "../../../recaps.interface";
 import { useRecapsAlerts } from "../../../hooks/useRecapsAlerts";
 import { useDeleteRecap } from "../../../hooks/useDeleteRecap";
@@ -37,13 +38,25 @@ const WorkExperienceLayout: React.FC<WorkExperienceLayoutProps> = ({
   const {
     alertsState,
     showCreateSuccessAlert,
-    showCreateErrorAlert,
     showUpdateSuccessAlert,
-    showUpdateErrorAlert,
     showDeleteSuccessAlert,
     showDeleteErrorAlert,
     hideAlert,
   } = useRecapsAlerts();
+
+  const [isShowingCreateModal, setIsShowingCreateModal] = useState(false);
+  const onShowCreateModal = () => {
+    setIsShowingCreateModal(true);
+  };
+  const onHideCreateModal = () => {
+    setIsShowingCreateModal(false);
+  };
+
+  const [isShowingEditModal, setIsShowingEditModal] = useState(false);
+  const onShowEditModal = () => {};
+  const onHideEditModal = () => {
+    setIsShowingEditModal(false);
+  };
 
   const {
     isShowingConfirmDeleteModal,
@@ -83,19 +96,34 @@ const WorkExperienceLayout: React.FC<WorkExperienceLayoutProps> = ({
           <RecapLayout.HeaderTitle>Work Experience</RecapLayout.HeaderTitle>
         </RecapLayout.Header>
         <RecapLayout.Content>
-          <WorkExperienceEmptyCard
-            onClickAdd={() => {
-              // TODO: open up create modal
-            }}
-            testId="workExperienceEmptyCard"
-          />
+          <WorkExperienceEmptyCard onClickAdd={onShowCreateModal} testId="workExperienceEmptyCard" />
         </RecapLayout.Content>
+
+        <RecapsCreateModal isShowing={isShowingCreateModal} onHide={onHideCreateModal} kind="Work Experience">
+          <RecapWorkExperienceForm
+            isShowing={isShowingCreateModal}
+            onHide={onHideCreateModal}
+            onSaveSuccess={() => {}}
+          />
+        </RecapsCreateModal>
       </RecapLayout.Container>
     );
   }
 
   return (
     <RecapLayout.Container testId={testId} className={className} {...passThroughProps}>
+      <RecapsCreateSuccessAlert
+        isShowing={alertsState.isShowingCreateSuccessAlert}
+        onHide={hideAlert}
+        kind="Work Experience"
+        className="mb-4"
+      />
+      <RecapsUpdateSuccessAlert
+        isShowing={alertsState.isShowingUpdateSuccessAlert}
+        onHide={hideAlert}
+        kind="Work Experience"
+        className="mb-4"
+      />
       <RecapsDeleteSuccessAlert
         isShowing={alertsState.isShowingDeleteSuccessAlert}
         onHide={hideAlert}
@@ -109,13 +137,7 @@ const WorkExperienceLayout: React.FC<WorkExperienceLayoutProps> = ({
         className="mb-4"
       />
       <RecapLayout.Header className="mb-8" onClickBack={onGoBackToLanding}>
-        <RecapLayout.HeaderTitle
-          onClickAdd={() => {
-            // TODO: open up this recap's create modal
-          }}
-        >
-          Work Experience
-        </RecapLayout.HeaderTitle>
+        <RecapLayout.HeaderTitle onClickAdd={onShowCreateModal}>Work Experience</RecapLayout.HeaderTitle>
         <RecapLayout.HeaderDescription>
           Recap everything about your career from internships to full-time jobs and opportunities.
         </RecapLayout.HeaderDescription>
@@ -141,6 +163,10 @@ const WorkExperienceLayout: React.FC<WorkExperienceLayoutProps> = ({
         isProcessingDelete={isProcessingDelete}
         onClickConfirmDelete={onClickConfirmDelete}
       />
+
+      <RecapsCreateModal isShowing={isShowingCreateModal} onHide={onHideCreateModal} kind="Work Experience">
+        <RecapWorkExperienceForm isShowing={isShowingCreateModal} onHide={onHideCreateModal} onSaveSuccess={() => {}} />
+      </RecapsCreateModal>
     </RecapLayout.Container>
   );
 };

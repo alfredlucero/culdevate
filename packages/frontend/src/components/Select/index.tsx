@@ -3,8 +3,8 @@ import cn from "classnames";
 import { CommonProps } from "../commonProps";
 
 export interface SelectProps extends CommonProps {
-  onChange: (e: React.FormEvent<HTMLSelectElement>) => void;
-  onBlur?: (e: React.FocusEvent) => void;
+  onChange: (e: React.ChangeEvent<HTMLSelectElement>) => void;
+  onBlur?: (e: React.FocusEvent<HTMLSelectElement>) => void;
   value: string;
   options: SelectOption[];
   id: string;

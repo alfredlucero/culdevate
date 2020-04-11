@@ -2,27 +2,21 @@ import React, { useReducer } from "react";
 
 export interface RecapsAlertsState {
   isShowingCreateSuccessAlert: boolean;
-  isShowingCreateErrorAlert: boolean;
   isShowingUpdateSuccessAlert: boolean;
-  isShowingUpdateErrorAlert: boolean;
   isShowingDeleteSuccessAlert: boolean;
   isShowingDeleteErrorAlert: boolean;
 }
 
 const initialRecapsAlertsState: RecapsAlertsState = {
   isShowingCreateSuccessAlert: false,
-  isShowingCreateErrorAlert: false,
   isShowingUpdateSuccessAlert: false,
-  isShowingUpdateErrorAlert: false,
   isShowingDeleteSuccessAlert: false,
   isShowingDeleteErrorAlert: false,
 };
 
 enum ActionTypes {
   ShowCreateSuccessAlert = "showCreateSuccessAlert",
-  ShowCreateErrorAlert = "showCreateErrorAlert",
   ShowUpdateSuccessAlert = "showUpdateSuccessAlert",
-  ShowUpdateErrorAlert = "showUpdateErrorAlert",
   ShowDeleteSuccessAlert = "showDeleteSuccessAlert",
   ShowDeleteErrorAlert = "showDeleteErrorAlert",
   HideAlert = "hideAlert",
@@ -38,19 +32,7 @@ const reducer = (state: RecapsAlertsState, action: RecapsAlertsAction): RecapsAl
       return {
         ...state,
         isShowingCreateSuccessAlert: true,
-        isShowingCreateErrorAlert: false,
         isShowingUpdateSuccessAlert: false,
-        isShowingUpdateErrorAlert: false,
-        isShowingDeleteSuccessAlert: false,
-        isShowingDeleteErrorAlert: false,
-      };
-    case ActionTypes.ShowCreateErrorAlert:
-      return {
-        ...state,
-        isShowingCreateSuccessAlert: false,
-        isShowingCreateErrorAlert: true,
-        isShowingUpdateSuccessAlert: false,
-        isShowingUpdateErrorAlert: false,
         isShowingDeleteSuccessAlert: false,
         isShowingDeleteErrorAlert: false,
       };
@@ -58,19 +40,7 @@ const reducer = (state: RecapsAlertsState, action: RecapsAlertsAction): RecapsAl
       return {
         ...state,
         isShowingCreateSuccessAlert: false,
-        isShowingCreateErrorAlert: false,
         isShowingUpdateSuccessAlert: true,
-        isShowingUpdateErrorAlert: false,
-        isShowingDeleteSuccessAlert: false,
-        isShowingDeleteErrorAlert: false,
-      };
-    case ActionTypes.ShowUpdateErrorAlert:
-      return {
-        ...state,
-        isShowingCreateSuccessAlert: false,
-        isShowingCreateErrorAlert: false,
-        isShowingUpdateSuccessAlert: false,
-        isShowingUpdateErrorAlert: true,
         isShowingDeleteSuccessAlert: false,
         isShowingDeleteErrorAlert: false,
       };
@@ -78,9 +48,7 @@ const reducer = (state: RecapsAlertsState, action: RecapsAlertsAction): RecapsAl
       return {
         ...state,
         isShowingCreateSuccessAlert: false,
-        isShowingCreateErrorAlert: false,
         isShowingUpdateSuccessAlert: false,
-        isShowingUpdateErrorAlert: false,
         isShowingDeleteSuccessAlert: true,
         isShowingDeleteErrorAlert: false,
       };
@@ -88,9 +56,7 @@ const reducer = (state: RecapsAlertsState, action: RecapsAlertsAction): RecapsAl
       return {
         ...state,
         isShowingCreateSuccessAlert: false,
-        isShowingCreateErrorAlert: false,
         isShowingUpdateSuccessAlert: false,
-        isShowingUpdateErrorAlert: false,
         isShowingDeleteSuccessAlert: false,
         isShowingDeleteErrorAlert: true,
       };
@@ -98,9 +64,7 @@ const reducer = (state: RecapsAlertsState, action: RecapsAlertsAction): RecapsAl
       return {
         ...state,
         isShowingCreateSuccessAlert: false,
-        isShowingCreateErrorAlert: false,
         isShowingUpdateSuccessAlert: false,
-        isShowingUpdateErrorAlert: false,
         isShowingDeleteSuccessAlert: false,
         isShowingDeleteErrorAlert: false,
       };
@@ -112,9 +76,7 @@ const reducer = (state: RecapsAlertsState, action: RecapsAlertsAction): RecapsAl
 export interface UseRecapsAlerts {
   alertsState: RecapsAlertsState;
   showCreateSuccessAlert: () => void;
-  showCreateErrorAlert: () => void;
   showUpdateSuccessAlert: () => void;
-  showUpdateErrorAlert: () => void;
   showDeleteSuccessAlert: () => void;
   showDeleteErrorAlert: () => void;
   hideAlert: () => void;
@@ -130,15 +92,7 @@ export const useRecapsAlerts = (): UseRecapsAlerts => {
     dispatch({ type: ActionTypes.ShowCreateSuccessAlert });
   };
 
-  const showCreateErrorAlert = () => {
-    dispatch({ type: ActionTypes.ShowCreateSuccessAlert });
-  };
-
   const showUpdateSuccessAlert = () => {
-    dispatch({ type: ActionTypes.ShowUpdateSuccessAlert });
-  };
-
-  const showUpdateErrorAlert = () => {
     dispatch({ type: ActionTypes.ShowUpdateSuccessAlert });
   };
 
@@ -157,9 +111,7 @@ export const useRecapsAlerts = (): UseRecapsAlerts => {
   return {
     alertsState,
     showCreateSuccessAlert,
-    showCreateErrorAlert,
     showUpdateSuccessAlert,
-    showUpdateErrorAlert,
     showDeleteSuccessAlert,
     showDeleteErrorAlert,
     hideAlert,

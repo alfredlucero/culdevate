@@ -3,7 +3,7 @@
 exports[`<DatePicker /> should render without error 1`] = `
 <div>
   <div
-    class="extra-date-class"
+    class="date-picker extra-date-class"
   >
     
     <div

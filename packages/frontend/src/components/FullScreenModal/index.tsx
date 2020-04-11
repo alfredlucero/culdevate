@@ -27,10 +27,7 @@ const FullScreenModal: React.FC<FullScreenModalProps> = ({
       {...(testId !== "" ? { "data-testid": testId } : {})}
       {...passThroughProps}
     >
-      <div
-        className="modal-overlay absolute w-full h-full bg-gray-100 opacity-75"
-        data-testid="fullScreenModalOverlay"
-      />
+      <div className="modal-overlay absolute w-full h-full bg-gray-100" data-testid="fullScreenModalOverlay" />
       <div
         className="modal-container fixed w-full h-full z-50 overflow-y-auto"
         aria-modal

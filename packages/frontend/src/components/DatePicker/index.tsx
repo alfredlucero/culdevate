@@ -30,7 +30,7 @@ const DatePicker: React.FC<DatePickerProps> = ({
   ...restOfDatePickerProps
 }) => {
   return (
-    <div {...(className !== "" ? { className } : {})}>
+    <div className={cn("date-picker", className)}>
       {label && (
         <label className="block text-gray-700 text-sm font-bold mb-2" htmlFor={id}>
           {label} {required ? "" : "(optional)"}

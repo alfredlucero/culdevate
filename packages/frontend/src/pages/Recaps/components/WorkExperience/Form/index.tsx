@@ -30,7 +30,7 @@ const employmentTypeSelectOptions: SelectOption[] = employmentTypes.map(employme
 }));
 
 interface WorkExperienceFormProps extends CommonProps {
-  initialRecap?: RecapWorkExperience;
+  initialRecap: RecapWorkExperience | null;
   onSaveSuccess: (savedRecap: RecapWorkExperience) => void;
   isShowing: boolean;
   onHide: () => void;
@@ -169,25 +169,55 @@ const WorkExperienceForm: React.FC<WorkExperienceFormProps> = ({
     onAddBulletPointInput,
     onDeleteBulletPointInput,
     isAddBulletPointInputDisabled,
+    resetBulletPointInputList,
   } = useBulletPointInputList({
     initialBulletPoints: [],
     idPrefix: "workExperienceBulletPoint",
   });
 
+  const clearOutInputs = () => {
+    setWorkTitle("");
+    setWorkTitleError("");
+    setEmploymentType("Full-Time");
+    setCompany("");
+    setCompanyError("");
+    setLocation("");
+    setLocationError("");
+    setStartDate(null);
+    setStartDateError("");
+    setEndDate(null);
+    setEndDateError("");
+    resetBulletPointInputList([]);
+  };
+
   useEffect(() => {
     // Upon closing out the modal/swapping forms, clear out all the inputs to their default empty values
     if (!isShowing) {
-      // TODO: set state
+      clearOutInputs();
       return;
     }
 
     // Upon showing the form/modal to edit a recap, set the inputs to match the recap's initial values
-    const isEditingRecap = initialRecap !== undefined;
-    if (isEditingRecap) {
-      // TODO: set state
+    if (initialRecap !== null) {
+      setWorkTitle(initialRecap.title);
+      setWorkTitleError("");
+      setEmploymentType(initialRecap.employmentType);
+      setCompany(initialRecap.company);
+      setCompanyError("");
+      setLocation(initialRecap.location);
+      setLocationError("");
+      setStartDate(new Date(initialRecap.startDate));
+      setStartDateError("");
+      if (initialRecap.endDate) {
+        setEndDate(new Date(initialRecap.endDate));
+      } else {
+        setIsCurrentWork(true);
+      }
+      setEndDateError("");
+      resetBulletPointInputList(initialRecap.bulletPoints);
     } else {
       // Otherwise, for creating a modal, clear out all the inputs to their default empty values
-      // TODO: set state
+      clearOutInputs();
     }
   }, [initialRecap, isShowing]);
 
@@ -325,8 +355,9 @@ const WorkExperienceForm: React.FC<WorkExperienceFormProps> = ({
           <Button type="button" variant="secondary" onClick={onHide} className="mr-2">
             Cancel
           </Button>
-          <Button type="submit" variant="primary">
-            Save
+          <Button type="submit" variant="primary" loading={isSubmitting} disabled={isSubmitting}>
+            {isSubmitting && <>Saving Recap...</>}
+            {!isSubmitting && <>Save Recap</>}
           </Button>
         </div>
       </form>

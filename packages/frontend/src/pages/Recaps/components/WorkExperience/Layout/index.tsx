@@ -51,12 +51,26 @@ const WorkExperienceLayout: React.FC<WorkExperienceLayoutProps> = ({
   const onHideCreateModal = () => {
     setIsShowingCreateModal(false);
   };
+  const onSaveSuccessCreate = () => {};
 
   const [isShowingEditModal, setIsShowingEditModal] = useState(false);
-  const onShowEditModal = () => {};
+  const [selectedEditRecap, setSelectedEditRecap] = useState<RecapWorkExperience | null>(null);
+  const onClickEditRecap = (e: React.MouseEvent) => {
+    const recapId = e.currentTarget.id;
+
+    const newSelectedEditRecap = recaps.find(recap => recap._id === recapId);
+
+    if (!newSelectedEditRecap) {
+      return;
+    }
+
+    setSelectedEditRecap(newSelectedEditRecap);
+    setIsShowingEditModal(true);
+  };
   const onHideEditModal = () => {
     setIsShowingEditModal(false);
   };
+  const onSaveSuccessEdit = () => {};
 
   const {
     isShowingConfirmDeleteModal,
@@ -101,6 +115,7 @@ const WorkExperienceLayout: React.FC<WorkExperienceLayoutProps> = ({
 
         <RecapsCreateModal isShowing={isShowingCreateModal} onHide={onHideCreateModal} kind="Work Experience">
           <RecapWorkExperienceForm
+            initialRecap={null}
             isShowing={isShowingCreateModal}
             onHide={onHideCreateModal}
             onSaveSuccess={() => {}}
@@ -146,9 +161,7 @@ const WorkExperienceLayout: React.FC<WorkExperienceLayoutProps> = ({
         {recaps.map((workExperience, key) => (
           <WorkExperienceRecap
             workExperience={workExperience}
-            onEdit={() => {
-              // TODO: open up this recap's edit modal
-            }}
+            onEdit={onClickEditRecap}
             onDelete={onClickDeleteRecap}
             key={key}
             testId="workExperienceRecap"
@@ -165,8 +178,22 @@ const WorkExperienceLayout: React.FC<WorkExperienceLayoutProps> = ({
       />
 
       <RecapsCreateModal isShowing={isShowingCreateModal} onHide={onHideCreateModal} kind="Work Experience">
-        <RecapWorkExperienceForm isShowing={isShowingCreateModal} onHide={onHideCreateModal} onSaveSuccess={() => {}} />
+        <RecapWorkExperienceForm
+          initialRecap={null}
+          isShowing={isShowingCreateModal}
+          onHide={onHideCreateModal}
+          onSaveSuccess={onSaveSuccessCreate}
+        />
       </RecapsCreateModal>
+
+      <RecapsEditModal isShowing={isShowingEditModal} onHide={onHideEditModal} kind="Work Experience">
+        <RecapWorkExperienceForm
+          initialRecap={selectedEditRecap}
+          isShowing={isShowingEditModal}
+          onHide={onHideCreateModal}
+          onSaveSuccess={onSaveSuccessEdit}
+        />
+      </RecapsEditModal>
     </RecapLayout.Container>
   );
 };

@@ -56,7 +56,9 @@ const onDeleteRecapSuccess = () => {
 };
 
 storiesOf("RecapsPage/WorkExperience", module)
-  .add("Form", () => <WorkExperienceForm isShowing={true} onHide={() => {}} onSaveSuccess={() => {}} />)
+  .add("Form", () => (
+    <WorkExperienceForm initialRecap={null} isShowing={true} onHide={() => {}} onSaveSuccess={() => {}} />
+  ))
   .add("Recap - Date Range", () => (
     <WorkExperienceRecap
       workExperience={{ ...workExperience, endDate: new Date("2020/03/20").toISOString() }}

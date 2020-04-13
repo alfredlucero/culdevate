@@ -1,6 +1,7 @@
 import React from "react";
 import * as RecapEmptyCard from "../../RecapEmptyCard";
 import { RecapEmptyCardProps } from "../../RecapEmptyCard";
+import { RecapKind } from "../../../recaps.interface";
 
 const SkillsEmptyCard: React.FC<RecapEmptyCardProps> = ({
   onClickAdd,
@@ -10,8 +11,8 @@ const SkillsEmptyCard: React.FC<RecapEmptyCardProps> = ({
 }) => {
   return (
     <RecapEmptyCard.EmptyCard className={className} testId={testId} {...passThroughProps}>
-      <RecapEmptyCard.Icon kind="Skills" className="mb-6 flex justify-center" />
-      <RecapEmptyCard.Kind kind="Skills" className="mb-4 text-center" />
+      <RecapEmptyCard.Icon kind={RecapKind.Skills} className="mb-6 flex justify-center" />
+      <RecapEmptyCard.Kind kind={RecapKind.Skills} className="mb-4 text-center" />
       <RecapEmptyCard.Description className="mb-6">
         Recap the things you have learned and their proficiencies.
       </RecapEmptyCard.Description>

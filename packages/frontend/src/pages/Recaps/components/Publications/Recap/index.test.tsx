@@ -1,11 +1,11 @@
 import React from "react";
 import { render } from "@testing-library/react";
-import { RecapPublications } from "../../../recaps.interface";
+import { RecapPublications, RecapKind } from "../../../recaps.interface";
 import PublicationsRecap from "./index";
 
 const publications: RecapPublications = {
   title: "Mindfulness-based Interventions for those with PTSD",
-  kind: "Publications",
+  kind: RecapKind.Publications,
   coauthors: "Gingin D.",
   userId: "userId",
   _id: "publicationsId",

@@ -1,7 +1,7 @@
 import React from "react";
 import { render, fireEvent, waitForElementToBeRemoved } from "@testing-library/react";
 import SideProjectsLayout, { SideProjectsLayoutProps } from "./index";
-import { RecapSideProjects } from "../../../recaps.interface";
+import { RecapSideProjects, RecapKind } from "../../../recaps.interface";
 import * as RecapsService from "../../../recaps.service";
 
 const sampleRecapSideProjects: RecapSideProjects = {
@@ -9,7 +9,7 @@ const sampleRecapSideProjects: RecapSideProjects = {
   creators: "Alfred Lucero and Regine Deguzman",
   startDate: new Date("2016/11/01").toISOString(),
   endDate: new Date("2016/12/31").toISOString(),
-  kind: "Side Projects",
+  kind: RecapKind.SideProjects,
   userId: "userId",
   _id: "sideProjectsId",
   bulletPoints: ["Created fraternity website on www.zetamubeta.org with MEAN stack"],

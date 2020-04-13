@@ -6,48 +6,49 @@ import RecapsUpdateSuccessAlert from "./RecapsUpdateSuccessAlert";
 import RecapsUpdateErrorAlert from "./RecapsUpdateErrorAlert";
 import RecapsDeleteSuccessAlert from "./RecapsDeleteSuccessAlert";
 import RecapsDeleteErrorAlert from "./RecapsDeleteErrorAlert";
+import { RecapKind } from "../../recaps.interface";
 
 describe("<RecapAlerts />", () => {
   test("should render all alerts without error", () => {
     const { container } = render(
       <div>
         <RecapsCreateSuccessAlert
-          kind="Education"
+          kind={RecapKind.Education}
           isShowing={true}
           onHide={() => {}}
           className="extra-class"
           testId="testId"
         />
         <RecapsCreateErrorAlert
-          kind="Education"
+          kind={RecapKind.Education}
           isShowing={true}
           onHide={() => {}}
           className="extra-class"
           testId="testId"
         />
         <RecapsDeleteSuccessAlert
-          kind="Education"
+          kind={RecapKind.Education}
           isShowing={true}
           onHide={() => {}}
           className="extra-class"
           testId="testId"
         />
         <RecapsDeleteErrorAlert
-          kind="Education"
+          kind={RecapKind.Education}
           isShowing={true}
           onHide={() => {}}
           className="extra-class"
           testId="testId"
         />
         <RecapsUpdateSuccessAlert
-          kind="Education"
+          kind={RecapKind.Education}
           isShowing={true}
           onHide={() => {}}
           className="extra-class"
           testId="testId"
         />
         <RecapsUpdateErrorAlert
-          kind="Education"
+          kind={RecapKind.Education}
           isShowing={true}
           onHide={() => {}}
           className="extra-class"
@@ -55,5 +56,7 @@ describe("<RecapAlerts />", () => {
         />
       </div>,
     );
+
+    expect(container).toMatchSnapshot();
   });
 });

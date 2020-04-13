@@ -5,11 +5,11 @@ import SkillsRecap from "./Recap";
 import SkillsListCard from "./ListCard";
 import SkillsEmptyCard from "./EmptyCard";
 import SkillsLayout from "./Layout";
-import { RecapSkills } from "../../recaps.interface";
+import { RecapSkills, RecapKind } from "../../recaps.interface";
 
 const skills: RecapSkills = {
   title: "Tagalog",
-  kind: "Skills",
+  kind: RecapKind.Skills,
   userId: "userId",
   _id: "skillsId",
   proficiency: "Intermediate",

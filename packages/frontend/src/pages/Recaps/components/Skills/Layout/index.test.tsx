@@ -1,12 +1,12 @@
 import React from "react";
 import { render, fireEvent, waitForElementToBeRemoved } from "@testing-library/react";
 import SkillsLayout, { SkillsLayoutProps } from "./index";
-import { RecapSkills } from "../../../recaps.interface";
+import { RecapSkills, RecapKind } from "../../../recaps.interface";
 import * as RecapsService from "../../../recaps.service";
 
 const sampleRecapSkills: RecapSkills = {
   title: "Tagalog",
-  kind: "Skills",
+  kind: RecapKind.Skills,
   userId: "userId",
   _id: "skillsId",
   proficiency: "Intermediate",

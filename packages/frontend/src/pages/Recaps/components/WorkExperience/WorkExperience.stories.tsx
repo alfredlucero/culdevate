@@ -5,10 +5,10 @@ import WorkExperienceRecap from "./Recap";
 import WorkExperienceListCard from "./ListCard";
 import WorkExperienceEmptyCard from "./EmptyCard";
 import WorkExperienceLayout from "./Layout";
-import { RecapWorkExperience } from "../../recaps.interface";
+import { RecapWorkExperience, RecapKind } from "../../recaps.interface";
 
 const workExperience: RecapWorkExperience = {
-  kind: "Work Experience",
+  kind: RecapKind.WorkExperience,
   userId: "userId",
   _id: "workExperienceId",
   bulletPoints: [

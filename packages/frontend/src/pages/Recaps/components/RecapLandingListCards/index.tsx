@@ -57,63 +57,63 @@ const RecapLandingListCards: React.FC<RecapLandingListCardsProps> = ({
         <WorkExperienceListCard
           className="my-6"
           onClick={() => {
-            onGoToRecapKindLayout("Work Experience");
+            onGoToRecapKindLayout(RecapKind.WorkExperience);
           }}
         />
 
         <EducationListCard
           className="my-6"
           onClick={() => {
-            onGoToRecapKindLayout("Education");
+            onGoToRecapKindLayout(RecapKind.Education);
           }}
         />
 
         <AccomplishmentsListCard
           className="my-6"
           onClick={() => {
-            onGoToRecapKindLayout("Accomplishments");
+            onGoToRecapKindLayout(RecapKind.Accomplishments);
           }}
         />
 
         <SkillsListCard
           className="my-6"
           onClick={() => {
-            onGoToRecapKindLayout("Skills");
+            onGoToRecapKindLayout(RecapKind.Skills);
           }}
         />
 
         <OrganizationsListCard
           className="my-6"
           onClick={() => {
-            onGoToRecapKindLayout("Organizations");
+            onGoToRecapKindLayout(RecapKind.Organizations);
           }}
         />
 
         <SideProjectsListCard
           className="my-6"
           onClick={() => {
-            onGoToRecapKindLayout("Side Projects");
+            onGoToRecapKindLayout(RecapKind.SideProjects);
           }}
         />
 
         <PublicationsListCard
           className="my-6"
           onClick={() => {
-            onGoToRecapKindLayout("Publications");
+            onGoToRecapKindLayout(RecapKind.Publications);
           }}
         />
 
         <ReferencesListCard
           className="my-6"
           onClick={() => {
-            onGoToRecapKindLayout("References");
+            onGoToRecapKindLayout(RecapKind.References);
           }}
         />
 
         <OtherListCard
           className="my-6"
           onClick={() => {
-            onGoToRecapKindLayout("Other");
+            onGoToRecapKindLayout(RecapKind.Other);
           }}
         />
       </div>

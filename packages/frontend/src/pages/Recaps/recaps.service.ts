@@ -1,5 +1,5 @@
 import axios, { AxiosError } from "axios";
-import { Recap } from "./recaps.interface";
+import { Recap, RecapCreate } from "./recaps.interface";
 
 export const getRecaps = (): Promise<Recap[]> => {
   return axios
@@ -10,7 +10,7 @@ export const getRecaps = (): Promise<Recap[]> => {
     });
 };
 
-export const createRecap = (recapToCreate: Omit<Recap, "_id">): Promise<Recap> => {
+export const createRecap = (recapToCreate: RecapCreate): Promise<Recap> => {
   return axios
     .post<Recap>("/recaps", recapToCreate)
     .then(response => response.data)

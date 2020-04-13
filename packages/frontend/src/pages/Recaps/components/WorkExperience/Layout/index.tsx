@@ -13,7 +13,7 @@ import {
 import RecapWorkExperienceForm from "../Form";
 import RecapsCreateModal from "../../RecapsCreateModal";
 import RecapsEditModal from "../../RecapsEditModal";
-import { Recap, RecapWorkExperience } from "../../../recaps.interface";
+import { Recap, RecapWorkExperience, RecapKind } from "../../../recaps.interface";
 import { useRecapsAlerts } from "../../../hooks/useRecapsAlerts";
 import { useDeleteRecap } from "../../../hooks/useDeleteRecap";
 
@@ -97,13 +97,13 @@ const WorkExperienceLayout: React.FC<WorkExperienceLayoutProps> = ({
         <RecapsDeleteSuccessAlert
           isShowing={alertsState.isShowingDeleteSuccessAlert}
           onHide={hideAlert}
-          kind="Work Experience"
+          kind={RecapKind.WorkExperience}
           className="mb-4"
         />
         <RecapsDeleteErrorAlert
           isShowing={alertsState.isShowingDeleteErrorAlert}
           onHide={hideAlert}
-          kind="Work Experience"
+          kind={RecapKind.WorkExperience}
           className="mb-4"
         />
         <RecapLayout.Header className="mb-8" onClickBack={onGoBackToLanding}>
@@ -113,7 +113,7 @@ const WorkExperienceLayout: React.FC<WorkExperienceLayoutProps> = ({
           <WorkExperienceEmptyCard onClickAdd={onShowCreateModal} testId="workExperienceEmptyCard" />
         </RecapLayout.Content>
 
-        <RecapsCreateModal isShowing={isShowingCreateModal} onHide={onHideCreateModal} kind="Work Experience">
+        <RecapsCreateModal isShowing={isShowingCreateModal} onHide={onHideCreateModal} kind={RecapKind.WorkExperience}>
           <RecapWorkExperienceForm
             initialRecap={null}
             isShowing={isShowingCreateModal}
@@ -130,25 +130,25 @@ const WorkExperienceLayout: React.FC<WorkExperienceLayoutProps> = ({
       <RecapsCreateSuccessAlert
         isShowing={alertsState.isShowingCreateSuccessAlert}
         onHide={hideAlert}
-        kind="Work Experience"
+        kind={RecapKind.WorkExperience}
         className="mb-4"
       />
       <RecapsUpdateSuccessAlert
         isShowing={alertsState.isShowingUpdateSuccessAlert}
         onHide={hideAlert}
-        kind="Work Experience"
+        kind={RecapKind.WorkExperience}
         className="mb-4"
       />
       <RecapsDeleteSuccessAlert
         isShowing={alertsState.isShowingDeleteSuccessAlert}
         onHide={hideAlert}
-        kind="Work Experience"
+        kind={RecapKind.WorkExperience}
         className="mb-4"
       />
       <RecapsDeleteErrorAlert
         isShowing={alertsState.isShowingDeleteErrorAlert}
         onHide={hideAlert}
-        kind="Work Experience"
+        kind={RecapKind.WorkExperience}
         className="mb-4"
       />
       <RecapLayout.Header className="mb-8" onClickBack={onGoBackToLanding}>
@@ -177,7 +177,7 @@ const WorkExperienceLayout: React.FC<WorkExperienceLayoutProps> = ({
         onClickConfirmDelete={onClickConfirmDelete}
       />
 
-      <RecapsCreateModal isShowing={isShowingCreateModal} onHide={onHideCreateModal} kind="Work Experience">
+      <RecapsCreateModal isShowing={isShowingCreateModal} onHide={onHideCreateModal} kind={RecapKind.WorkExperience}>
         <RecapWorkExperienceForm
           initialRecap={null}
           isShowing={isShowingCreateModal}
@@ -186,7 +186,7 @@ const WorkExperienceLayout: React.FC<WorkExperienceLayoutProps> = ({
         />
       </RecapsCreateModal>
 
-      <RecapsEditModal isShowing={isShowingEditModal} onHide={onHideEditModal} kind="Work Experience">
+      <RecapsEditModal isShowing={isShowingEditModal} onHide={onHideEditModal} kind={RecapKind.WorkExperience}>
         <RecapWorkExperienceForm
           initialRecap={selectedEditRecap}
           isShowing={isShowingEditModal}

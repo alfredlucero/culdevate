@@ -5,11 +5,11 @@ import ReferencesRecap from "./Recap";
 import ReferencesListCard from "./ListCard";
 import ReferencesEmptyCard from "./EmptyCard";
 import ReferencesLayout from "./Layout";
-import { RecapReferences } from "../../recaps.interface";
+import { RecapReferences, RecapKind } from "../../recaps.interface";
 
 const references: RecapReferences = {
   title: "Andrew C. - Product Manager",
-  kind: "References",
+  kind: RecapKind.References,
   userId: "userId",
   _id: "referencesId",
   company: "Sandia National Laboratories",

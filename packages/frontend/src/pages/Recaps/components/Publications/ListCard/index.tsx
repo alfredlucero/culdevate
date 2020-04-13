@@ -1,6 +1,7 @@
 import React from "react";
 import * as RecapListCard from "../../RecapListCard";
 import { RecapListCardProps } from "../../RecapListCard";
+import { RecapKind } from "../../../recaps.interface";
 
 const PublicationsListCard: React.FC<RecapListCardProps> = ({
   onClick,
@@ -10,8 +11,8 @@ const PublicationsListCard: React.FC<RecapListCardProps> = ({
 }) => {
   return (
     <RecapListCard.ListCard onClick={onClick} className={className} testId={testId} {...passThroughProps}>
-      <RecapListCard.Icon kind="Publications" className="mb-6 flex justify-center" />
-      <RecapListCard.Kind kind="Publications" className="text-center" />
+      <RecapListCard.Icon kind={RecapKind.Publications} className="mb-6 flex justify-center" />
+      <RecapListCard.Kind kind={RecapKind.Publications} className="text-center" />
     </RecapListCard.ListCard>
   );
 };

@@ -10,7 +10,7 @@ import {
   RecapsDeleteSuccessAlert,
   RecapsDeleteErrorAlert,
 } from "../../RecapsAlerts";
-import { Recap, RecapOther } from "../../../recaps.interface";
+import { Recap, RecapOther, RecapKind } from "../../../recaps.interface";
 import { useRecapsAlerts } from "../../../hooks/useRecapsAlerts";
 import { useDeleteRecap } from "../../../hooks/useDeleteRecap";
 
@@ -62,13 +62,13 @@ const OtherLayout: React.FC<OtherLayoutProps> = ({
         <RecapsDeleteSuccessAlert
           isShowing={alertsState.isShowingDeleteSuccessAlert}
           onHide={hideAlert}
-          kind="Other"
+          kind={RecapKind.Other}
           className="mb-4"
         />
         <RecapsDeleteErrorAlert
           isShowing={alertsState.isShowingDeleteErrorAlert}
           onHide={hideAlert}
-          kind="Other"
+          kind={RecapKind.Other}
           className="mb-4"
         />
         <RecapLayout.Header className="mb-8" onClickBack={onGoBackToLanding}>
@@ -91,13 +91,13 @@ const OtherLayout: React.FC<OtherLayoutProps> = ({
       <RecapsDeleteSuccessAlert
         isShowing={alertsState.isShowingDeleteSuccessAlert}
         onHide={hideAlert}
-        kind="Other"
+        kind={RecapKind.Other}
         className="mb-4"
       />
       <RecapsDeleteErrorAlert
         isShowing={alertsState.isShowingDeleteErrorAlert}
         onHide={hideAlert}
-        kind="Other"
+        kind={RecapKind.Other}
         className="mb-4"
       />
       <RecapLayout.Header className="mb-8" onClickBack={onGoBackToLanding}>

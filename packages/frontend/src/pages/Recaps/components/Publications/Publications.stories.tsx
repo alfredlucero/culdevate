@@ -5,11 +5,11 @@ import PublicationsRecap from "./Recap";
 import PublicationsListCard from "./ListCard";
 import PublicationsEmptyCard from "./EmptyCard";
 import PublicationsLayout from "./Layout";
-import { RecapPublications } from "../../recaps.interface";
+import { RecapPublications, RecapKind } from "../../recaps.interface";
 
 const publications: RecapPublications = {
   title: "Mindfulness-based Interventions for those with PTSD",
-  kind: "Publications",
+  kind: RecapKind.Publications,
   coauthors: "Gingin D.",
   userId: "userId",
   _id: "publicationsId",

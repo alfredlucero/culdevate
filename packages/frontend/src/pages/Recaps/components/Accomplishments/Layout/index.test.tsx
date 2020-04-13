@@ -1,12 +1,12 @@
 import React from "react";
 import { render, fireEvent, waitForElementToBeRemoved } from "@testing-library/react";
 import AccomplishmentsLayout, { AccomplishmentsLayoutProps } from "./index";
-import { RecapAccomplishments } from "../../../recaps.interface";
+import { RecapAccomplishments, RecapKind } from "../../../recaps.interface";
 import * as RecapsService from "../../../recaps.service";
 
 const sampleRecapAccomplishments: RecapAccomplishments = {
   title: "Promoted to Software Engineer 2 at SendGrid",
-  kind: "Accomplishments",
+  kind: RecapKind.Accomplishments,
   userId: "userId",
   _id: "accomplishmentsId",
   type: "Career",

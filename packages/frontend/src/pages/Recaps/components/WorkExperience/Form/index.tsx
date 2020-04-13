@@ -1,15 +1,16 @@
 import React, { useEffect, useState } from "react";
 import cn from "classnames";
 import { reach } from "yup";
-import { isBefore, isEqual } from "date-fns";
+import { isBefore } from "date-fns";
 import TextInput from "../../../../../components/TextInput";
 import Select, { SelectOption } from "../../../../../components/Select";
 import Checkbox from "../../../../../components/Checkbox";
 import DatePicker from "../../../../../components/DatePicker";
 import BulletPointInputList from "../../BulletPointInputList";
 import Button from "../../../../../components/Button";
+import { RecapsCreateErrorAlert, RecapsUpdateErrorAlert } from "../../RecapsAlerts";
 import { CommonProps } from "../../../../../components/commonProps";
-import { RecapWorkExperience, EmploymentType } from "../../../recaps.interface";
+import { RecapWorkExperience, RecapCreate, EmploymentType, RecapKind } from "../../../recaps.interface";
 import { useBulletPointInputList } from "../../../hooks/useBulletPointInputList";
 import { createRecap, updateRecap } from "../../../recaps.service";
 import { RecapWorkExperienceSchema, recapBaseErrors } from "../../../recaps.schema";
@@ -222,14 +223,78 @@ const WorkExperienceForm: React.FC<WorkExperienceFormProps> = ({
   }, [initialRecap, isShowing]);
 
   const [isSubmitting, setIsSubmitting] = useState(false);
-  const [isSubmitError, setIsSubmitError] = useState(false);
+  const [isSubmitCreateError, setIsSubmitCreateError] = useState(false);
+  const [isSubmitUpdateError, setIsSubmitUpdateError] = useState(false);
+  const onHideSubmitCreateError = () => {
+    setIsSubmitCreateError(false);
+  };
+  const onHideSubmitUpdateError = () => {
+    setIsSubmitUpdateError(false);
+  };
 
   const triggerUpdateRecap = () => {
-    // updateRecap();
+    if (!initialRecap) {
+      return;
+    }
+
+    const { _id, userId, kind } = initialRecap;
+    const updatedBulletPoints = bulletPointInputList
+      .filter(bulletPoint => bulletPoint.value !== "")
+      .map(bulletPoint => bulletPoint.value);
+    const updatedWorkExperienceRecap: RecapWorkExperience = {
+      _id,
+      userId,
+      kind,
+      bulletPoints: updatedBulletPoints,
+      title: workTitle,
+      employmentType: employmentType as EmploymentType,
+      company: company,
+      location: location,
+      startDate: (startDate as Date).toISOString(),
+      ...(!isCurrentWork ? { endDate: (endDate as Date).toISOString() } : {}),
+    };
+
+    setIsSubmitting(true);
+    updateRecap(updatedWorkExperienceRecap)
+      .then(savedRecap => {
+        clearOutInputs();
+        setIsSubmitting(false);
+        setIsSubmitUpdateError(false);
+        onSaveSuccess(savedRecap as RecapWorkExperience);
+      })
+      .catch(() => {
+        setIsSubmitting(false);
+        setIsSubmitUpdateError(true);
+      });
   };
 
   const triggerCreateRecap = () => {
-    // createRecap();
+    const updatedBulletPoints = bulletPointInputList
+      .filter(bulletPoint => bulletPoint.value !== "")
+      .map(bulletPoint => bulletPoint.value);
+    const recapToCreate: RecapCreate = {
+      kind: RecapKind.WorkExperience,
+      bulletPoints: updatedBulletPoints,
+      title: workTitle,
+      employmentType: employmentType as EmploymentType,
+      company: company,
+      location: location,
+      startDate: (startDate as Date).toISOString(),
+      ...(!isCurrentWork ? { endDate: (endDate as Date).toISOString() } : {}),
+    };
+
+    setIsSubmitting(true);
+    createRecap(recapToCreate)
+      .then(savedRecap => {
+        clearOutInputs();
+        setIsSubmitting(false);
+        setIsSubmitCreateError(false);
+        onSaveSuccess(savedRecap as RecapWorkExperience);
+      })
+      .catch(() => {
+        setIsSubmitting(false);
+        setIsSubmitCreateError(true);
+      });
   };
 
   const onSubmit = (e: React.FormEvent) => {
@@ -245,6 +310,16 @@ const WorkExperienceForm: React.FC<WorkExperienceFormProps> = ({
 
   return (
     <div className={cn("mt-4", className)} {...(testId !== "" ? { "data-testid": testId } : {})} {...passThroughProps}>
+      <RecapsCreateErrorAlert
+        kind={RecapKind.WorkExperience}
+        isShowing={isSubmitCreateError}
+        onHide={onHideSubmitCreateError}
+      />
+      <RecapsUpdateErrorAlert
+        kind={RecapKind.WorkExperience}
+        isShowing={isSubmitUpdateError}
+        onHide={onHideSubmitUpdateError}
+      />
       <form onSubmit={onSubmit}>
         <div className="flex w-full mb-4">
           <TextInput

@@ -5,10 +5,10 @@ import EducationRecap from "./Recap";
 import EducationListCard from "./ListCard";
 import EducationEmptyCard from "./EmptyCard";
 import EducationLayout from "./Layout";
-import { RecapEducation } from "../../recaps.interface";
+import { RecapEducation, RecapKind } from "../../recaps.interface";
 
 const education: RecapEducation = {
-  kind: "Education",
+  kind: RecapKind.Education,
   userId: "userId",
   _id: "educationId",
   bulletPoints: [

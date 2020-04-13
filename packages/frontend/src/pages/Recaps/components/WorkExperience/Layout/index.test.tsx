@@ -1,11 +1,11 @@
 import React from "react";
 import { render, fireEvent, waitForElementToBeRemoved } from "@testing-library/react";
 import WorkExperienceLayout, { WorkExperienceLayoutProps } from "./index";
-import { RecapWorkExperience } from "../../../recaps.interface";
+import { RecapWorkExperience, RecapKind } from "../../../recaps.interface";
 import * as RecapsService from "../../../recaps.service";
 
 const sampleRecapWorkExperience: RecapWorkExperience = {
-  kind: "Work Experience",
+  kind: RecapKind.WorkExperience,
   userId: "userId",
   _id: "workExperienceId",
   bulletPoints: [

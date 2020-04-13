@@ -17,15 +17,15 @@ type RecapKindToIconMap = {
 };
 
 const recapKindToIconMap: RecapKindToIconMap = {
-  ["Work Experience"]: "work",
-  ["Education"]: "education",
-  ["Accomplishments"]: "accomplishments",
-  ["Publications"]: "publications",
-  ["Skills"]: "skills",
-  ["Side Projects"]: "projects",
-  ["Organizations"]: "organizations",
-  ["References"]: "references",
-  ["Other"]: "other",
+  [RecapKind.WorkExperience]: "work",
+  [RecapKind.Education]: "education",
+  [RecapKind.Accomplishments]: "accomplishments",
+  [RecapKind.Publications]: "publications",
+  [RecapKind.Skills]: "skills",
+  [RecapKind.SideProjects]: "projects",
+  [RecapKind.Organizations]: "organizations",
+  [RecapKind.References]: "references",
+  [RecapKind.Other]: "other",
 };
 
 const Icon: React.FC<IconProps> = ({ kind, className = "", testId = "", ...passThroughProps }) => {

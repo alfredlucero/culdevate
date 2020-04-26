@@ -1,5 +1,5 @@
 import React from "react";
-import { fireEvent, render, waitForElement, waitForElementToBeRemoved } from "@testing-library/react";
+import { fireEvent, render, waitFor, waitForElementToBeRemoved } from "@testing-library/react";
 import Recaps from "./index";
 import * as RecapsService from "./recaps.service";
 
@@ -16,7 +16,7 @@ describe("<Recaps />", () => {
   test("should show the error state after failing to fetch recaps", async () => {
     const { getByTestId } = render(<Recaps />);
 
-    await waitForElement(() => getByTestId("recapsPageError"));
+    await waitFor(() => getByTestId("recapsPageError"));
   });
 
   test("should show the landing list cards after successfully fetching recaps", async () => {
@@ -24,7 +24,7 @@ describe("<Recaps />", () => {
 
     const { getByTestId } = render(<Recaps />);
 
-    await waitForElement(() => getByTestId("recapsPageError"));
+    await waitFor(() => getByTestId("recapsPageError"));
   });
 
   test("should go to the Work Experience layout and be able to go back after clicking the Work Experience card", async () => {
@@ -32,7 +32,7 @@ describe("<Recaps />", () => {
 
     const { getByTestId, getByText, getAllByText, findByText } = render(<Recaps />);
 
-    await waitForElement(() => getByTestId("recapsPage"));
+    await waitFor(() => getByTestId("recapsPage"));
 
     fireEvent.click(getByText("Work Experience"));
 
@@ -51,7 +51,7 @@ describe("<Recaps />", () => {
 
     const { getByTestId, getByText, getAllByText, findByText } = render(<Recaps />);
 
-    await waitForElement(() => getByTestId("recapsPage"));
+    await waitFor(() => getByTestId("recapsPage"));
 
     fireEvent.click(getByText("Education"));
 
@@ -70,7 +70,7 @@ describe("<Recaps />", () => {
 
     const { getByTestId, getByText, getAllByText, findByText } = render(<Recaps />);
 
-    await waitForElement(() => getByTestId("recapsPage"));
+    await waitFor(() => getByTestId("recapsPage"));
 
     fireEvent.click(getByText("Accomplishments"));
 
@@ -89,7 +89,7 @@ describe("<Recaps />", () => {
 
     const { getByTestId, getByText, getAllByText, findByText } = render(<Recaps />);
 
-    await waitForElement(() => getByTestId("recapsPage"));
+    await waitFor(() => getByTestId("recapsPage"));
 
     fireEvent.click(getByText("Skills"));
 
@@ -108,7 +108,7 @@ describe("<Recaps />", () => {
 
     const { getByTestId, getByText, getAllByText, findByText } = render(<Recaps />);
 
-    await waitForElement(() => getByTestId("recapsPage"));
+    await waitFor(() => getByTestId("recapsPage"));
 
     fireEvent.click(getByText("Organizations"));
 
@@ -127,7 +127,7 @@ describe("<Recaps />", () => {
 
     const { getByTestId, getByText, getAllByText, findByText } = render(<Recaps />);
 
-    await waitForElement(() => getByTestId("recapsPage"));
+    await waitFor(() => getByTestId("recapsPage"));
 
     fireEvent.click(getByText("Side Projects"));
 
@@ -146,7 +146,7 @@ describe("<Recaps />", () => {
 
     const { getByTestId, getByText, getAllByText, findByText } = render(<Recaps />);
 
-    await waitForElement(() => getByTestId("recapsPage"));
+    await waitFor(() => getByTestId("recapsPage"));
 
     fireEvent.click(getByText("Publications"));
 
@@ -165,7 +165,7 @@ describe("<Recaps />", () => {
 
     const { getByTestId, getByText, getAllByText, findByText } = render(<Recaps />);
 
-    await waitForElement(() => getByTestId("recapsPage"));
+    await waitFor(() => getByTestId("recapsPage"));
 
     fireEvent.click(getByText("References"));
 
@@ -184,7 +184,7 @@ describe("<Recaps />", () => {
 
     const { getByTestId, getAllByText, getByText, findByText } = render(<Recaps />);
 
-    await waitForElement(() => getByTestId("recapsPage"));
+    await waitFor(() => getByTestId("recapsPage"));
 
     fireEvent.click(getByText("Other"));
 

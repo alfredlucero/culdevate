@@ -27,6 +27,7 @@ const Checkbox: React.FC<CheckboxProps> = ({
         className={cn("inline-flex", "items-center", {
           "cursor-pointer": !disabled,
         })}
+        htmlFor={id}
       >
         <input
           type="checkbox"

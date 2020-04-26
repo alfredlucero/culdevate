@@ -30,7 +30,7 @@ const employmentTypeSelectOptions: SelectOption[] = employmentTypes.map(employme
   value: employmentType,
 }));
 
-interface WorkExperienceFormProps extends CommonProps {
+export interface WorkExperienceFormProps extends CommonProps {
   initialRecap: RecapWorkExperience | null;
   onSaveSuccess: (savedRecap: RecapWorkExperience) => void;
   isShowing: boolean;
@@ -297,6 +297,20 @@ const WorkExperienceForm: React.FC<WorkExperienceFormProps> = ({
       });
   };
 
+  const hasValidInputs =
+    workTitle &&
+    !workTitleError &&
+    employmentType &&
+    company &&
+    !companyError &&
+    location &&
+    !locationError &&
+    startDate &&
+    !startDateError &&
+    (isCurrentWork || (!isCurrentWork && endDate && !endDateError)) &&
+    bulletPointInputList.every(bulletPointInput => bulletPointInput.valid);
+  const isSaveButtonDisabled = isSubmitting || !hasValidInputs;
+
   const onSubmit = (e: React.FormEvent) => {
     e.preventDefault();
 
@@ -430,7 +444,13 @@ const WorkExperienceForm: React.FC<WorkExperienceFormProps> = ({
           <Button type="button" variant="secondary" onClick={onHide} className="mr-2">
             Cancel
           </Button>
-          <Button type="submit" variant="primary" loading={isSubmitting} disabled={isSubmitting}>
+          <Button
+            type="submit"
+            variant="primary"
+            loading={isSubmitting}
+            disabled={isSaveButtonDisabled}
+            testId="workExperienceSaveButton"
+          >
             {isSubmitting && <>Saving Recap...</>}
             {!isSubmitting && <>Save Recap</>}
           </Button>

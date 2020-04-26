@@ -251,7 +251,7 @@ const WorkExperienceForm: React.FC<WorkExperienceFormProps> = ({
       company: company,
       location: location,
       startDate: (startDate as Date).toISOString(),
-      ...(!isCurrentWork ? { endDate: (endDate as Date).toISOString() } : {}),
+      ...(isCurrentWork ? { endDate: undefined } : { endDate: (endDate as Date).toISOString() }),
     };
 
     setIsSubmitting(true);
@@ -281,7 +281,7 @@ const WorkExperienceForm: React.FC<WorkExperienceFormProps> = ({
       company: company,
       location: location,
       startDate: (startDate as Date).toISOString(),
-      ...(!isCurrentWork ? { endDate: (endDate as Date).toISOString() } : {}),
+      ...(isCurrentWork ? { endDate: undefined } : { endDate: (endDate as Date).toISOString() }),
     };
 
     setIsSubmitting(true);

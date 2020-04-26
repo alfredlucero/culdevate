@@ -6,13 +6,11 @@ import ReferencesRecap from "../Recap";
 import RecapsConfirmDeleteModal from "../../RecapsConfirmDeleteModal";
 import {
   RecapsCreateSuccessAlert,
-  RecapsCreateErrorAlert,
   RecapsUpdateSuccessAlert,
-  RecapsUpdateErrorAlert,
   RecapsDeleteSuccessAlert,
   RecapsDeleteErrorAlert,
 } from "../../RecapsAlerts";
-import { Recap, RecapReferences } from "../../../recaps.interface";
+import { Recap, RecapReferences, RecapKind } from "../../../recaps.interface";
 import { useRecapsAlerts } from "../../../hooks/useRecapsAlerts";
 import { useDeleteRecap } from "../../../hooks/useDeleteRecap";
 
@@ -33,9 +31,7 @@ const ReferencesLayout: React.FC<ReferencesLayoutProps> = ({
   const {
     alertsState,
     showCreateSuccessAlert,
-    showCreateErrorAlert,
     showUpdateSuccessAlert,
-    showUpdateErrorAlert,
     showDeleteSuccessAlert,
     showDeleteErrorAlert,
     hideAlert,
@@ -66,13 +62,13 @@ const ReferencesLayout: React.FC<ReferencesLayoutProps> = ({
         <RecapsDeleteSuccessAlert
           isShowing={alertsState.isShowingDeleteSuccessAlert}
           onHide={hideAlert}
-          kind="References"
+          kind={RecapKind.References}
           className="mb-4"
         />
         <RecapsDeleteErrorAlert
           isShowing={alertsState.isShowingDeleteErrorAlert}
           onHide={hideAlert}
-          kind="References"
+          kind={RecapKind.References}
           className="mb-4"
         />
         <RecapLayout.Header className="mb-8" onClickBack={onGoBackToLanding}>
@@ -95,13 +91,13 @@ const ReferencesLayout: React.FC<ReferencesLayoutProps> = ({
       <RecapsDeleteSuccessAlert
         isShowing={alertsState.isShowingDeleteSuccessAlert}
         onHide={hideAlert}
-        kind="References"
+        kind={RecapKind.References}
         className="mb-4"
       />
       <RecapsDeleteErrorAlert
         isShowing={alertsState.isShowingDeleteErrorAlert}
         onHide={hideAlert}
-        kind="References"
+        kind={RecapKind.References}
         className="mb-4"
       />
       <RecapLayout.Header className="mb-8" onClickBack={onGoBackToLanding}>

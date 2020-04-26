@@ -1,10 +1,10 @@
 import React from "react";
 import { render } from "@testing-library/react";
-import { RecapEducation } from "../../../recaps.interface";
+import { RecapEducation, RecapKind } from "../../../recaps.interface";
 import EducationRecap from "./index";
 
 const education: RecapEducation = {
-  kind: "Education",
+  kind: RecapKind.Education,
   userId: "userId",
   _id: "educationId",
   bulletPoints: [

@@ -1,0 +1,3 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`<FullScreenModal /> should render without error 1`] = `<div />`;

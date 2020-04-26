@@ -5,10 +5,10 @@ import WorkExperienceRecap from "./Recap";
 import WorkExperienceListCard from "./ListCard";
 import WorkExperienceEmptyCard from "./EmptyCard";
 import WorkExperienceLayout from "./Layout";
-import { RecapWorkExperience } from "../../recaps.interface";
+import { RecapWorkExperience, RecapKind } from "../../recaps.interface";
 
 const workExperience: RecapWorkExperience = {
-  kind: "Work Experience",
+  kind: RecapKind.WorkExperience,
   userId: "userId",
   _id: "workExperienceId",
   bulletPoints: [
@@ -56,7 +56,9 @@ const onDeleteRecapSuccess = () => {
 };
 
 storiesOf("RecapsPage/WorkExperience", module)
-  .add("Form", () => <WorkExperienceForm />)
+  .add("Form", () => (
+    <WorkExperienceForm initialRecap={null} isShowing={true} onHide={() => {}} onSaveSuccess={() => {}} />
+  ))
   .add("Recap - Date Range", () => (
     <WorkExperienceRecap
       workExperience={{ ...workExperience, endDate: new Date("2020/03/20").toISOString() }}

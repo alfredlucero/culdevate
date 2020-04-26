@@ -1,36 +1,32 @@
 export interface RecapBase {
   _id: string;
-  kind: RecapKind;
-  startDate?: string;
-  endDate?: string;
   bulletPoints: string[];
   userId: string;
 }
 
-export type RecapKind =
-  | "Work Experience"
-  | "Education"
-  | "Accomplishments"
-  | "Publications"
-  | "Skills"
-  | "Side Projects"
-  | "Organizations"
-  | "References"
-  | "Other";
+export enum RecapKind {
+  WorkExperience = "Work Experience",
+  Education = "Education",
+  Accomplishments = "Accomplishments",
+  Publications = "Publications",
+  Skills = "Skills",
+  SideProjects = "Side Projects",
+  Organizations = "Organizations",
+  References = "References",
+  Other = "Other",
+}
 
-interface RecapWorkExperienceKind {
+export interface RecapWorkExperience extends RecapBase {
   title: string;
   location: string;
   company: string;
   employmentType: EmploymentType;
-}
-
-export interface RecapWorkExperience extends RecapBase, RecapWorkExperienceKind {
   startDate: string;
-  kind: "Work Experience";
+  endDate?: string;
+  kind: RecapKind.WorkExperience;
 }
 
-type EmploymentType =
+export type EmploymentType =
   | "Part-Time"
   | "Full-Time"
   | "Self-Employed"
@@ -40,22 +36,15 @@ type EmploymentType =
   | "Apprenticeship"
   | "Volunteer";
 
-interface RecapEducationKind {
+export interface RecapEducation extends RecapBase {
   school: string;
   location: string;
   degree: string;
   fieldOfStudy: string;
   grade: string;
-}
-
-export interface RecapEducation extends RecapBase, RecapEducationKind {
   startDate: string;
-  kind: "Education";
-}
-
-interface RecapAccomplishmentsKind {
-  title: string;
-  type: AccomplishmentsType;
+  endDate?: string;
+  kind: RecapKind.Education;
 }
 
 type AccomplishmentsType =
@@ -66,77 +55,63 @@ type AccomplishmentsType =
   | "Career" // Promotion, Work Awards, etc.
   | "Other";
 
-export interface RecapAccomplishments extends RecapBase, RecapAccomplishmentsKind {
+export interface RecapAccomplishments extends RecapBase {
+  title: string;
+  type: AccomplishmentsType;
   startDate: string;
-  kind: "Accomplishments";
+  kind: RecapKind.Accomplishments;
 }
 
-interface RecapPublicationsKind {
+export interface RecapPublications extends RecapBase {
   title: string;
   type: PublicationType;
   coauthors: string;
   publisher: string;
   url: string;
+  startDate: string;
+  kind: RecapKind.Publications;
 }
 
 type PublicationType = "Book" | "Journal" | "Newspaper" | "Magazine" | "Blog" | "Other";
 
-export interface RecapPublications extends RecapBase, RecapPublicationsKind {
-  startDate: string;
-  kind: "Publications";
-}
-
-interface RecapSkillsKind {
+export interface RecapSkills extends RecapBase {
   title: string;
   proficiency: SkillsProficiency;
+  kind: RecapKind.Skills;
 }
 
 type SkillsProficiency = "Novice" | "Intermediate" | "Advanced" | "Expert";
 
-export interface RecapSkills extends RecapBase, RecapSkillsKind {
-  kind: "Skills";
-}
-
-interface RecapSideProjectsKind {
+export interface RecapSideProjects extends RecapBase {
   title: string;
   creators: string;
-}
-
-export interface RecapSideProjects extends RecapBase, RecapSideProjectsKind {
   startDate: string;
-  kind: "Side Projects";
+  endDate?: string;
+  kind: RecapKind.SideProjects;
 }
 
-interface RecapOrganizationsKind {
+export interface RecapOrganizations extends RecapBase {
   organizationName: string;
   location: string;
   positions: string;
-}
-
-export interface RecapOrganizations extends RecapBase, RecapOrganizationsKind {
   startDate: string;
-  kind: "Organizations";
+  endDate?: string;
+  kind: RecapKind.Organizations;
 }
 
-interface RecapReferencesKind {
+export interface RecapReferences extends RecapBase {
   company: string;
   title: string;
   phoneNumber: string;
   email: string;
+  kind: RecapKind.References;
 }
 
-export interface RecapReferences extends RecapBase, RecapReferencesKind {
-  kind: "References";
-}
-
-interface RecapOtherKind {
+export interface RecapOther extends RecapBase {
   title: string;
-}
-
-export interface RecapOther extends RecapBase, RecapOtherKind {
-  kind: "Other";
   startDate: string;
   endDate: string;
+  kind: RecapKind.Other;
 }
 
 export type Recap =
@@ -149,3 +124,14 @@ export type Recap =
   | RecapOrganizations
   | RecapReferences
   | RecapOther;
+
+export type RecapCreate =
+  | Omit<RecapWorkExperience, "userId" | "_id">
+  | Omit<RecapEducation, "userId" | "_id">
+  | Omit<RecapAccomplishments, "userId" | "_id">
+  | Omit<RecapPublications, "userId" | "_id">
+  | Omit<RecapSkills, "userId" | "_id">
+  | Omit<RecapSideProjects, "userId" | "_id">
+  | Omit<RecapOrganizations, "userId" | "_id">
+  | Omit<RecapReferences, "userId" | "_id">
+  | Omit<RecapOther, "userId" | "_id">;

@@ -1,11 +1,11 @@
 import React from "react";
 import { render } from "@testing-library/react";
-import { RecapAccomplishments } from "../../../recaps.interface";
+import { RecapAccomplishments, RecapKind } from "../../../recaps.interface";
 import AccomplishmentsRecap from "./index";
 
 const accomplishments: RecapAccomplishments = {
   title: "Promoted to Software Engineer 2 at SendGrid",
-  kind: "Accomplishments",
+  kind: RecapKind.Accomplishments,
   userId: "userId",
   _id: "accomplishmentsId",
   type: "Career",

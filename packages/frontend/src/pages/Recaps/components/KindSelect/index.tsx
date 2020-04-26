@@ -6,24 +6,12 @@ interface KindSelectProps extends Omit<SelectProps, "label" | "options" | "place
   value: RecapKind | "";
 }
 
-type RecapKindOptionMap = {
-  [kindLabel in RecapKind]: RecapKind;
+const recapKindOptionMap = {
+  ...RecapKind,
 };
 
-const recapKindOptionMap: RecapKindOptionMap = {
-  ["Work Experience"]: "Work Experience",
-  Education: "Education",
-  Accomplishments: "Accomplishments",
-  Publications: "Publications",
-  Skills: "Skills",
-  ["Side Projects"]: "Side Projects",
-  Organizations: "Organizations",
-  References: "References",
-  Other: "Other",
-};
-
-const kindOptions: SelectOption[] = Object.entries(recapKindOptionMap).map(([kindLabel, kindValue]) => ({
-  label: kindLabel,
+const kindOptions: SelectOption[] = Object.entries(recapKindOptionMap).map(([kindKey, kindValue]) => ({
+  label: kindValue,
   value: kindValue,
 }));
 

@@ -5,11 +5,11 @@ import OtherRecap from "./Recap";
 import OtherListCard from "./ListCard";
 import OtherEmptyCard from "./EmptyCard";
 import OtherLayout from "./Layout";
-import { RecapOther } from "../../recaps.interface";
+import { RecapOther, RecapKind } from "../../recaps.interface";
 
 const other: RecapOther = {
   title: "Finished reading Clean Code book!",
-  kind: "Other",
+  kind: RecapKind.Other,
   userId: "userId",
   _id: "otherId",
   startDate: new Date("2017/10/20").toISOString(),

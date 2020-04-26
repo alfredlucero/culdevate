@@ -1,0 +1,188 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`<RecapAlerts /> should render all alerts without error 1`] = `
+<div>
+  <div>
+    <div
+      class="border-l-4 p-4 cursor-pointer rounded shadow flex justify-between break-words text-green-700 bg-green-100 border-green-500 extra-class"
+      data-testid="testId"
+      role="alert"
+    >
+      <div
+        class="w-5/6"
+      >
+        You have successfully created a 
+        Education
+         Recap!
+      </div>
+      <div
+        class="w-1/6 flex justify-end items-center"
+      >
+        <svg
+          class="fill-current h-6 w-6 text-green-700"
+          role="button"
+          viewBox="0 0 20 20"
+          xmlns="http://www.w3.org/2000/svg"
+        >
+          <title>
+            Close
+          </title>
+          <path
+            d="M14.348 14.849a1.2 1.2 0 0 1-1.697 0L10 11.819l-2.651 3.029a1.2 1.2 0 1 1-1.697-1.697l2.758-3.15-2.759-3.152a1.2 1.2 0 1 1 1.697-1.697L10 8.183l2.651-3.031a1.2 1.2 0 1 1 1.697 1.697l-2.758 3.152 2.758 3.15a1.2 1.2 0 0 1 0 1.698z"
+          />
+        </svg>
+      </div>
+    </div>
+    <div
+      class="border-l-4 p-4 cursor-pointer rounded shadow flex justify-between break-words text-red-700 bg-red-100 border-red-500 extra-class"
+      data-testid="testId"
+      role="alert"
+    >
+      <div
+        class="w-5/6"
+      >
+        Something went wrong with adding a 
+        Education
+         Recap! Please try again or let us know if there is an issue!
+      </div>
+      <div
+        class="w-1/6 flex justify-end items-center"
+      >
+        <svg
+          class="fill-current h-6 w-6 text-red-700"
+          role="button"
+          viewBox="0 0 20 20"
+          xmlns="http://www.w3.org/2000/svg"
+        >
+          <title>
+            Close
+          </title>
+          <path
+            d="M14.348 14.849a1.2 1.2 0 0 1-1.697 0L10 11.819l-2.651 3.029a1.2 1.2 0 1 1-1.697-1.697l2.758-3.15-2.759-3.152a1.2 1.2 0 1 1 1.697-1.697L10 8.183l2.651-3.031a1.2 1.2 0 1 1 1.697 1.697l-2.758 3.152 2.758 3.15a1.2 1.2 0 0 1 0 1.698z"
+          />
+        </svg>
+      </div>
+    </div>
+    <div
+      class="border-l-4 p-4 cursor-pointer rounded shadow flex justify-between break-words text-green-700 bg-green-100 border-green-500 extra-class"
+      data-testid="testId"
+      role="alert"
+    >
+      <div
+        class="w-5/6"
+      >
+        You have successfully deleted the 
+        Education
+         Recap!
+      </div>
+      <div
+        class="w-1/6 flex justify-end items-center"
+      >
+        <svg
+          class="fill-current h-6 w-6 text-green-700"
+          role="button"
+          viewBox="0 0 20 20"
+          xmlns="http://www.w3.org/2000/svg"
+        >
+          <title>
+            Close
+          </title>
+          <path
+            d="M14.348 14.849a1.2 1.2 0 0 1-1.697 0L10 11.819l-2.651 3.029a1.2 1.2 0 1 1-1.697-1.697l2.758-3.15-2.759-3.152a1.2 1.2 0 1 1 1.697-1.697L10 8.183l2.651-3.031a1.2 1.2 0 1 1 1.697 1.697l-2.758 3.152 2.758 3.15a1.2 1.2 0 0 1 0 1.698z"
+          />
+        </svg>
+      </div>
+    </div>
+    <div
+      class="border-l-4 p-4 cursor-pointer rounded shadow flex justify-between break-words text-red-700 bg-red-100 border-red-500 extra-class"
+      data-testid="testId"
+      role="alert"
+    >
+      <div
+        class="w-5/6"
+      >
+        Something went wrong with deleting the 
+        Education
+         Recap! Please try again or let us know if there is an issue!
+      </div>
+      <div
+        class="w-1/6 flex justify-end items-center"
+      >
+        <svg
+          class="fill-current h-6 w-6 text-red-700"
+          role="button"
+          viewBox="0 0 20 20"
+          xmlns="http://www.w3.org/2000/svg"
+        >
+          <title>
+            Close
+          </title>
+          <path
+            d="M14.348 14.849a1.2 1.2 0 0 1-1.697 0L10 11.819l-2.651 3.029a1.2 1.2 0 1 1-1.697-1.697l2.758-3.15-2.759-3.152a1.2 1.2 0 1 1 1.697-1.697L10 8.183l2.651-3.031a1.2 1.2 0 1 1 1.697 1.697l-2.758 3.152 2.758 3.15a1.2 1.2 0 0 1 0 1.698z"
+          />
+        </svg>
+      </div>
+    </div>
+    <div
+      class="border-l-4 p-4 cursor-pointer rounded shadow flex justify-between break-words text-green-700 bg-green-100 border-green-500 extra-class"
+      data-testid="testId"
+      role="alert"
+    >
+      <div
+        class="w-5/6"
+      >
+        You have successfully updated a 
+        Education
+         Recap!
+      </div>
+      <div
+        class="w-1/6 flex justify-end items-center"
+      >
+        <svg
+          class="fill-current h-6 w-6 text-green-700"
+          role="button"
+          viewBox="0 0 20 20"
+          xmlns="http://www.w3.org/2000/svg"
+        >
+          <title>
+            Close
+          </title>
+          <path
+            d="M14.348 14.849a1.2 1.2 0 0 1-1.697 0L10 11.819l-2.651 3.029a1.2 1.2 0 1 1-1.697-1.697l2.758-3.15-2.759-3.152a1.2 1.2 0 1 1 1.697-1.697L10 8.183l2.651-3.031a1.2 1.2 0 1 1 1.697 1.697l-2.758 3.152 2.758 3.15a1.2 1.2 0 0 1 0 1.698z"
+          />
+        </svg>
+      </div>
+    </div>
+    <div
+      class="border-l-4 p-4 cursor-pointer rounded shadow flex justify-between break-words text-red-700 bg-red-100 border-red-500 extra-class"
+      data-testid="testId"
+      role="alert"
+    >
+      <div
+        class="w-5/6"
+      >
+        Something went wrong with updating a 
+        Education
+         Recap! Please try again or let us know if there is an issue!
+      </div>
+      <div
+        class="w-1/6 flex justify-end items-center"
+      >
+        <svg
+          class="fill-current h-6 w-6 text-red-700"
+          role="button"
+          viewBox="0 0 20 20"
+          xmlns="http://www.w3.org/2000/svg"
+        >
+          <title>
+            Close
+          </title>
+          <path
+            d="M14.348 14.849a1.2 1.2 0 0 1-1.697 0L10 11.819l-2.651 3.029a1.2 1.2 0 1 1-1.697-1.697l2.758-3.15-2.759-3.152a1.2 1.2 0 1 1 1.697-1.697L10 8.183l2.651-3.031a1.2 1.2 0 1 1 1.697 1.697l-2.758 3.152 2.758 3.15a1.2 1.2 0 0 1 0 1.698z"
+          />
+        </svg>
+      </div>
+    </div>
+  </div>
+</div>
+`;

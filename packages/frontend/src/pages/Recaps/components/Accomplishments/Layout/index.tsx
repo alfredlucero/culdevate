@@ -6,13 +6,11 @@ import AccomplishmentsRecap from "../Recap";
 import RecapsConfirmDeleteModal from "../../RecapsConfirmDeleteModal";
 import {
   RecapsCreateSuccessAlert,
-  RecapsCreateErrorAlert,
   RecapsUpdateSuccessAlert,
-  RecapsUpdateErrorAlert,
   RecapsDeleteSuccessAlert,
   RecapsDeleteErrorAlert,
 } from "../../RecapsAlerts";
-import { Recap, RecapAccomplishments } from "../../../recaps.interface";
+import { Recap, RecapAccomplishments, RecapKind } from "../../../recaps.interface";
 import { useRecapsAlerts } from "../../../hooks/useRecapsAlerts";
 import { useDeleteRecap } from "../../../hooks/useDeleteRecap";
 
@@ -33,9 +31,7 @@ const AccomplishmentsLayout: React.FC<AccomplishmentsLayoutProps> = ({
   const {
     alertsState,
     showCreateSuccessAlert,
-    showCreateErrorAlert,
     showUpdateSuccessAlert,
-    showUpdateErrorAlert,
     showDeleteSuccessAlert,
     showDeleteErrorAlert,
     hideAlert,
@@ -66,13 +62,13 @@ const AccomplishmentsLayout: React.FC<AccomplishmentsLayoutProps> = ({
         <RecapsDeleteSuccessAlert
           isShowing={alertsState.isShowingDeleteSuccessAlert}
           onHide={hideAlert}
-          kind="Accomplishments"
+          kind={RecapKind.Accomplishments}
           className="mb-4"
         />
         <RecapsDeleteErrorAlert
           isShowing={alertsState.isShowingDeleteErrorAlert}
           onHide={hideAlert}
-          kind="Accomplishments"
+          kind={RecapKind.Accomplishments}
           className="mb-4"
         />
         <RecapLayout.Header className="mb-8" onClickBack={onGoBackToLanding}>
@@ -95,13 +91,13 @@ const AccomplishmentsLayout: React.FC<AccomplishmentsLayoutProps> = ({
       <RecapsDeleteSuccessAlert
         isShowing={alertsState.isShowingDeleteSuccessAlert}
         onHide={hideAlert}
-        kind="Accomplishments"
+        kind={RecapKind.Accomplishments}
         className="mb-4"
       />
       <RecapsDeleteErrorAlert
         isShowing={alertsState.isShowingDeleteErrorAlert}
         onHide={hideAlert}
-        kind="Accomplishments"
+        kind={RecapKind.Accomplishments}
         className="mb-4"
       />
       <RecapLayout.Header className="mb-8" onClickBack={onGoBackToLanding}>

@@ -1,12 +1,12 @@
 import React from "react";
 import { render, fireEvent, waitForElementToBeRemoved } from "@testing-library/react";
 import PublicationsLayout, { PublicationsLayoutProps } from "./index";
-import { RecapPublications } from "../../../recaps.interface";
+import { RecapPublications, RecapKind } from "../../../recaps.interface";
 import * as RecapsService from "../../../recaps.service";
 
 const sampleRecapPublications: RecapPublications = {
   title: "Mindfulness-based Interventions for those with PTSD",
-  kind: "Publications",
+  kind: RecapKind.Publications,
   coauthors: "Gingin D.",
   userId: "userId",
   _id: "publicationsId",

@@ -37,72 +37,75 @@ const BulletPointInputList: React.FC<BulletPointInputListProps> = ({
   ...passThroughProps
 }) => {
   return (
-    <DragDropContext onDragEnd={onDragEnd}>
-      <div className={cn(className)} {...(testId !== "" ? { "data-testid": testId } : {})} {...passThroughProps}>
-        <Droppable droppableId="bulletPointInputList">
-          {(provided, snapshot) => (
-            <div
-              {...provided.droppableProps}
-              ref={provided.innerRef}
-              className={cn(
-                {
-                  "bg-gray-300": !snapshot.isDraggingOver,
-                  "bg-green-200": snapshot.isDraggingOver,
-                },
-                "pt-6",
-                "px-4",
-                "pb-4",
-                "bullet-point-list-droppable",
-              )}
-            >
-              {bulletPointInputList.map((bulletPointInputListItem, index) => (
-                <Draggable key={bulletPointInputListItem.id} draggableId={bulletPointInputListItem.id} index={index}>
-                  {(provided, snapshot) => (
-                    <div
-                      ref={provided.innerRef}
-                      {...provided.draggableProps}
-                      {...provided.dragHandleProps}
-                      className={cn(
-                        {
-                          "bg-white": !snapshot.isDragging,
-                          "bg-blue-200": snapshot.isDragging,
-                        },
-                        "hover:bg-blue-100",
-                        "rounded",
-                      )}
-                    >
-                      <BulletPointInput
-                        onChange={onChangeBulletPointInput}
-                        onBlur={onBlurBulletPointInput}
-                        onDelete={onDeleteBulletPointInput}
-                        value={bulletPointInputListItem.value}
-                        id={bulletPointInputListItem.id}
-                        valid={bulletPointInputListItem.valid}
-                        errorInfo={bulletPointInputListItem.errorInfo}
-                        className="mb-2"
-                      />
-                    </div>
-                  )}
-                </Draggable>
-              ))}
-              {provided.placeholder}
-            </div>
-          )}
-        </Droppable>
-        <div className="flex justify-center">
-          <Button
-            variant="secondary"
-            type="button"
-            disabled={isAddBulletPointInputDisabled}
-            onClick={onAddBulletPointInput}
-            className="mt-4 flex items-center"
-          >
-            <Icon variant="plus" size="small" className="mr-2 add-bullet-point-plus-icon" />
-            Add Bullet Point
-          </Button>
+    <div>
+      <span className="block text-gray-700 text-sm font-bold mb-2">Bullet Points</span>
+      <DragDropContext onDragEnd={onDragEnd}>
+        <div className={cn(className)} {...(testId !== "" ? { "data-testid": testId } : {})} {...passThroughProps}>
+          <Droppable droppableId="bulletPointInputList">
+            {(provided, snapshot) => (
+              <div
+                {...provided.droppableProps}
+                ref={provided.innerRef}
+                className={cn(
+                  {
+                    "bg-gray-300": !snapshot.isDraggingOver,
+                    "bg-green-200": snapshot.isDraggingOver,
+                  },
+                  "pt-6",
+                  "px-4",
+                  "pb-4",
+                  "bullet-point-list-droppable",
+                )}
+              >
+                {bulletPointInputList.map((bulletPointInputListItem, index) => (
+                  <Draggable key={bulletPointInputListItem.id} draggableId={bulletPointInputListItem.id} index={index}>
+                    {(provided, snapshot) => (
+                      <div
+                        ref={provided.innerRef}
+                        {...provided.draggableProps}
+                        {...provided.dragHandleProps}
+                        className={cn(
+                          {
+                            "bg-white": !snapshot.isDragging,
+                            "bg-blue-200": snapshot.isDragging,
+                          },
+                          "hover:bg-blue-100",
+                          "rounded",
+                        )}
+                      >
+                        <BulletPointInput
+                          onChange={onChangeBulletPointInput}
+                          onBlur={onBlurBulletPointInput}
+                          onDelete={onDeleteBulletPointInput}
+                          value={bulletPointInputListItem.value}
+                          id={bulletPointInputListItem.id}
+                          valid={bulletPointInputListItem.valid}
+                          errorInfo={bulletPointInputListItem.errorInfo}
+                          className="mb-2"
+                        />
+                      </div>
+                    )}
+                  </Draggable>
+                ))}
+                {provided.placeholder}
+                <div className="flex justify-center">
+                  <Button
+                    variant="secondary"
+                    type="button"
+                    disabled={isAddBulletPointInputDisabled}
+                    onClick={onAddBulletPointInput}
+                    className="mt-4 flex items-center"
+                  >
+                    <Icon variant="plus" size="small" className="mr-2 add-bullet-point-plus-icon" />
+                    Add Bullet Point
+                  </Button>
+                </div>
+              </div>
+            )}
+          </Droppable>
         </div>
-      </div>
-    </DragDropContext>
+      </DragDropContext>
+    </div>
   );
 };
 

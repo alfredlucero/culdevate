@@ -1,12 +1,12 @@
 import React from "react";
 import { render, fireEvent, waitForElementToBeRemoved } from "@testing-library/react";
 import ReferencesLayout, { ReferencesLayoutProps } from "./index";
-import { RecapReferences } from "../../../recaps.interface";
+import { RecapReferences, RecapKind } from "../../../recaps.interface";
 import * as RecapsService from "../../../recaps.service";
 
 const sampleRecapReferences: RecapReferences = {
   title: "Andrew C. - Product Manager",
-  kind: "References",
+  kind: RecapKind.References,
   userId: "userId",
   _id: "referencesId",
   company: "Sandia National Laboratories",

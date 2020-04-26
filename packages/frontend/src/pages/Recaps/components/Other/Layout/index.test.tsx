@@ -1,12 +1,12 @@
 import React from "react";
 import { render, fireEvent, waitForElementToBeRemoved } from "@testing-library/react";
 import OtherLayout, { OtherLayoutProps } from "./index";
-import { RecapOther } from "../../../recaps.interface";
+import { RecapOther, RecapKind } from "../../../recaps.interface";
 import * as RecapsService from "../../../recaps.service";
 
 const sampleRecapOther: RecapOther = {
   title: "Finished reading Clean Code book!",
-  kind: "Other",
+  kind: RecapKind.Other,
   userId: "userId",
   _id: "otherId",
   startDate: new Date("2017/10/20").toISOString(),

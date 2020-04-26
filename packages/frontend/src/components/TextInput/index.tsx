@@ -3,7 +3,7 @@ import cn from "classnames";
 import { CommonProps } from "../commonProps";
 
 export interface TextInputProps extends CommonProps {
-  onChange: (e: React.FormEvent<HTMLInputElement>) => void;
+  onChange: (e: React.ChangeEvent<HTMLInputElement>) => void;
   onBlur?: (e: React.FocusEvent<HTMLInputElement>) => void;
   value: string;
   id: string;

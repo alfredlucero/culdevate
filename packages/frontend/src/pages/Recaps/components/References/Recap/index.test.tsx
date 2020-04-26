@@ -1,11 +1,11 @@
 import React from "react";
 import { render } from "@testing-library/react";
-import { RecapReferences } from "../../../recaps.interface";
+import { RecapReferences, RecapKind } from "../../../recaps.interface";
 import ReferencesRecap from "./index";
 
 const references: RecapReferences = {
   title: "Andrew C. - Product Manager",
-  kind: "References",
+  kind: RecapKind.References,
   userId: "userId",
   _id: "referencesId",
   company: "Sandia National Laboratories",

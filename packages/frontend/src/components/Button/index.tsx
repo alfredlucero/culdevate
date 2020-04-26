@@ -7,7 +7,7 @@ export interface ButtonProps extends CommonProps {
   variant: ButtonVariant;
   type: ButtonType;
   children: React.ReactNode;
-  onClick: (e: React.MouseEvent) => void;
+  onClick?: (e: React.MouseEvent) => void;
   disabled?: boolean;
   loading?: boolean;
   id?: string;
@@ -34,7 +34,7 @@ const Button: React.FC<ButtonProps> = ({
   variant,
   type,
   children,
-  onClick,
+  onClick = () => {},
   id = "",
   disabled = false,
   loading = false,

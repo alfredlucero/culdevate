@@ -1,11 +1,11 @@
 import React from "react";
 import { render } from "@testing-library/react";
-import { RecapSkills } from "../../../recaps.interface";
+import { RecapSkills, RecapKind } from "../../../recaps.interface";
 import SkillsRecap from "./index";
 
 const skills: RecapSkills = {
   title: "Tagalog",
-  kind: "Skills",
+  kind: RecapKind.Skills,
   userId: "userId",
   _id: "skillsId",
   proficiency: "Intermediate",

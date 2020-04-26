@@ -32,7 +32,7 @@ const BulletPointInput: React.FC<BulletPointInputProps> = ({
       className={cn("flex", "items-start", "px-4", "py-6", "rounded", "shadow-md", "cursor-pointer", className)}
       {...passThroughProps}
     >
-      <Icon variant="bulletpoint" size="medium" className="mr-4 text-teal-500" />
+      <Icon variant="bulletpoint" size="small" className="mr-4 text-teal-300" />
       <TextInput
         onChange={onChange}
         onBlur={onBlur}

@@ -5,14 +5,14 @@ import SideProjectsRecap from "./Recap";
 import SideProjectsListCard from "./ListCard";
 import SideProjectsEmptyCard from "./EmptyCard";
 import SideProjectsLayout from "./Layout";
-import { RecapSideProjects } from "../../recaps.interface";
+import { RecapSideProjects, RecapKind } from "../../recaps.interface";
 
 const sideProjects: RecapSideProjects = {
   title: "Zeta Mu Beta Website",
   creators: "Alfred Lucero and Regine Deguzman",
   startDate: new Date("2016/11/01").toISOString(),
   endDate: new Date("2016/12/31").toISOString(),
-  kind: "Side Projects",
+  kind: RecapKind.SideProjects,
   userId: "userId",
   _id: "sideProjectsId",
   bulletPoints: ["Created fraternity website on www.zetamubeta.org with MEAN stack"],

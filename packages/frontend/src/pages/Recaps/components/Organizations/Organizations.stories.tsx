@@ -5,7 +5,7 @@ import OrganizationsRecap from "./Recap";
 import OrganizationsListCard from "./ListCard";
 import OrganizationsEmptyCard from "./EmptyCard";
 import OrganizationsLayout from "./Layout";
-import { RecapOrganizations } from "../../recaps.interface";
+import { RecapOrganizations, RecapKind } from "../../recaps.interface";
 
 const organizations: RecapOrganizations = {
   organizationName: "Zeta Mu Beta",
@@ -13,7 +13,7 @@ const organizations: RecapOrganizations = {
   location: "Long Beach, CA",
   startDate: new Date("2014/12/13").toISOString(),
   endDate: new Date("2016/03/31").toISOString(),
-  kind: "Organizations",
+  kind: RecapKind.Organizations,
   userId: "userId",
   _id: "organizationsId",
   bulletPoints: [

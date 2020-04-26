@@ -2,118 +2,125 @@
 
 exports[`<BulletPointInputList /> should render without error 1`] = `
 <div>
-  <div
-    class="extra-input-list-class"
-    data-testid="bulletPointInputList"
-  >
+  <div>
+    <span
+      class="block text-gray-700 text-sm font-bold mb-2"
+    >
+      Bullet Points
+    </span>
     <div
-      class="bg-gray-300 pt-6 px-4 pb-4 bullet-point-list-droppable"
-      data-rbd-droppable-context-id="0"
-      data-rbd-droppable-id="bulletPointInputList"
+      class="extra-input-list-class"
+      data-testid="bulletPointInputList"
     >
       <div
-        aria-labelledby="rbd-lift-instruction-0"
-        class="bg-white hover:bg-blue-100 rounded"
-        data-rbd-drag-handle-context-id="0"
-        data-rbd-drag-handle-draggable-id="bulletpoint-0"
-        data-rbd-draggable-context-id="0"
-        data-rbd-draggable-id="bulletpoint-0"
-        draggable="false"
-        tabindex="0"
+        class="bg-gray-300 pt-6 px-4 pb-4 bullet-point-list-droppable"
+        data-rbd-droppable-context-id="0"
+        data-rbd-droppable-id="bulletPointInputList"
       >
         <div
-          class="flex items-start px-4 py-6 rounded shadow-md cursor-pointer mb-2"
+          aria-labelledby="rbd-lift-instruction-0"
+          class="bg-white hover:bg-blue-100 rounded"
+          data-rbd-drag-handle-context-id="0"
+          data-rbd-drag-handle-draggable-id="bulletpoint-0"
+          data-rbd-draggable-context-id="0"
+          data-rbd-draggable-id="bulletpoint-0"
+          draggable="false"
+          tabindex="0"
         >
           <div
-            class="font-sans text-3xl mr-4 text-teal-500"
-            id=""
+            class="flex items-start px-4 py-6 rounded shadow-md cursor-pointer mb-2"
           >
-            <svg
-              aria-hidden="true"
-              class="svg-inline--fa fa-square fa-w-14 "
-              data-icon="square"
-              data-prefix="fas"
-              focusable="false"
-              role="img"
-              viewBox="0 0 448 512"
-              xmlns="http://www.w3.org/2000/svg"
+            <div
+              class="font-sans text-2xl mr-4 text-teal-300"
+              id=""
             >
-              <path
-                d="M400 32H48C21.5 32 0 53.5 0 80v352c0 26.5 21.5 48 48 48h352c26.5 0 48-21.5 48-48V80c0-26.5-21.5-48-48-48z"
-                fill="currentColor"
+              <svg
+                aria-hidden="true"
+                class="svg-inline--fa fa-square fa-w-14 "
+                data-icon="square"
+                data-prefix="fas"
+                focusable="false"
+                role="img"
+                viewBox="0 0 448 512"
+                xmlns="http://www.w3.org/2000/svg"
+              >
+                <path
+                  d="M400 32H48C21.5 32 0 53.5 0 80v352c0 26.5 21.5 48 48 48h352c26.5 0 48-21.5 48-48V80c0-26.5-21.5-48-48-48z"
+                  fill="currentColor"
+                />
+              </svg>
+            </div>
+            <div
+              class="mr-4 flex-1"
+            >
+              
+              <input
+                aria-required="true"
+                class="shadow appearance-none border w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline rounded"
+                id="bulletpoint-0"
+                name="bulletpoint-0"
+                placeholder="Provide your highlights and results..."
+                type="text"
+                value=""
               />
-            </svg>
-          </div>
-          <div
-            class="mr-4 flex-1"
-          >
-            
-            <input
-              aria-required="true"
-              class="shadow appearance-none border w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline rounded"
+            </div>
+            <div
+              class="font-sans text-3xl text-red-500 hover:text-red-700 cursor-pointer"
               id="bulletpoint-0"
-              name="bulletpoint-0"
-              placeholder="Provide your highlights and results..."
-              type="text"
-              value=""
-            />
-          </div>
-          <div
-            class="font-sans text-3xl text-red-500 hover:text-red-700 cursor-pointer"
-            id="bulletpoint-0"
-          >
-            <svg
-              aria-hidden="true"
-              class="svg-inline--fa fa-trash-alt fa-w-14 "
-              data-icon="trash-alt"
-              data-prefix="fas"
-              focusable="false"
-              role="img"
-              viewBox="0 0 448 512"
-              xmlns="http://www.w3.org/2000/svg"
             >
-              <path
-                d="M32 464a48 48 0 0 0 48 48h288a48 48 0 0 0 48-48V128H32zm272-256a16 16 0 0 1 32 0v224a16 16 0 0 1-32 0zm-96 0a16 16 0 0 1 32 0v224a16 16 0 0 1-32 0zm-96 0a16 16 0 0 1 32 0v224a16 16 0 0 1-32 0zM432 32H312l-9.4-18.7A24 24 0 0 0 281.1 0H166.8a23.72 23.72 0 0 0-21.4 13.3L136 32H16A16 16 0 0 0 0 48v32a16 16 0 0 0 16 16h416a16 16 0 0 0 16-16V48a16 16 0 0 0-16-16z"
-                fill="currentColor"
-              />
-            </svg>
+              <svg
+                aria-hidden="true"
+                class="svg-inline--fa fa-trash-alt fa-w-14 "
+                data-icon="trash-alt"
+                data-prefix="fas"
+                focusable="false"
+                role="img"
+                viewBox="0 0 448 512"
+                xmlns="http://www.w3.org/2000/svg"
+              >
+                <path
+                  d="M32 464a48 48 0 0 0 48 48h288a48 48 0 0 0 48-48V128H32zm272-256a16 16 0 0 1 32 0v224a16 16 0 0 1-32 0zm-96 0a16 16 0 0 1 32 0v224a16 16 0 0 1-32 0zm-96 0a16 16 0 0 1 32 0v224a16 16 0 0 1-32 0zM432 32H312l-9.4-18.7A24 24 0 0 0 281.1 0H166.8a23.72 23.72 0 0 0-21.4 13.3L136 32H16A16 16 0 0 0 0 48v32a16 16 0 0 0 16 16h416a16 16 0 0 0 16-16V48a16 16 0 0 0-16-16z"
+                  fill="currentColor"
+                />
+              </svg>
+            </div>
           </div>
+        </div>
+        <div
+          class="flex justify-center"
+        >
+          <button
+            class="font-bold py-2 px-4 rounded bg-transparent text-teal-700 border border-teal-500 hover:bg-teal-500 hover:text-white hover:border-transparent mt-4 flex items-center"
+            type="button"
+          >
+            <div
+              class="flex items-center"
+            >
+              <div
+                class="font-sans text-2xl mr-2 add-bullet-point-plus-icon"
+                id=""
+              >
+                <svg
+                  aria-hidden="true"
+                  class="svg-inline--fa fa-plus fa-w-14 "
+                  data-icon="plus"
+                  data-prefix="fas"
+                  focusable="false"
+                  role="img"
+                  viewBox="0 0 448 512"
+                  xmlns="http://www.w3.org/2000/svg"
+                >
+                  <path
+                    d="M416 208H272V64c0-17.67-14.33-32-32-32h-32c-17.67 0-32 14.33-32 32v144H32c-17.67 0-32 14.33-32 32v32c0 17.67 14.33 32 32 32h144v144c0 17.67 14.33 32 32 32h32c17.67 0 32-14.33 32-32V304h144c17.67 0 32-14.33 32-32v-32c0-17.67-14.33-32-32-32z"
+                    fill="currentColor"
+                  />
+                </svg>
+              </div>
+              Add Bullet Point
+            </div>
+          </button>
         </div>
       </div>
-    </div>
-    <div
-      class="flex justify-center"
-    >
-      <button
-        class="font-bold py-2 px-4 rounded bg-transparent text-teal-700 border border-teal-500 hover:bg-teal-500 hover:text-white hover:border-transparent mt-4 flex items-center"
-        type="button"
-      >
-        <div
-          class="flex items-center"
-        >
-          <div
-            class="font-sans text-2xl mr-2 add-bullet-point-plus-icon"
-            id=""
-          >
-            <svg
-              aria-hidden="true"
-              class="svg-inline--fa fa-plus fa-w-14 "
-              data-icon="plus"
-              data-prefix="fas"
-              focusable="false"
-              role="img"
-              viewBox="0 0 448 512"
-              xmlns="http://www.w3.org/2000/svg"
-            >
-              <path
-                d="M416 208H272V64c0-17.67-14.33-32-32-32h-32c-17.67 0-32 14.33-32 32v144H32c-17.67 0-32 14.33-32 32v32c0 17.67 14.33 32 32 32h144v144c0 17.67 14.33 32 32 32h32c17.67 0 32-14.33 32-32V304h144c17.67 0 32-14.33 32-32v-32c0-17.67-14.33-32-32-32z"
-                fill="currentColor"
-              />
-            </svg>
-          </div>
-          Add Bullet Point
-        </div>
-      </button>
     </div>
   </div>
 </div>

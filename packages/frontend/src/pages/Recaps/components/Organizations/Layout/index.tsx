@@ -6,13 +6,11 @@ import OrganizationsRecap from "../Recap";
 import RecapsConfirmDeleteModal from "../../RecapsConfirmDeleteModal";
 import {
   RecapsCreateSuccessAlert,
-  RecapsCreateErrorAlert,
   RecapsUpdateSuccessAlert,
-  RecapsUpdateErrorAlert,
   RecapsDeleteSuccessAlert,
   RecapsDeleteErrorAlert,
 } from "../../RecapsAlerts";
-import { Recap, RecapOrganizations } from "../../../recaps.interface";
+import { Recap, RecapOrganizations, RecapKind } from "../../../recaps.interface";
 import { useRecapsAlerts } from "../../../hooks/useRecapsAlerts";
 import { useDeleteRecap } from "../../../hooks/useDeleteRecap";
 
@@ -33,9 +31,7 @@ const OrganizationsLayout: React.FC<OrganizationsLayoutProps> = ({
   const {
     alertsState,
     showCreateSuccessAlert,
-    showCreateErrorAlert,
     showUpdateSuccessAlert,
-    showUpdateErrorAlert,
     showDeleteSuccessAlert,
     showDeleteErrorAlert,
     hideAlert,
@@ -66,13 +62,13 @@ const OrganizationsLayout: React.FC<OrganizationsLayoutProps> = ({
         <RecapsDeleteSuccessAlert
           isShowing={alertsState.isShowingDeleteSuccessAlert}
           onHide={hideAlert}
-          kind="Organizations"
+          kind={RecapKind.Organizations}
           className="mb-4"
         />
         <RecapsDeleteErrorAlert
           isShowing={alertsState.isShowingDeleteErrorAlert}
           onHide={hideAlert}
-          kind="Organizations"
+          kind={RecapKind.Organizations}
           className="mb-4"
         />
         <RecapLayout.Header className="mb-8" onClickBack={onGoBackToLanding}>
@@ -95,13 +91,13 @@ const OrganizationsLayout: React.FC<OrganizationsLayoutProps> = ({
       <RecapsDeleteSuccessAlert
         isShowing={alertsState.isShowingDeleteSuccessAlert}
         onHide={hideAlert}
-        kind="Organizations"
+        kind={RecapKind.Organizations}
         className="mb-4"
       />
       <RecapsDeleteErrorAlert
         isShowing={alertsState.isShowingDeleteErrorAlert}
         onHide={hideAlert}
-        kind="Organizations"
+        kind={RecapKind.Organizations}
         className="mb-4"
       />
       <RecapLayout.Header className="mb-8" onClickBack={onGoBackToLanding}>

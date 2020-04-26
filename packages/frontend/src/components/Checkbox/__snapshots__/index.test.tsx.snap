@@ -1,0 +1,26 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`<Checkbox /> should render without error 1`] = `
+<div>
+  <div
+    class="extra-class"
+  >
+    <label
+      class="inline-flex items-center cursor-pointer"
+      for="checkboxId"
+    >
+      <input
+        class="cursor-pointer"
+        data-testid="checkboxTestId"
+        id="checkboxId"
+        type="checkbox"
+      />
+      <span
+        class="font-sans text-gray-800 text-base ml-2"
+      >
+        Checkbox Label
+      </span>
+    </label>
+  </div>
+</div>
+`;

@@ -1,7 +1,7 @@
 import React from "react";
 import { render, fireEvent, waitForElementToBeRemoved } from "@testing-library/react";
 import OrganizationsLayout, { OrganizationsLayoutProps } from "./index";
-import { RecapOrganizations } from "../../../recaps.interface";
+import { RecapOrganizations, RecapKind } from "../../../recaps.interface";
 import * as RecapsService from "../../../recaps.service";
 
 const sampleRecapOrganizations: RecapOrganizations = {
@@ -10,7 +10,7 @@ const sampleRecapOrganizations: RecapOrganizations = {
   location: "Long Beach, CA",
   startDate: new Date("2014/12/13").toISOString(),
   endDate: new Date("2016/03/31").toISOString(),
-  kind: "Organizations",
+  kind: RecapKind.Organizations,
   userId: "userId",
   _id: "organizationsId",
   bulletPoints: [

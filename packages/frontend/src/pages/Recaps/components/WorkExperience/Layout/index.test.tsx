@@ -100,4 +100,158 @@ describe("<WorkExperienceLayout />", () => {
     });
     expect(errorAlert).toBeVisible();
   });
+
+  test("should show the success alert after creating a recap successfully", async () => {
+    const onCreateRecapSuccessMock = jest.fn();
+    const { getByText, findByText, getByLabelText, getByTestId, queryByText } = render(
+      <WorkExperienceLayout {...defaultProps} onCreateRecapSuccess={onCreateRecapSuccessMock} />,
+    );
+
+    fireEvent.click(getByText("Add a Recap"));
+
+    const createModal = await findByText("Create a Work Experience Recap");
+    expect(createModal).toBeVisible();
+
+    const recap: RecapWorkExperience = {
+      kind: RecapKind.WorkExperience,
+      userId: "userId",
+      _id: "workExperienceId",
+      bulletPoints: [],
+      startDate: new Date("2020/01/01").toISOString(),
+      endDate: new Date("2020/10/01").toISOString(),
+      title: "workTitle",
+      company: "workCompany",
+      location: "workLocation",
+      employmentType: "Self-Employed",
+    };
+
+    fireEvent.change(getByLabelText("Work Title"), { target: { value: recap.title } });
+    fireEvent.blur(getByLabelText("Work Title"));
+
+    fireEvent.change(getByLabelText("Company"), { target: { value: recap.company } });
+    fireEvent.blur(getByLabelText("Company"));
+
+    fireEvent.change(getByLabelText("Location"), { target: { value: recap.location } });
+    fireEvent.blur(getByLabelText("Location"));
+
+    fireEvent.change(getByLabelText("Start Date"), { target: { value: "01/2020" } });
+    fireEvent.blur(getByLabelText("Start Date"));
+
+    fireEvent.change(getByLabelText("End Date"), { target: { value: "10/2020" } });
+    fireEvent.blur(getByLabelText("End Date"));
+
+    expect(getByTestId("workExperienceSaveButton")).not.toBeDisabled();
+
+    jest.spyOn(RecapsService, "createRecap").mockImplementationOnce(() => Promise.resolve(recap));
+
+    fireEvent.click(getByTestId("workExperienceSaveButton"));
+
+    await waitForElementToBeRemoved(() => queryByText("Create a Work Experience Recap"));
+
+    expect(onCreateRecapSuccessMock).toHaveBeenCalled();
+    expect(queryByText("You have successfully created a Work Experience Recap!")).toBeVisible();
+  });
+
+  test("should show the error alert after failing to create a recap", async () => {
+    const onCreateRecapSuccessMock = jest.fn();
+    const { getByText, findByText, getByLabelText, getByTestId, queryByText } = render(
+      <WorkExperienceLayout {...defaultProps} onCreateRecapSuccess={onCreateRecapSuccessMock} />,
+    );
+
+    fireEvent.click(getByText("Add a Recap"));
+
+    const createModal = await findByText("Create a Work Experience Recap");
+    expect(createModal).toBeVisible();
+
+    const recap: RecapWorkExperience = {
+      kind: RecapKind.WorkExperience,
+      userId: "userId",
+      _id: "workExperienceId",
+      bulletPoints: [],
+      startDate: new Date("2020/01/01").toISOString(),
+      endDate: new Date("2020/10/01").toISOString(),
+      title: "workTitle",
+      company: "workCompany",
+      location: "workLocation",
+      employmentType: "Self-Employed",
+    };
+
+    fireEvent.change(getByLabelText("Work Title"), { target: { value: recap.title } });
+    fireEvent.blur(getByLabelText("Work Title"));
+
+    fireEvent.change(getByLabelText("Company"), { target: { value: recap.company } });
+    fireEvent.blur(getByLabelText("Company"));
+
+    fireEvent.change(getByLabelText("Location"), { target: { value: recap.location } });
+    fireEvent.blur(getByLabelText("Location"));
+
+    fireEvent.change(getByLabelText("Start Date"), { target: { value: "01/2020" } });
+    fireEvent.blur(getByLabelText("Start Date"));
+
+    fireEvent.change(getByLabelText("End Date"), { target: { value: "10/2020" } });
+    fireEvent.blur(getByLabelText("End Date"));
+
+    expect(getByTestId("workExperienceSaveButton")).not.toBeDisabled();
+
+    jest.spyOn(RecapsService, "createRecap").mockImplementationOnce(() => Promise.reject({}));
+
+    fireEvent.click(getByTestId("workExperienceSaveButton"));
+
+    const createErrorAlert = await findByText("Something went wrong with adding a Work Experience Recap!", {
+      exact: false,
+    });
+
+    expect(createErrorAlert).toBeVisible();
+    expect(getByText("Create a Work Experience Recap")).toBeVisible();
+    expect(onCreateRecapSuccessMock).not.toHaveBeenCalled();
+  });
+
+  test("should show the success alert after updating a recap successfully", async () => {
+    const onUpdateRecapSuccessMock = jest.fn();
+    const { getByText, queryByText, findByText, getByTestId } = render(
+      <WorkExperienceLayout {...defaultProps} onUpdateRecapSuccess={onUpdateRecapSuccessMock} />,
+    );
+
+    fireEvent.click(getByText("Edit"));
+
+    const editModal = await findByText("Edit your Work Experience Recap");
+    expect(editModal).toBeVisible();
+
+    expect(getByTestId("workExperienceSaveButton")).not.toBeDisabled();
+
+    jest.spyOn(RecapsService, "updateRecap").mockImplementationOnce(() => Promise.resolve(sampleRecapWorkExperience));
+
+    fireEvent.click(getByTestId("workExperienceSaveButton"));
+
+    await waitForElementToBeRemoved(() => queryByText("Edit your Work Experience Recap"));
+
+    expect(queryByText("You have successfully updated a Work Experience Recap!")).toBeVisible();
+    expect(onUpdateRecapSuccessMock).toHaveBeenCalled();
+  });
+
+  test("should show the error alert after failing to update a recap successfully", async () => {
+    const onUpdateRecapSuccessMock = jest.fn();
+    const { getByText, queryByText, findByText, getByTestId } = render(
+      <WorkExperienceLayout {...defaultProps} onUpdateRecapSuccess={onUpdateRecapSuccessMock} />,
+    );
+
+    fireEvent.click(getByText("Edit"));
+
+    const editModal = await findByText("Edit your Work Experience Recap");
+    expect(editModal).toBeVisible();
+
+    expect(getByTestId("workExperienceSaveButton")).not.toBeDisabled();
+
+    jest.spyOn(RecapsService, "updateRecap").mockImplementationOnce(() => Promise.reject({}));
+
+    fireEvent.click(getByTestId("workExperienceSaveButton"));
+
+    const updateErrorAlert = await findByText("Something went wrong with updating a Work Experience Recap!", {
+      exact: false,
+    });
+    expect(updateErrorAlert).toBeVisible();
+
+    expect(queryByText("Edit your Work Experience Recap")).toBeVisible();
+    expect(onUpdateRecapSuccessMock).not.toHaveBeenCalled();
+  });
 });

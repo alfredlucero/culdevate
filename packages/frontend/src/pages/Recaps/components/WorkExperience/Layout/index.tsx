@@ -21,10 +21,6 @@ export interface WorkExperienceLayoutProps extends RecapLayoutProps {
   recaps: RecapWorkExperience[];
 }
 
-// TODO: custom hooks to make other pages' lives simpler
-// hook for useCreateRecap
-// hook for useUpdateRecap
-
 const WorkExperienceLayout: React.FC<WorkExperienceLayoutProps> = ({
   recaps,
   onGoBackToLanding,
@@ -51,7 +47,10 @@ const WorkExperienceLayout: React.FC<WorkExperienceLayoutProps> = ({
   const onHideCreateModal = () => {
     setIsShowingCreateModal(false);
   };
-  const onSaveSuccessCreate = () => {};
+  const onSaveSuccessCreate = (createdRecap: RecapWorkExperience) => {
+    onCreateRecapSuccess(createdRecap);
+    showCreateSuccessAlert();
+  };
 
   const [isShowingEditModal, setIsShowingEditModal] = useState(false);
   const [selectedEditRecap, setSelectedEditRecap] = useState<RecapWorkExperience | null>(null);
@@ -70,7 +69,10 @@ const WorkExperienceLayout: React.FC<WorkExperienceLayoutProps> = ({
   const onHideEditModal = () => {
     setIsShowingEditModal(false);
   };
-  const onSaveSuccessEdit = () => {};
+  const onSaveSuccessEdit = (updatedRecap: RecapWorkExperience) => {
+    onUpdateRecapSuccess(updatedRecap);
+    showUpdateSuccessAlert();
+  };
 
   const {
     isShowingConfirmDeleteModal,
@@ -190,7 +192,7 @@ const WorkExperienceLayout: React.FC<WorkExperienceLayoutProps> = ({
         <RecapWorkExperienceForm
           initialRecap={selectedEditRecap}
           isShowing={isShowingEditModal}
-          onHide={onHideCreateModal}
+          onHide={onHideEditModal}
           onSaveSuccess={onSaveSuccessEdit}
         />
       </RecapsEditModal>

@@ -19,9 +19,9 @@ export const createRecap = (recapToCreate: RecapCreate): Promise<Recap> => {
     });
 };
 
-export const updateRecap = (updatedRecap: Recap): Promise<Recap> => {
+export const updateRecap = ({ _id, userId, ...updatedRecap }: Recap): Promise<Recap> => {
   return axios
-    .patch<Recap>(`/recaps/${updatedRecap._id}`, updatedRecap)
+    .patch<Recap>(`/recaps/${_id}`, updatedRecap)
     .then(response => response.data)
     .catch((error: AxiosError) => {
       throw new Error(`${error.code} error: ${error.message}`);

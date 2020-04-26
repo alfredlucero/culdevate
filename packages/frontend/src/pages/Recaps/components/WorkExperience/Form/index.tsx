@@ -251,7 +251,7 @@ const WorkExperienceForm: React.FC<WorkExperienceFormProps> = ({
       company: company,
       location: location,
       startDate: (startDate as Date).toISOString(),
-      ...(!isCurrentWork ? { endDate: (endDate as Date).toISOString() } : {}),
+      ...(isCurrentWork ? { endDate: undefined } : { endDate: (endDate as Date).toISOString() }),
     };
 
     setIsSubmitting(true);
@@ -261,6 +261,7 @@ const WorkExperienceForm: React.FC<WorkExperienceFormProps> = ({
         setIsSubmitting(false);
         setIsSubmitUpdateError(false);
         onSaveSuccess(savedRecap as RecapWorkExperience);
+        onHide();
       })
       .catch(() => {
         setIsSubmitting(false);
@@ -280,7 +281,7 @@ const WorkExperienceForm: React.FC<WorkExperienceFormProps> = ({
       company: company,
       location: location,
       startDate: (startDate as Date).toISOString(),
-      ...(!isCurrentWork ? { endDate: (endDate as Date).toISOString() } : {}),
+      ...(isCurrentWork ? { endDate: undefined } : { endDate: (endDate as Date).toISOString() }),
     };
 
     setIsSubmitting(true);
@@ -290,6 +291,7 @@ const WorkExperienceForm: React.FC<WorkExperienceFormProps> = ({
         setIsSubmitting(false);
         setIsSubmitCreateError(false);
         onSaveSuccess(savedRecap as RecapWorkExperience);
+        onHide();
       })
       .catch(() => {
         setIsSubmitting(false);
@@ -314,7 +316,11 @@ const WorkExperienceForm: React.FC<WorkExperienceFormProps> = ({
   const onSubmit = (e: React.FormEvent) => {
     e.preventDefault();
 
-    const isEditingRecap = initialRecap !== undefined;
+    if (isSaveButtonDisabled) {
+      return;
+    }
+
+    const isEditingRecap = initialRecap !== null;
     if (isEditingRecap) {
       triggerUpdateRecap();
     } else {

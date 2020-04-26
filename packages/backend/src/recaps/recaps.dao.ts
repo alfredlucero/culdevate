@@ -62,7 +62,11 @@ const RecapsDao = {
   updateRecapById({ recapId, updatedRecap }: { recapId: string; updatedRecap: Recap }) {
     switch (updatedRecap.kind) {
       case "Work Experience":
-        return RecapWorkExperienceModel.findOneAndUpdate({ _id: recapId }, updatedRecap, { new: true });
+        return RecapWorkExperienceModel.findOneAndUpdate(
+          { _id: recapId },
+          { $set: updatedRecap, ...(!updatedRecap.endDate ? { $unset: { endDate: 1 } } : {}) },
+          { new: true },
+        );
       case "Education":
         return RecapEducationModel.findOneAndUpdate({ _id: recapId }, updatedRecap, { new: true });
       case "Accomplishments":

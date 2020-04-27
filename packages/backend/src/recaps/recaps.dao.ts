@@ -68,7 +68,11 @@ const RecapsDao = {
           { new: true },
         );
       case "Education":
-        return RecapEducationModel.findOneAndUpdate({ _id: recapId }, updatedRecap, { new: true });
+        return RecapEducationModel.findOneAndUpdate(
+          { _id: recapId },
+          { $set: updatedRecap, ...(!updatedRecap.endDate ? { $unset: { endDate: 1 } } : {}) },
+          { new: true },
+        );
       case "Accomplishments":
         return RecapAccomplishmentsModel.findOneAndUpdate({ _id: recapId }, updatedRecap, { new: true });
       case "Publications":

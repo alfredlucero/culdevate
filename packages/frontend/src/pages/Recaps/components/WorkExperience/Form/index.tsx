@@ -184,6 +184,7 @@ const WorkExperienceForm: React.FC<WorkExperienceFormProps> = ({
     setCompanyError("");
     setLocation("");
     setLocationError("");
+    setIsCurrentWork(false);
     setStartDate(null);
     setStartDateError("");
     setEndDate(null);

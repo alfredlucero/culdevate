@@ -153,12 +153,18 @@ export const RecapEducationSchema = yup.object({
     .string()
     .max(MAX_GENERAL_LENGTH, recapEducationErrors.locationMaxLength)
     .required(recapEducationErrors.locationRequired),
-  degree: yup.string().max(MAX_GENERAL_LENGTH, recapEducationErrors.degreeMaxLength),
+  degree: yup
+    .string()
+    .required(recapEducationErrors.degreeRequired)
+    .max(MAX_GENERAL_LENGTH, recapEducationErrors.degreeMaxLength),
   fieldOfStudy: yup
     .string()
     .max(MAX_GENERAL_LENGTH, recapEducationErrors.fieldOfStudyMaxLength)
     .required(recapEducationErrors.fieldOfStudyRequired),
-  grade: yup.string().max(MAX_GENERAL_LENGTH, recapEducationErrors.gradeMaxLength),
+  grade: yup
+    .string()
+    .required(recapEducationErrors.gradeRequired)
+    .max(MAX_GENERAL_LENGTH, recapEducationErrors.gradeMaxLength),
 });
 
 export const recapAccomplishmentsErrors = {

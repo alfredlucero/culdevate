@@ -3,7 +3,6 @@ import cn from "classnames";
 import { reach } from "yup";
 import { isBefore } from "date-fns";
 import TextInput from "../../../../../components/TextInput";
-import Select, { SelectOption } from "../../../../../components/Select";
 import Checkbox from "../../../../../components/Checkbox";
 import DatePicker from "../../../../../components/DatePicker";
 import BulletPointInputList from "../../BulletPointInputList";

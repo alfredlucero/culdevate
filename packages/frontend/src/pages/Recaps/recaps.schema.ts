@@ -20,7 +20,7 @@ export enum RecapFields {
 
   educationSchool = "School",
   educationLocation = "Location",
-  educationDegree = "Degree",
+  educationDegree = "Degree/Certification",
   educationFieldOfStudy = "Field of Study/Major",
   educationGrade = "Grade",
 
@@ -134,39 +134,37 @@ export const recapEducationErrors = {
   locationMaxLength: formMaxLengthError({ field: RecapFields.educationLocation, maxLength: MAX_GENERAL_LENGTH }),
   locationRequired: formRequiredError({ field: RecapFields.educationLocation }),
   degreeMaxLength: formMaxLengthError({ field: RecapFields.educationDegree, maxLength: MAX_GENERAL_LENGTH }),
+  degreeRequired: formRequiredError({ field: RecapFields.educationDegree }),
   fieldOfStudyMaxLength: formMaxLengthError({
     field: RecapFields.educationFieldOfStudy,
     maxLength: MAX_GENERAL_LENGTH,
   }),
   fieldOfStudyRequired: formRequiredError({ field: RecapFields.educationFieldOfStudy }),
   gradeMaxLength: formMaxLengthError({ field: RecapFields.educationGrade, maxLength: MAX_GENERAL_LENGTH }),
+  gradeRequired: formRequiredError({ field: RecapFields.educationGrade }),
 };
 
-export const RecapEducationSchoolSchema = yup
-  .string()
-  .max(MAX_GENERAL_LENGTH, recapEducationErrors.schoolMaxLength)
-  .required(recapEducationErrors.schoolRequired);
-
-export const RecapEducationLocationSchema = yup
-  .string()
-  .max(MAX_GENERAL_LENGTH, recapEducationErrors.locationMaxLength)
-  .required(recapEducationErrors.locationRequired);
-
-export const RecapEducationDegreeSchema = yup.string().max(MAX_GENERAL_LENGTH, recapEducationErrors.degreeMaxLength);
-
-export const RecapEducationFieldOfStudySchema = yup
-  .string()
-  .max(MAX_GENERAL_LENGTH, recapEducationErrors.fieldOfStudyMaxLength)
-  .required(recapEducationErrors.fieldOfStudyRequired);
-
-export const RecapEducationGradeSchema = yup.string().max(MAX_GENERAL_LENGTH, recapEducationErrors.gradeMaxLength);
-
 export const RecapEducationSchema = yup.object({
-  school: RecapEducationSchoolSchema,
-  location: RecapEducationLocationSchema,
-  degree: RecapEducationDegreeSchema,
-  fieldOfStudy: RecapEducationFieldOfStudySchema,
-  grade: RecapEducationGradeSchema,
+  school: yup
+    .string()
+    .max(MAX_GENERAL_LENGTH, recapEducationErrors.schoolMaxLength)
+    .required(recapEducationErrors.schoolRequired),
+  location: yup
+    .string()
+    .max(MAX_GENERAL_LENGTH, recapEducationErrors.locationMaxLength)
+    .required(recapEducationErrors.locationRequired),
+  degree: yup
+    .string()
+    .required(recapEducationErrors.degreeRequired)
+    .max(MAX_GENERAL_LENGTH, recapEducationErrors.degreeMaxLength),
+  fieldOfStudy: yup
+    .string()
+    .max(MAX_GENERAL_LENGTH, recapEducationErrors.fieldOfStudyMaxLength)
+    .required(recapEducationErrors.fieldOfStudyRequired),
+  grade: yup
+    .string()
+    .required(recapEducationErrors.gradeRequired)
+    .max(MAX_GENERAL_LENGTH, recapEducationErrors.gradeMaxLength),
 });
 
 export const recapAccomplishmentsErrors = {
@@ -177,19 +175,15 @@ export const recapAccomplishmentsErrors = {
   typeRequired: formRequiredError({ field: RecapFields.accomplishmentsType }),
 };
 
-export const RecapAccomplishmentsTitleSchema = yup
-  .string()
-  .max(MAX_GENERAL_LENGTH, recapAccomplishmentsErrors.titleMaxLength)
-  .required(recapAccomplishmentsErrors.titleRequired);
-
-export const RecapAccomplishmentsTypeSchema = yup
-  .string()
-  .oneOf(["Personal", "Service", "Featured", "School", "Career", "Other"], recapAccomplishmentsErrors.typeInvalid)
-  .required(recapAccomplishmentsErrors.typeRequired);
-
 export const RecapAccomplishmentsSchema = yup.object({
-  title: RecapAccomplishmentsTitleSchema,
-  type: RecapAccomplishmentsTypeSchema,
+  title: yup
+    .string()
+    .max(MAX_GENERAL_LENGTH, recapAccomplishmentsErrors.titleMaxLength)
+    .required(recapAccomplishmentsErrors.titleRequired),
+  type: yup
+    .string()
+    .oneOf(["Personal", "Service", "Featured", "School", "Career", "Other"], recapAccomplishmentsErrors.typeInvalid)
+    .required(recapAccomplishmentsErrors.typeRequired),
 });
 
 export const recapPublicationsErrors = {
@@ -206,37 +200,27 @@ export const recapPublicationsErrors = {
   urlInvalid: `${RecapFields.publicationsUrl} must have valid syntax.`,
 };
 
-export const RecapPublicationsTitleSchema = yup
-  .string()
-  .max(MAX_GENERAL_LENGTH, recapPublicationsErrors.titleMaxLength)
-  .required(recapPublicationsErrors.titleRequired);
-
-export const RecapPublicationsTypeSchema = yup
-  .string()
-  .oneOf(["Book", "Journal", "Newspaper", "Magazine", "Blog", "Other"], recapPublicationsErrors.typeInvalid)
-  .required(recapPublicationsErrors.typeRequired);
-
-export const RecapPublicationsCoauthorsSchema = yup
-  .string()
-  .max(MAX_GENERAL_LENGTH, recapPublicationsErrors.coauthorsMaxLength)
-  .required(recapPublicationsErrors.coauthorsRequired);
-
-export const RecapPublicationsPublisherSchema = yup
-  .string()
-  .max(MAX_GENERAL_LENGTH, recapPublicationsErrors.publisherMaxLength)
-  .required(recapPublicationsErrors.publisherRequired);
-
-export const RecapPublicationsUrlSchema = yup
-  .string()
-  .max(MAX_URL_LENGTH, recapPublicationsErrors.urlMaxLength)
-  .url(recapPublicationsErrors.urlInvalid);
-
 const RecapPublicationsSchema = yup.object({
-  title: RecapPublicationsTitleSchema,
-  type: RecapPublicationsTypeSchema,
-  coauthors: RecapPublicationsCoauthorsSchema,
-  publisher: RecapPublicationsPublisherSchema,
-  url: RecapPublicationsUrlSchema,
+  title: yup
+    .string()
+    .max(MAX_GENERAL_LENGTH, recapPublicationsErrors.titleMaxLength)
+    .required(recapPublicationsErrors.titleRequired),
+  type: yup
+    .string()
+    .oneOf(["Book", "Journal", "Newspaper", "Magazine", "Blog", "Other"], recapPublicationsErrors.typeInvalid)
+    .required(recapPublicationsErrors.typeRequired),
+  coauthors: yup
+    .string()
+    .max(MAX_GENERAL_LENGTH, recapPublicationsErrors.coauthorsMaxLength)
+    .required(recapPublicationsErrors.coauthorsRequired),
+  publisher: yup
+    .string()
+    .max(MAX_GENERAL_LENGTH, recapPublicationsErrors.publisherMaxLength)
+    .required(recapPublicationsErrors.publisherRequired),
+  url: yup
+    .string()
+    .max(MAX_URL_LENGTH, recapPublicationsErrors.urlMaxLength)
+    .url(recapPublicationsErrors.urlInvalid),
 });
 
 export const recapSkillsErrors = {

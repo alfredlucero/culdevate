@@ -32,18 +32,13 @@ const EducationRecap: React.FC<EducationRecapProps> = ({
         <Heading variant="h4">{education.school}</Heading>
         <Text variant="p">{education.location}</Text>
         <Text variant="p">
-          {education.degree !== "" && `${education.degree}, `}
-          {education.fieldOfStudy}
+          {education.degree}, {education.fieldOfStudy}
         </Text>
         <Text variant="p" italic={true} className="text-gray-600">
           {format(parseISO(education.startDate), "yyyy")} -{" "}
           {education.endDate ? format(parseISO(education.endDate), "yyyy") : "Present"}
-          {education.grade && (
-            <>
-              <br />
-              {education.grade}
-            </>
-          )}
+          <br />
+          {education.grade}
         </Text>
         <ul className="mt-3">
           {education.bulletPoints.map((bulletPoint, index) => (

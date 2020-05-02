@@ -58,7 +58,7 @@ const onDeleteRecapSuccess = () => {
 };
 
 storiesOf("RecapsPage/Education", module)
-  .add("Form", () => <EducationForm />)
+  .add("Form", () => <EducationForm initialRecap={null} isShowing={true} onHide={() => {}} onSaveSuccess={() => {}} />)
   .add("Recap - Date Range", () => <EducationRecap education={education} onEdit={onEdit} onDelete={onDelete} />)
   .add("Recap - Present", () => (
     <EducationRecap
@@ -73,24 +73,6 @@ storiesOf("RecapsPage/Education", module)
         degree: education.degree,
         fieldOfStudy: education.fieldOfStudy,
         grade: education.grade,
-      }}
-      onEdit={onEdit}
-      onDelete={onDelete}
-    />
-  ))
-  .add("Recap - Empty Grade and Degree Optional Fields", () => (
-    <EducationRecap
-      education={{
-        _id: education._id,
-        kind: education.kind,
-        userId: education.userId,
-        startDate: education.startDate,
-        bulletPoints: education.bulletPoints,
-        school: education.school,
-        degree: "",
-        location: education.location,
-        fieldOfStudy: education.fieldOfStudy,
-        grade: "",
       }}
       onEdit={onEdit}
       onDelete={onDelete}

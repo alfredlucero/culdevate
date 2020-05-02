@@ -1,10 +1,10 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`<WorkExperienceForm /> should render pre-populated form inputs given initial recap 1`] = `
+exports[`<EducationForm /> should render pre-populated form inputs given initial recap 1`] = `
 <div>
   <div
     class="mt-4 extra-class-name"
-    data-testid="workExperienceFormTestId"
+    data-testid="educationFormTestId"
   >
     <form>
       <div
@@ -15,124 +15,22 @@ exports[`<WorkExperienceForm /> should render pre-populated form inputs given in
         >
           <label
             class="block text-gray-700 text-sm font-bold mb-2"
-            for="workTitle"
+            for="school"
           >
-            Work Title
+            School
           </label>
           <input
             aria-required="true"
             class="shadow appearance-none border w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline rounded"
-            id="workTitle"
-            name="workTitle"
-            placeholder="What was your work title?"
+            id="school"
+            name="school"
+            placeholder="What school did you go to?"
             type="text"
-            value="Lead Software Engineer"
+            value="University of California, Los Angeles"
           />
         </div>
-        <div
-          class="w-1/2"
-        >
-          <label
-            class="block text-gray-700 text-sm font-bold mb-2"
-            for="employmentType"
-          >
-            Employment Type
-             
-            
-          </label>
-          <div
-            class="inline-block relative"
-          >
-            <select
-              aria-required="true"
-              class="block appearance-none w-full bg-white border border-gray-400 hover:border-gray-500 px-4 py-2 pr-8 rounded shadow leading-tight focus:outline-none focus:shadow-outline"
-              data-testid=""
-              id="employmentType"
-              name="employmentType"
-              required=""
-            >
-              
-              <option
-                value="Part-Time"
-              >
-                Part-Time
-              </option>
-              <option
-                value="Full-Time"
-              >
-                Full-Time
-              </option>
-              <option
-                value="Self-Employed"
-              >
-                Self-Employed
-              </option>
-              <option
-                value="Freelance"
-              >
-                Freelance
-              </option>
-              <option
-                value="Contract"
-              >
-                Contract
-              </option>
-              <option
-                value="Internship"
-              >
-                Internship
-              </option>
-              <option
-                value="Apprenticeship"
-              >
-                Apprenticeship
-              </option>
-              <option
-                value="Volunteer"
-              >
-                Volunteer
-              </option>
-            </select>
-            <div
-              class="pointer-events-none absolute inset-y-0 right-0 flex items-center px-2 text-gray-700"
-            >
-              <svg
-                class="fill-current h-4 w-4"
-                viewBox="0 0 20 20"
-                xmlns="http://www.w3.org/2000/svg"
-              >
-                <path
-                  d="M9.293 12.95l.707.707L15.657 8l-1.414-1.414L10 10.828 5.757 6.586 4.343 8z"
-                />
-              </svg>
-            </div>
-          </div>
-        </div>
-      </div>
-      <div
-        class="flex w-full mb-4"
-      >
         <div
           class="w-1/2 mr-4"
-        >
-          <label
-            class="block text-gray-700 text-sm font-bold mb-2"
-            for="company"
-          >
-            Company
-          </label>
-          <input
-            aria-required="true"
-            class="shadow appearance-none border w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline rounded"
-            id="company"
-            name="company"
-            placeholder="What was the company's name?"
-            type="text"
-            value="Culdevate"
-          />
-        </div>
-        <div
-          class="w-1/2"
         >
           <label
             class="block text-gray-700 text-sm font-bold mb-2"
@@ -145,9 +43,74 @@ exports[`<WorkExperienceForm /> should render pre-populated form inputs given in
             class="shadow appearance-none border w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline rounded"
             id="location"
             name="location"
-            placeholder="Where was your work place located?"
+            placeholder="Where was the school located?"
             type="text"
-            value="Long Beach, CA"
+            value="Los Angeles, CA"
+          />
+        </div>
+      </div>
+      <div
+        class="flex w-full mb-4"
+      >
+        <div
+          class="w-1/2 mr-4"
+        >
+          <label
+            class="block text-gray-700 text-sm font-bold mb-2"
+            for="degree"
+          >
+            Degree/Certification
+          </label>
+          <input
+            aria-required="true"
+            class="shadow appearance-none border w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline rounded"
+            id="degree"
+            name="degree"
+            placeholder="What degree/certification did you work toward?"
+            type="text"
+            value="Bachelor of Science"
+          />
+        </div>
+        <div
+          class="w-1/2"
+        >
+          <label
+            class="block text-gray-700 text-sm font-bold mb-2"
+            for="fieldOfStudy"
+          >
+            Field of Study/Major
+          </label>
+          <input
+            aria-required="true"
+            class="shadow appearance-none border w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline rounded"
+            id="fieldOfStudy"
+            name="fieldOfStudy"
+            placeholder="What major or study did you focus on?"
+            type="text"
+            value="Computer Science"
+          />
+        </div>
+      </div>
+      <div
+        class="flex w-full mb-4"
+      >
+        <div
+          class="w-1/2 mr-4"
+        >
+          <label
+            class="block text-gray-700 text-sm font-bold mb-2"
+            for="grade"
+          >
+            Grade
+          </label>
+          <input
+            aria-required="true"
+            class="shadow appearance-none border w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline rounded"
+            id="grade"
+            name="grade"
+            placeholder="What year or grade are you in this school? i.e. Alumnus, Fourth Year"
+            type="text"
+            value="Alumnus"
           />
         </div>
       </div>
@@ -174,10 +137,38 @@ exports[`<WorkExperienceForm /> should render pre-populated form inputs given in
               <input
                 class="shadow appearance-none border w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline rounded"
                 id="startDate"
-                placeholder="When did you start working here?"
+                placeholder="When did you start studying here?"
                 required=""
                 type="text"
-                value="01/2020"
+                value="10/2013"
+              />
+            </div>
+          </div>
+        </div>
+        <div
+          class="date-picker w-1/2"
+        >
+          <label
+            class="block text-gray-700 text-sm font-bold mb-2"
+            for="endDate"
+          >
+            End Date
+             
+            
+          </label>
+          <div
+            class="react-datepicker-wrapper"
+          >
+            <div
+              class="react-datepicker__input-container"
+            >
+              <input
+                class="shadow appearance-none border w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline rounded"
+                id="endDate"
+                placeholder="When did you finish studying here?"
+                required=""
+                type="text"
+                value="06/2017"
               />
             </div>
           </div>
@@ -188,17 +179,17 @@ exports[`<WorkExperienceForm /> should render pre-populated form inputs given in
       >
         <label
           class="inline-flex items-center cursor-pointer"
-          for="currentWorkCheckbox"
+          for="currentEducationCheckbox"
         >
           <input
             class="cursor-pointer"
-            id="currentWorkCheckbox"
+            id="currentEducationCheckbox"
             type="checkbox"
           />
           <span
             class="font-sans text-gray-800 text-base ml-2"
           >
-            I currently work here
+            I currently study here
           </span>
         </label>
       </div>
@@ -260,150 +251,12 @@ exports[`<WorkExperienceForm /> should render pre-populated form inputs given in
                     name="workExperienceBulletPoint-0"
                     placeholder="Provide your highlights and results..."
                     type="text"
-                    value="Worked on the Culdevate start up seriously"
+                    value=""
                   />
                 </div>
                 <div
                   class="font-sans text-3xl text-red-500 hover:text-red-700 cursor-pointer"
                   id="workExperienceBulletPoint-0"
-                >
-                  <svg
-                    aria-hidden="true"
-                    class="svg-inline--fa fa-trash-alt fa-w-14 "
-                    data-icon="trash-alt"
-                    data-prefix="fas"
-                    focusable="false"
-                    role="img"
-                    viewBox="0 0 448 512"
-                    xmlns="http://www.w3.org/2000/svg"
-                  >
-                    <path
-                      d="M32 464a48 48 0 0 0 48 48h288a48 48 0 0 0 48-48V128H32zm272-256a16 16 0 0 1 32 0v224a16 16 0 0 1-32 0zm-96 0a16 16 0 0 1 32 0v224a16 16 0 0 1-32 0zm-96 0a16 16 0 0 1 32 0v224a16 16 0 0 1-32 0zM432 32H312l-9.4-18.7A24 24 0 0 0 281.1 0H166.8a23.72 23.72 0 0 0-21.4 13.3L136 32H16A16 16 0 0 0 0 48v32a16 16 0 0 0 16 16h416a16 16 0 0 0 16-16V48a16 16 0 0 0-16-16z"
-                      fill="currentColor"
-                    />
-                  </svg>
-                </div>
-              </div>
-            </div>
-            <div
-              aria-labelledby="rbd-lift-instruction-1"
-              class="bg-white hover:bg-blue-100 rounded"
-              data-rbd-drag-handle-context-id="1"
-              data-rbd-drag-handle-draggable-id="workExperienceBulletPoint-1"
-              data-rbd-draggable-context-id="1"
-              data-rbd-draggable-id="workExperienceBulletPoint-1"
-              draggable="false"
-              tabindex="0"
-            >
-              <div
-                class="flex items-start px-4 py-6 rounded shadow-md cursor-pointer mb-2"
-              >
-                <div
-                  class="font-sans text-2xl mr-4 text-teal-300"
-                  id=""
-                >
-                  <svg
-                    aria-hidden="true"
-                    class="svg-inline--fa fa-square fa-w-14 "
-                    data-icon="square"
-                    data-prefix="fas"
-                    focusable="false"
-                    role="img"
-                    viewBox="0 0 448 512"
-                    xmlns="http://www.w3.org/2000/svg"
-                  >
-                    <path
-                      d="M400 32H48C21.5 32 0 53.5 0 80v352c0 26.5 21.5 48 48 48h352c26.5 0 48-21.5 48-48V80c0-26.5-21.5-48-48-48z"
-                      fill="currentColor"
-                    />
-                  </svg>
-                </div>
-                <div
-                  class="mr-4 flex-1"
-                >
-                  
-                  <input
-                    aria-required="true"
-                    class="shadow appearance-none border w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline rounded"
-                    id="workExperienceBulletPoint-1"
-                    name="workExperienceBulletPoint-1"
-                    placeholder="Provide your highlights and results..."
-                    type="text"
-                    value="Getting better at making REST API endpoints"
-                  />
-                </div>
-                <div
-                  class="font-sans text-3xl text-red-500 hover:text-red-700 cursor-pointer"
-                  id="workExperienceBulletPoint-1"
-                >
-                  <svg
-                    aria-hidden="true"
-                    class="svg-inline--fa fa-trash-alt fa-w-14 "
-                    data-icon="trash-alt"
-                    data-prefix="fas"
-                    focusable="false"
-                    role="img"
-                    viewBox="0 0 448 512"
-                    xmlns="http://www.w3.org/2000/svg"
-                  >
-                    <path
-                      d="M32 464a48 48 0 0 0 48 48h288a48 48 0 0 0 48-48V128H32zm272-256a16 16 0 0 1 32 0v224a16 16 0 0 1-32 0zm-96 0a16 16 0 0 1 32 0v224a16 16 0 0 1-32 0zm-96 0a16 16 0 0 1 32 0v224a16 16 0 0 1-32 0zM432 32H312l-9.4-18.7A24 24 0 0 0 281.1 0H166.8a23.72 23.72 0 0 0-21.4 13.3L136 32H16A16 16 0 0 0 0 48v32a16 16 0 0 0 16 16h416a16 16 0 0 0 16-16V48a16 16 0 0 0-16-16z"
-                      fill="currentColor"
-                    />
-                  </svg>
-                </div>
-              </div>
-            </div>
-            <div
-              aria-labelledby="rbd-lift-instruction-1"
-              class="bg-white hover:bg-blue-100 rounded"
-              data-rbd-drag-handle-context-id="1"
-              data-rbd-drag-handle-draggable-id="workExperienceBulletPoint-2"
-              data-rbd-draggable-context-id="1"
-              data-rbd-draggable-id="workExperienceBulletPoint-2"
-              draggable="false"
-              tabindex="0"
-            >
-              <div
-                class="flex items-start px-4 py-6 rounded shadow-md cursor-pointer mb-2"
-              >
-                <div
-                  class="font-sans text-2xl mr-4 text-teal-300"
-                  id=""
-                >
-                  <svg
-                    aria-hidden="true"
-                    class="svg-inline--fa fa-square fa-w-14 "
-                    data-icon="square"
-                    data-prefix="fas"
-                    focusable="false"
-                    role="img"
-                    viewBox="0 0 448 512"
-                    xmlns="http://www.w3.org/2000/svg"
-                  >
-                    <path
-                      d="M400 32H48C21.5 32 0 53.5 0 80v352c0 26.5 21.5 48 48 48h352c26.5 0 48-21.5 48-48V80c0-26.5-21.5-48-48-48z"
-                      fill="currentColor"
-                    />
-                  </svg>
-                </div>
-                <div
-                  class="mr-4 flex-1"
-                >
-                  
-                  <input
-                    aria-required="true"
-                    class="shadow appearance-none border w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline rounded"
-                    id="workExperienceBulletPoint-2"
-                    name="workExperienceBulletPoint-2"
-                    placeholder="Provide your highlights and results..."
-                    type="text"
-                    value="Improving interviewing and mentoring skills"
-                  />
-                </div>
-                <div
-                  class="font-sans text-3xl text-red-500 hover:text-red-700 cursor-pointer"
-                  id="workExperienceBulletPoint-2"
                 >
                   <svg
                     aria-hidden="true"
@@ -475,7 +328,7 @@ exports[`<WorkExperienceForm /> should render pre-populated form inputs given in
         </button>
         <button
           class="font-bold py-2 px-4 rounded font-bold py-2 px-4 rounded bg-teal-500 text-white hover:bg-teal-700 "
-          data-testid="workExperienceSaveButton"
+          data-testid="educationSaveButton"
           type="submit"
         >
           <div
@@ -490,11 +343,11 @@ exports[`<WorkExperienceForm /> should render pre-populated form inputs given in
 </div>
 `;
 
-exports[`<WorkExperienceForm /> should render without error 1`] = `
+exports[`<EducationForm /> should render without error 1`] = `
 <div>
   <div
     class="mt-4 extra-class-name"
-    data-testid="workExperienceFormTestId"
+    data-testid="educationFormTestId"
   >
     <form>
       <div
@@ -505,124 +358,22 @@ exports[`<WorkExperienceForm /> should render without error 1`] = `
         >
           <label
             class="block text-gray-700 text-sm font-bold mb-2"
-            for="workTitle"
+            for="school"
           >
-            Work Title
+            School
           </label>
           <input
             aria-required="true"
             class="shadow appearance-none border w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline rounded"
-            id="workTitle"
-            name="workTitle"
-            placeholder="What was your work title?"
+            id="school"
+            name="school"
+            placeholder="What school did you go to?"
             type="text"
-            value="Lead Software Engineer"
+            value="University of California, Los Angeles"
           />
         </div>
-        <div
-          class="w-1/2"
-        >
-          <label
-            class="block text-gray-700 text-sm font-bold mb-2"
-            for="employmentType"
-          >
-            Employment Type
-             
-            
-          </label>
-          <div
-            class="inline-block relative"
-          >
-            <select
-              aria-required="true"
-              class="block appearance-none w-full bg-white border border-gray-400 hover:border-gray-500 px-4 py-2 pr-8 rounded shadow leading-tight focus:outline-none focus:shadow-outline"
-              data-testid=""
-              id="employmentType"
-              name="employmentType"
-              required=""
-            >
-              
-              <option
-                value="Part-Time"
-              >
-                Part-Time
-              </option>
-              <option
-                value="Full-Time"
-              >
-                Full-Time
-              </option>
-              <option
-                value="Self-Employed"
-              >
-                Self-Employed
-              </option>
-              <option
-                value="Freelance"
-              >
-                Freelance
-              </option>
-              <option
-                value="Contract"
-              >
-                Contract
-              </option>
-              <option
-                value="Internship"
-              >
-                Internship
-              </option>
-              <option
-                value="Apprenticeship"
-              >
-                Apprenticeship
-              </option>
-              <option
-                value="Volunteer"
-              >
-                Volunteer
-              </option>
-            </select>
-            <div
-              class="pointer-events-none absolute inset-y-0 right-0 flex items-center px-2 text-gray-700"
-            >
-              <svg
-                class="fill-current h-4 w-4"
-                viewBox="0 0 20 20"
-                xmlns="http://www.w3.org/2000/svg"
-              >
-                <path
-                  d="M9.293 12.95l.707.707L15.657 8l-1.414-1.414L10 10.828 5.757 6.586 4.343 8z"
-                />
-              </svg>
-            </div>
-          </div>
-        </div>
-      </div>
-      <div
-        class="flex w-full mb-4"
-      >
         <div
           class="w-1/2 mr-4"
-        >
-          <label
-            class="block text-gray-700 text-sm font-bold mb-2"
-            for="company"
-          >
-            Company
-          </label>
-          <input
-            aria-required="true"
-            class="shadow appearance-none border w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline rounded"
-            id="company"
-            name="company"
-            placeholder="What was the company's name?"
-            type="text"
-            value="Culdevate"
-          />
-        </div>
-        <div
-          class="w-1/2"
         >
           <label
             class="block text-gray-700 text-sm font-bold mb-2"
@@ -635,9 +386,74 @@ exports[`<WorkExperienceForm /> should render without error 1`] = `
             class="shadow appearance-none border w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline rounded"
             id="location"
             name="location"
-            placeholder="Where was your work place located?"
+            placeholder="Where was the school located?"
             type="text"
-            value="Long Beach, CA"
+            value="Los Angeles, CA"
+          />
+        </div>
+      </div>
+      <div
+        class="flex w-full mb-4"
+      >
+        <div
+          class="w-1/2 mr-4"
+        >
+          <label
+            class="block text-gray-700 text-sm font-bold mb-2"
+            for="degree"
+          >
+            Degree/Certification
+          </label>
+          <input
+            aria-required="true"
+            class="shadow appearance-none border w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline rounded"
+            id="degree"
+            name="degree"
+            placeholder="What degree/certification did you work toward?"
+            type="text"
+            value="Bachelor of Science"
+          />
+        </div>
+        <div
+          class="w-1/2"
+        >
+          <label
+            class="block text-gray-700 text-sm font-bold mb-2"
+            for="fieldOfStudy"
+          >
+            Field of Study/Major
+          </label>
+          <input
+            aria-required="true"
+            class="shadow appearance-none border w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline rounded"
+            id="fieldOfStudy"
+            name="fieldOfStudy"
+            placeholder="What major or study did you focus on?"
+            type="text"
+            value="Computer Science"
+          />
+        </div>
+      </div>
+      <div
+        class="flex w-full mb-4"
+      >
+        <div
+          class="w-1/2 mr-4"
+        >
+          <label
+            class="block text-gray-700 text-sm font-bold mb-2"
+            for="grade"
+          >
+            Grade
+          </label>
+          <input
+            aria-required="true"
+            class="shadow appearance-none border w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline rounded"
+            id="grade"
+            name="grade"
+            placeholder="What year or grade are you in this school? i.e. Alumnus, Fourth Year"
+            type="text"
+            value="Alumnus"
           />
         </div>
       </div>
@@ -664,10 +480,38 @@ exports[`<WorkExperienceForm /> should render without error 1`] = `
               <input
                 class="shadow appearance-none border w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline rounded"
                 id="startDate"
-                placeholder="When did you start working here?"
+                placeholder="When did you start studying here?"
                 required=""
                 type="text"
-                value="01/2020"
+                value="10/2013"
+              />
+            </div>
+          </div>
+        </div>
+        <div
+          class="date-picker w-1/2"
+        >
+          <label
+            class="block text-gray-700 text-sm font-bold mb-2"
+            for="endDate"
+          >
+            End Date
+             
+            
+          </label>
+          <div
+            class="react-datepicker-wrapper"
+          >
+            <div
+              class="react-datepicker__input-container"
+            >
+              <input
+                class="shadow appearance-none border w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline rounded"
+                id="endDate"
+                placeholder="When did you finish studying here?"
+                required=""
+                type="text"
+                value="06/2017"
               />
             </div>
           </div>
@@ -678,17 +522,17 @@ exports[`<WorkExperienceForm /> should render without error 1`] = `
       >
         <label
           class="inline-flex items-center cursor-pointer"
-          for="currentWorkCheckbox"
+          for="currentEducationCheckbox"
         >
           <input
             class="cursor-pointer"
-            id="currentWorkCheckbox"
+            id="currentEducationCheckbox"
             type="checkbox"
           />
           <span
             class="font-sans text-gray-800 text-base ml-2"
           >
-            I currently work here
+            I currently study here
           </span>
         </label>
       </div>
@@ -750,150 +594,12 @@ exports[`<WorkExperienceForm /> should render without error 1`] = `
                     name="workExperienceBulletPoint-0"
                     placeholder="Provide your highlights and results..."
                     type="text"
-                    value="Worked on the Culdevate start up seriously"
+                    value=""
                   />
                 </div>
                 <div
                   class="font-sans text-3xl text-red-500 hover:text-red-700 cursor-pointer"
                   id="workExperienceBulletPoint-0"
-                >
-                  <svg
-                    aria-hidden="true"
-                    class="svg-inline--fa fa-trash-alt fa-w-14 "
-                    data-icon="trash-alt"
-                    data-prefix="fas"
-                    focusable="false"
-                    role="img"
-                    viewBox="0 0 448 512"
-                    xmlns="http://www.w3.org/2000/svg"
-                  >
-                    <path
-                      d="M32 464a48 48 0 0 0 48 48h288a48 48 0 0 0 48-48V128H32zm272-256a16 16 0 0 1 32 0v224a16 16 0 0 1-32 0zm-96 0a16 16 0 0 1 32 0v224a16 16 0 0 1-32 0zm-96 0a16 16 0 0 1 32 0v224a16 16 0 0 1-32 0zM432 32H312l-9.4-18.7A24 24 0 0 0 281.1 0H166.8a23.72 23.72 0 0 0-21.4 13.3L136 32H16A16 16 0 0 0 0 48v32a16 16 0 0 0 16 16h416a16 16 0 0 0 16-16V48a16 16 0 0 0-16-16z"
-                      fill="currentColor"
-                    />
-                  </svg>
-                </div>
-              </div>
-            </div>
-            <div
-              aria-labelledby="rbd-lift-instruction-0"
-              class="bg-white hover:bg-blue-100 rounded"
-              data-rbd-drag-handle-context-id="0"
-              data-rbd-drag-handle-draggable-id="workExperienceBulletPoint-1"
-              data-rbd-draggable-context-id="0"
-              data-rbd-draggable-id="workExperienceBulletPoint-1"
-              draggable="false"
-              tabindex="0"
-            >
-              <div
-                class="flex items-start px-4 py-6 rounded shadow-md cursor-pointer mb-2"
-              >
-                <div
-                  class="font-sans text-2xl mr-4 text-teal-300"
-                  id=""
-                >
-                  <svg
-                    aria-hidden="true"
-                    class="svg-inline--fa fa-square fa-w-14 "
-                    data-icon="square"
-                    data-prefix="fas"
-                    focusable="false"
-                    role="img"
-                    viewBox="0 0 448 512"
-                    xmlns="http://www.w3.org/2000/svg"
-                  >
-                    <path
-                      d="M400 32H48C21.5 32 0 53.5 0 80v352c0 26.5 21.5 48 48 48h352c26.5 0 48-21.5 48-48V80c0-26.5-21.5-48-48-48z"
-                      fill="currentColor"
-                    />
-                  </svg>
-                </div>
-                <div
-                  class="mr-4 flex-1"
-                >
-                  
-                  <input
-                    aria-required="true"
-                    class="shadow appearance-none border w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline rounded"
-                    id="workExperienceBulletPoint-1"
-                    name="workExperienceBulletPoint-1"
-                    placeholder="Provide your highlights and results..."
-                    type="text"
-                    value="Getting better at making REST API endpoints"
-                  />
-                </div>
-                <div
-                  class="font-sans text-3xl text-red-500 hover:text-red-700 cursor-pointer"
-                  id="workExperienceBulletPoint-1"
-                >
-                  <svg
-                    aria-hidden="true"
-                    class="svg-inline--fa fa-trash-alt fa-w-14 "
-                    data-icon="trash-alt"
-                    data-prefix="fas"
-                    focusable="false"
-                    role="img"
-                    viewBox="0 0 448 512"
-                    xmlns="http://www.w3.org/2000/svg"
-                  >
-                    <path
-                      d="M32 464a48 48 0 0 0 48 48h288a48 48 0 0 0 48-48V128H32zm272-256a16 16 0 0 1 32 0v224a16 16 0 0 1-32 0zm-96 0a16 16 0 0 1 32 0v224a16 16 0 0 1-32 0zm-96 0a16 16 0 0 1 32 0v224a16 16 0 0 1-32 0zM432 32H312l-9.4-18.7A24 24 0 0 0 281.1 0H166.8a23.72 23.72 0 0 0-21.4 13.3L136 32H16A16 16 0 0 0 0 48v32a16 16 0 0 0 16 16h416a16 16 0 0 0 16-16V48a16 16 0 0 0-16-16z"
-                      fill="currentColor"
-                    />
-                  </svg>
-                </div>
-              </div>
-            </div>
-            <div
-              aria-labelledby="rbd-lift-instruction-0"
-              class="bg-white hover:bg-blue-100 rounded"
-              data-rbd-drag-handle-context-id="0"
-              data-rbd-drag-handle-draggable-id="workExperienceBulletPoint-2"
-              data-rbd-draggable-context-id="0"
-              data-rbd-draggable-id="workExperienceBulletPoint-2"
-              draggable="false"
-              tabindex="0"
-            >
-              <div
-                class="flex items-start px-4 py-6 rounded shadow-md cursor-pointer mb-2"
-              >
-                <div
-                  class="font-sans text-2xl mr-4 text-teal-300"
-                  id=""
-                >
-                  <svg
-                    aria-hidden="true"
-                    class="svg-inline--fa fa-square fa-w-14 "
-                    data-icon="square"
-                    data-prefix="fas"
-                    focusable="false"
-                    role="img"
-                    viewBox="0 0 448 512"
-                    xmlns="http://www.w3.org/2000/svg"
-                  >
-                    <path
-                      d="M400 32H48C21.5 32 0 53.5 0 80v352c0 26.5 21.5 48 48 48h352c26.5 0 48-21.5 48-48V80c0-26.5-21.5-48-48-48z"
-                      fill="currentColor"
-                    />
-                  </svg>
-                </div>
-                <div
-                  class="mr-4 flex-1"
-                >
-                  
-                  <input
-                    aria-required="true"
-                    class="shadow appearance-none border w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline rounded"
-                    id="workExperienceBulletPoint-2"
-                    name="workExperienceBulletPoint-2"
-                    placeholder="Provide your highlights and results..."
-                    type="text"
-                    value="Improving interviewing and mentoring skills"
-                  />
-                </div>
-                <div
-                  class="font-sans text-3xl text-red-500 hover:text-red-700 cursor-pointer"
-                  id="workExperienceBulletPoint-2"
                 >
                   <svg
                     aria-hidden="true"
@@ -965,7 +671,7 @@ exports[`<WorkExperienceForm /> should render without error 1`] = `
         </button>
         <button
           class="font-bold py-2 px-4 rounded font-bold py-2 px-4 rounded bg-teal-500 text-white hover:bg-teal-700 "
-          data-testid="workExperienceSaveButton"
+          data-testid="educationSaveButton"
           type="submit"
         >
           <div
@@ -980,11 +686,11 @@ exports[`<WorkExperienceForm /> should render without error 1`] = `
 </div>
 `;
 
-exports[`<WorkExperienceForm /> should show empty form inputs and disabled state given no initial recap 1`] = `
+exports[`<EducationForm /> should show empty form inputs and disabled state given no initial recap 1`] = `
 <div>
   <div
     class="mt-4 extra-class-name"
-    data-testid="workExperienceFormTestId"
+    data-testid="educationFormTestId"
   >
     <form>
       <div
@@ -995,124 +701,22 @@ exports[`<WorkExperienceForm /> should show empty form inputs and disabled state
         >
           <label
             class="block text-gray-700 text-sm font-bold mb-2"
-            for="workTitle"
+            for="school"
           >
-            Work Title
+            School
           </label>
           <input
             aria-required="true"
             class="shadow appearance-none border w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline rounded"
-            id="workTitle"
-            name="workTitle"
-            placeholder="What was your work title?"
+            id="school"
+            name="school"
+            placeholder="What school did you go to?"
             type="text"
             value=""
           />
         </div>
-        <div
-          class="w-1/2"
-        >
-          <label
-            class="block text-gray-700 text-sm font-bold mb-2"
-            for="employmentType"
-          >
-            Employment Type
-             
-            
-          </label>
-          <div
-            class="inline-block relative"
-          >
-            <select
-              aria-required="true"
-              class="block appearance-none w-full bg-white border border-gray-400 hover:border-gray-500 px-4 py-2 pr-8 rounded shadow leading-tight focus:outline-none focus:shadow-outline"
-              data-testid=""
-              id="employmentType"
-              name="employmentType"
-              required=""
-            >
-              
-              <option
-                value="Part-Time"
-              >
-                Part-Time
-              </option>
-              <option
-                value="Full-Time"
-              >
-                Full-Time
-              </option>
-              <option
-                value="Self-Employed"
-              >
-                Self-Employed
-              </option>
-              <option
-                value="Freelance"
-              >
-                Freelance
-              </option>
-              <option
-                value="Contract"
-              >
-                Contract
-              </option>
-              <option
-                value="Internship"
-              >
-                Internship
-              </option>
-              <option
-                value="Apprenticeship"
-              >
-                Apprenticeship
-              </option>
-              <option
-                value="Volunteer"
-              >
-                Volunteer
-              </option>
-            </select>
-            <div
-              class="pointer-events-none absolute inset-y-0 right-0 flex items-center px-2 text-gray-700"
-            >
-              <svg
-                class="fill-current h-4 w-4"
-                viewBox="0 0 20 20"
-                xmlns="http://www.w3.org/2000/svg"
-              >
-                <path
-                  d="M9.293 12.95l.707.707L15.657 8l-1.414-1.414L10 10.828 5.757 6.586 4.343 8z"
-                />
-              </svg>
-            </div>
-          </div>
-        </div>
-      </div>
-      <div
-        class="flex w-full mb-4"
-      >
         <div
           class="w-1/2 mr-4"
-        >
-          <label
-            class="block text-gray-700 text-sm font-bold mb-2"
-            for="company"
-          >
-            Company
-          </label>
-          <input
-            aria-required="true"
-            class="shadow appearance-none border w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline rounded"
-            id="company"
-            name="company"
-            placeholder="What was the company's name?"
-            type="text"
-            value=""
-          />
-        </div>
-        <div
-          class="w-1/2"
         >
           <label
             class="block text-gray-700 text-sm font-bold mb-2"
@@ -1125,7 +729,72 @@ exports[`<WorkExperienceForm /> should show empty form inputs and disabled state
             class="shadow appearance-none border w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline rounded"
             id="location"
             name="location"
-            placeholder="Where was your work place located?"
+            placeholder="Where was the school located?"
+            type="text"
+            value=""
+          />
+        </div>
+      </div>
+      <div
+        class="flex w-full mb-4"
+      >
+        <div
+          class="w-1/2 mr-4"
+        >
+          <label
+            class="block text-gray-700 text-sm font-bold mb-2"
+            for="degree"
+          >
+            Degree/Certification
+          </label>
+          <input
+            aria-required="true"
+            class="shadow appearance-none border w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline rounded"
+            id="degree"
+            name="degree"
+            placeholder="What degree/certification did you work toward?"
+            type="text"
+            value=""
+          />
+        </div>
+        <div
+          class="w-1/2"
+        >
+          <label
+            class="block text-gray-700 text-sm font-bold mb-2"
+            for="fieldOfStudy"
+          >
+            Field of Study/Major
+          </label>
+          <input
+            aria-required="true"
+            class="shadow appearance-none border w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline rounded"
+            id="fieldOfStudy"
+            name="fieldOfStudy"
+            placeholder="What major or study did you focus on?"
+            type="text"
+            value=""
+          />
+        </div>
+      </div>
+      <div
+        class="flex w-full mb-4"
+      >
+        <div
+          class="w-1/2 mr-4"
+        >
+          <label
+            class="block text-gray-700 text-sm font-bold mb-2"
+            for="grade"
+          >
+            Grade
+          </label>
+          <input
+            aria-required="true"
+            class="shadow appearance-none border w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline rounded"
+            id="grade"
+            name="grade"
+            placeholder="What year or grade are you in this school? i.e. Alumnus, Fourth Year"
             type="text"
             value=""
           />
@@ -1154,7 +823,7 @@ exports[`<WorkExperienceForm /> should show empty form inputs and disabled state
               <input
                 class="shadow appearance-none border w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline rounded"
                 id="startDate"
-                placeholder="When did you start working here?"
+                placeholder="When did you start studying here?"
                 required=""
                 type="text"
                 value=""
@@ -1182,7 +851,7 @@ exports[`<WorkExperienceForm /> should show empty form inputs and disabled state
               <input
                 class="shadow appearance-none border w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline rounded"
                 id="endDate"
-                placeholder="When did you finish working here?"
+                placeholder="When did you finish studying here?"
                 required=""
                 type="text"
                 value=""
@@ -1196,17 +865,17 @@ exports[`<WorkExperienceForm /> should show empty form inputs and disabled state
       >
         <label
           class="inline-flex items-center cursor-pointer"
-          for="currentWorkCheckbox"
+          for="currentEducationCheckbox"
         >
           <input
             class="cursor-pointer"
-            id="currentWorkCheckbox"
+            id="currentEducationCheckbox"
             type="checkbox"
           />
           <span
             class="font-sans text-gray-800 text-base ml-2"
           >
-            I currently work here
+            I currently study here
           </span>
         </label>
       </div>
@@ -1345,7 +1014,7 @@ exports[`<WorkExperienceForm /> should show empty form inputs and disabled state
         </button>
         <button
           class="font-bold py-2 px-4 rounded font-bold py-2 px-4 rounded bg-teal-500 text-white hover:bg-teal-700 opacity-50 cursor-not-allowed "
-          data-testid="workExperienceSaveButton"
+          data-testid="educationSaveButton"
           disabled=""
           type="submit"
         >

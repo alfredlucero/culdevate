@@ -46,7 +46,8 @@ exports[`<EducationRecap /> should render without error 1`] = `
       <p
         class="font-sans text-gray-800 text-base "
       >
-        Bachelor of Science, 
+        Bachelor of Science
+        , 
         Computer Science
       </p>
       <p

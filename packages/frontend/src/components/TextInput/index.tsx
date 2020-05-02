@@ -54,7 +54,8 @@ const TextInput: React.FC<TextInputProps> = ({
     <div {...(className !== "" ? { className } : {})}>
       {label && (
         <label className="block text-gray-700 text-sm font-bold mb-2" htmlFor={id}>
-          {label} {required ? "" : "(optional)"}
+          {label}
+          {required ? <></> : <> (optional)</>}
         </label>
       )}
 

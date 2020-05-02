@@ -120,7 +120,7 @@ const WorkExperienceLayout: React.FC<WorkExperienceLayoutProps> = ({
             initialRecap={null}
             isShowing={isShowingCreateModal}
             onHide={onHideCreateModal}
-            onSaveSuccess={() => {}}
+            onSaveSuccess={onSaveSuccessCreate}
           />
         </RecapsCreateModal>
       </RecapLayout.Container>

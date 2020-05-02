@@ -229,7 +229,7 @@ describe("<WorkExperienceLayout />", () => {
     expect(onUpdateRecapSuccessMock).toHaveBeenCalled();
   });
 
-  test("should show the error alert after failing to update a recap successfully", async () => {
+  test("should show the error alert after failing to update a recap", async () => {
     const onUpdateRecapSuccessMock = jest.fn();
     const { getByText, queryByText, findByText, getByTestId } = render(
       <WorkExperienceLayout {...defaultProps} onUpdateRecapSuccess={onUpdateRecapSuccessMock} />,

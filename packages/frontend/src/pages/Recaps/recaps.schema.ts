@@ -26,6 +26,7 @@ export enum RecapFields {
 
   accomplishmentsTitle = "Title",
   accomplishmentsType = "Type",
+  accomplishmentsDate = "Date",
 
   publicationsTitle = "Title",
   publicationsType = "Type",
@@ -54,6 +55,7 @@ export enum RecapFields {
 export const recapBaseErrors = {
   startDateInvalid: `${RecapFields.startDate} must be a valid date.`,
   endDateInvalid: `${RecapFields.endDate} must be a valid date.`,
+  dateInvalid: `Date must be a valid format`,
   dateRangeInvalid: `${RecapFields.startDate} must come before ${RecapFields.endDate}.`,
   bulletPointMaxLength: formMaxLengthError({ field: RecapFields.bulletPoint, maxLength: MAX_BULLETPOINT_LENGTH }),
   bulletPointsMax: `There must be at most ${MAX_BULLETPOINTS} ${RecapFields.bulletPoints}.`,

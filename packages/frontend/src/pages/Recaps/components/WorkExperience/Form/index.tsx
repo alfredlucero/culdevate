@@ -13,7 +13,7 @@ import { CommonProps } from "../../../../../components/commonProps";
 import { RecapWorkExperience, RecapCreate, EmploymentType, RecapKind } from "../../../recaps.interface";
 import { useBulletPointInputList } from "../../../hooks/useBulletPointInputList";
 import { createRecap, updateRecap } from "../../../recaps.service";
-import { RecapWorkExperienceSchema, recapBaseErrors } from "../../../recaps.schema";
+import { RecapWorkExperienceSchema, recapBaseErrors, RecapFields } from "../../../recaps.schema";
 
 const employmentTypes: EmploymentType[] = [
   "Part-Time",
@@ -351,7 +351,7 @@ const WorkExperienceForm: React.FC<WorkExperienceFormProps> = ({
             onBlur={onBlurWorkTitle}
             type="text"
             required={true}
-            label="Work Title"
+            label={RecapFields.workTitle}
             valid={!workTitleError}
             errorInfo={workTitleError}
             className="w-1/2 mr-4"
@@ -361,7 +361,7 @@ const WorkExperienceForm: React.FC<WorkExperienceFormProps> = ({
             value={employmentType}
             options={employmentTypeSelectOptions}
             onChange={onChangeEmploymentType}
-            label="Employment Type"
+            label={RecapFields.workEmploymentType}
             required={true}
             className="w-1/2"
           />
@@ -376,7 +376,7 @@ const WorkExperienceForm: React.FC<WorkExperienceFormProps> = ({
             onBlur={onBlurCompany}
             type="text"
             required={true}
-            label="Company"
+            label={RecapFields.workCompany}
             valid={!companyError}
             errorInfo={companyError}
             className="w-1/2 mr-4"
@@ -389,7 +389,7 @@ const WorkExperienceForm: React.FC<WorkExperienceFormProps> = ({
             onBlur={onBlurLocation}
             type="text"
             required={true}
-            label="Location"
+            label={RecapFields.workLocation}
             valid={!locationError}
             errorInfo={locationError}
             className="w-1/2"
@@ -402,7 +402,7 @@ const WorkExperienceForm: React.FC<WorkExperienceFormProps> = ({
             selected={startDate}
             onChange={onChangeStartDate}
             onBlur={onBlurStartDate}
-            label="Start Date"
+            label={RecapFields.startDate}
             required={true}
             valid={!startDateError}
             errorInfo={startDateError}
@@ -417,7 +417,7 @@ const WorkExperienceForm: React.FC<WorkExperienceFormProps> = ({
               selected={endDate}
               onChange={onChangeEndDate}
               onBlur={onBlurEndDate}
-              label="End Date"
+              label={RecapFields.endDate}
               required={true}
               valid={!endDateError}
               errorInfo={endDateError}

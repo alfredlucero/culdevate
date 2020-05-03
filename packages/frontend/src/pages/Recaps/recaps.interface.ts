@@ -47,7 +47,7 @@ export interface RecapEducation extends RecapBase {
   kind: RecapKind.Education;
 }
 
-type AccomplishmentsType =
+export type AccomplishmentsType =
   | "Personal" // Mentorship, Health, Fitness, Learning, etc.
   | "Service" // Volunteer, Community Service, Philanthropy, etc.
   | "Featured" // Presentations, Conferences, TV Shows, Public Interviews, Podcasts, Radio, etc.

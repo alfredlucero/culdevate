@@ -12,7 +12,7 @@ import { CommonProps } from "../../../../../components/commonProps";
 import { RecapEducation, RecapCreate, RecapKind } from "../../../recaps.interface";
 import { useBulletPointInputList } from "../../../hooks/useBulletPointInputList";
 import { createRecap, updateRecap } from "../../../recaps.service";
-import { RecapEducationSchema, recapBaseErrors } from "../../../recaps.schema";
+import { RecapEducationSchema, recapBaseErrors, RecapFields } from "../../../recaps.schema";
 
 export interface EducationFormProps extends CommonProps {
   initialRecap: RecapEducation | null;
@@ -182,7 +182,7 @@ const EducationForm: React.FC<EducationFormProps> = ({
     resetBulletPointInputList,
   } = useBulletPointInputList({
     initialBulletPoints: [],
-    idPrefix: "workExperienceBulletPoint",
+    idPrefix: "educationBulletPoint",
   });
 
   const clearOutInputs = () => {
@@ -257,7 +257,7 @@ const EducationForm: React.FC<EducationFormProps> = ({
     const updatedBulletPoints = bulletPointInputList
       .filter(bulletPoint => bulletPoint.value !== "")
       .map(bulletPoint => bulletPoint.value);
-    const updatedWorkExperienceRecap: RecapEducation = {
+    const updatedEducationRecap: RecapEducation = {
       _id,
       userId,
       kind,
@@ -272,7 +272,7 @@ const EducationForm: React.FC<EducationFormProps> = ({
     };
 
     setIsSubmitting(true);
-    updateRecap(updatedWorkExperienceRecap)
+    updateRecap(updatedEducationRecap)
       .then(savedRecap => {
         clearOutInputs();
         setIsSubmitting(false);
@@ -371,7 +371,7 @@ const EducationForm: React.FC<EducationFormProps> = ({
             onBlur={onBlurSchool}
             type="text"
             required={true}
-            label="School"
+            label={RecapFields.educationSchool}
             valid={!schoolError}
             errorInfo={schoolError}
             className="w-1/2 mr-4"
@@ -384,7 +384,7 @@ const EducationForm: React.FC<EducationFormProps> = ({
             onBlur={onBlurLocation}
             type="text"
             required={true}
-            label="Location"
+            label={RecapFields.educationLocation}
             valid={!locationError}
             errorInfo={locationError}
             className="w-1/2 mr-4"
@@ -400,7 +400,7 @@ const EducationForm: React.FC<EducationFormProps> = ({
             onBlur={onBlurDegree}
             type="text"
             required={true}
-            label="Degree/Certification"
+            label={RecapFields.educationDegree}
             valid={!degreeError}
             errorInfo={degreeError}
             className="w-1/2 mr-4"
@@ -413,7 +413,7 @@ const EducationForm: React.FC<EducationFormProps> = ({
             onBlur={onBlurFieldOfStudy}
             type="text"
             required={true}
-            label="Field of Study/Major"
+            label={RecapFields.educationFieldOfStudy}
             valid={!fieldOfStudyError}
             errorInfo={fieldOfStudyError}
             className="w-1/2"
@@ -429,7 +429,7 @@ const EducationForm: React.FC<EducationFormProps> = ({
             onBlur={onBlurGrade}
             type="text"
             required={true}
-            label="Grade"
+            label={RecapFields.educationGrade}
             valid={!gradeError}
             errorInfo={gradeError}
             className="w-1/2 mr-4"
@@ -442,7 +442,7 @@ const EducationForm: React.FC<EducationFormProps> = ({
             selected={startDate}
             onChange={onChangeStartDate}
             onBlur={onBlurStartDate}
-            label="Start Date"
+            label={RecapFields.startDate}
             required={true}
             valid={!startDateError}
             errorInfo={startDateError}
@@ -457,7 +457,7 @@ const EducationForm: React.FC<EducationFormProps> = ({
               selected={endDate}
               onChange={onChangeEndDate}
               onBlur={onBlurEndDate}
-              label="End Date"
+              label={RecapFields.endDate}
               required={true}
               valid={!endDateError}
               errorInfo={endDateError}

@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import * as RecapLayout from "../../RecapLayout";
 import { RecapLayoutProps } from "../../RecapLayout";
 import SkillsEmptyCard from "../EmptyCard";
@@ -10,6 +10,9 @@ import {
   RecapsDeleteSuccessAlert,
   RecapsDeleteErrorAlert,
 } from "../../RecapsAlerts";
+import SkillsForm from "../Form";
+import RecapsCreateModal from "../../RecapsCreateModal";
+import RecapsEditModal from "../../RecapsEditModal";
 import { Recap, RecapSkills, RecapKind } from "../../../recaps.interface";
 import { useRecapsAlerts } from "../../../hooks/useRecapsAlerts";
 import { useDeleteRecap } from "../../../hooks/useDeleteRecap";
@@ -36,6 +39,40 @@ const SkillsLayout: React.FC<SkillsLayoutProps> = ({
     showDeleteErrorAlert,
     hideAlert,
   } = useRecapsAlerts();
+
+  const [isShowingCreateModal, setIsShowingCreateModal] = useState(false);
+  const onShowCreateModal = () => {
+    setIsShowingCreateModal(true);
+  };
+  const onHideCreateModal = () => {
+    setIsShowingCreateModal(false);
+  };
+  const onSaveSuccessCreate = (createdRecap: RecapSkills) => {
+    onCreateRecapSuccess(createdRecap);
+    showCreateSuccessAlert();
+  };
+
+  const [isShowingEditModal, setIsShowingEditModal] = useState(false);
+  const [selectedEditRecap, setSelectedEditRecap] = useState<RecapSkills | null>(null);
+  const onClickEditRecap = (e: React.MouseEvent) => {
+    const recapId = e.currentTarget.id;
+
+    const newSelectedEditRecap = recaps.find(recap => recap._id === recapId);
+
+    if (!newSelectedEditRecap) {
+      return;
+    }
+
+    setSelectedEditRecap(newSelectedEditRecap);
+    setIsShowingEditModal(true);
+  };
+  const onHideEditModal = () => {
+    setIsShowingEditModal(false);
+  };
+  const onSaveSuccessEdit = (updatedRecap: RecapSkills) => {
+    onUpdateRecapSuccess(updatedRecap);
+    showUpdateSuccessAlert();
+  };
 
   const {
     isShowingConfirmDeleteModal,
@@ -75,19 +112,35 @@ const SkillsLayout: React.FC<SkillsLayoutProps> = ({
           <RecapLayout.HeaderTitle>Skills</RecapLayout.HeaderTitle>
         </RecapLayout.Header>
         <RecapLayout.Content>
-          <SkillsEmptyCard
-            onClickAdd={() => {
-              // TODO: open up create modal
-            }}
-            testId="skillsEmptyCard"
-          />
+          <SkillsEmptyCard onClickAdd={onShowCreateModal} testId="skillsEmptyCard" />
         </RecapLayout.Content>
+
+        <RecapsCreateModal isShowing={isShowingCreateModal} onHide={onHideCreateModal} kind={RecapKind.Accomplishments}>
+          <SkillsForm
+            initialRecap={null}
+            isShowing={isShowingCreateModal}
+            onHide={onHideCreateModal}
+            onSaveSuccess={onSaveSuccessCreate}
+          />
+        </RecapsCreateModal>
       </RecapLayout.Container>
     );
   }
 
   return (
     <RecapLayout.Container testId={testId} className={className} {...passThroughProps}>
+      <RecapsCreateSuccessAlert
+        isShowing={alertsState.isShowingCreateSuccessAlert}
+        onHide={hideAlert}
+        kind={RecapKind.Skills}
+        className="mb-4"
+      />
+      <RecapsUpdateSuccessAlert
+        isShowing={alertsState.isShowingUpdateSuccessAlert}
+        onHide={hideAlert}
+        kind={RecapKind.Skills}
+        className="mb-4"
+      />
       <RecapsDeleteSuccessAlert
         isShowing={alertsState.isShowingDeleteSuccessAlert}
         onHide={hideAlert}
@@ -101,13 +154,7 @@ const SkillsLayout: React.FC<SkillsLayoutProps> = ({
         className="mb-4"
       />
       <RecapLayout.Header className="mb-8" onClickBack={onGoBackToLanding}>
-        <RecapLayout.HeaderTitle
-          onClickAdd={() => {
-            // TODO: open up this recap's create modal
-          }}
-        >
-          Skills
-        </RecapLayout.HeaderTitle>
+        <RecapLayout.HeaderTitle onClickAdd={onShowCreateModal}>Skills</RecapLayout.HeaderTitle>
         <RecapLayout.HeaderDescription>
           Recap the things you have learned and their proficiencies.
         </RecapLayout.HeaderDescription>
@@ -116,9 +163,7 @@ const SkillsLayout: React.FC<SkillsLayoutProps> = ({
         {recaps.map((skills, key) => (
           <SkillsRecap
             skills={skills}
-            onEdit={() => {
-              // TODO: open up this recap's edit modal
-            }}
+            onEdit={onClickEditRecap}
             onDelete={onClickDeleteRecap}
             key={key}
             testId="skillsRecap"
@@ -133,6 +178,24 @@ const SkillsLayout: React.FC<SkillsLayoutProps> = ({
         isProcessingDelete={isProcessingDelete}
         onClickConfirmDelete={onClickConfirmDelete}
       />
+
+      <RecapsCreateModal isShowing={isShowingCreateModal} onHide={onHideCreateModal} kind={RecapKind.Skills}>
+        <SkillsForm
+          initialRecap={null}
+          isShowing={isShowingCreateModal}
+          onHide={onHideCreateModal}
+          onSaveSuccess={onSaveSuccessCreate}
+        />
+      </RecapsCreateModal>
+
+      <RecapsEditModal isShowing={isShowingEditModal} onHide={onHideEditModal} kind={RecapKind.Skills}>
+        <SkillsForm
+          initialRecap={selectedEditRecap}
+          isShowing={isShowingEditModal}
+          onHide={onHideEditModal}
+          onSaveSuccess={onSaveSuccessEdit}
+        />
+      </RecapsEditModal>
     </RecapLayout.Container>
   );
 };

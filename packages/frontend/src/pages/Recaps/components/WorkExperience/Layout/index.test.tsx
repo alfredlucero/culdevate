@@ -3,6 +3,7 @@ import { render, fireEvent, waitForElementToBeRemoved } from "@testing-library/r
 import WorkExperienceLayout, { WorkExperienceLayoutProps } from "./index";
 import { RecapWorkExperience, RecapKind } from "../../../recaps.interface";
 import * as RecapsService from "../../../recaps.service";
+import { RecapFields } from "../../../recaps.schema";
 
 const sampleRecapWorkExperience: RecapWorkExperience = {
   kind: RecapKind.WorkExperience,
@@ -125,20 +126,20 @@ describe("<WorkExperienceLayout />", () => {
       employmentType: "Self-Employed",
     };
 
-    fireEvent.change(getByLabelText("Work Title"), { target: { value: recap.title } });
-    fireEvent.blur(getByLabelText("Work Title"));
+    fireEvent.change(getByLabelText(RecapFields.workTitle), { target: { value: recap.title } });
+    fireEvent.blur(getByLabelText(RecapFields.workTitle));
 
-    fireEvent.change(getByLabelText("Company"), { target: { value: recap.company } });
-    fireEvent.blur(getByLabelText("Company"));
+    fireEvent.change(getByLabelText(RecapFields.workCompany), { target: { value: recap.company } });
+    fireEvent.blur(getByLabelText(RecapFields.workCompany));
 
-    fireEvent.change(getByLabelText("Location"), { target: { value: recap.location } });
-    fireEvent.blur(getByLabelText("Location"));
+    fireEvent.change(getByLabelText(RecapFields.workLocation), { target: { value: recap.location } });
+    fireEvent.blur(getByLabelText(RecapFields.workLocation));
 
-    fireEvent.change(getByLabelText("Start Date"), { target: { value: "01/2020" } });
-    fireEvent.blur(getByLabelText("Start Date"));
+    fireEvent.change(getByLabelText(RecapFields.startDate), { target: { value: "01/2020" } });
+    fireEvent.blur(getByLabelText(RecapFields.startDate));
 
-    fireEvent.change(getByLabelText("End Date"), { target: { value: "10/2020" } });
-    fireEvent.blur(getByLabelText("End Date"));
+    fireEvent.change(getByLabelText(RecapFields.endDate), { target: { value: "10/2020" } });
+    fireEvent.blur(getByLabelText(RecapFields.endDate));
 
     expect(getByTestId("workExperienceSaveButton")).not.toBeDisabled();
 
@@ -154,7 +155,7 @@ describe("<WorkExperienceLayout />", () => {
 
   test("should show the error alert after failing to create a recap", async () => {
     const onCreateRecapSuccessMock = jest.fn();
-    const { getByText, findByText, getByLabelText, getByTestId, queryByText } = render(
+    const { getByText, findByText, getByLabelText, getByTestId } = render(
       <WorkExperienceLayout {...defaultProps} onCreateRecapSuccess={onCreateRecapSuccessMock} />,
     );
 
@@ -176,20 +177,20 @@ describe("<WorkExperienceLayout />", () => {
       employmentType: "Self-Employed",
     };
 
-    fireEvent.change(getByLabelText("Work Title"), { target: { value: recap.title } });
-    fireEvent.blur(getByLabelText("Work Title"));
+    fireEvent.change(getByLabelText(RecapFields.workTitle), { target: { value: recap.title } });
+    fireEvent.blur(getByLabelText(RecapFields.workTitle));
 
-    fireEvent.change(getByLabelText("Company"), { target: { value: recap.company } });
-    fireEvent.blur(getByLabelText("Company"));
+    fireEvent.change(getByLabelText(RecapFields.workCompany), { target: { value: recap.company } });
+    fireEvent.blur(getByLabelText(RecapFields.workCompany));
 
-    fireEvent.change(getByLabelText("Location"), { target: { value: recap.location } });
-    fireEvent.blur(getByLabelText("Location"));
+    fireEvent.change(getByLabelText(RecapFields.workLocation), { target: { value: recap.location } });
+    fireEvent.blur(getByLabelText(RecapFields.workLocation));
 
-    fireEvent.change(getByLabelText("Start Date"), { target: { value: "01/2020" } });
-    fireEvent.blur(getByLabelText("Start Date"));
+    fireEvent.change(getByLabelText(RecapFields.startDate), { target: { value: "01/2020" } });
+    fireEvent.blur(getByLabelText(RecapFields.startDate));
 
-    fireEvent.change(getByLabelText("End Date"), { target: { value: "10/2020" } });
-    fireEvent.blur(getByLabelText("End Date"));
+    fireEvent.change(getByLabelText(RecapFields.endDate), { target: { value: "10/2020" } });
+    fireEvent.blur(getByLabelText(RecapFields.endDate));
 
     expect(getByTestId("workExperienceSaveButton")).not.toBeDisabled();
 

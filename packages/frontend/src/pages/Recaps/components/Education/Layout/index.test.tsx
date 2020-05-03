@@ -3,6 +3,7 @@ import { render, fireEvent, waitForElementToBeRemoved } from "@testing-library/r
 import EducationLayout, { EducationLayoutProps } from "./index";
 import { RecapEducation, RecapKind } from "../../../recaps.interface";
 import * as RecapsService from "../../../recaps.service";
+import { RecapFields } from "../../../recaps.schema";
 
 const sampleRecapEducation: RecapEducation = {
   kind: RecapKind.Education,
@@ -123,26 +124,26 @@ describe("<EducationLayout />", () => {
       grade: "Grade",
     };
 
-    fireEvent.change(getByLabelText("School"), { target: { value: recap.school } });
-    fireEvent.blur(getByLabelText("School"));
+    fireEvent.change(getByLabelText(RecapFields.educationSchool), { target: { value: recap.school } });
+    fireEvent.blur(getByLabelText(RecapFields.educationSchool));
 
-    fireEvent.change(getByLabelText("Location"), { target: { value: recap.location } });
-    fireEvent.blur(getByLabelText("Location"));
+    fireEvent.change(getByLabelText(RecapFields.educationLocation), { target: { value: recap.location } });
+    fireEvent.blur(getByLabelText(RecapFields.educationLocation));
 
-    fireEvent.change(getByLabelText("Degree/Certification"), { target: { value: recap.degree } });
-    fireEvent.blur(getByLabelText("Degree/Certification"));
+    fireEvent.change(getByLabelText(RecapFields.educationDegree), { target: { value: recap.degree } });
+    fireEvent.blur(getByLabelText(RecapFields.educationDegree));
 
-    fireEvent.change(getByLabelText("Field of Study/Major"), { target: { value: recap.fieldOfStudy } });
-    fireEvent.blur(getByLabelText("Field of Study/Major"));
+    fireEvent.change(getByLabelText(RecapFields.educationFieldOfStudy), { target: { value: recap.fieldOfStudy } });
+    fireEvent.blur(getByLabelText(RecapFields.educationFieldOfStudy));
 
-    fireEvent.change(getByLabelText("Grade"), { target: { value: recap.grade } });
-    fireEvent.blur(getByLabelText("Grade"));
+    fireEvent.change(getByLabelText(RecapFields.educationGrade), { target: { value: recap.grade } });
+    fireEvent.blur(getByLabelText(RecapFields.educationGrade));
 
-    fireEvent.change(getByLabelText("Start Date"), { target: { value: "01/2020" } });
-    fireEvent.blur(getByLabelText("Start Date"));
+    fireEvent.change(getByLabelText(RecapFields.startDate), { target: { value: "01/2020" } });
+    fireEvent.blur(getByLabelText(RecapFields.startDate));
 
-    fireEvent.change(getByLabelText("End Date"), { target: { value: "10/2020" } });
-    fireEvent.blur(getByLabelText("End Date"));
+    fireEvent.change(getByLabelText(RecapFields.endDate), { target: { value: "10/2020" } });
+    fireEvent.blur(getByLabelText(RecapFields.endDate));
 
     expect(getByTestId("educationSaveButton")).not.toBeDisabled();
 
@@ -158,7 +159,7 @@ describe("<EducationLayout />", () => {
 
   test("should show the error alert after failing to create a recap", async () => {
     const onCreateRecapSuccessMock = jest.fn();
-    const { getByText, findByText, getByLabelText, getByTestId, queryByText } = render(
+    const { getByText, findByText, getByLabelText, getByTestId } = render(
       <EducationLayout {...defaultProps} onCreateRecapSuccess={onCreateRecapSuccessMock} />,
     );
 
@@ -181,26 +182,26 @@ describe("<EducationLayout />", () => {
       grade: "Grade",
     };
 
-    fireEvent.change(getByLabelText("School"), { target: { value: recap.school } });
-    fireEvent.blur(getByLabelText("School"));
+    fireEvent.change(getByLabelText(RecapFields.educationSchool), { target: { value: recap.school } });
+    fireEvent.blur(getByLabelText(RecapFields.educationSchool));
 
-    fireEvent.change(getByLabelText("Location"), { target: { value: recap.location } });
-    fireEvent.blur(getByLabelText("Location"));
+    fireEvent.change(getByLabelText(RecapFields.educationLocation), { target: { value: recap.location } });
+    fireEvent.blur(getByLabelText(RecapFields.educationLocation));
 
-    fireEvent.change(getByLabelText("Degree/Certification"), { target: { value: recap.degree } });
-    fireEvent.blur(getByLabelText("Degree/Certification"));
+    fireEvent.change(getByLabelText(RecapFields.educationDegree), { target: { value: recap.degree } });
+    fireEvent.blur(getByLabelText(RecapFields.educationDegree));
 
-    fireEvent.change(getByLabelText("Field of Study/Major"), { target: { value: recap.fieldOfStudy } });
-    fireEvent.blur(getByLabelText("Field of Study/Major"));
+    fireEvent.change(getByLabelText(RecapFields.educationFieldOfStudy), { target: { value: recap.fieldOfStudy } });
+    fireEvent.blur(getByLabelText(RecapFields.educationFieldOfStudy));
 
-    fireEvent.change(getByLabelText("Grade"), { target: { value: recap.grade } });
-    fireEvent.blur(getByLabelText("Grade"));
+    fireEvent.change(getByLabelText(RecapFields.educationGrade), { target: { value: recap.grade } });
+    fireEvent.blur(getByLabelText(RecapFields.educationGrade));
 
-    fireEvent.change(getByLabelText("Start Date"), { target: { value: "01/2020" } });
-    fireEvent.blur(getByLabelText("Start Date"));
+    fireEvent.change(getByLabelText(RecapFields.startDate), { target: { value: "01/2020" } });
+    fireEvent.blur(getByLabelText(RecapFields.startDate));
 
-    fireEvent.change(getByLabelText("End Date"), { target: { value: "10/2020" } });
-    fireEvent.blur(getByLabelText("End Date"));
+    fireEvent.change(getByLabelText(RecapFields.endDate), { target: { value: "10/2020" } });
+    fireEvent.blur(getByLabelText(RecapFields.endDate));
 
     expect(getByTestId("educationSaveButton")).not.toBeDisabled();
 

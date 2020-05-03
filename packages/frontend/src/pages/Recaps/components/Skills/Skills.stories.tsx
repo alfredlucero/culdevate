@@ -52,7 +52,7 @@ const onDeleteRecapSuccess = () => {
 };
 
 storiesOf("RecapsPage/Skills", module)
-  .add("Form", () => <SkillsForm />)
+  .add("Form", () => <SkillsForm initialRecap={null} isShowing={true} onHide={() => {}} onSaveSuccess={() => {}} />)
   .add("Recap", () => <SkillsRecap skills={skills} onEdit={onEdit} onDelete={onDelete} />)
   .add("List Card", () => <SkillsListCard onClick={onClickView} />)
   .add("Empty Card", () => <SkillsEmptyCard onClickAdd={onClickAdd} />)

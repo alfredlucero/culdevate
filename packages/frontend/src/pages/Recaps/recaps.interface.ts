@@ -72,7 +72,7 @@ export interface RecapPublications extends RecapBase {
   kind: RecapKind.Publications;
 }
 
-type PublicationType = "Book" | "Journal" | "Newspaper" | "Magazine" | "Blog" | "Other";
+export type PublicationType = "Book" | "Journal" | "Newspaper" | "Magazine" | "Blog" | "Other";
 
 export interface RecapSkills extends RecapBase {
   title: string;
@@ -80,7 +80,7 @@ export interface RecapSkills extends RecapBase {
   kind: RecapKind.Skills;
 }
 
-type SkillsProficiency = "Novice" | "Intermediate" | "Advanced" | "Expert";
+export type SkillsProficiency = "Novice" | "Intermediate" | "Advanced" | "Expert";
 
 export interface RecapSideProjects extends RecapBase {
   title: string;

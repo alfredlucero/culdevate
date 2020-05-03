@@ -4,6 +4,7 @@ import WorkExperienceForm, { WorkExperienceFormProps } from "./index";
 import { RecapWorkExperience, RecapKind } from "../../../recaps.interface";
 import { MAX_GENERAL_LENGTH, recapWorkExperienceErrors as validationErrors } from "../../../recaps.schema";
 import * as RecapsService from "../../../recaps.service";
+import { RecapFields } from "../../../recaps.schema";
 
 const initialRecap: RecapWorkExperience = {
   kind: RecapKind.WorkExperience,
@@ -62,8 +63,8 @@ describe("<WorkExperienceForm />", () => {
       <WorkExperienceForm {...defaultProps} initialRecap={null} />,
     );
 
-    fireEvent.change(getByLabelText("Work Title"), { target: { value: "" } });
-    fireEvent.blur(getByLabelText("Work Title"));
+    fireEvent.change(getByLabelText(RecapFields.workTitle), { target: { value: "" } });
+    fireEvent.blur(getByLabelText(RecapFields.workTitle));
 
     const requiredError = await findByText(validationErrors.titleRequired);
 
@@ -76,8 +77,8 @@ describe("<WorkExperienceForm />", () => {
       <WorkExperienceForm {...defaultProps} initialRecap={null} />,
     );
 
-    fireEvent.change(getByLabelText("Work Title"), { target: { value: "a".repeat(MAX_GENERAL_LENGTH + 1) } });
-    fireEvent.blur(getByLabelText("Work Title"));
+    fireEvent.change(getByLabelText(RecapFields.workTitle), { target: { value: "a".repeat(MAX_GENERAL_LENGTH + 1) } });
+    fireEvent.blur(getByLabelText(RecapFields.workTitle));
 
     const maxLengthError = await findByText(validationErrors.titleMaxLength);
 
@@ -90,14 +91,14 @@ describe("<WorkExperienceForm />", () => {
       <WorkExperienceForm {...defaultProps} initialRecap={null} />,
     );
 
-    fireEvent.change(getByLabelText("Work Title"), { target: { value: "" } });
-    fireEvent.blur(getByLabelText("Work Title"));
+    fireEvent.change(getByLabelText(RecapFields.workTitle), { target: { value: "" } });
+    fireEvent.blur(getByLabelText(RecapFields.workTitle));
 
     const requiredError = await findByText(validationErrors.titleRequired);
     expect(requiredError).toBeVisible();
 
-    fireEvent.change(getByLabelText("Work Title"), { target: { value: "worktitle" } });
-    fireEvent.blur(getByLabelText("Work Title"));
+    fireEvent.change(getByLabelText(RecapFields.workTitle), { target: { value: "worktitle" } });
+    fireEvent.blur(getByLabelText(RecapFields.workTitle));
 
     expect(queryByText(validationErrors.titleRequired)).toBeNull();
   });
@@ -107,8 +108,8 @@ describe("<WorkExperienceForm />", () => {
       <WorkExperienceForm {...defaultProps} initialRecap={null} />,
     );
 
-    fireEvent.change(getByLabelText("Company"), { target: { value: "" } });
-    fireEvent.blur(getByLabelText("Company"));
+    fireEvent.change(getByLabelText(RecapFields.workCompany), { target: { value: "" } });
+    fireEvent.blur(getByLabelText(RecapFields.workCompany));
 
     const requiredError = await findByText(validationErrors.companyRequired);
 
@@ -121,8 +122,10 @@ describe("<WorkExperienceForm />", () => {
       <WorkExperienceForm {...defaultProps} initialRecap={null} />,
     );
 
-    fireEvent.change(getByLabelText("Company"), { target: { value: "a".repeat(MAX_GENERAL_LENGTH + 1) } });
-    fireEvent.blur(getByLabelText("Company"));
+    fireEvent.change(getByLabelText(RecapFields.workCompany), {
+      target: { value: "a".repeat(MAX_GENERAL_LENGTH + 1) },
+    });
+    fireEvent.blur(getByLabelText(RecapFields.workCompany));
 
     const maxLengthError = await findByText(validationErrors.companyMaxLength);
 
@@ -135,14 +138,14 @@ describe("<WorkExperienceForm />", () => {
       <WorkExperienceForm {...defaultProps} initialRecap={null} />,
     );
 
-    fireEvent.change(getByLabelText("Company"), { target: { value: "" } });
-    fireEvent.blur(getByLabelText("Company"));
+    fireEvent.change(getByLabelText(RecapFields.workCompany), { target: { value: "" } });
+    fireEvent.blur(getByLabelText(RecapFields.workCompany));
 
     const requiredError = await findByText(validationErrors.companyRequired);
     expect(requiredError).toBeVisible();
 
-    fireEvent.change(getByLabelText("Company"), { target: { value: "workcompany" } });
-    fireEvent.blur(getByLabelText("Company"));
+    fireEvent.change(getByLabelText(RecapFields.workCompany), { target: { value: "workcompany" } });
+    fireEvent.blur(getByLabelText(RecapFields.workCompany));
 
     expect(queryByText(validationErrors.companyRequired)).toBeNull();
   });
@@ -152,8 +155,8 @@ describe("<WorkExperienceForm />", () => {
       <WorkExperienceForm {...defaultProps} initialRecap={null} />,
     );
 
-    fireEvent.change(getByLabelText("Location"), { target: { value: "" } });
-    fireEvent.blur(getByLabelText("Location"));
+    fireEvent.change(getByLabelText(RecapFields.workLocation), { target: { value: "" } });
+    fireEvent.blur(getByLabelText(RecapFields.workLocation));
 
     const requiredError = await findByText(validationErrors.locationRequired);
 
@@ -166,8 +169,10 @@ describe("<WorkExperienceForm />", () => {
       <WorkExperienceForm {...defaultProps} initialRecap={null} />,
     );
 
-    fireEvent.change(getByLabelText("Location"), { target: { value: "a".repeat(MAX_GENERAL_LENGTH + 1) } });
-    fireEvent.blur(getByLabelText("Location"));
+    fireEvent.change(getByLabelText(RecapFields.workLocation), {
+      target: { value: "a".repeat(MAX_GENERAL_LENGTH + 1) },
+    });
+    fireEvent.blur(getByLabelText(RecapFields.workLocation));
 
     const maxLengthError = await findByText(validationErrors.locationMaxLength);
 
@@ -180,14 +185,14 @@ describe("<WorkExperienceForm />", () => {
       <WorkExperienceForm {...defaultProps} initialRecap={null} />,
     );
 
-    fireEvent.change(getByLabelText("Location"), { target: { value: "" } });
-    fireEvent.blur(getByLabelText("Location"));
+    fireEvent.change(getByLabelText(RecapFields.workLocation), { target: { value: "" } });
+    fireEvent.blur(getByLabelText(RecapFields.workLocation));
 
     const requiredError = await findByText(validationErrors.locationRequired);
     expect(requiredError).toBeVisible();
 
-    fireEvent.change(getByLabelText("Location"), { target: { value: "worklocation" } });
-    fireEvent.blur(getByLabelText("Location"));
+    fireEvent.change(getByLabelText(RecapFields.workLocation), { target: { value: "worklocation" } });
+    fireEvent.blur(getByLabelText(RecapFields.workLocation));
 
     expect(queryByText(validationErrors.locationRequired)).toBeNull();
   });
@@ -197,8 +202,8 @@ describe("<WorkExperienceForm />", () => {
 
     expect((getByLabelText("I currently work here") as HTMLInputElement).checked).toBe(false);
 
-    expect(getByLabelText("Start Date")).toBeVisible();
-    expect(getByLabelText("End Date")).toBeVisible();
+    expect(getByLabelText(RecapFields.startDate)).toBeVisible();
+    expect(getByLabelText(RecapFields.endDate)).toBeVisible();
   });
 
   test("should hide end date if current work is checked", async () => {
@@ -210,8 +215,8 @@ describe("<WorkExperienceForm />", () => {
 
     expect((getByLabelText("I currently work here") as HTMLInputElement).checked).toBe(true);
 
-    expect(getByLabelText("Start Date")).toBeVisible();
-    expect(queryByLabelText("End Date")).toBeNull();
+    expect(getByLabelText(RecapFields.startDate)).toBeVisible();
+    expect(queryByLabelText(RecapFields.endDate)).toBeNull();
   });
 
   test("should show invalid date range error after blurring with start date coming after end date", async () => {
@@ -219,11 +224,11 @@ describe("<WorkExperienceForm />", () => {
       <WorkExperienceForm {...defaultProps} initialRecap={null} />,
     );
 
-    fireEvent.change(getByLabelText("Start Date"), { target: { value: "10/2020" } });
-    fireEvent.blur(getByLabelText("Start Date"));
+    fireEvent.change(getByLabelText(RecapFields.startDate), { target: { value: "10/2020" } });
+    fireEvent.blur(getByLabelText(RecapFields.startDate));
 
-    fireEvent.change(getByLabelText("End Date"), { target: { value: "01/2020" } });
-    fireEvent.blur(getByLabelText("End Date"));
+    fireEvent.change(getByLabelText(RecapFields.endDate), { target: { value: "01/2020" } });
+    fireEvent.blur(getByLabelText(RecapFields.endDate));
 
     const invalidDateRangeError = await findAllByText(validationErrors.dateRangeInvalid);
 
@@ -236,8 +241,8 @@ describe("<WorkExperienceForm />", () => {
       <WorkExperienceForm {...defaultProps} initialRecap={null} />,
     );
 
-    fireEvent.change(getByLabelText("Start Date"), { target: { value: "" } });
-    fireEvent.blur(getByLabelText("Start Date"));
+    fireEvent.change(getByLabelText(RecapFields.startDate), { target: { value: "" } });
+    fireEvent.blur(getByLabelText(RecapFields.startDate));
 
     const startDateRequiredError = await findByText(validationErrors.startDateInvalid);
 
@@ -250,8 +255,8 @@ describe("<WorkExperienceForm />", () => {
       <WorkExperienceForm {...defaultProps} initialRecap={null} />,
     );
 
-    fireEvent.change(getByLabelText("End Date"), { target: { value: "" } });
-    fireEvent.blur(getByLabelText("End Date"));
+    fireEvent.change(getByLabelText(RecapFields.endDate), { target: { value: "" } });
+    fireEvent.blur(getByLabelText(RecapFields.endDate));
 
     const endDateRequiredError = await findByText(validationErrors.endDateInvalid);
 
@@ -262,11 +267,11 @@ describe("<WorkExperienceForm />", () => {
   test("should show start date and end date without inline error after blurring with valid date range", () => {
     const { getByLabelText, queryByText } = render(<WorkExperienceForm {...defaultProps} initialRecap={null} />);
 
-    fireEvent.change(getByLabelText("Start Date"), { target: { value: "01/2020" } });
-    fireEvent.blur(getByLabelText("Start Date"));
+    fireEvent.change(getByLabelText(RecapFields.startDate), { target: { value: "01/2020" } });
+    fireEvent.blur(getByLabelText(RecapFields.startDate));
 
-    fireEvent.change(getByLabelText("End Date"), { target: { value: "10/2020" } });
-    fireEvent.blur(getByLabelText("End Date"));
+    fireEvent.change(getByLabelText(RecapFields.endDate), { target: { value: "10/2020" } });
+    fireEvent.blur(getByLabelText(RecapFields.endDate));
 
     expect(queryByText(validationErrors.dateRangeInvalid)).toBeNull();
   });
@@ -276,14 +281,14 @@ describe("<WorkExperienceForm />", () => {
       <WorkExperienceForm {...defaultProps} initialRecap={null} />,
     );
 
-    fireEvent.change(getByLabelText("Start Date"), { target: { value: "" } });
-    fireEvent.blur(getByLabelText("Start Date"));
+    fireEvent.change(getByLabelText(RecapFields.startDate), { target: { value: "" } });
+    fireEvent.blur(getByLabelText(RecapFields.startDate));
 
     const startDateRequiredError = await findByText(validationErrors.startDateInvalid);
     expect(startDateRequiredError).toBeVisible();
 
-    fireEvent.change(getByLabelText("Start Date"), { target: { value: "01/2020" } });
-    fireEvent.blur(getByLabelText("Start Date"));
+    fireEvent.change(getByLabelText(RecapFields.startDate), { target: { value: "01/2020" } });
+    fireEvent.blur(getByLabelText(RecapFields.startDate));
 
     expect(queryByText(validationErrors.startDateInvalid)).toBeNull();
   });

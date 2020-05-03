@@ -1,10 +1,10 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`<EducationForm /> should render pre-populated form inputs given initial recap 1`] = `
+exports[`<AccomplishmentsForm /> should render pre-populated form inputs given initial recap 1`] = `
 <div>
   <div
     class="mt-4 extra-class-name"
-    data-testid="educationFormTestId"
+    data-testid="accomplishmentsFormTestId"
   >
     <form>
       <div
@@ -15,60 +15,18 @@ exports[`<EducationForm /> should render pre-populated form inputs given initial
         >
           <label
             class="block text-gray-700 text-sm font-bold mb-2"
-            for="school"
+            for="title"
           >
-            School
+            Title
           </label>
           <input
             aria-required="true"
             class="shadow appearance-none border w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline rounded"
-            id="school"
-            name="school"
-            placeholder="What school did you go to?"
+            id="title"
+            name="title"
+            placeholder="What did you accomplish?"
             type="text"
-            value="University of California, Los Angeles"
-          />
-        </div>
-        <div
-          class="w-1/2 mr-4"
-        >
-          <label
-            class="block text-gray-700 text-sm font-bold mb-2"
-            for="location"
-          >
-            Location
-          </label>
-          <input
-            aria-required="true"
-            class="shadow appearance-none border w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline rounded"
-            id="location"
-            name="location"
-            placeholder="Where was the school located?"
-            type="text"
-            value="Los Angeles, CA"
-          />
-        </div>
-      </div>
-      <div
-        class="flex w-full mb-4"
-      >
-        <div
-          class="w-1/2 mr-4"
-        >
-          <label
-            class="block text-gray-700 text-sm font-bold mb-2"
-            for="degree"
-          >
-            Degree/Certification
-          </label>
-          <input
-            aria-required="true"
-            class="shadow appearance-none border w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline rounded"
-            id="degree"
-            name="degree"
-            placeholder="What degree/certification did you work toward?"
-            type="text"
-            value="Bachelor of Science"
+            value="Promoted to Software Engineer 2 at SendGrid"
           />
         </div>
         <div
@@ -76,42 +34,69 @@ exports[`<EducationForm /> should render pre-populated form inputs given initial
         >
           <label
             class="block text-gray-700 text-sm font-bold mb-2"
-            for="fieldOfStudy"
+            for="accomplishmentsType"
           >
-            Field of Study/Major
+            Type
+             
+            
           </label>
-          <input
-            aria-required="true"
-            class="shadow appearance-none border w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline rounded"
-            id="fieldOfStudy"
-            name="fieldOfStudy"
-            placeholder="What major or study did you focus on?"
-            type="text"
-            value="Computer Science"
-          />
-        </div>
-      </div>
-      <div
-        class="flex w-full mb-4"
-      >
-        <div
-          class="w-1/2 mr-4"
-        >
-          <label
-            class="block text-gray-700 text-sm font-bold mb-2"
-            for="grade"
+          <div
+            class="inline-block relative"
           >
-            Grade
-          </label>
-          <input
-            aria-required="true"
-            class="shadow appearance-none border w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline rounded"
-            id="grade"
-            name="grade"
-            placeholder="What year or grade are you in this school? i.e. Alumnus, Fourth Year"
-            type="text"
-            value="Alumnus"
-          />
+            <select
+              aria-required="true"
+              class="block appearance-none w-full bg-white border border-gray-400 hover:border-gray-500 px-4 py-2 pr-8 rounded shadow leading-tight focus:outline-none focus:shadow-outline"
+              data-testid=""
+              id="accomplishmentsType"
+              name="accomplishmentsType"
+              required=""
+            >
+              
+              <option
+                value="Personal"
+              >
+                Personal
+              </option>
+              <option
+                value="Service"
+              >
+                Service
+              </option>
+              <option
+                value="Featured"
+              >
+                Featured
+              </option>
+              <option
+                value="School"
+              >
+                School
+              </option>
+              <option
+                value="Career"
+              >
+                Career
+              </option>
+              <option
+                value="Other"
+              >
+                Other
+              </option>
+            </select>
+            <div
+              class="pointer-events-none absolute inset-y-0 right-0 flex items-center px-2 text-gray-700"
+            >
+              <svg
+                class="fill-current h-4 w-4"
+                viewBox="0 0 20 20"
+                xmlns="http://www.w3.org/2000/svg"
+              >
+                <path
+                  d="M9.293 12.95l.707.707L15.657 8l-1.414-1.414L10 10.828 5.757 6.586 4.343 8z"
+                />
+              </svg>
+            </div>
+          </div>
         </div>
       </div>
       <div
@@ -124,7 +109,7 @@ exports[`<EducationForm /> should render pre-populated form inputs given initial
             class="block text-gray-700 text-sm font-bold mb-2"
             for="startDate"
           >
-            Start Date
+            Date
              
             
           </label>
@@ -137,61 +122,14 @@ exports[`<EducationForm /> should render pre-populated form inputs given initial
               <input
                 class="shadow appearance-none border w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline rounded"
                 id="startDate"
-                placeholder="When did you start studying here?"
+                placeholder="When did you accomplish this?"
                 required=""
                 type="text"
-                value="10/2013"
+                value="10/2018"
               />
             </div>
           </div>
         </div>
-        <div
-          class="date-picker w-1/2"
-        >
-          <label
-            class="block text-gray-700 text-sm font-bold mb-2"
-            for="endDate"
-          >
-            End Date
-             
-            
-          </label>
-          <div
-            class="react-datepicker-wrapper"
-          >
-            <div
-              class="react-datepicker__input-container"
-            >
-              <input
-                class="shadow appearance-none border w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline rounded"
-                id="endDate"
-                placeholder="When did you finish studying here?"
-                required=""
-                type="text"
-                value="06/2017"
-              />
-            </div>
-          </div>
-        </div>
-      </div>
-      <div
-        class="mb-4"
-      >
-        <label
-          class="inline-flex items-center cursor-pointer"
-          for="currentEducationCheckbox"
-        >
-          <input
-            class="cursor-pointer"
-            id="currentEducationCheckbox"
-            type="checkbox"
-          />
-          <span
-            class="font-sans text-gray-800 text-base ml-2"
-          >
-            I currently study here
-          </span>
-        </label>
       </div>
       <div>
         <span
@@ -211,9 +149,9 @@ exports[`<EducationForm /> should render pre-populated form inputs given initial
               aria-labelledby="rbd-lift-instruction-1"
               class="bg-white hover:bg-blue-100 rounded"
               data-rbd-drag-handle-context-id="1"
-              data-rbd-drag-handle-draggable-id="educationBulletPoint-0"
+              data-rbd-drag-handle-draggable-id="accomplishmentsBulletPoint-0"
               data-rbd-draggable-context-id="1"
-              data-rbd-draggable-id="educationBulletPoint-0"
+              data-rbd-draggable-id="accomplishmentsBulletPoint-0"
               draggable="false"
               tabindex="0"
             >
@@ -247,8 +185,8 @@ exports[`<EducationForm /> should render pre-populated form inputs given initial
                   <input
                     aria-required="true"
                     class="shadow appearance-none border w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline rounded"
-                    id="educationBulletPoint-0"
-                    name="educationBulletPoint-0"
+                    id="accomplishmentsBulletPoint-0"
+                    name="accomplishmentsBulletPoint-0"
                     placeholder="Provide your highlights and results..."
                     type="text"
                     value=""
@@ -256,7 +194,7 @@ exports[`<EducationForm /> should render pre-populated form inputs given initial
                 </div>
                 <div
                   class="font-sans text-3xl text-red-500 hover:text-red-700 cursor-pointer"
-                  id="educationBulletPoint-0"
+                  id="accomplishmentsBulletPoint-0"
                 >
                   <svg
                     aria-hidden="true"
@@ -328,7 +266,7 @@ exports[`<EducationForm /> should render pre-populated form inputs given initial
         </button>
         <button
           class="font-bold py-2 px-4 rounded font-bold py-2 px-4 rounded bg-teal-500 text-white hover:bg-teal-700 "
-          data-testid="educationSaveButton"
+          data-testid="accomplishmentsSaveButton"
           type="submit"
         >
           <div
@@ -343,11 +281,11 @@ exports[`<EducationForm /> should render pre-populated form inputs given initial
 </div>
 `;
 
-exports[`<EducationForm /> should render without error 1`] = `
+exports[`<AccomplishmentsForm /> should render without error 1`] = `
 <div>
   <div
     class="mt-4 extra-class-name"
-    data-testid="educationFormTestId"
+    data-testid="accomplishmentsFormTestId"
   >
     <form>
       <div
@@ -358,60 +296,18 @@ exports[`<EducationForm /> should render without error 1`] = `
         >
           <label
             class="block text-gray-700 text-sm font-bold mb-2"
-            for="school"
+            for="title"
           >
-            School
+            Title
           </label>
           <input
             aria-required="true"
             class="shadow appearance-none border w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline rounded"
-            id="school"
-            name="school"
-            placeholder="What school did you go to?"
+            id="title"
+            name="title"
+            placeholder="What did you accomplish?"
             type="text"
-            value="University of California, Los Angeles"
-          />
-        </div>
-        <div
-          class="w-1/2 mr-4"
-        >
-          <label
-            class="block text-gray-700 text-sm font-bold mb-2"
-            for="location"
-          >
-            Location
-          </label>
-          <input
-            aria-required="true"
-            class="shadow appearance-none border w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline rounded"
-            id="location"
-            name="location"
-            placeholder="Where was the school located?"
-            type="text"
-            value="Los Angeles, CA"
-          />
-        </div>
-      </div>
-      <div
-        class="flex w-full mb-4"
-      >
-        <div
-          class="w-1/2 mr-4"
-        >
-          <label
-            class="block text-gray-700 text-sm font-bold mb-2"
-            for="degree"
-          >
-            Degree/Certification
-          </label>
-          <input
-            aria-required="true"
-            class="shadow appearance-none border w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline rounded"
-            id="degree"
-            name="degree"
-            placeholder="What degree/certification did you work toward?"
-            type="text"
-            value="Bachelor of Science"
+            value="Promoted to Software Engineer 2 at SendGrid"
           />
         </div>
         <div
@@ -419,42 +315,69 @@ exports[`<EducationForm /> should render without error 1`] = `
         >
           <label
             class="block text-gray-700 text-sm font-bold mb-2"
-            for="fieldOfStudy"
+            for="accomplishmentsType"
           >
-            Field of Study/Major
+            Type
+             
+            
           </label>
-          <input
-            aria-required="true"
-            class="shadow appearance-none border w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline rounded"
-            id="fieldOfStudy"
-            name="fieldOfStudy"
-            placeholder="What major or study did you focus on?"
-            type="text"
-            value="Computer Science"
-          />
-        </div>
-      </div>
-      <div
-        class="flex w-full mb-4"
-      >
-        <div
-          class="w-1/2 mr-4"
-        >
-          <label
-            class="block text-gray-700 text-sm font-bold mb-2"
-            for="grade"
+          <div
+            class="inline-block relative"
           >
-            Grade
-          </label>
-          <input
-            aria-required="true"
-            class="shadow appearance-none border w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline rounded"
-            id="grade"
-            name="grade"
-            placeholder="What year or grade are you in this school? i.e. Alumnus, Fourth Year"
-            type="text"
-            value="Alumnus"
-          />
+            <select
+              aria-required="true"
+              class="block appearance-none w-full bg-white border border-gray-400 hover:border-gray-500 px-4 py-2 pr-8 rounded shadow leading-tight focus:outline-none focus:shadow-outline"
+              data-testid=""
+              id="accomplishmentsType"
+              name="accomplishmentsType"
+              required=""
+            >
+              
+              <option
+                value="Personal"
+              >
+                Personal
+              </option>
+              <option
+                value="Service"
+              >
+                Service
+              </option>
+              <option
+                value="Featured"
+              >
+                Featured
+              </option>
+              <option
+                value="School"
+              >
+                School
+              </option>
+              <option
+                value="Career"
+              >
+                Career
+              </option>
+              <option
+                value="Other"
+              >
+                Other
+              </option>
+            </select>
+            <div
+              class="pointer-events-none absolute inset-y-0 right-0 flex items-center px-2 text-gray-700"
+            >
+              <svg
+                class="fill-current h-4 w-4"
+                viewBox="0 0 20 20"
+                xmlns="http://www.w3.org/2000/svg"
+              >
+                <path
+                  d="M9.293 12.95l.707.707L15.657 8l-1.414-1.414L10 10.828 5.757 6.586 4.343 8z"
+                />
+              </svg>
+            </div>
+          </div>
         </div>
       </div>
       <div
@@ -467,7 +390,7 @@ exports[`<EducationForm /> should render without error 1`] = `
             class="block text-gray-700 text-sm font-bold mb-2"
             for="startDate"
           >
-            Start Date
+            Date
              
             
           </label>
@@ -480,61 +403,14 @@ exports[`<EducationForm /> should render without error 1`] = `
               <input
                 class="shadow appearance-none border w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline rounded"
                 id="startDate"
-                placeholder="When did you start studying here?"
+                placeholder="When did you accomplish this?"
                 required=""
                 type="text"
-                value="10/2013"
+                value="10/2018"
               />
             </div>
           </div>
         </div>
-        <div
-          class="date-picker w-1/2"
-        >
-          <label
-            class="block text-gray-700 text-sm font-bold mb-2"
-            for="endDate"
-          >
-            End Date
-             
-            
-          </label>
-          <div
-            class="react-datepicker-wrapper"
-          >
-            <div
-              class="react-datepicker__input-container"
-            >
-              <input
-                class="shadow appearance-none border w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline rounded"
-                id="endDate"
-                placeholder="When did you finish studying here?"
-                required=""
-                type="text"
-                value="06/2017"
-              />
-            </div>
-          </div>
-        </div>
-      </div>
-      <div
-        class="mb-4"
-      >
-        <label
-          class="inline-flex items-center cursor-pointer"
-          for="currentEducationCheckbox"
-        >
-          <input
-            class="cursor-pointer"
-            id="currentEducationCheckbox"
-            type="checkbox"
-          />
-          <span
-            class="font-sans text-gray-800 text-base ml-2"
-          >
-            I currently study here
-          </span>
-        </label>
       </div>
       <div>
         <span
@@ -554,9 +430,9 @@ exports[`<EducationForm /> should render without error 1`] = `
               aria-labelledby="rbd-lift-instruction-0"
               class="bg-white hover:bg-blue-100 rounded"
               data-rbd-drag-handle-context-id="0"
-              data-rbd-drag-handle-draggable-id="educationBulletPoint-0"
+              data-rbd-drag-handle-draggable-id="accomplishmentsBulletPoint-0"
               data-rbd-draggable-context-id="0"
-              data-rbd-draggable-id="educationBulletPoint-0"
+              data-rbd-draggable-id="accomplishmentsBulletPoint-0"
               draggable="false"
               tabindex="0"
             >
@@ -590,8 +466,8 @@ exports[`<EducationForm /> should render without error 1`] = `
                   <input
                     aria-required="true"
                     class="shadow appearance-none border w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline rounded"
-                    id="educationBulletPoint-0"
-                    name="educationBulletPoint-0"
+                    id="accomplishmentsBulletPoint-0"
+                    name="accomplishmentsBulletPoint-0"
                     placeholder="Provide your highlights and results..."
                     type="text"
                     value=""
@@ -599,7 +475,7 @@ exports[`<EducationForm /> should render without error 1`] = `
                 </div>
                 <div
                   class="font-sans text-3xl text-red-500 hover:text-red-700 cursor-pointer"
-                  id="educationBulletPoint-0"
+                  id="accomplishmentsBulletPoint-0"
                 >
                   <svg
                     aria-hidden="true"
@@ -671,7 +547,7 @@ exports[`<EducationForm /> should render without error 1`] = `
         </button>
         <button
           class="font-bold py-2 px-4 rounded font-bold py-2 px-4 rounded bg-teal-500 text-white hover:bg-teal-700 "
-          data-testid="educationSaveButton"
+          data-testid="accomplishmentsSaveButton"
           type="submit"
         >
           <div
@@ -686,11 +562,11 @@ exports[`<EducationForm /> should render without error 1`] = `
 </div>
 `;
 
-exports[`<EducationForm /> should show empty form inputs and disabled state given no initial recap 1`] = `
+exports[`<AccomplishmentsForm /> should show empty form inputs and disabled state given no initial recap 1`] = `
 <div>
   <div
     class="mt-4 extra-class-name"
-    data-testid="educationFormTestId"
+    data-testid="accomplishmentsFormTestId"
   >
     <form>
       <div
@@ -701,58 +577,16 @@ exports[`<EducationForm /> should show empty form inputs and disabled state give
         >
           <label
             class="block text-gray-700 text-sm font-bold mb-2"
-            for="school"
+            for="title"
           >
-            School
+            Title
           </label>
           <input
             aria-required="true"
             class="shadow appearance-none border w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline rounded"
-            id="school"
-            name="school"
-            placeholder="What school did you go to?"
-            type="text"
-            value=""
-          />
-        </div>
-        <div
-          class="w-1/2 mr-4"
-        >
-          <label
-            class="block text-gray-700 text-sm font-bold mb-2"
-            for="location"
-          >
-            Location
-          </label>
-          <input
-            aria-required="true"
-            class="shadow appearance-none border w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline rounded"
-            id="location"
-            name="location"
-            placeholder="Where was the school located?"
-            type="text"
-            value=""
-          />
-        </div>
-      </div>
-      <div
-        class="flex w-full mb-4"
-      >
-        <div
-          class="w-1/2 mr-4"
-        >
-          <label
-            class="block text-gray-700 text-sm font-bold mb-2"
-            for="degree"
-          >
-            Degree/Certification
-          </label>
-          <input
-            aria-required="true"
-            class="shadow appearance-none border w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline rounded"
-            id="degree"
-            name="degree"
-            placeholder="What degree/certification did you work toward?"
+            id="title"
+            name="title"
+            placeholder="What did you accomplish?"
             type="text"
             value=""
           />
@@ -762,42 +596,69 @@ exports[`<EducationForm /> should show empty form inputs and disabled state give
         >
           <label
             class="block text-gray-700 text-sm font-bold mb-2"
-            for="fieldOfStudy"
+            for="accomplishmentsType"
           >
-            Field of Study/Major
+            Type
+             
+            
           </label>
-          <input
-            aria-required="true"
-            class="shadow appearance-none border w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline rounded"
-            id="fieldOfStudy"
-            name="fieldOfStudy"
-            placeholder="What major or study did you focus on?"
-            type="text"
-            value=""
-          />
-        </div>
-      </div>
-      <div
-        class="flex w-full mb-4"
-      >
-        <div
-          class="w-1/2 mr-4"
-        >
-          <label
-            class="block text-gray-700 text-sm font-bold mb-2"
-            for="grade"
+          <div
+            class="inline-block relative"
           >
-            Grade
-          </label>
-          <input
-            aria-required="true"
-            class="shadow appearance-none border w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline rounded"
-            id="grade"
-            name="grade"
-            placeholder="What year or grade are you in this school? i.e. Alumnus, Fourth Year"
-            type="text"
-            value=""
-          />
+            <select
+              aria-required="true"
+              class="block appearance-none w-full bg-white border border-gray-400 hover:border-gray-500 px-4 py-2 pr-8 rounded shadow leading-tight focus:outline-none focus:shadow-outline"
+              data-testid=""
+              id="accomplishmentsType"
+              name="accomplishmentsType"
+              required=""
+            >
+              
+              <option
+                value="Personal"
+              >
+                Personal
+              </option>
+              <option
+                value="Service"
+              >
+                Service
+              </option>
+              <option
+                value="Featured"
+              >
+                Featured
+              </option>
+              <option
+                value="School"
+              >
+                School
+              </option>
+              <option
+                value="Career"
+              >
+                Career
+              </option>
+              <option
+                value="Other"
+              >
+                Other
+              </option>
+            </select>
+            <div
+              class="pointer-events-none absolute inset-y-0 right-0 flex items-center px-2 text-gray-700"
+            >
+              <svg
+                class="fill-current h-4 w-4"
+                viewBox="0 0 20 20"
+                xmlns="http://www.w3.org/2000/svg"
+              >
+                <path
+                  d="M9.293 12.95l.707.707L15.657 8l-1.414-1.414L10 10.828 5.757 6.586 4.343 8z"
+                />
+              </svg>
+            </div>
+          </div>
         </div>
       </div>
       <div
@@ -810,7 +671,7 @@ exports[`<EducationForm /> should show empty form inputs and disabled state give
             class="block text-gray-700 text-sm font-bold mb-2"
             for="startDate"
           >
-            Start Date
+            Date
              
             
           </label>
@@ -823,7 +684,7 @@ exports[`<EducationForm /> should show empty form inputs and disabled state give
               <input
                 class="shadow appearance-none border w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline rounded"
                 id="startDate"
-                placeholder="When did you start studying here?"
+                placeholder="When did you accomplish this?"
                 required=""
                 type="text"
                 value=""
@@ -831,53 +692,6 @@ exports[`<EducationForm /> should show empty form inputs and disabled state give
             </div>
           </div>
         </div>
-        <div
-          class="date-picker w-1/2"
-        >
-          <label
-            class="block text-gray-700 text-sm font-bold mb-2"
-            for="endDate"
-          >
-            End Date
-             
-            
-          </label>
-          <div
-            class="react-datepicker-wrapper"
-          >
-            <div
-              class="react-datepicker__input-container"
-            >
-              <input
-                class="shadow appearance-none border w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline rounded"
-                id="endDate"
-                placeholder="When did you finish studying here?"
-                required=""
-                type="text"
-                value=""
-              />
-            </div>
-          </div>
-        </div>
-      </div>
-      <div
-        class="mb-4"
-      >
-        <label
-          class="inline-flex items-center cursor-pointer"
-          for="currentEducationCheckbox"
-        >
-          <input
-            class="cursor-pointer"
-            id="currentEducationCheckbox"
-            type="checkbox"
-          />
-          <span
-            class="font-sans text-gray-800 text-base ml-2"
-          >
-            I currently study here
-          </span>
-        </label>
       </div>
       <div>
         <span
@@ -897,9 +711,9 @@ exports[`<EducationForm /> should show empty form inputs and disabled state give
               aria-labelledby="rbd-lift-instruction-2"
               class="bg-white hover:bg-blue-100 rounded"
               data-rbd-drag-handle-context-id="2"
-              data-rbd-drag-handle-draggable-id="educationBulletPoint-0"
+              data-rbd-drag-handle-draggable-id="accomplishmentsBulletPoint-0"
               data-rbd-draggable-context-id="2"
-              data-rbd-draggable-id="educationBulletPoint-0"
+              data-rbd-draggable-id="accomplishmentsBulletPoint-0"
               draggable="false"
               tabindex="0"
             >
@@ -933,8 +747,8 @@ exports[`<EducationForm /> should show empty form inputs and disabled state give
                   <input
                     aria-required="true"
                     class="shadow appearance-none border w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline rounded"
-                    id="educationBulletPoint-0"
-                    name="educationBulletPoint-0"
+                    id="accomplishmentsBulletPoint-0"
+                    name="accomplishmentsBulletPoint-0"
                     placeholder="Provide your highlights and results..."
                     type="text"
                     value=""
@@ -942,7 +756,7 @@ exports[`<EducationForm /> should show empty form inputs and disabled state give
                 </div>
                 <div
                   class="font-sans text-3xl text-red-500 hover:text-red-700 cursor-pointer"
-                  id="educationBulletPoint-0"
+                  id="accomplishmentsBulletPoint-0"
                 >
                   <svg
                     aria-hidden="true"
@@ -1014,7 +828,7 @@ exports[`<EducationForm /> should show empty form inputs and disabled state give
         </button>
         <button
           class="font-bold py-2 px-4 rounded font-bold py-2 px-4 rounded bg-teal-500 text-white hover:bg-teal-700 opacity-50 cursor-not-allowed "
-          data-testid="educationSaveButton"
+          data-testid="accomplishmentsSaveButton"
           disabled=""
           type="submit"
         >

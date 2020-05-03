@@ -54,7 +54,9 @@ const onDeleteRecapSuccess = () => {
 };
 
 storiesOf("RecapsPage/Accomplishments", module)
-  .add("Form", () => <AccomplishmentsForm />)
+  .add("Form", () => (
+    <AccomplishmentsForm initialRecap={null} isShowing={true} onHide={() => {}} onSaveSuccess={() => {}} />
+  ))
   .add("Recap", () => <AccomplishmentsRecap accomplishments={accomplishments} onEdit={onEdit} onDelete={onDelete} />)
   .add("List Card", () => <AccomplishmentsListCard onClick={onClickView} />)
   .add("Empty Card", () => <AccomplishmentsEmptyCard onClickAdd={onClickAdd} />)

@@ -4,6 +4,7 @@ import EducationForm, { EducationFormProps } from "./index";
 import { RecapEducation, RecapKind } from "../../../recaps.interface";
 import { MAX_GENERAL_LENGTH, recapEducationErrors as validationErrors } from "../../../recaps.schema";
 import * as RecapsService from "../../../recaps.service";
+import { RecapFields } from "../../../recaps.schema";
 
 const initialRecap: RecapEducation = {
   kind: RecapKind.Education,
@@ -53,8 +54,8 @@ describe("<EducationForm />", () => {
   test("should show school required error after blurring with no school", async () => {
     const { getByLabelText, findByText, getByTestId } = render(<EducationForm {...defaultProps} initialRecap={null} />);
 
-    fireEvent.change(getByLabelText("School"), { target: { value: "" } });
-    fireEvent.blur(getByLabelText("School"));
+    fireEvent.change(getByLabelText(RecapFields.educationSchool), { target: { value: "" } });
+    fireEvent.blur(getByLabelText(RecapFields.educationSchool));
 
     const requiredError = await findByText(validationErrors.schoolRequired);
 
@@ -65,8 +66,10 @@ describe("<EducationForm />", () => {
   test("should show school max length error after blurring with school beyond max length", async () => {
     const { getByLabelText, findByText, getByTestId } = render(<EducationForm {...defaultProps} initialRecap={null} />);
 
-    fireEvent.change(getByLabelText("School"), { target: { value: "a".repeat(MAX_GENERAL_LENGTH + 1) } });
-    fireEvent.blur(getByLabelText("School"));
+    fireEvent.change(getByLabelText(RecapFields.educationSchool), {
+      target: { value: "a".repeat(MAX_GENERAL_LENGTH + 1) },
+    });
+    fireEvent.blur(getByLabelText(RecapFields.educationSchool));
 
     const maxLengthError = await findByText(validationErrors.schoolMaxLength);
 
@@ -77,14 +80,14 @@ describe("<EducationForm />", () => {
   test("should show school without inline error after blurring with valid school", async () => {
     const { getByLabelText, findByText, queryByText } = render(<EducationForm {...defaultProps} initialRecap={null} />);
 
-    fireEvent.change(getByLabelText("School"), { target: { value: "" } });
-    fireEvent.blur(getByLabelText("School"));
+    fireEvent.change(getByLabelText(RecapFields.educationSchool), { target: { value: "" } });
+    fireEvent.blur(getByLabelText(RecapFields.educationSchool));
 
     const requiredError = await findByText(validationErrors.schoolRequired);
     expect(requiredError).toBeVisible();
 
-    fireEvent.change(getByLabelText("School"), { target: { value: "school" } });
-    fireEvent.blur(getByLabelText("School"));
+    fireEvent.change(getByLabelText(RecapFields.educationSchool), { target: { value: "school" } });
+    fireEvent.blur(getByLabelText(RecapFields.educationSchool));
 
     expect(queryByText(validationErrors.schoolRequired)).toBeNull();
   });
@@ -92,8 +95,8 @@ describe("<EducationForm />", () => {
   test("should show location required error after blurring with no location", async () => {
     const { getByLabelText, findByText, getByTestId } = render(<EducationForm {...defaultProps} initialRecap={null} />);
 
-    fireEvent.change(getByLabelText("Location"), { target: { value: "" } });
-    fireEvent.blur(getByLabelText("Location"));
+    fireEvent.change(getByLabelText(RecapFields.educationLocation), { target: { value: "" } });
+    fireEvent.blur(getByLabelText(RecapFields.educationLocation));
 
     const requiredError = await findByText(validationErrors.locationRequired);
 
@@ -104,8 +107,10 @@ describe("<EducationForm />", () => {
   test("should show location max length error after blurring with location beyond max length", async () => {
     const { getByLabelText, findByText, getByTestId } = render(<EducationForm {...defaultProps} initialRecap={null} />);
 
-    fireEvent.change(getByLabelText("Location"), { target: { value: "a".repeat(MAX_GENERAL_LENGTH + 1) } });
-    fireEvent.blur(getByLabelText("Location"));
+    fireEvent.change(getByLabelText(RecapFields.educationLocation), {
+      target: { value: "a".repeat(MAX_GENERAL_LENGTH + 1) },
+    });
+    fireEvent.blur(getByLabelText(RecapFields.educationLocation));
 
     const maxLengthError = await findByText(validationErrors.locationMaxLength);
 
@@ -116,14 +121,14 @@ describe("<EducationForm />", () => {
   test("should show location without inline error after blurring with valid location", async () => {
     const { getByLabelText, findByText, queryByText } = render(<EducationForm {...defaultProps} initialRecap={null} />);
 
-    fireEvent.change(getByLabelText("Location"), { target: { value: "" } });
-    fireEvent.blur(getByLabelText("Location"));
+    fireEvent.change(getByLabelText(RecapFields.educationLocation), { target: { value: "" } });
+    fireEvent.blur(getByLabelText(RecapFields.educationLocation));
 
     const requiredError = await findByText(validationErrors.locationRequired);
     expect(requiredError).toBeVisible();
 
-    fireEvent.change(getByLabelText("Location"), { target: { value: "location" } });
-    fireEvent.blur(getByLabelText("Location"));
+    fireEvent.change(getByLabelText(RecapFields.educationLocation), { target: { value: "location" } });
+    fireEvent.blur(getByLabelText(RecapFields.educationLocation));
 
     expect(queryByText(validationErrors.locationRequired)).toBeNull();
   });
@@ -131,8 +136,8 @@ describe("<EducationForm />", () => {
   test("should show degree required error after blurring with no degree", async () => {
     const { getByLabelText, findByText, getByTestId } = render(<EducationForm {...defaultProps} initialRecap={null} />);
 
-    fireEvent.change(getByLabelText("Degree/Certification"), { target: { value: "" } });
-    fireEvent.blur(getByLabelText("Degree/Certification"));
+    fireEvent.change(getByLabelText(RecapFields.educationDegree), { target: { value: "" } });
+    fireEvent.blur(getByLabelText(RecapFields.educationDegree));
 
     const requiredError = await findByText(validationErrors.degreeRequired);
 
@@ -143,8 +148,10 @@ describe("<EducationForm />", () => {
   test("should show degree max length error after blurring with degree beyond max length", async () => {
     const { getByLabelText, findByText, getByTestId } = render(<EducationForm {...defaultProps} initialRecap={null} />);
 
-    fireEvent.change(getByLabelText("Degree/Certification"), { target: { value: "a".repeat(MAX_GENERAL_LENGTH + 1) } });
-    fireEvent.blur(getByLabelText("Degree/Certification"));
+    fireEvent.change(getByLabelText(RecapFields.educationDegree), {
+      target: { value: "a".repeat(MAX_GENERAL_LENGTH + 1) },
+    });
+    fireEvent.blur(getByLabelText(RecapFields.educationDegree));
 
     const maxLengthError = await findByText(validationErrors.degreeMaxLength);
 
@@ -155,14 +162,14 @@ describe("<EducationForm />", () => {
   test("should show degree without inline error after blurring with valid degree", async () => {
     const { getByLabelText, findByText, queryByText } = render(<EducationForm {...defaultProps} initialRecap={null} />);
 
-    fireEvent.change(getByLabelText("Degree/Certification"), { target: { value: "" } });
-    fireEvent.blur(getByLabelText("Degree/Certification"));
+    fireEvent.change(getByLabelText(RecapFields.educationDegree), { target: { value: "" } });
+    fireEvent.blur(getByLabelText(RecapFields.educationDegree));
 
     const requiredError = await findByText(validationErrors.degreeRequired);
     expect(requiredError).toBeVisible();
 
-    fireEvent.change(getByLabelText("Degree/Certification"), { target: { value: "degree" } });
-    fireEvent.blur(getByLabelText("Degree/Certification"));
+    fireEvent.change(getByLabelText(RecapFields.educationDegree), { target: { value: "degree" } });
+    fireEvent.blur(getByLabelText(RecapFields.educationDegree));
 
     expect(queryByText(validationErrors.degreeRequired)).toBeNull();
   });
@@ -170,8 +177,8 @@ describe("<EducationForm />", () => {
   test("should show field of study required error after blurring with no field of study", async () => {
     const { getByLabelText, findByText, getByTestId } = render(<EducationForm {...defaultProps} initialRecap={null} />);
 
-    fireEvent.change(getByLabelText("Field of Study/Major"), { target: { value: "" } });
-    fireEvent.blur(getByLabelText("Field of Study/Major"));
+    fireEvent.change(getByLabelText(RecapFields.educationFieldOfStudy), { target: { value: "" } });
+    fireEvent.blur(getByLabelText(RecapFields.educationFieldOfStudy));
 
     const requiredError = await findByText(validationErrors.fieldOfStudyRequired);
 
@@ -182,8 +189,10 @@ describe("<EducationForm />", () => {
   test("should show field of study max length error after blurring with field of study beyond max length", async () => {
     const { getByLabelText, findByText, getByTestId } = render(<EducationForm {...defaultProps} initialRecap={null} />);
 
-    fireEvent.change(getByLabelText("Field of Study/Major"), { target: { value: "a".repeat(MAX_GENERAL_LENGTH + 1) } });
-    fireEvent.blur(getByLabelText("Field of Study/Major"));
+    fireEvent.change(getByLabelText(RecapFields.educationFieldOfStudy), {
+      target: { value: "a".repeat(MAX_GENERAL_LENGTH + 1) },
+    });
+    fireEvent.blur(getByLabelText(RecapFields.educationFieldOfStudy));
 
     const maxLengthError = await findByText(validationErrors.fieldOfStudyMaxLength);
 
@@ -194,14 +203,14 @@ describe("<EducationForm />", () => {
   test("should show field of study without inline error after blurring with valid field of study", async () => {
     const { getByLabelText, findByText, queryByText } = render(<EducationForm {...defaultProps} initialRecap={null} />);
 
-    fireEvent.change(getByLabelText("Field of Study/Major"), { target: { value: "" } });
-    fireEvent.blur(getByLabelText("Field of Study/Major"));
+    fireEvent.change(getByLabelText(RecapFields.educationFieldOfStudy), { target: { value: "" } });
+    fireEvent.blur(getByLabelText(RecapFields.educationFieldOfStudy));
 
     const requiredError = await findByText(validationErrors.fieldOfStudyRequired);
     expect(requiredError).toBeVisible();
 
-    fireEvent.change(getByLabelText("Field of Study/Major"), { target: { value: "field of study" } });
-    fireEvent.blur(getByLabelText("Field of Study/Major"));
+    fireEvent.change(getByLabelText(RecapFields.educationFieldOfStudy), { target: { value: "field of study" } });
+    fireEvent.blur(getByLabelText(RecapFields.educationFieldOfStudy));
 
     expect(queryByText(validationErrors.fieldOfStudyRequired)).toBeNull();
   });
@@ -209,8 +218,8 @@ describe("<EducationForm />", () => {
   test("should show grade required error after blurring with no grade", async () => {
     const { getByLabelText, findByText, getByTestId } = render(<EducationForm {...defaultProps} initialRecap={null} />);
 
-    fireEvent.change(getByLabelText("Grade"), { target: { value: "" } });
-    fireEvent.blur(getByLabelText("Grade"));
+    fireEvent.change(getByLabelText(RecapFields.educationGrade), { target: { value: "" } });
+    fireEvent.blur(getByLabelText(RecapFields.educationGrade));
 
     const requiredError = await findByText(validationErrors.gradeRequired);
 
@@ -221,10 +230,10 @@ describe("<EducationForm />", () => {
   test("should show grade max length error after blurring with grade beyond max length", async () => {
     const { getByLabelText, findByText, getByTestId } = render(<EducationForm {...defaultProps} initialRecap={null} />);
 
-    fireEvent.change(getByLabelText("Grade"), {
+    fireEvent.change(getByLabelText(RecapFields.educationGrade), {
       target: { value: "a".repeat(MAX_GENERAL_LENGTH + 1) },
     });
-    fireEvent.blur(getByLabelText("Grade"));
+    fireEvent.blur(getByLabelText(RecapFields.educationGrade));
 
     const maxLengthError = await findByText(validationErrors.gradeMaxLength);
 
@@ -235,14 +244,14 @@ describe("<EducationForm />", () => {
   test("should show grade without inline error after blurring with valid grade", async () => {
     const { getByLabelText, findByText, queryByText } = render(<EducationForm {...defaultProps} initialRecap={null} />);
 
-    fireEvent.change(getByLabelText("Grade"), { target: { value: "" } });
-    fireEvent.blur(getByLabelText("Grade"));
+    fireEvent.change(getByLabelText(RecapFields.educationGrade), { target: { value: "" } });
+    fireEvent.blur(getByLabelText(RecapFields.educationGrade));
 
     const requiredError = await findByText(validationErrors.gradeRequired);
     expect(requiredError).toBeVisible();
 
-    fireEvent.change(getByLabelText("Grade"), { target: { value: "grade" } });
-    fireEvent.blur(getByLabelText("Grade"));
+    fireEvent.change(getByLabelText(RecapFields.educationGrade), { target: { value: "grade" } });
+    fireEvent.blur(getByLabelText(RecapFields.educationGrade));
 
     expect(queryByText(validationErrors.gradeRequired)).toBeNull();
   });
@@ -252,8 +261,8 @@ describe("<EducationForm />", () => {
 
     expect((getByLabelText("I currently study here") as HTMLInputElement).checked).toBe(false);
 
-    expect(getByLabelText("Start Date")).toBeVisible();
-    expect(getByLabelText("End Date")).toBeVisible();
+    expect(getByLabelText(RecapFields.startDate)).toBeVisible();
+    expect(getByLabelText(RecapFields.endDate)).toBeVisible();
   });
 
   test("should hide end date if current work is checked", async () => {
@@ -265,8 +274,8 @@ describe("<EducationForm />", () => {
 
     expect((getByLabelText("I currently study here") as HTMLInputElement).checked).toBe(true);
 
-    expect(getByLabelText("Start Date")).toBeVisible();
-    expect(queryByLabelText("End Date")).toBeNull();
+    expect(getByLabelText(RecapFields.startDate)).toBeVisible();
+    expect(queryByLabelText(RecapFields.endDate)).toBeNull();
   });
 
   test("should show invalid date range error after blurring with start date coming after end date", async () => {
@@ -274,11 +283,11 @@ describe("<EducationForm />", () => {
       <EducationForm {...defaultProps} initialRecap={null} />,
     );
 
-    fireEvent.change(getByLabelText("Start Date"), { target: { value: "10/2020" } });
-    fireEvent.blur(getByLabelText("Start Date"));
+    fireEvent.change(getByLabelText(RecapFields.startDate), { target: { value: "10/2020" } });
+    fireEvent.blur(getByLabelText(RecapFields.startDate));
 
-    fireEvent.change(getByLabelText("End Date"), { target: { value: "01/2020" } });
-    fireEvent.blur(getByLabelText("End Date"));
+    fireEvent.change(getByLabelText(RecapFields.endDate), { target: { value: "01/2020" } });
+    fireEvent.blur(getByLabelText(RecapFields.endDate));
 
     const invalidDateRangeError = await findAllByText(validationErrors.dateRangeInvalid);
 
@@ -289,8 +298,8 @@ describe("<EducationForm />", () => {
   test("should show start date required error after blurring with no start date", async () => {
     const { getByLabelText, findByText, getByTestId } = render(<EducationForm {...defaultProps} initialRecap={null} />);
 
-    fireEvent.change(getByLabelText("Start Date"), { target: { value: "" } });
-    fireEvent.blur(getByLabelText("Start Date"));
+    fireEvent.change(getByLabelText(RecapFields.startDate), { target: { value: "" } });
+    fireEvent.blur(getByLabelText(RecapFields.startDate));
 
     const startDateRequiredError = await findByText(validationErrors.startDateInvalid);
 
@@ -301,8 +310,8 @@ describe("<EducationForm />", () => {
   test("should show end date required error after blurring with no end date", async () => {
     const { getByLabelText, findByText, getByTestId } = render(<EducationForm {...defaultProps} initialRecap={null} />);
 
-    fireEvent.change(getByLabelText("End Date"), { target: { value: "" } });
-    fireEvent.blur(getByLabelText("End Date"));
+    fireEvent.change(getByLabelText(RecapFields.endDate), { target: { value: "" } });
+    fireEvent.blur(getByLabelText(RecapFields.endDate));
 
     const endDateRequiredError = await findByText(validationErrors.endDateInvalid);
 
@@ -313,11 +322,11 @@ describe("<EducationForm />", () => {
   test("should show start date and end date without inline error after blurring with valid date range", () => {
     const { getByLabelText, queryByText } = render(<EducationForm {...defaultProps} initialRecap={null} />);
 
-    fireEvent.change(getByLabelText("Start Date"), { target: { value: "01/2020" } });
-    fireEvent.blur(getByLabelText("Start Date"));
+    fireEvent.change(getByLabelText(RecapFields.startDate), { target: { value: "01/2020" } });
+    fireEvent.blur(getByLabelText(RecapFields.startDate));
 
-    fireEvent.change(getByLabelText("End Date"), { target: { value: "10/2020" } });
-    fireEvent.blur(getByLabelText("End Date"));
+    fireEvent.change(getByLabelText(RecapFields.endDate), { target: { value: "10/2020" } });
+    fireEvent.blur(getByLabelText(RecapFields.endDate));
 
     expect(queryByText(validationErrors.dateRangeInvalid)).toBeNull();
   });
@@ -325,14 +334,14 @@ describe("<EducationForm />", () => {
   test("should show start date without inline error with current work checked after blurring valid start date", async () => {
     const { getByLabelText, findByText, queryByText } = render(<EducationForm {...defaultProps} initialRecap={null} />);
 
-    fireEvent.change(getByLabelText("Start Date"), { target: { value: "" } });
-    fireEvent.blur(getByLabelText("Start Date"));
+    fireEvent.change(getByLabelText(RecapFields.startDate), { target: { value: "" } });
+    fireEvent.blur(getByLabelText(RecapFields.startDate));
 
     const startDateRequiredError = await findByText(validationErrors.startDateInvalid);
     expect(startDateRequiredError).toBeVisible();
 
-    fireEvent.change(getByLabelText("Start Date"), { target: { value: "01/2020" } });
-    fireEvent.blur(getByLabelText("Start Date"));
+    fireEvent.change(getByLabelText(RecapFields.startDate), { target: { value: "01/2020" } });
+    fireEvent.blur(getByLabelText(RecapFields.startDate));
 
     expect(queryByText(validationErrors.startDateInvalid)).toBeNull();
   });

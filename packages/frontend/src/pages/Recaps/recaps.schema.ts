@@ -233,19 +233,15 @@ export const recapSkillsErrors = {
   proficiencyRequired: formRequiredError({ field: RecapFields.skillsProficiency }),
 };
 
-export const RecapSkillsTitleSchema = yup
-  .string()
-  .max(MAX_GENERAL_LENGTH, recapSkillsErrors.titleMaxLength)
-  .required(recapSkillsErrors.titleRequired);
-
-export const RecapSkillsProficiencySchema = yup
-  .string()
-  .oneOf(["Novice", "Intermediate", "Advanced", "Expert"], recapSkillsErrors.proficiencyInvalid)
-  .required(recapSkillsErrors.proficiencyRequired);
-
 export const RecapSkillsSchema = yup.object({
-  title: RecapSkillsTitleSchema,
-  proficiency: RecapSkillsProficiencySchema,
+  title: yup
+    .string()
+    .max(MAX_GENERAL_LENGTH, recapSkillsErrors.titleMaxLength)
+    .required(recapSkillsErrors.titleRequired),
+  proficiency: yup
+    .string()
+    .oneOf(["Novice", "Intermediate", "Advanced", "Expert"], recapSkillsErrors.proficiencyInvalid)
+    .required(recapSkillsErrors.proficiencyRequired),
 });
 
 export const recapSideProjectsErrors = {
@@ -256,19 +252,15 @@ export const recapSideProjectsErrors = {
   creatorsRequired: formRequiredError({ field: RecapFields.sideProjectsCreators }),
 };
 
-export const RecapSideProjectsTitleSchema = yup
-  .string()
-  .max(MAX_GENERAL_LENGTH, recapSideProjectsErrors.titleMaxLength)
-  .required(recapSideProjectsErrors.titleRequired);
-
-export const RecapSideProjectsCreatorsSchema = yup
-  .string()
-  .max(MAX_GENERAL_LENGTH, recapSideProjectsErrors.creatorsMaxLength)
-  .required(recapSideProjectsErrors.creatorsRequired);
-
 export const RecapSideProjectsSchema = yup.object({
-  title: RecapSideProjectsTitleSchema,
-  creators: RecapSideProjectsCreatorsSchema,
+  title: yup
+    .string()
+    .max(MAX_GENERAL_LENGTH, recapSideProjectsErrors.titleMaxLength)
+    .required(recapSideProjectsErrors.titleRequired),
+  creators: yup
+    .string()
+    .max(MAX_GENERAL_LENGTH, recapSideProjectsErrors.creatorsMaxLength)
+    .required(recapSideProjectsErrors.creatorsRequired),
 });
 
 export const recapOrganizationsErrors = {
@@ -281,25 +273,19 @@ export const recapOrganizationsErrors = {
   positionsRequired: formRequiredError({ field: RecapFields.organizationsPositions }),
 };
 
-export const RecapOrganizationsOrganizationNameSchema = yup
-  .string()
-  .max(MAX_GENERAL_LENGTH, recapOrganizationsErrors.nameMaxLength)
-  .required(recapOrganizationsErrors.nameRequired);
-
-export const RecapOrganizationsLocationSchema = yup
-  .string()
-  .max(MAX_GENERAL_LENGTH, recapOrganizationsErrors.locationMaxLength)
-  .required(recapOrganizationsErrors.locationRequired);
-
-export const RecapOrganizationsPositionsSchema = yup
-  .string()
-  .max(MAX_GENERAL_LENGTH, recapOrganizationsErrors.positionsMaxLength)
-  .required(recapOrganizationsErrors.positionsRequired);
-
 export const RecapOrganizationsSchema = yup.object({
-  organizationName: RecapOrganizationsOrganizationNameSchema,
-  location: RecapOrganizationsLocationSchema,
-  positions: RecapOrganizationsPositionsSchema,
+  organizationName: yup
+    .string()
+    .max(MAX_GENERAL_LENGTH, recapOrganizationsErrors.nameMaxLength)
+    .required(recapOrganizationsErrors.nameRequired),
+  location: yup
+    .string()
+    .max(MAX_GENERAL_LENGTH, recapOrganizationsErrors.locationMaxLength)
+    .required(recapOrganizationsErrors.locationRequired),
+  positions: yup
+    .string()
+    .max(MAX_GENERAL_LENGTH, recapOrganizationsErrors.positionsMaxLength)
+    .required(recapOrganizationsErrors.positionsRequired),
 });
 
 export const recapReferencesErrors = {
@@ -313,30 +299,20 @@ export const recapReferencesErrors = {
   emailInvalid: `${RecapFields.referencesEmail} must have a valid syntax.`,
 };
 
-export const RecapReferencesCompanySchema = yup
-  .string()
-  .max(MAX_GENERAL_LENGTH, recapReferencesErrors.companyMaxLength)
-  .required(recapReferencesErrors.companyRequired);
-
-export const RecapReferencesTitleSchema = yup
-  .string()
-  .max(MAX_GENERAL_LENGTH, recapReferencesErrors.titleMaxLength)
-  .required(recapReferencesErrors.titleRequired);
-
-export const RecapReferencesPhoneNumberSchema = yup
-  .string()
-  .max(MAX_GENERAL_LENGTH, recapReferencesErrors.phoneNumberMaxLength);
-
-export const RecapReferencesEmailSchema = yup
-  .string()
-  .max(MAX_GENERAL_LENGTH, recapReferencesErrors.emailMaxLength)
-  .email(recapReferencesErrors.emailMaxLength);
-
 export const RecapReferencesSchema = yup.object({
-  company: RecapReferencesCompanySchema,
-  title: RecapReferencesTitleSchema,
-  phoneNumber: RecapReferencesPhoneNumberSchema,
-  email: RecapReferencesEmailSchema,
+  company: yup
+    .string()
+    .max(MAX_GENERAL_LENGTH, recapReferencesErrors.companyMaxLength)
+    .required(recapReferencesErrors.companyRequired),
+  title: yup
+    .string()
+    .max(MAX_GENERAL_LENGTH, recapReferencesErrors.titleMaxLength)
+    .required(recapReferencesErrors.titleRequired),
+  phoneNumber: yup.string().max(MAX_GENERAL_LENGTH, recapReferencesErrors.phoneNumberMaxLength),
+  email: yup
+    .string()
+    .max(MAX_GENERAL_LENGTH, recapReferencesErrors.emailMaxLength)
+    .email(recapReferencesErrors.emailMaxLength),
 });
 
 export const recapOtherErrors = {
@@ -345,13 +321,11 @@ export const recapOtherErrors = {
   titleRequired: formRequiredError({ field: RecapFields.otherTitle }),
 };
 
-export const RecapOtherTitleSchema = yup
-  .string()
-  .max(MAX_GENERAL_LENGTH, recapOtherErrors.titleMaxLength)
-  .required(recapOtherErrors.titleRequired);
-
 export const RecapOtherSchema = yup.object({
-  title: RecapOtherTitleSchema,
+  title: yup
+    .string()
+    .max(MAX_GENERAL_LENGTH, recapOtherErrors.titleMaxLength)
+    .required(recapOtherErrors.titleRequired),
 });
 
 export const RecapSchema = RecapBaseSchema.when("kind", { is: "Work Experience", then: RecapWorkExperienceSchema })

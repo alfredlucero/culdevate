@@ -33,8 +33,8 @@ const OrganizationsRecap: React.FC<OrganizationsRecapProps> = ({
         <Text variant="p">{organizations.location}</Text>
         <Text variant="p">{organizations.positions}</Text>
         <Text variant="p" italic={true} className="text-gray-600">
-          {format(parseISO(organizations.startDate), "yyyy")} -{" "}
-          {organizations.endDate ? format(parseISO(organizations.endDate), "yyyy") : "Present"}
+          {format(parseISO(organizations.startDate), "MMM yyyy")} -{" "}
+          {organizations.endDate ? format(parseISO(organizations.endDate), "MMM yyyy") : "Present"}
         </Text>
         <ul className="mt-3">
           {organizations.bulletPoints.map((bulletPoint, index) => (

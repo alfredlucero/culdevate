@@ -51,10 +51,10 @@ exports[`<OrganizationsRecap /> should render without error 1`] = `
       <p
         class="font-sans text-gray-800 text-base italic text-gray-600"
       >
-        2014
+        Dec 2014
          -
          
-        2016
+        Mar 2016
       </p>
       <ul
         class="mt-3"

@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import * as RecapLayout from "../../RecapLayout";
 import { RecapLayoutProps } from "../../RecapLayout";
 import OrganizationsEmptyCard from "../EmptyCard";
@@ -10,6 +10,9 @@ import {
   RecapsDeleteSuccessAlert,
   RecapsDeleteErrorAlert,
 } from "../../RecapsAlerts";
+import OrganizationsForm from "../Form";
+import RecapsCreateModal from "../../RecapsCreateModal";
+import RecapsEditModal from "../../RecapsEditModal";
 import { Recap, RecapOrganizations, RecapKind } from "../../../recaps.interface";
 import { useRecapsAlerts } from "../../../hooks/useRecapsAlerts";
 import { useDeleteRecap } from "../../../hooks/useDeleteRecap";
@@ -36,6 +39,40 @@ const OrganizationsLayout: React.FC<OrganizationsLayoutProps> = ({
     showDeleteErrorAlert,
     hideAlert,
   } = useRecapsAlerts();
+
+  const [isShowingCreateModal, setIsShowingCreateModal] = useState(false);
+  const onShowCreateModal = () => {
+    setIsShowingCreateModal(true);
+  };
+  const onHideCreateModal = () => {
+    setIsShowingCreateModal(false);
+  };
+  const onSaveSuccessCreate = (createdRecap: RecapOrganizations) => {
+    onCreateRecapSuccess(createdRecap);
+    showCreateSuccessAlert();
+  };
+
+  const [isShowingEditModal, setIsShowingEditModal] = useState(false);
+  const [selectedEditRecap, setSelectedEditRecap] = useState<RecapOrganizations | null>(null);
+  const onClickEditRecap = (e: React.MouseEvent) => {
+    const recapId = e.currentTarget.id;
+
+    const newSelectedEditRecap = recaps.find(recap => recap._id === recapId);
+
+    if (!newSelectedEditRecap) {
+      return;
+    }
+
+    setSelectedEditRecap(newSelectedEditRecap);
+    setIsShowingEditModal(true);
+  };
+  const onHideEditModal = () => {
+    setIsShowingEditModal(false);
+  };
+  const onSaveSuccessEdit = (updatedRecap: RecapOrganizations) => {
+    onUpdateRecapSuccess(updatedRecap);
+    showUpdateSuccessAlert();
+  };
 
   const {
     isShowingConfirmDeleteModal,
@@ -75,19 +112,35 @@ const OrganizationsLayout: React.FC<OrganizationsLayoutProps> = ({
           <RecapLayout.HeaderTitle>Organizations</RecapLayout.HeaderTitle>
         </RecapLayout.Header>
         <RecapLayout.Content>
-          <OrganizationsEmptyCard
-            onClickAdd={() => {
-              // TODO: open up create modal
-            }}
-            testId="organizationsEmptyCard"
-          />
+          <OrganizationsEmptyCard onClickAdd={onShowCreateModal} testId="organizationsEmptyCard" />
         </RecapLayout.Content>
+
+        <RecapsCreateModal isShowing={isShowingCreateModal} onHide={onHideCreateModal} kind={RecapKind.WorkExperience}>
+          <OrganizationsForm
+            initialRecap={null}
+            isShowing={isShowingCreateModal}
+            onHide={onHideCreateModal}
+            onSaveSuccess={onSaveSuccessCreate}
+          />
+        </RecapsCreateModal>
       </RecapLayout.Container>
     );
   }
 
   return (
     <RecapLayout.Container testId={testId} className={className} {...passThroughProps}>
+      <RecapsCreateSuccessAlert
+        isShowing={alertsState.isShowingCreateSuccessAlert}
+        onHide={hideAlert}
+        kind={RecapKind.Organizations}
+        className="mb-4"
+      />
+      <RecapsUpdateSuccessAlert
+        isShowing={alertsState.isShowingUpdateSuccessAlert}
+        onHide={hideAlert}
+        kind={RecapKind.Organizations}
+        className="mb-4"
+      />
       <RecapsDeleteSuccessAlert
         isShowing={alertsState.isShowingDeleteSuccessAlert}
         onHide={hideAlert}
@@ -101,13 +154,7 @@ const OrganizationsLayout: React.FC<OrganizationsLayoutProps> = ({
         className="mb-4"
       />
       <RecapLayout.Header className="mb-8" onClickBack={onGoBackToLanding}>
-        <RecapLayout.HeaderTitle
-          onClickAdd={() => {
-            // TODO: open up this recap's create modal
-          }}
-        >
-          Organizations
-        </RecapLayout.HeaderTitle>
+        <RecapLayout.HeaderTitle onClickAdd={onShowCreateModal}>Organizations</RecapLayout.HeaderTitle>
         <RecapLayout.HeaderDescription>
           Recap the organizations you were a part of and your impact in those groups.
         </RecapLayout.HeaderDescription>
@@ -116,9 +163,7 @@ const OrganizationsLayout: React.FC<OrganizationsLayoutProps> = ({
         {recaps.map((organizations, key) => (
           <OrganizationsRecap
             organizations={organizations}
-            onEdit={() => {
-              // TODO: open up this recap's edit modal
-            }}
+            onEdit={onClickEditRecap}
             onDelete={onClickDeleteRecap}
             key={key}
             testId="organizationsRecap"
@@ -133,6 +178,24 @@ const OrganizationsLayout: React.FC<OrganizationsLayoutProps> = ({
         isProcessingDelete={isProcessingDelete}
         onClickConfirmDelete={onClickConfirmDelete}
       />
+
+      <RecapsCreateModal isShowing={isShowingCreateModal} onHide={onHideCreateModal} kind={RecapKind.Organizations}>
+        <OrganizationsForm
+          initialRecap={null}
+          isShowing={isShowingCreateModal}
+          onHide={onHideCreateModal}
+          onSaveSuccess={onSaveSuccessCreate}
+        />
+      </RecapsCreateModal>
+
+      <RecapsEditModal isShowing={isShowingEditModal} onHide={onHideEditModal} kind={RecapKind.Organizations}>
+        <OrganizationsForm
+          initialRecap={selectedEditRecap}
+          isShowing={isShowingEditModal}
+          onHide={onHideEditModal}
+          onSaveSuccess={onSaveSuccessEdit}
+        />
+      </RecapsEditModal>
     </RecapLayout.Container>
   );
 };

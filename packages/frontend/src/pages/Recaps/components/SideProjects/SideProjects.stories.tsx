@@ -51,7 +51,9 @@ const onDeleteRecapSuccess = () => {
 };
 
 storiesOf("RecapsPage/SideProjects", module)
-  .add("Form", () => <SideProjectsForm />)
+  .add("Form", () => (
+    <SideProjectsForm initialRecap={null} isShowing={true} onHide={() => {}} onSaveSuccess={() => {}} />
+  ))
   .add("Recap - Date Range", () => (
     <SideProjectsRecap sideProjects={sideProjects} onEdit={onEdit} onDelete={onDelete} />
   ))

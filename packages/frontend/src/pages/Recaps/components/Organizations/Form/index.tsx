@@ -9,7 +9,7 @@ import BulletPointInputList from "../../BulletPointInputList";
 import Button from "../../../../../components/Button";
 import { RecapsCreateErrorAlert, RecapsUpdateErrorAlert } from "../../RecapsAlerts";
 import { CommonProps } from "../../../../../components/commonProps";
-import { RecapOrganizations, RecapCreate, EmploymentType, RecapKind } from "../../../recaps.interface";
+import { RecapOrganizations, RecapCreate, RecapKind } from "../../../recaps.interface";
 import { useBulletPointInputList } from "../../../hooks/useBulletPointInputList";
 import { createRecap, updateRecap } from "../../../recaps.service";
 import { RecapOrganizationsSchema, recapBaseErrors, RecapFields } from "../../../recaps.schema";

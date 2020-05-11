@@ -80,7 +80,11 @@ const RecapsDao = {
       case "Skills":
         return RecapSkillsModel.findOneAndUpdate({ _id: recapId }, updatedRecap, { new: true });
       case "Side Projects":
-        return RecapSideProjectsModel.findOneAndUpdate({ _id: recapId }, updatedRecap, { new: true });
+        return RecapSideProjectsModel.findOneAndUpdate(
+          { _id: recapId },
+          { $set: updatedRecap, ...(!updatedRecap.endDate ? { $unset: { endDate: 1 } } : {}) },
+          { new: true },
+        );
       case "Organizations":
         return RecapOrganizationsModel.findOneAndUpdate(
           { _id: recapId },

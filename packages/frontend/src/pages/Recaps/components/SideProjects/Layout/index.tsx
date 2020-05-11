@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import * as RecapLayout from "../../RecapLayout";
 import { RecapLayoutProps } from "../../RecapLayout";
 import SideProjectsEmptyCard from "../EmptyCard";
@@ -10,6 +10,9 @@ import {
   RecapsDeleteSuccessAlert,
   RecapsDeleteErrorAlert,
 } from "../../RecapsAlerts";
+import RecapSideProjectsForm from "../Form";
+import RecapsCreateModal from "../../RecapsCreateModal";
+import RecapsEditModal from "../../RecapsEditModal";
 import { Recap, RecapSideProjects, RecapKind } from "../../../recaps.interface";
 import { useRecapsAlerts } from "../../../hooks/useRecapsAlerts";
 import { useDeleteRecap } from "../../../hooks/useDeleteRecap";
@@ -36,6 +39,40 @@ const SideProjectsLayout: React.FC<SideProjectsLayoutProps> = ({
     showDeleteErrorAlert,
     hideAlert,
   } = useRecapsAlerts();
+
+  const [isShowingCreateModal, setIsShowingCreateModal] = useState(false);
+  const onShowCreateModal = () => {
+    setIsShowingCreateModal(true);
+  };
+  const onHideCreateModal = () => {
+    setIsShowingCreateModal(false);
+  };
+  const onSaveSuccessCreate = (createdRecap: RecapSideProjects) => {
+    onCreateRecapSuccess(createdRecap);
+    showCreateSuccessAlert();
+  };
+
+  const [isShowingEditModal, setIsShowingEditModal] = useState(false);
+  const [selectedEditRecap, setSelectedEditRecap] = useState<RecapSideProjects | null>(null);
+  const onClickEditRecap = (e: React.MouseEvent) => {
+    const recapId = e.currentTarget.id;
+
+    const newSelectedEditRecap = recaps.find(recap => recap._id === recapId);
+
+    if (!newSelectedEditRecap) {
+      return;
+    }
+
+    setSelectedEditRecap(newSelectedEditRecap);
+    setIsShowingEditModal(true);
+  };
+  const onHideEditModal = () => {
+    setIsShowingEditModal(false);
+  };
+  const onSaveSuccessEdit = (updatedRecap: RecapSideProjects) => {
+    onUpdateRecapSuccess(updatedRecap);
+    showUpdateSuccessAlert();
+  };
 
   const {
     isShowingConfirmDeleteModal,
@@ -75,19 +112,35 @@ const SideProjectsLayout: React.FC<SideProjectsLayoutProps> = ({
           <RecapLayout.HeaderTitle>Side Projects</RecapLayout.HeaderTitle>
         </RecapLayout.Header>
         <RecapLayout.Content>
-          <SideProjectsEmptyCard
-            onClickAdd={() => {
-              // TODO: open up create modal
-            }}
-            testId="sideProjectsEmptyCard"
-          />
+          <SideProjectsEmptyCard onClickAdd={onShowCreateModal} testId="sideProjectsEmptyCard" />
         </RecapLayout.Content>
+
+        <RecapsCreateModal isShowing={isShowingCreateModal} onHide={onHideCreateModal} kind={RecapKind.SideProjects}>
+          <RecapSideProjectsForm
+            initialRecap={null}
+            isShowing={isShowingCreateModal}
+            onHide={onHideCreateModal}
+            onSaveSuccess={onSaveSuccessCreate}
+          />
+        </RecapsCreateModal>
       </RecapLayout.Container>
     );
   }
 
   return (
     <RecapLayout.Container testId={testId} className={className} {...passThroughProps}>
+      <RecapsCreateSuccessAlert
+        isShowing={alertsState.isShowingCreateSuccessAlert}
+        onHide={hideAlert}
+        kind={RecapKind.SideProjects}
+        className="mb-4"
+      />
+      <RecapsUpdateSuccessAlert
+        isShowing={alertsState.isShowingUpdateSuccessAlert}
+        onHide={hideAlert}
+        kind={RecapKind.SideProjects}
+        className="mb-4"
+      />
       <RecapsDeleteSuccessAlert
         isShowing={alertsState.isShowingDeleteSuccessAlert}
         onHide={hideAlert}
@@ -101,13 +154,7 @@ const SideProjectsLayout: React.FC<SideProjectsLayoutProps> = ({
         className="mb-4"
       />
       <RecapLayout.Header className="mb-8" onClickBack={onGoBackToLanding}>
-        <RecapLayout.HeaderTitle
-          onClickAdd={() => {
-            // TODO: open up this recap's create modal
-          }}
-        >
-          Side Projects
-        </RecapLayout.HeaderTitle>
+        <RecapLayout.HeaderTitle onClickAdd={onShowCreateModal}>Side Projects</RecapLayout.HeaderTitle>
         <RecapLayout.HeaderDescription>
           Recap the side hustles and projects you are working and collaborating on.
         </RecapLayout.HeaderDescription>
@@ -116,9 +163,7 @@ const SideProjectsLayout: React.FC<SideProjectsLayoutProps> = ({
         {recaps.map((sideProjects, key) => (
           <SideProjectsRecap
             sideProjects={sideProjects}
-            onEdit={() => {
-              // TODO: open up this recap's edit modal
-            }}
+            onEdit={onClickEditRecap}
             onDelete={onClickDeleteRecap}
             key={key}
             testId="sideProjectsRecap"
@@ -133,6 +178,24 @@ const SideProjectsLayout: React.FC<SideProjectsLayoutProps> = ({
         isProcessingDelete={isProcessingDelete}
         onClickConfirmDelete={onClickConfirmDelete}
       />
+
+      <RecapsCreateModal isShowing={isShowingCreateModal} onHide={onHideCreateModal} kind={RecapKind.SideProjects}>
+        <RecapSideProjectsForm
+          initialRecap={null}
+          isShowing={isShowingCreateModal}
+          onHide={onHideCreateModal}
+          onSaveSuccess={onSaveSuccessCreate}
+        />
+      </RecapsCreateModal>
+
+      <RecapsEditModal isShowing={isShowingEditModal} onHide={onHideEditModal} kind={RecapKind.SideProjects}>
+        <RecapSideProjectsForm
+          initialRecap={selectedEditRecap}
+          isShowing={isShowingEditModal}
+          onHide={onHideEditModal}
+          onSaveSuccess={onSaveSuccessEdit}
+        />
+      </RecapsEditModal>
     </RecapLayout.Container>
   );
 };

@@ -3,6 +3,7 @@ import { render, fireEvent, waitForElementToBeRemoved } from "@testing-library/r
 import SideProjectsLayout, { SideProjectsLayoutProps } from "./index";
 import { RecapSideProjects, RecapKind } from "../../../recaps.interface";
 import * as RecapsService from "../../../recaps.service";
+import { RecapFields } from "../../../recaps.schema";
 
 const sampleRecapSideProjects: RecapSideProjects = {
   title: "Zeta Mu Beta Website",
@@ -93,5 +94,149 @@ describe("<SideProjectsLayout />", () => {
       exact: false,
     });
     expect(errorAlert).toBeVisible();
+  });
+
+  test("should show the success alert after creating a recap successfully", async () => {
+    const onCreateRecapSuccessMock = jest.fn();
+    const { getByText, findByText, getByLabelText, getByTestId, queryByText } = render(
+      <SideProjectsLayout {...defaultProps} onCreateRecapSuccess={onCreateRecapSuccessMock} />,
+    );
+
+    fireEvent.click(getByText("Add a Recap"));
+
+    const createModal = await findByText("Create a Side Projects Recap");
+    expect(createModal).toBeVisible();
+
+    const recap: RecapSideProjects = {
+      kind: RecapKind.SideProjects,
+      title: "Side Projects Title",
+      creators: "Creators",
+      startDate: new Date("2016/11/01").toISOString(),
+      endDate: new Date("2016/12/31").toISOString(),
+      userId: "userId",
+      _id: "sideProjectsId",
+      bulletPoints: [],
+    };
+
+    fireEvent.change(getByLabelText(RecapFields.sideProjectsTitle), { target: { value: recap.title } });
+    fireEvent.blur(getByLabelText(RecapFields.sideProjectsTitle));
+
+    fireEvent.change(getByLabelText(RecapFields.sideProjectsCreators), { target: { value: recap.creators } });
+    fireEvent.blur(getByLabelText(RecapFields.sideProjectsCreators));
+
+    fireEvent.change(getByLabelText(RecapFields.startDate), { target: { value: "01/2020" } });
+    fireEvent.blur(getByLabelText(RecapFields.startDate));
+
+    fireEvent.change(getByLabelText(RecapFields.endDate), { target: { value: "10/2020" } });
+    fireEvent.blur(getByLabelText(RecapFields.endDate));
+
+    expect(getByTestId("sideProjectsSaveButton")).not.toBeDisabled();
+
+    jest.spyOn(RecapsService, "createRecap").mockImplementationOnce(() => Promise.resolve(recap));
+
+    fireEvent.click(getByTestId("sideProjectsSaveButton"));
+
+    await waitForElementToBeRemoved(() => queryByText("Create a Side Projects Recap"));
+
+    expect(onCreateRecapSuccessMock).toHaveBeenCalled();
+    expect(queryByText("You have successfully created a Side Projects Recap!")).toBeVisible();
+  });
+
+  test("should show the error alert after failing to create a recap", async () => {
+    const onCreateRecapSuccessMock = jest.fn();
+    const { getByText, findByText, getByLabelText, getByTestId } = render(
+      <SideProjectsLayout {...defaultProps} onCreateRecapSuccess={onCreateRecapSuccessMock} />,
+    );
+
+    fireEvent.click(getByText("Add a Recap"));
+
+    const createModal = await findByText("Create a Side Projects Recap");
+    expect(createModal).toBeVisible();
+
+    const recap: RecapSideProjects = {
+      kind: RecapKind.SideProjects,
+      title: "Side Projects Title",
+      creators: "Creators",
+      startDate: new Date("2016/11/01").toISOString(),
+      endDate: new Date("2016/12/31").toISOString(),
+      userId: "userId",
+      _id: "sideProjectsId",
+      bulletPoints: [],
+    };
+
+    fireEvent.change(getByLabelText(RecapFields.sideProjectsTitle), { target: { value: recap.title } });
+    fireEvent.blur(getByLabelText(RecapFields.sideProjectsTitle));
+
+    fireEvent.change(getByLabelText(RecapFields.sideProjectsCreators), { target: { value: recap.creators } });
+    fireEvent.blur(getByLabelText(RecapFields.sideProjectsCreators));
+
+    fireEvent.change(getByLabelText(RecapFields.startDate), { target: { value: "01/2020" } });
+    fireEvent.blur(getByLabelText(RecapFields.startDate));
+
+    fireEvent.change(getByLabelText(RecapFields.endDate), { target: { value: "10/2020" } });
+    fireEvent.blur(getByLabelText(RecapFields.endDate));
+
+    expect(getByTestId("sideProjectsSaveButton")).not.toBeDisabled();
+
+    jest.spyOn(RecapsService, "createRecap").mockImplementationOnce(() => Promise.reject({}));
+
+    fireEvent.click(getByTestId("sideProjectsSaveButton"));
+
+    const createErrorAlert = await findByText("Something went wrong with adding a Side Projects Recap!", {
+      exact: false,
+    });
+
+    expect(createErrorAlert).toBeVisible();
+    expect(getByText("Create a Side Projects Recap")).toBeVisible();
+    expect(onCreateRecapSuccessMock).not.toHaveBeenCalled();
+  });
+
+  test("should show the success alert after updating a recap successfully", async () => {
+    const onUpdateRecapSuccessMock = jest.fn();
+    const { getByText, queryByText, findByText, getByTestId } = render(
+      <SideProjectsLayout {...defaultProps} onUpdateRecapSuccess={onUpdateRecapSuccessMock} />,
+    );
+
+    fireEvent.click(getByText("Edit"));
+
+    const editModal = await findByText("Edit your Side Projects Recap");
+    expect(editModal).toBeVisible();
+
+    expect(getByTestId("sideProjectsSaveButton")).not.toBeDisabled();
+
+    jest.spyOn(RecapsService, "updateRecap").mockImplementationOnce(() => Promise.resolve(sampleRecapSideProjects));
+
+    fireEvent.click(getByTestId("sideProjectsSaveButton"));
+
+    await waitForElementToBeRemoved(() => queryByText("Edit your Side Projects Recap"));
+
+    expect(queryByText("You have successfully updated a Side Projects Recap!")).toBeVisible();
+    expect(onUpdateRecapSuccessMock).toHaveBeenCalled();
+  });
+
+  test("should show the error alert after failing to update a recap", async () => {
+    const onUpdateRecapSuccessMock = jest.fn();
+    const { getByText, queryByText, findByText, getByTestId } = render(
+      <SideProjectsLayout {...defaultProps} onUpdateRecapSuccess={onUpdateRecapSuccessMock} />,
+    );
+
+    fireEvent.click(getByText("Edit"));
+
+    const editModal = await findByText("Edit your Side Projects Recap");
+    expect(editModal).toBeVisible();
+
+    expect(getByTestId("sideProjectsSaveButton")).not.toBeDisabled();
+
+    jest.spyOn(RecapsService, "updateRecap").mockImplementationOnce(() => Promise.reject({}));
+
+    fireEvent.click(getByTestId("sideProjectsSaveButton"));
+
+    const updateErrorAlert = await findByText("Something went wrong with updating a Side Projects Recap!", {
+      exact: false,
+    });
+    expect(updateErrorAlert).toBeVisible();
+
+    expect(queryByText("Edit your Side Projects Recap")).toBeVisible();
+    expect(onUpdateRecapSuccessMock).not.toHaveBeenCalled();
   });
 });

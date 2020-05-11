@@ -161,7 +161,7 @@ exports[`<PublicationsForm /> should render pre-populated form inputs given init
             name="url"
             placeholder="Is there a URL link to this publication somewhere?"
             type="text"
-            value=""
+            value="http://psychology.journal.com"
           />
         </div>
       </div>
@@ -508,7 +508,7 @@ exports[`<PublicationsForm /> should render without error 1`] = `
             name="url"
             placeholder="Is there a URL link to this publication somewhere?"
             type="text"
-            value=""
+            value="http://psychology.journal.com"
           />
         </div>
       </div>

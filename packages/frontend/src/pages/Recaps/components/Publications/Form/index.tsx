@@ -11,7 +11,7 @@ import { CommonProps } from "../../../../../components/commonProps";
 import { RecapPublications, RecapCreate, PublicationType, RecapKind } from "../../../recaps.interface";
 import { useBulletPointInputList } from "../../../hooks/useBulletPointInputList";
 import { createRecap, updateRecap } from "../../../recaps.service";
-import { RecapPublicationsSchema, recapBaseErrors, RecapFields, recapPublicationsErrors } from "../../../recaps.schema";
+import { RecapPublicationsSchema, RecapFields, recapPublicationsErrors } from "../../../recaps.schema";
 
 const publicationTypes: PublicationType[] = ["Book", "Journal", "Newspaper", "Magazine", "Blog", "Other"];
 const publicationTypeSelectOptions: SelectOption[] = publicationTypes.map(publicationType => ({
@@ -137,6 +137,8 @@ const PublicationsForm: React.FC<PublicationsFormProps> = ({
     setCoauthorsError("");
     setPublisher("");
     setPublisherError("");
+    setUrl("");
+    setUrlError("");
     setStartDate(null);
     setStartDateError("");
     resetBulletPointInputList([]);
@@ -158,6 +160,8 @@ const PublicationsForm: React.FC<PublicationsFormProps> = ({
       setCoauthorsError("");
       setPublisher(initialRecap.publisher);
       setPublisherError("");
+      setUrl(initialRecap.url);
+      setUrlError("");
       setStartDate(new Date(initialRecap.startDate));
       setStartDateError("");
       resetBulletPointInputList(initialRecap.bulletPoints);

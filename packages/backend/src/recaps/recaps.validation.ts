@@ -72,8 +72,8 @@ const RecapPublicationsSchema = Joi.object({
     .max(MAX_GENERAL_LENGTH)
     .required(),
   url: Joi.string()
-    .max(MAX_URL_LENGTH)
-    .required(),
+    .allow("")
+    .max(MAX_URL_LENGTH),
 });
 
 const RecapSkillsSchema = Joi.object({

@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import * as RecapLayout from "../../RecapLayout";
 import { RecapLayoutProps } from "../../RecapLayout";
 import PublicationsEmptyCard from "../EmptyCard";
@@ -10,6 +10,9 @@ import {
   RecapsDeleteSuccessAlert,
   RecapsDeleteErrorAlert,
 } from "../../RecapsAlerts";
+import PublicationsForm from "../Form";
+import RecapsCreateModal from "../../RecapsCreateModal";
+import RecapsEditModal from "../../RecapsEditModal";
 import { Recap, RecapPublications, RecapKind } from "../../../recaps.interface";
 import { useRecapsAlerts } from "../../../hooks/useRecapsAlerts";
 import { useDeleteRecap } from "../../../hooks/useDeleteRecap";
@@ -36,6 +39,40 @@ const PublicationsLayout: React.FC<PublicationsLayoutProps> = ({
     showDeleteErrorAlert,
     hideAlert,
   } = useRecapsAlerts();
+
+  const [isShowingCreateModal, setIsShowingCreateModal] = useState(false);
+  const onShowCreateModal = () => {
+    setIsShowingCreateModal(true);
+  };
+  const onHideCreateModal = () => {
+    setIsShowingCreateModal(false);
+  };
+  const onSaveSuccessCreate = (createdRecap: RecapPublications) => {
+    onCreateRecapSuccess(createdRecap);
+    showCreateSuccessAlert();
+  };
+
+  const [isShowingEditModal, setIsShowingEditModal] = useState(false);
+  const [selectedEditRecap, setSelectedEditRecap] = useState<RecapPublications | null>(null);
+  const onClickEditRecap = (e: React.MouseEvent) => {
+    const recapId = e.currentTarget.id;
+
+    const newSelectedEditRecap = recaps.find(recap => recap._id === recapId);
+
+    if (!newSelectedEditRecap) {
+      return;
+    }
+
+    setSelectedEditRecap(newSelectedEditRecap);
+    setIsShowingEditModal(true);
+  };
+  const onHideEditModal = () => {
+    setIsShowingEditModal(false);
+  };
+  const onSaveSuccessEdit = (updatedRecap: RecapPublications) => {
+    onUpdateRecapSuccess(updatedRecap);
+    showUpdateSuccessAlert();
+  };
 
   const {
     isShowingConfirmDeleteModal,
@@ -75,19 +112,35 @@ const PublicationsLayout: React.FC<PublicationsLayoutProps> = ({
           <RecapLayout.HeaderTitle>Publications</RecapLayout.HeaderTitle>
         </RecapLayout.Header>
         <RecapLayout.Content>
-          <PublicationsEmptyCard
-            onClickAdd={() => {
-              // TODO: open up create modal
-            }}
-            testId="publicationsEmptyCard"
-          />
+          <PublicationsEmptyCard onClickAdd={onShowCreateModal} testId="publicationsEmptyCard" />
         </RecapLayout.Content>
+
+        <RecapsCreateModal isShowing={isShowingCreateModal} onHide={onHideCreateModal} kind={RecapKind.Publications}>
+          <PublicationsForm
+            initialRecap={null}
+            isShowing={isShowingCreateModal}
+            onHide={onHideCreateModal}
+            onSaveSuccess={onSaveSuccessCreate}
+          />
+        </RecapsCreateModal>
       </RecapLayout.Container>
     );
   }
 
   return (
     <RecapLayout.Container testId={testId} className={className} {...passThroughProps}>
+      <RecapsCreateSuccessAlert
+        isShowing={alertsState.isShowingCreateSuccessAlert}
+        onHide={hideAlert}
+        kind={RecapKind.Publications}
+        className="mb-4"
+      />
+      <RecapsUpdateSuccessAlert
+        isShowing={alertsState.isShowingUpdateSuccessAlert}
+        onHide={hideAlert}
+        kind={RecapKind.Publications}
+        className="mb-4"
+      />
       <RecapsDeleteSuccessAlert
         isShowing={alertsState.isShowingDeleteSuccessAlert}
         onHide={hideAlert}
@@ -101,13 +154,7 @@ const PublicationsLayout: React.FC<PublicationsLayoutProps> = ({
         className="mb-4"
       />
       <RecapLayout.Header className="mb-8" onClickBack={onGoBackToLanding}>
-        <RecapLayout.HeaderTitle
-          onClickAdd={() => {
-            // TODO: open up this recap's create modal
-          }}
-        >
-          Publications
-        </RecapLayout.HeaderTitle>
+        <RecapLayout.HeaderTitle onClickAdd={onShowCreateModal}>Publications</RecapLayout.HeaderTitle>
         <RecapLayout.HeaderDescription>
           Recap the works you published and wrote i.e. blogs, papers, books.
         </RecapLayout.HeaderDescription>
@@ -116,9 +163,7 @@ const PublicationsLayout: React.FC<PublicationsLayoutProps> = ({
         {recaps.map((publications, key) => (
           <PublicationsRecap
             publications={publications}
-            onEdit={() => {
-              // TODO: open up this recap's edit modal
-            }}
+            onEdit={onClickEditRecap}
             onDelete={onClickDeleteRecap}
             key={key}
             testId="publicationsRecap"
@@ -133,6 +178,24 @@ const PublicationsLayout: React.FC<PublicationsLayoutProps> = ({
         isProcessingDelete={isProcessingDelete}
         onClickConfirmDelete={onClickConfirmDelete}
       />
+
+      <RecapsCreateModal isShowing={isShowingCreateModal} onHide={onHideCreateModal} kind={RecapKind.Publications}>
+        <PublicationsForm
+          initialRecap={null}
+          isShowing={isShowingCreateModal}
+          onHide={onHideCreateModal}
+          onSaveSuccess={onSaveSuccessCreate}
+        />
+      </RecapsCreateModal>
+
+      <RecapsEditModal isShowing={isShowingEditModal} onHide={onHideEditModal} kind={RecapKind.Publications}>
+        <PublicationsForm
+          initialRecap={selectedEditRecap}
+          isShowing={isShowingEditModal}
+          onHide={onHideEditModal}
+          onSaveSuccess={onSaveSuccessEdit}
+        />
+      </RecapsEditModal>
     </RecapLayout.Container>
   );
 };

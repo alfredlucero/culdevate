@@ -211,6 +211,8 @@ describe("Recap Validation", () => {
         type: "Journal",
         coauthors: "Coauthors",
         publisher: "Publisher",
+        url: "",
+        wrongProperty: "",
       });
 
       expect(error).toBeTruthy();

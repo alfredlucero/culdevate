@@ -189,7 +189,7 @@ const recapPublicationsSchema = new mongoose.Schema({
   type: { type: String, required: true, enum: ["Book", "Journal", "Newspaper", "Magazine", "Blog", "Other"] },
   coauthors: { type: String, required: true, maxlength: MAX_GENERAL_LENGTH },
   publisher: { type: String, required: true, maxlength: MAX_GENERAL_LENGTH },
-  url: { type: String, required: true, maxlength: MAX_URL_LENGTH },
+  url: { type: String, required: false, maxlength: MAX_URL_LENGTH },
 });
 
 interface RecapPublicationsDocument extends RecapBaseDocument, RecapPublicationsKind {}

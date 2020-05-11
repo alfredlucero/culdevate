@@ -33,6 +33,7 @@ export enum RecapFields {
   publicationsCoauthors = "Coauthors",
   publicationsPublisher = "Publisher",
   publicationsUrl = "Publication URL",
+  publicationsDate = "Publish Date",
 
   skillsTitle = "Title",
   skillsProficiency = "Proficiency",
@@ -200,9 +201,10 @@ export const recapPublicationsErrors = {
   publisherRequired: formRequiredError({ field: RecapFields.publicationsPublisher }),
   urlMaxLength: formMaxLengthError({ field: RecapFields.publicationsUrl, maxLength: MAX_URL_LENGTH }),
   urlInvalid: `${RecapFields.publicationsUrl} must have valid syntax.`,
+  dateRequired: `${RecapFields.publicationsDate} must be a valid date.`,
 };
 
-const RecapPublicationsSchema = yup.object({
+export const RecapPublicationsSchema = yup.object({
   title: yup
     .string()
     .max(MAX_GENERAL_LENGTH, recapPublicationsErrors.titleMaxLength)

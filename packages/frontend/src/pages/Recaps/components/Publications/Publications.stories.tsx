@@ -53,7 +53,9 @@ const onDeleteRecapSuccess = () => {
 };
 
 storiesOf("RecapsPage/Publications", module)
-  .add("Form", () => <PublicationsForm />)
+  .add("Form", () => (
+    <PublicationsForm initialRecap={null} isShowing={true} onHide={() => {}} onSaveSuccess={() => {}} />
+  ))
   .add("Recap", () => <PublicationsRecap publications={publications} onEdit={onEdit} onDelete={onDelete} />)
   .add("List Card", () => <PublicationsListCard onClick={onClickView} />)
   .add("Empty Card", () => <PublicationsEmptyCard onClickAdd={onClickAdd} />)

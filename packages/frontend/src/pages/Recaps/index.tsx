@@ -568,7 +568,7 @@ const RecapsPage = () => {
 
   if (isFetchingRecaps) {
     return (
-      <div data-testid="recapsPageLoading" className={cn("p-6", "h-screen", "flex", "flex-col")}>
+      <div data-testid="recapsPageLoading" className={cn("p-12", "h-screen", "flex", "flex-col")}>
         <header>
           <Heading variant="h2" className="mb-4">
             Recaps
@@ -584,7 +584,7 @@ const RecapsPage = () => {
 
   if (isFetchRecapsError) {
     return (
-      <div data-testid="recapsPageError" className={cn("p-6", "h-screen")}>
+      <div data-testid="recapsPageError" className={cn("p-12", "h-screen")}>
         <header className="mb-6">
           <Heading variant="h2" className="mb-4">
             Recaps
@@ -596,7 +596,7 @@ const RecapsPage = () => {
     );
   }
   return (
-    <div data-testid="recapsPage" className={cn("p-6", "h-screen", "flex", "flex-col")}>
+    <div data-testid="recapsPage" className={cn("p-12", "h-screen", "flex", "flex-col")}>
       {currentKindLayout === "all" && <RecapLandingListCards onGoToRecapKindLayout={onGoToRecapKindLayout} />}
 
       {currentKindLayout === "landingListCards" && (

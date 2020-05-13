@@ -3,6 +3,7 @@ import { render } from "@testing-library/react";
 import Icon, { IconVariant } from "./index";
 
 const iconVariants: IconVariant[] = [
+  "allRecaps",
   "work",
   "education",
   "accomplishments",

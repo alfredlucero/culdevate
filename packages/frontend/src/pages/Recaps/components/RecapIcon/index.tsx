@@ -6,6 +6,7 @@ import "./index.css";
 
 export interface RecapIconProps extends CommonProps {
   variant:
+    | "allRecaps"
     | "work"
     | "education"
     | "accomplishments"

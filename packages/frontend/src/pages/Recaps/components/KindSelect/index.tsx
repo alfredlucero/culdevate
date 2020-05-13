@@ -18,9 +18,9 @@ const kindOptions: SelectOption[] = Object.entries(recapKindOptionMap).map(([kin
 const KindSelect: React.FC<KindSelectProps> = selectProps => {
   return (
     <Select
-      label="Choose what kind of recap"
+      label="What kind of recap is it?"
       options={kindOptions}
-      placeholder="Kind of recap i.e. Work Experience, Education..."
+      placeholder="Select one kind of recap..."
       required={true}
       {...selectProps}
     />

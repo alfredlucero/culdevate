@@ -16,6 +16,7 @@ type RecapKindToIconMap = {
 };
 
 const recapKindToIconMap: RecapKindToIconMap = {
+  [RecapKind.AllRecaps]: "allRecaps",
   [RecapKind.WorkExperience]: "work",
   [RecapKind.Education]: "education",
   [RecapKind.Accomplishments]: "accomplishments",

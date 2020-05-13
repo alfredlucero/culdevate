@@ -7,6 +7,7 @@ const onClick = () => {
 };
 
 const iconVariants: IconVariant[] = [
+  "allRecaps",
   "work",
   "education",
   "accomplishments",

@@ -314,7 +314,7 @@ export const RecapReferencesSchema = yup.object({
   email: yup
     .string()
     .max(MAX_GENERAL_LENGTH, recapReferencesErrors.emailMaxLength)
-    .email(recapReferencesErrors.emailMaxLength),
+    .email(recapReferencesErrors.emailInvalid),
 });
 
 export const recapOtherErrors = {

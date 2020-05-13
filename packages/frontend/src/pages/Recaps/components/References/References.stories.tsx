@@ -18,7 +18,7 @@ const references: RecapReferences = {
     "Mentored by Ethan C. and worked with Steven R. in building out the frontend and parts of the backend",
   ],
   phoneNumber: "555-555-5555",
-  email: "ac@sandia.gov",
+  email: "ac@sandia.test",
 };
 
 const onEdit = () => {
@@ -54,7 +54,7 @@ const onDeleteRecapSuccess = () => {
 };
 
 storiesOf("RecapsPage/References", module)
-  .add("Form", () => <ReferencesForm />)
+  .add("Form", () => <ReferencesForm initialRecap={null} isShowing={true} onHide={() => {}} onSaveSuccess={() => {}} />)
   .add("Recap", () => <ReferencesRecap references={references} onEdit={onEdit} onDelete={onDelete} />)
   .add("Recap - Empty Phone and Email", () => (
     <ReferencesRecap

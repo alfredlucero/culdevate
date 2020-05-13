@@ -1,0 +1,737 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`<ReferencesForm /> should render pre-populated form inputs given initial recap 1`] = `
+<div>
+  <div
+    class="mt-4 extra-class-name"
+    data-testid="referencesFormTestId"
+  >
+    <form>
+      <div
+        class="w-full mb-4"
+      >
+        <div
+          class="mr-4"
+        >
+          <label
+            class="block text-gray-700 text-sm font-bold mb-2"
+            for="title"
+          >
+            Reference Name/Title
+          </label>
+          <input
+            aria-required="true"
+            class="shadow appearance-none border w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline rounded"
+            id="title"
+            name="title"
+            placeholder="What is the name or title of someone you worked with?"
+            type="text"
+            value="Andrew C. - Product Manager"
+          />
+        </div>
+      </div>
+      <div
+        class="w-full mb-4"
+      >
+        <div
+          class="mr-4"
+        >
+          <label
+            class="block text-gray-700 text-sm font-bold mb-2"
+            for="company"
+          >
+            Company
+          </label>
+          <input
+            aria-required="true"
+            class="shadow appearance-none border w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline rounded"
+            id="company"
+            name="company"
+            placeholder="Which company did you both work together at?"
+            type="text"
+            value="Sandia National Laboratories"
+          />
+        </div>
+      </div>
+      <div
+        class="flex w-full mb-4"
+      >
+        <div
+          class="w-1/2 mr-4"
+        >
+          <label
+            class="block text-gray-700 text-sm font-bold mb-2"
+            for="email"
+          >
+            Email
+          </label>
+          <input
+            aria-required="true"
+            class="shadow appearance-none border w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline rounded"
+            id="email"
+            name="email"
+            placeholder="What is your reference's email?"
+            type="text"
+            value="ac@sandia.test"
+          />
+        </div>
+        <div
+          class="w-1/2 mr-4"
+        >
+          <label
+            class="block text-gray-700 text-sm font-bold mb-2"
+            for="phoneNumber"
+          >
+            Phone Number
+          </label>
+          <input
+            aria-required="true"
+            class="shadow appearance-none border w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline rounded"
+            id="phoneNumber"
+            name="phoneNumber"
+            placeholder="What was your reference's phone number?"
+            type="text"
+            value="555-555-5555"
+          />
+        </div>
+      </div>
+      <div>
+        <span
+          class="block text-gray-700 text-sm font-bold mb-2"
+        >
+          Bullet Points
+        </span>
+        <div
+          class="mb-6"
+        >
+          <div
+            class="bg-gray-300 pt-6 px-4 pb-4 bullet-point-list-droppable"
+            data-rbd-droppable-context-id="1"
+            data-rbd-droppable-id="bulletPointInputList"
+          >
+            <div
+              aria-labelledby="rbd-lift-instruction-1"
+              class="bg-white hover:bg-blue-100 rounded"
+              data-rbd-drag-handle-context-id="1"
+              data-rbd-drag-handle-draggable-id="referencesBulletPoint-0"
+              data-rbd-draggable-context-id="1"
+              data-rbd-draggable-id="referencesBulletPoint-0"
+              draggable="false"
+              tabindex="0"
+            >
+              <div
+                class="flex items-start px-4 py-6 rounded shadow-md cursor-pointer mb-2"
+              >
+                <div
+                  class="font-sans text-2xl mr-4 text-teal-300"
+                  id=""
+                >
+                  <svg
+                    aria-hidden="true"
+                    class="svg-inline--fa fa-square fa-w-14 "
+                    data-icon="square"
+                    data-prefix="fas"
+                    focusable="false"
+                    role="img"
+                    viewBox="0 0 448 512"
+                    xmlns="http://www.w3.org/2000/svg"
+                  >
+                    <path
+                      d="M400 32H48C21.5 32 0 53.5 0 80v352c0 26.5 21.5 48 48 48h352c26.5 0 48-21.5 48-48V80c0-26.5-21.5-48-48-48z"
+                      fill="currentColor"
+                    />
+                  </svg>
+                </div>
+                <div
+                  class="mr-4 flex-1"
+                >
+                  
+                  <input
+                    aria-required="true"
+                    class="shadow appearance-none border w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline rounded"
+                    id="referencesBulletPoint-0"
+                    name="referencesBulletPoint-0"
+                    placeholder="Provide your highlights and results..."
+                    type="text"
+                    value=""
+                  />
+                </div>
+                <div
+                  class="font-sans text-3xl text-red-500 hover:text-red-700 cursor-pointer"
+                  id="referencesBulletPoint-0"
+                >
+                  <svg
+                    aria-hidden="true"
+                    class="svg-inline--fa fa-trash-alt fa-w-14 "
+                    data-icon="trash-alt"
+                    data-prefix="fas"
+                    focusable="false"
+                    role="img"
+                    viewBox="0 0 448 512"
+                    xmlns="http://www.w3.org/2000/svg"
+                  >
+                    <path
+                      d="M32 464a48 48 0 0 0 48 48h288a48 48 0 0 0 48-48V128H32zm272-256a16 16 0 0 1 32 0v224a16 16 0 0 1-32 0zm-96 0a16 16 0 0 1 32 0v224a16 16 0 0 1-32 0zm-96 0a16 16 0 0 1 32 0v224a16 16 0 0 1-32 0zM432 32H312l-9.4-18.7A24 24 0 0 0 281.1 0H166.8a23.72 23.72 0 0 0-21.4 13.3L136 32H16A16 16 0 0 0 0 48v32a16 16 0 0 0 16 16h416a16 16 0 0 0 16-16V48a16 16 0 0 0-16-16z"
+                      fill="currentColor"
+                    />
+                  </svg>
+                </div>
+              </div>
+            </div>
+            <div
+              class="flex justify-center"
+            >
+              <button
+                class="font-bold py-2 px-4 rounded bg-transparent text-teal-700 border border-teal-500 hover:bg-teal-500 hover:text-white hover:border-transparent mt-4 flex items-center"
+                type="button"
+              >
+                <div
+                  class="flex items-center"
+                >
+                  <div
+                    class="font-sans text-2xl mr-2 add-bullet-point-plus-icon"
+                    id=""
+                  >
+                    <svg
+                      aria-hidden="true"
+                      class="svg-inline--fa fa-plus fa-w-14 "
+                      data-icon="plus"
+                      data-prefix="fas"
+                      focusable="false"
+                      role="img"
+                      viewBox="0 0 448 512"
+                      xmlns="http://www.w3.org/2000/svg"
+                    >
+                      <path
+                        d="M416 208H272V64c0-17.67-14.33-32-32-32h-32c-17.67 0-32 14.33-32 32v144H32c-17.67 0-32 14.33-32 32v32c0 17.67 14.33 32 32 32h144v144c0 17.67 14.33 32 32 32h32c17.67 0 32-14.33 32-32V304h144c17.67 0 32-14.33 32-32v-32c0-17.67-14.33-32-32-32z"
+                        fill="currentColor"
+                      />
+                    </svg>
+                  </div>
+                  Add Bullet Point
+                </div>
+              </button>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div
+        class="flex justify-end"
+      >
+        <button
+          class="font-bold py-2 px-4 rounded bg-transparent text-teal-700 border border-teal-500 hover:bg-teal-500 hover:text-white hover:border-transparent mr-2"
+          type="button"
+        >
+          <div
+            class="flex items-center"
+          >
+            Cancel
+          </div>
+        </button>
+        <button
+          class="font-bold py-2 px-4 rounded font-bold py-2 px-4 rounded bg-teal-500 text-white hover:bg-teal-700 "
+          data-testid="referencesSaveButton"
+          type="submit"
+        >
+          <div
+            class="flex items-center"
+          >
+            Save Recap
+          </div>
+        </button>
+      </div>
+    </form>
+  </div>
+</div>
+`;
+
+exports[`<ReferencesForm /> should render without error 1`] = `
+<div>
+  <div
+    class="mt-4 extra-class-name"
+    data-testid="referencesFormTestId"
+  >
+    <form>
+      <div
+        class="w-full mb-4"
+      >
+        <div
+          class="mr-4"
+        >
+          <label
+            class="block text-gray-700 text-sm font-bold mb-2"
+            for="title"
+          >
+            Reference Name/Title
+          </label>
+          <input
+            aria-required="true"
+            class="shadow appearance-none border w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline rounded"
+            id="title"
+            name="title"
+            placeholder="What is the name or title of someone you worked with?"
+            type="text"
+            value="Andrew C. - Product Manager"
+          />
+        </div>
+      </div>
+      <div
+        class="w-full mb-4"
+      >
+        <div
+          class="mr-4"
+        >
+          <label
+            class="block text-gray-700 text-sm font-bold mb-2"
+            for="company"
+          >
+            Company
+          </label>
+          <input
+            aria-required="true"
+            class="shadow appearance-none border w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline rounded"
+            id="company"
+            name="company"
+            placeholder="Which company did you both work together at?"
+            type="text"
+            value="Sandia National Laboratories"
+          />
+        </div>
+      </div>
+      <div
+        class="flex w-full mb-4"
+      >
+        <div
+          class="w-1/2 mr-4"
+        >
+          <label
+            class="block text-gray-700 text-sm font-bold mb-2"
+            for="email"
+          >
+            Email
+          </label>
+          <input
+            aria-required="true"
+            class="shadow appearance-none border w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline rounded"
+            id="email"
+            name="email"
+            placeholder="What is your reference's email?"
+            type="text"
+            value="ac@sandia.test"
+          />
+        </div>
+        <div
+          class="w-1/2 mr-4"
+        >
+          <label
+            class="block text-gray-700 text-sm font-bold mb-2"
+            for="phoneNumber"
+          >
+            Phone Number
+          </label>
+          <input
+            aria-required="true"
+            class="shadow appearance-none border w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline rounded"
+            id="phoneNumber"
+            name="phoneNumber"
+            placeholder="What was your reference's phone number?"
+            type="text"
+            value="555-555-5555"
+          />
+        </div>
+      </div>
+      <div>
+        <span
+          class="block text-gray-700 text-sm font-bold mb-2"
+        >
+          Bullet Points
+        </span>
+        <div
+          class="mb-6"
+        >
+          <div
+            class="bg-gray-300 pt-6 px-4 pb-4 bullet-point-list-droppable"
+            data-rbd-droppable-context-id="0"
+            data-rbd-droppable-id="bulletPointInputList"
+          >
+            <div
+              aria-labelledby="rbd-lift-instruction-0"
+              class="bg-white hover:bg-blue-100 rounded"
+              data-rbd-drag-handle-context-id="0"
+              data-rbd-drag-handle-draggable-id="referencesBulletPoint-0"
+              data-rbd-draggable-context-id="0"
+              data-rbd-draggable-id="referencesBulletPoint-0"
+              draggable="false"
+              tabindex="0"
+            >
+              <div
+                class="flex items-start px-4 py-6 rounded shadow-md cursor-pointer mb-2"
+              >
+                <div
+                  class="font-sans text-2xl mr-4 text-teal-300"
+                  id=""
+                >
+                  <svg
+                    aria-hidden="true"
+                    class="svg-inline--fa fa-square fa-w-14 "
+                    data-icon="square"
+                    data-prefix="fas"
+                    focusable="false"
+                    role="img"
+                    viewBox="0 0 448 512"
+                    xmlns="http://www.w3.org/2000/svg"
+                  >
+                    <path
+                      d="M400 32H48C21.5 32 0 53.5 0 80v352c0 26.5 21.5 48 48 48h352c26.5 0 48-21.5 48-48V80c0-26.5-21.5-48-48-48z"
+                      fill="currentColor"
+                    />
+                  </svg>
+                </div>
+                <div
+                  class="mr-4 flex-1"
+                >
+                  
+                  <input
+                    aria-required="true"
+                    class="shadow appearance-none border w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline rounded"
+                    id="referencesBulletPoint-0"
+                    name="referencesBulletPoint-0"
+                    placeholder="Provide your highlights and results..."
+                    type="text"
+                    value=""
+                  />
+                </div>
+                <div
+                  class="font-sans text-3xl text-red-500 hover:text-red-700 cursor-pointer"
+                  id="referencesBulletPoint-0"
+                >
+                  <svg
+                    aria-hidden="true"
+                    class="svg-inline--fa fa-trash-alt fa-w-14 "
+                    data-icon="trash-alt"
+                    data-prefix="fas"
+                    focusable="false"
+                    role="img"
+                    viewBox="0 0 448 512"
+                    xmlns="http://www.w3.org/2000/svg"
+                  >
+                    <path
+                      d="M32 464a48 48 0 0 0 48 48h288a48 48 0 0 0 48-48V128H32zm272-256a16 16 0 0 1 32 0v224a16 16 0 0 1-32 0zm-96 0a16 16 0 0 1 32 0v224a16 16 0 0 1-32 0zm-96 0a16 16 0 0 1 32 0v224a16 16 0 0 1-32 0zM432 32H312l-9.4-18.7A24 24 0 0 0 281.1 0H166.8a23.72 23.72 0 0 0-21.4 13.3L136 32H16A16 16 0 0 0 0 48v32a16 16 0 0 0 16 16h416a16 16 0 0 0 16-16V48a16 16 0 0 0-16-16z"
+                      fill="currentColor"
+                    />
+                  </svg>
+                </div>
+              </div>
+            </div>
+            <div
+              class="flex justify-center"
+            >
+              <button
+                class="font-bold py-2 px-4 rounded bg-transparent text-teal-700 border border-teal-500 hover:bg-teal-500 hover:text-white hover:border-transparent mt-4 flex items-center"
+                type="button"
+              >
+                <div
+                  class="flex items-center"
+                >
+                  <div
+                    class="font-sans text-2xl mr-2 add-bullet-point-plus-icon"
+                    id=""
+                  >
+                    <svg
+                      aria-hidden="true"
+                      class="svg-inline--fa fa-plus fa-w-14 "
+                      data-icon="plus"
+                      data-prefix="fas"
+                      focusable="false"
+                      role="img"
+                      viewBox="0 0 448 512"
+                      xmlns="http://www.w3.org/2000/svg"
+                    >
+                      <path
+                        d="M416 208H272V64c0-17.67-14.33-32-32-32h-32c-17.67 0-32 14.33-32 32v144H32c-17.67 0-32 14.33-32 32v32c0 17.67 14.33 32 32 32h144v144c0 17.67 14.33 32 32 32h32c17.67 0 32-14.33 32-32V304h144c17.67 0 32-14.33 32-32v-32c0-17.67-14.33-32-32-32z"
+                        fill="currentColor"
+                      />
+                    </svg>
+                  </div>
+                  Add Bullet Point
+                </div>
+              </button>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div
+        class="flex justify-end"
+      >
+        <button
+          class="font-bold py-2 px-4 rounded bg-transparent text-teal-700 border border-teal-500 hover:bg-teal-500 hover:text-white hover:border-transparent mr-2"
+          type="button"
+        >
+          <div
+            class="flex items-center"
+          >
+            Cancel
+          </div>
+        </button>
+        <button
+          class="font-bold py-2 px-4 rounded font-bold py-2 px-4 rounded bg-teal-500 text-white hover:bg-teal-700 "
+          data-testid="referencesSaveButton"
+          type="submit"
+        >
+          <div
+            class="flex items-center"
+          >
+            Save Recap
+          </div>
+        </button>
+      </div>
+    </form>
+  </div>
+</div>
+`;
+
+exports[`<ReferencesForm /> should show empty form inputs and disabled state given no initial recap 1`] = `
+<div>
+  <div
+    class="mt-4 extra-class-name"
+    data-testid="referencesFormTestId"
+  >
+    <form>
+      <div
+        class="w-full mb-4"
+      >
+        <div
+          class="mr-4"
+        >
+          <label
+            class="block text-gray-700 text-sm font-bold mb-2"
+            for="title"
+          >
+            Reference Name/Title
+          </label>
+          <input
+            aria-required="true"
+            class="shadow appearance-none border w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline rounded"
+            id="title"
+            name="title"
+            placeholder="What is the name or title of someone you worked with?"
+            type="text"
+            value=""
+          />
+        </div>
+      </div>
+      <div
+        class="w-full mb-4"
+      >
+        <div
+          class="mr-4"
+        >
+          <label
+            class="block text-gray-700 text-sm font-bold mb-2"
+            for="company"
+          >
+            Company
+          </label>
+          <input
+            aria-required="true"
+            class="shadow appearance-none border w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline rounded"
+            id="company"
+            name="company"
+            placeholder="Which company did you both work together at?"
+            type="text"
+            value=""
+          />
+        </div>
+      </div>
+      <div
+        class="flex w-full mb-4"
+      >
+        <div
+          class="w-1/2 mr-4"
+        >
+          <label
+            class="block text-gray-700 text-sm font-bold mb-2"
+            for="email"
+          >
+            Email
+          </label>
+          <input
+            aria-required="true"
+            class="shadow appearance-none border w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline rounded"
+            id="email"
+            name="email"
+            placeholder="What is your reference's email?"
+            type="text"
+            value=""
+          />
+        </div>
+        <div
+          class="w-1/2 mr-4"
+        >
+          <label
+            class="block text-gray-700 text-sm font-bold mb-2"
+            for="phoneNumber"
+          >
+            Phone Number
+          </label>
+          <input
+            aria-required="true"
+            class="shadow appearance-none border w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline rounded"
+            id="phoneNumber"
+            name="phoneNumber"
+            placeholder="What was your reference's phone number?"
+            type="text"
+            value=""
+          />
+        </div>
+      </div>
+      <div>
+        <span
+          class="block text-gray-700 text-sm font-bold mb-2"
+        >
+          Bullet Points
+        </span>
+        <div
+          class="mb-6"
+        >
+          <div
+            class="bg-gray-300 pt-6 px-4 pb-4 bullet-point-list-droppable"
+            data-rbd-droppable-context-id="2"
+            data-rbd-droppable-id="bulletPointInputList"
+          >
+            <div
+              aria-labelledby="rbd-lift-instruction-2"
+              class="bg-white hover:bg-blue-100 rounded"
+              data-rbd-drag-handle-context-id="2"
+              data-rbd-drag-handle-draggable-id="referencesBulletPoint-0"
+              data-rbd-draggable-context-id="2"
+              data-rbd-draggable-id="referencesBulletPoint-0"
+              draggable="false"
+              tabindex="0"
+            >
+              <div
+                class="flex items-start px-4 py-6 rounded shadow-md cursor-pointer mb-2"
+              >
+                <div
+                  class="font-sans text-2xl mr-4 text-teal-300"
+                  id=""
+                >
+                  <svg
+                    aria-hidden="true"
+                    class="svg-inline--fa fa-square fa-w-14 "
+                    data-icon="square"
+                    data-prefix="fas"
+                    focusable="false"
+                    role="img"
+                    viewBox="0 0 448 512"
+                    xmlns="http://www.w3.org/2000/svg"
+                  >
+                    <path
+                      d="M400 32H48C21.5 32 0 53.5 0 80v352c0 26.5 21.5 48 48 48h352c26.5 0 48-21.5 48-48V80c0-26.5-21.5-48-48-48z"
+                      fill="currentColor"
+                    />
+                  </svg>
+                </div>
+                <div
+                  class="mr-4 flex-1"
+                >
+                  
+                  <input
+                    aria-required="true"
+                    class="shadow appearance-none border w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline rounded"
+                    id="referencesBulletPoint-0"
+                    name="referencesBulletPoint-0"
+                    placeholder="Provide your highlights and results..."
+                    type="text"
+                    value=""
+                  />
+                </div>
+                <div
+                  class="font-sans text-3xl text-red-500 hover:text-red-700 cursor-pointer"
+                  id="referencesBulletPoint-0"
+                >
+                  <svg
+                    aria-hidden="true"
+                    class="svg-inline--fa fa-trash-alt fa-w-14 "
+                    data-icon="trash-alt"
+                    data-prefix="fas"
+                    focusable="false"
+                    role="img"
+                    viewBox="0 0 448 512"
+                    xmlns="http://www.w3.org/2000/svg"
+                  >
+                    <path
+                      d="M32 464a48 48 0 0 0 48 48h288a48 48 0 0 0 48-48V128H32zm272-256a16 16 0 0 1 32 0v224a16 16 0 0 1-32 0zm-96 0a16 16 0 0 1 32 0v224a16 16 0 0 1-32 0zm-96 0a16 16 0 0 1 32 0v224a16 16 0 0 1-32 0zM432 32H312l-9.4-18.7A24 24 0 0 0 281.1 0H166.8a23.72 23.72 0 0 0-21.4 13.3L136 32H16A16 16 0 0 0 0 48v32a16 16 0 0 0 16 16h416a16 16 0 0 0 16-16V48a16 16 0 0 0-16-16z"
+                      fill="currentColor"
+                    />
+                  </svg>
+                </div>
+              </div>
+            </div>
+            <div
+              class="flex justify-center"
+            >
+              <button
+                class="font-bold py-2 px-4 rounded bg-transparent text-teal-700 border border-teal-500 hover:bg-teal-500 hover:text-white hover:border-transparent mt-4 flex items-center"
+                type="button"
+              >
+                <div
+                  class="flex items-center"
+                >
+                  <div
+                    class="font-sans text-2xl mr-2 add-bullet-point-plus-icon"
+                    id=""
+                  >
+                    <svg
+                      aria-hidden="true"
+                      class="svg-inline--fa fa-plus fa-w-14 "
+                      data-icon="plus"
+                      data-prefix="fas"
+                      focusable="false"
+                      role="img"
+                      viewBox="0 0 448 512"
+                      xmlns="http://www.w3.org/2000/svg"
+                    >
+                      <path
+                        d="M416 208H272V64c0-17.67-14.33-32-32-32h-32c-17.67 0-32 14.33-32 32v144H32c-17.67 0-32 14.33-32 32v32c0 17.67 14.33 32 32 32h144v144c0 17.67 14.33 32 32 32h32c17.67 0 32-14.33 32-32V304h144c17.67 0 32-14.33 32-32v-32c0-17.67-14.33-32-32-32z"
+                        fill="currentColor"
+                      />
+                    </svg>
+                  </div>
+                  Add Bullet Point
+                </div>
+              </button>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div
+        class="flex justify-end"
+      >
+        <button
+          class="font-bold py-2 px-4 rounded bg-transparent text-teal-700 border border-teal-500 hover:bg-teal-500 hover:text-white hover:border-transparent mr-2"
+          type="button"
+        >
+          <div
+            class="flex items-center"
+          >
+            Cancel
+          </div>
+        </button>
+        <button
+          class="font-bold py-2 px-4 rounded font-bold py-2 px-4 rounded bg-teal-500 text-white hover:bg-teal-700 opacity-50 cursor-not-allowed "
+          data-testid="referencesSaveButton"
+          disabled=""
+          type="submit"
+        >
+          <div
+            class="flex items-center"
+          >
+            Save Recap
+          </div>
+        </button>
+      </div>
+    </form>
+  </div>
+</div>
+`;

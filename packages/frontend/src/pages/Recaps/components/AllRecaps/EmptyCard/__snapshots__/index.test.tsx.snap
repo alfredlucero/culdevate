@@ -1,0 +1,63 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`<AllRecapsEmptyCard /> should render without error 1`] = `
+<div>
+  <div
+    class="bg-white shadow-md rounded px-8 py-6 p-6 flex flex-col justify-center items-center extra-list-class"
+    data-testid="testId"
+  >
+    <div
+      class="mb-6 flex justify-center"
+    >
+      <div
+        class="flex justify-center items-center p-3 rounded-lg bg-gray-200 recap-icon"
+      >
+        <div
+          class="font-sans text-3xl text-teal-400"
+          id=""
+        >
+          <svg
+            aria-hidden="true"
+            class="svg-inline--fa fa-list-alt fa-w-16 "
+            data-icon="list-alt"
+            data-prefix="fas"
+            focusable="false"
+            role="img"
+            viewBox="0 0 512 512"
+            xmlns="http://www.w3.org/2000/svg"
+          >
+            <path
+              d="M464 480H48c-26.51 0-48-21.49-48-48V80c0-26.51 21.49-48 48-48h416c26.51 0 48 21.49 48 48v352c0 26.51-21.49 48-48 48zM128 120c-22.091 0-40 17.909-40 40s17.909 40 40 40 40-17.909 40-40-17.909-40-40-40zm0 96c-22.091 0-40 17.909-40 40s17.909 40 40 40 40-17.909 40-40-17.909-40-40-40zm0 96c-22.091 0-40 17.909-40 40s17.909 40 40 40 40-17.909 40-40-17.909-40-40-40zm288-136v-32c0-6.627-5.373-12-12-12H204c-6.627 0-12 5.373-12 12v32c0 6.627 5.373 12 12 12h200c6.627 0 12-5.373 12-12zm0 96v-32c0-6.627-5.373-12-12-12H204c-6.627 0-12 5.373-12 12v32c0 6.627 5.373 12 12 12h200c6.627 0 12-5.373 12-12zm0 96v-32c0-6.627-5.373-12-12-12H204c-6.627 0-12 5.373-12 12v32c0 6.627 5.373 12 12 12h200c6.627 0 12-5.373 12-12z"
+              fill="currentColor"
+            />
+          </svg>
+        </div>
+      </div>
+    </div>
+    <h4
+      class="font-mono font-bold text-gray-800 text-xl mb-4 text-center"
+    >
+      Recaps
+    </h4>
+    <p
+      class="font-sans text-gray-800 text-base mb-6"
+    >
+      Start remembering all the things you did for your future self or employer.
+    </p>
+    <div
+      class="flex justify-center"
+    >
+      <button
+        class="font-bold py-2 px-4 rounded font-bold py-2 px-4 rounded bg-teal-500 text-white hover:bg-teal-700 "
+        type="button"
+      >
+        <div
+          class="flex items-center"
+        >
+          Add a Recap
+        </div>
+      </button>
+    </div>
+  </div>
+</div>
+`;

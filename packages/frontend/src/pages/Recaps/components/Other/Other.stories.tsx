@@ -50,7 +50,7 @@ const onDeleteRecapSuccess = () => {
 };
 
 storiesOf("RecapsPage/Other", module)
-  .add("Form", () => <OtherForm />)
+  .add("Form", () => <OtherForm initialRecap={null} isShowing={true} onHide={() => {}} onSaveSuccess={() => {}} />)
   .add("Recap", () => <OtherRecap other={other} onEdit={onEdit} onDelete={onDelete} />)
   .add("List Card", () => <OtherListCard onClick={onClickView} />)
   .add("Empty Card", () => <OtherEmptyCard onClickAdd={onClickAdd} />)

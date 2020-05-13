@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import * as RecapLayout from "../../RecapLayout";
 import { RecapLayoutProps } from "../../RecapLayout";
 import OtherEmptyCard from "../EmptyCard";
@@ -10,6 +10,9 @@ import {
   RecapsDeleteSuccessAlert,
   RecapsDeleteErrorAlert,
 } from "../../RecapsAlerts";
+import OtherForm from "../Form";
+import RecapsCreateModal from "../../RecapsCreateModal";
+import RecapsEditModal from "../../RecapsEditModal";
 import { Recap, RecapOther, RecapKind } from "../../../recaps.interface";
 import { useRecapsAlerts } from "../../../hooks/useRecapsAlerts";
 import { useDeleteRecap } from "../../../hooks/useDeleteRecap";
@@ -36,6 +39,40 @@ const OtherLayout: React.FC<OtherLayoutProps> = ({
     showDeleteErrorAlert,
     hideAlert,
   } = useRecapsAlerts();
+
+  const [isShowingCreateModal, setIsShowingCreateModal] = useState(false);
+  const onShowCreateModal = () => {
+    setIsShowingCreateModal(true);
+  };
+  const onHideCreateModal = () => {
+    setIsShowingCreateModal(false);
+  };
+  const onSaveSuccessCreate = (createdRecap: RecapOther) => {
+    onCreateRecapSuccess(createdRecap);
+    showCreateSuccessAlert();
+  };
+
+  const [isShowingEditModal, setIsShowingEditModal] = useState(false);
+  const [selectedEditRecap, setSelectedEditRecap] = useState<RecapOther | null>(null);
+  const onClickEditRecap = (e: React.MouseEvent) => {
+    const recapId = e.currentTarget.id;
+
+    const newSelectedEditRecap = recaps.find(recap => recap._id === recapId);
+
+    if (!newSelectedEditRecap) {
+      return;
+    }
+
+    setSelectedEditRecap(newSelectedEditRecap);
+    setIsShowingEditModal(true);
+  };
+  const onHideEditModal = () => {
+    setIsShowingEditModal(false);
+  };
+  const onSaveSuccessEdit = (updatedRecap: RecapOther) => {
+    onUpdateRecapSuccess(updatedRecap);
+    showUpdateSuccessAlert();
+  };
 
   const {
     isShowingConfirmDeleteModal,
@@ -75,19 +112,35 @@ const OtherLayout: React.FC<OtherLayoutProps> = ({
           <RecapLayout.HeaderTitle>Other</RecapLayout.HeaderTitle>
         </RecapLayout.Header>
         <RecapLayout.Content>
-          <OtherEmptyCard
-            onClickAdd={() => {
-              // TODO: open up create modal
-            }}
-            testId="otherEmptyCard"
-          />
+          <OtherEmptyCard onClickAdd={onShowCreateModal} testId="otherEmptyCard" />
         </RecapLayout.Content>
+
+        <RecapsCreateModal isShowing={isShowingCreateModal} onHide={onHideCreateModal} kind={RecapKind.Other}>
+          <OtherForm
+            initialRecap={null}
+            isShowing={isShowingCreateModal}
+            onHide={onHideCreateModal}
+            onSaveSuccess={onSaveSuccessCreate}
+          />
+        </RecapsCreateModal>
       </RecapLayout.Container>
     );
   }
 
   return (
     <RecapLayout.Container testId={testId} className={className} {...passThroughProps}>
+      <RecapsCreateSuccessAlert
+        isShowing={alertsState.isShowingCreateSuccessAlert}
+        onHide={hideAlert}
+        kind={RecapKind.Other}
+        className="mb-4"
+      />
+      <RecapsUpdateSuccessAlert
+        isShowing={alertsState.isShowingUpdateSuccessAlert}
+        onHide={hideAlert}
+        kind={RecapKind.Other}
+        className="mb-4"
+      />
       <RecapsDeleteSuccessAlert
         isShowing={alertsState.isShowingDeleteSuccessAlert}
         onHide={hideAlert}
@@ -101,13 +154,7 @@ const OtherLayout: React.FC<OtherLayoutProps> = ({
         className="mb-4"
       />
       <RecapLayout.Header className="mb-8" onClickBack={onGoBackToLanding}>
-        <RecapLayout.HeaderTitle
-          onClickAdd={() => {
-            // TODO: open up this recap's create modal
-          }}
-        >
-          Other
-        </RecapLayout.HeaderTitle>
+        <RecapLayout.HeaderTitle onClickAdd={onShowCreateModal}>Other</RecapLayout.HeaderTitle>
         <RecapLayout.HeaderDescription>
           Recap the other things and everything else worth remembering.
         </RecapLayout.HeaderDescription>
@@ -116,9 +163,7 @@ const OtherLayout: React.FC<OtherLayoutProps> = ({
         {recaps.map((other, key) => (
           <OtherRecap
             other={other}
-            onEdit={() => {
-              // TODO: open up this recap's edit modal
-            }}
+            onEdit={onClickEditRecap}
             onDelete={onClickDeleteRecap}
             key={key}
             testId="otherRecap"
@@ -133,6 +178,24 @@ const OtherLayout: React.FC<OtherLayoutProps> = ({
         isProcessingDelete={isProcessingDelete}
         onClickConfirmDelete={onClickConfirmDelete}
       />
+
+      <RecapsCreateModal isShowing={isShowingCreateModal} onHide={onHideCreateModal} kind={RecapKind.Other}>
+        <OtherForm
+          initialRecap={null}
+          isShowing={isShowingCreateModal}
+          onHide={onHideCreateModal}
+          onSaveSuccess={onSaveSuccessCreate}
+        />
+      </RecapsCreateModal>
+
+      <RecapsEditModal isShowing={isShowingEditModal} onHide={onHideEditModal} kind={RecapKind.Other}>
+        <OtherForm
+          initialRecap={selectedEditRecap}
+          isShowing={isShowingEditModal}
+          onHide={onHideEditModal}
+          onSaveSuccess={onSaveSuccessEdit}
+        />
+      </RecapsEditModal>
     </RecapLayout.Container>
   );
 };

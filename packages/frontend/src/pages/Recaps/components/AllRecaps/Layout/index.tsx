@@ -12,12 +12,36 @@
 // // import AllRecapsForm from "../Form";
 // import RecapsCreateModal from "../../RecapsCreateModal";
 // import RecapsEditModal from "../../RecapsEditModal";
-// import { Recap, RecapAccomplishments, RecapKind } from "../../../recaps.interface";
+// import {
+//   Recap,
+//   RecapWorkExperience,
+//   RecapEducation,
+//   RecapAccomplishments,
+//   RecapOrganizations,
+//   RecapSkills,
+//   RecapSideProjects,
+//   RecapPublications,
+//   RecapReferences,
+//   RecapOther,
+//   RecapKind,
+// } from "../../../recaps.interface";
 // import { useRecapsAlerts } from "../../../hooks/useRecapsAlerts";
 // import { useDeleteRecap } from "../../../hooks/useDeleteRecap";
 
+// interface RecapsMap {
+//   workExperience: RecapWorkExperience[];
+//   education: RecapEducation[];
+//   accomplishments: RecapAccomplishments[];
+//   organizations: RecapOrganizations[];
+//   skills: RecapSkills[];
+//   sideProjects: RecapSideProjects[];
+//   publications: RecapPublications[];
+//   references: RecapReferences[];
+//   other: RecapOther[];
+// }
+
 // export interface AccomplishmentsLayoutProps extends RecapLayoutProps {
-//   recaps: RecapAccomplishments[];
+//   recaps: RecapsMap;
 // }
 
 // const AccomplishmentsLayout: React.FC<AccomplishmentsLayoutProps> = ({
@@ -46,13 +70,13 @@
 //   const onHideCreateModal = () => {
 //     setIsShowingCreateModal(false);
 //   };
-//   const onSaveSuccessCreate = (createdRecap: RecapAccomplishments) => {
+//   const onSaveSuccessCreate = (createdRecap: RecapAc) => {
 //     onCreateRecapSuccess(createdRecap);
 //     showCreateSuccessAlert();
 //   };
 
 //   const [isShowingEditModal, setIsShowingEditModal] = useState(false);
-//   const [selectedEditRecap, setSelectedEditRecap] = useState<RecapAccomplishments | null>(null);
+//   const [selectedEditRecap, setSelectedEditRecap] = useState<RecapAc | null>(null);
 //   const onClickEditRecap = (e: React.MouseEvent) => {
 //     const recapId = e.currentTarget.id;
 
@@ -68,7 +92,7 @@
 //   const onHideEditModal = () => {
 //     setIsShowingEditModal(false);
 //   };
-//   const onSaveSuccessEdit = (updatedRecap: RecapAccomplishments) => {
+//   const onSaveSuccessEdit = (updatedRecap: RecapAc) => {
 //     onUpdateRecapSuccess(updatedRecap);
 //     showUpdateSuccessAlert();
 //   };

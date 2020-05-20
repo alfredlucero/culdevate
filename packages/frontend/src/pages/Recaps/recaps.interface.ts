@@ -5,6 +5,7 @@ export interface RecapBase {
 }
 
 export enum RecapKind {
+  AllRecaps = "Recaps",
   WorkExperience = "Work Experience",
   Education = "Education",
   Accomplishments = "Accomplishments",

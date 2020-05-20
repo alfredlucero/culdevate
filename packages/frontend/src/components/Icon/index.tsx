@@ -3,6 +3,7 @@ import cn from "classnames";
 import { FontAwesomeIcon, FontAwesomeIconProps } from "@fortawesome/react-fontawesome";
 import { IconDefinition } from "@fortawesome/fontawesome-svg-core";
 import {
+  faListAlt,
   faSuitcase,
   faGraduationCap,
   faAward,
@@ -31,6 +32,7 @@ export interface IconProps extends CommonProps, Omit<FontAwesomeIconProps, "icon
 }
 
 export type IconVariant =
+  | "allRecaps"
   | "work"
   | "education"
   | "accomplishments"
@@ -52,6 +54,7 @@ export type IconVariant =
 export type IconSize = "small" | "medium" | "large" | "xlarge";
 
 const iconVariantToFontAwesomeMap: IconVariantToFontAwesomeMap = {
+  allRecaps: faListAlt,
   work: faSuitcase,
   education: faGraduationCap,
   accomplishments: faAward,

@@ -9,7 +9,7 @@ exports[`<KindSelect /> should render without error 1`] = `
       class="block text-gray-700 text-sm font-bold mb-2"
       for="kindSelect"
     >
-      Choose what kind of recap
+      What kind of recap is it?
        
       
     </label>
@@ -27,7 +27,12 @@ exports[`<KindSelect /> should render without error 1`] = `
         <option
           value=""
         >
-          Kind of recap i.e. Work Experience, Education...
+          Select one kind of recap...
+        </option>
+        <option
+          value="Recaps"
+        >
+          Recaps
         </option>
         <option
           value="Work Experience"

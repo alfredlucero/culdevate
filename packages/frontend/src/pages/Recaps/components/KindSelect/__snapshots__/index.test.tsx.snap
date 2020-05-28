@@ -30,11 +30,6 @@ exports[`<KindSelect /> should render without error 1`] = `
           Select one kind of recap...
         </option>
         <option
-          value="Recaps"
-        >
-          Recaps
-        </option>
-        <option
           value="Work Experience"
         >
           Work Experience

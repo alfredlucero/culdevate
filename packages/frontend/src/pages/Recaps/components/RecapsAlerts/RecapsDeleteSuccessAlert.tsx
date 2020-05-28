@@ -26,7 +26,8 @@ const RecapsDeleteSuccessAlert: React.FC<RecapsDeleteSuccessAlertProps> = ({
       className={className}
       {...passThroughProps}
     >
-      You have successfully deleted the {kind} Recap!
+      {kind !== RecapKind.AllRecaps && <>You have successfully deleted the {kind} Recap!</>}
+      {kind === RecapKind.AllRecaps && <>You have successfully deleted the Recap!</>}
     </Alert>
   );
 };

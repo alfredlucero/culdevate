@@ -10,10 +10,14 @@ const recapKindOptionMap = {
   ...RecapKind,
 };
 
-const kindOptions: SelectOption[] = Object.entries(recapKindOptionMap).map(([kindKey, kindValue]) => ({
-  label: kindValue,
-  value: kindValue,
-}));
+const kindOptions: SelectOption[] = Object.entries(recapKindOptionMap)
+  .map(([kindKey, kindValue]) => ({
+    label: kindValue,
+    value: kindValue,
+  }))
+  .filter(option => {
+    return option.label !== RecapKind.AllRecaps;
+  });
 
 const KindSelect: React.FC<KindSelectProps> = selectProps => {
   return (

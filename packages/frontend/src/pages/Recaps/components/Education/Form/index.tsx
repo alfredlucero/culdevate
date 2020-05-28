@@ -355,11 +355,13 @@ const EducationForm: React.FC<EducationFormProps> = ({
         kind={RecapKind.Education}
         isShowing={isSubmitCreateError}
         onHide={onHideSubmitCreateError}
+        className="mb-4"
       />
       <RecapsUpdateErrorAlert
         kind={RecapKind.Education}
         isShowing={isSubmitUpdateError}
         onHide={onHideSubmitUpdateError}
+        className="mb-4"
       />
       <form onSubmit={onSubmit}>
         <div className="flex w-full mb-4">

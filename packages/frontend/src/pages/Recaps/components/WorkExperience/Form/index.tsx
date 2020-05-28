@@ -335,11 +335,13 @@ const WorkExperienceForm: React.FC<WorkExperienceFormProps> = ({
         kind={RecapKind.WorkExperience}
         isShowing={isSubmitCreateError}
         onHide={onHideSubmitCreateError}
+        className="mb-4"
       />
       <RecapsUpdateErrorAlert
         kind={RecapKind.WorkExperience}
         isShowing={isSubmitUpdateError}
         onHide={onHideSubmitUpdateError}
+        className="mb-4"
       />
       <form onSubmit={onSubmit}>
         <div className="flex w-full mb-4">

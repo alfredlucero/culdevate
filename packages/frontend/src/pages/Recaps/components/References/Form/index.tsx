@@ -241,11 +241,13 @@ const ReferencesForm: React.FC<ReferencesFormProps> = ({
         kind={RecapKind.References}
         isShowing={isSubmitCreateError}
         onHide={onHideSubmitCreateError}
+        className="mb-4"
       />
       <RecapsUpdateErrorAlert
         kind={RecapKind.References}
         isShowing={isSubmitUpdateError}
         onHide={onHideSubmitUpdateError}
+        className="mb-4"
       />
       <form onSubmit={onSubmit}>
         <div className="w-full mb-4">

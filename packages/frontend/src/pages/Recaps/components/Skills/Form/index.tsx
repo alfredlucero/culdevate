@@ -188,11 +188,13 @@ const SkillsForm: React.FC<SkillsFormProps> = ({
         kind={RecapKind.Skills}
         isShowing={isSubmitCreateError}
         onHide={onHideSubmitCreateError}
+        className="mb-4"
       />
       <RecapsUpdateErrorAlert
         kind={RecapKind.Skills}
         isShowing={isSubmitUpdateError}
         onHide={onHideSubmitUpdateError}
+        className="mb-4"
       />
       <form onSubmit={onSubmit}>
         <div className="flex w-full mb-4">

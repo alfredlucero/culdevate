@@ -26,7 +26,8 @@ const RecapsUpdateSuccessAlert: React.FC<RecapsUpdateSuccessAlertProps> = ({
       className={className}
       {...passThroughProps}
     >
-      You have successfully updated a {kind} Recap!
+      {kind !== RecapKind.AllRecaps && <>You have successfully updated a {kind} Recap!</>}
+      {kind === RecapKind.AllRecaps && <>You have successfully updated a Recap!</>}
     </Alert>
   );
 };

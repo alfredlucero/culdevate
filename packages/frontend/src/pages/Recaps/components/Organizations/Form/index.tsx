@@ -309,11 +309,13 @@ const OrganizationsForm: React.FC<OrganizationsFormProps> = ({
         kind={RecapKind.Organizations}
         isShowing={isSubmitCreateError}
         onHide={onHideSubmitCreateError}
+        className="mb-4"
       />
       <RecapsUpdateErrorAlert
         kind={RecapKind.Organizations}
         isShowing={isSubmitUpdateError}
         onHide={onHideSubmitUpdateError}
+        className="mb-4"
       />
       <form onSubmit={onSubmit}>
         <div className="w-full mb-4">

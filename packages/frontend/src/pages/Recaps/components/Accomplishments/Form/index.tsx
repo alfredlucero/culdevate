@@ -221,11 +221,13 @@ const AccomplishmentsForm: React.FC<AccomplishmentsFormProps> = ({
         kind={RecapKind.Accomplishments}
         isShowing={isSubmitCreateError}
         onHide={onHideSubmitCreateError}
+        className="mb-4"
       />
       <RecapsUpdateErrorAlert
         kind={RecapKind.Accomplishments}
         isShowing={isSubmitUpdateError}
         onHide={onHideSubmitUpdateError}
+        className="mb-4"
       />
       <form onSubmit={onSubmit}>
         <div className="flex w-full mb-4">

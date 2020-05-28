@@ -224,8 +224,18 @@ const OtherForm: React.FC<OtherFormProps> = ({
 
   return (
     <div className={cn("mt-4", className)} {...(testId !== "" ? { "data-testid": testId } : {})} {...passThroughProps}>
-      <RecapsCreateErrorAlert kind={RecapKind.Other} isShowing={isSubmitCreateError} onHide={onHideSubmitCreateError} />
-      <RecapsUpdateErrorAlert kind={RecapKind.Other} isShowing={isSubmitUpdateError} onHide={onHideSubmitUpdateError} />
+      <RecapsCreateErrorAlert
+        kind={RecapKind.Other}
+        isShowing={isSubmitCreateError}
+        onHide={onHideSubmitCreateError}
+        className="mb-4"
+      />
+      <RecapsUpdateErrorAlert
+        kind={RecapKind.Other}
+        isShowing={isSubmitUpdateError}
+        onHide={onHideSubmitUpdateError}
+        className="mb-4"
+      />
       <form onSubmit={onSubmit}>
         <div className="w-full mb-4">
           <TextInput

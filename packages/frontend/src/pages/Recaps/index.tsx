@@ -6,6 +6,7 @@ import Text from "../../components/Text";
 import LoadingIcon from "../../components/LoadingIcon";
 import RecapsErrorCard from "./components/RecapsErrorCard";
 import RecapLandingListCards from "./components/RecapLandingListCards";
+import AllRecapsLayout from "./components/AllRecaps/Layout";
 import WorkExperienceLayout from "./components/WorkExperience/Layout";
 import EducationLayout from "./components/Education/Layout";
 import AccomplishmentsLayout from "./components/Accomplishments/Layout";
@@ -34,7 +35,7 @@ import {
 
 /*
   State Management:
-  - page provider - useContext, useReducer
+  - useReducer at the top
     {
       currentView: "all" | "landingListCards" | RecapKind
       recaps: {
@@ -597,10 +598,18 @@ const RecapsPage = () => {
   }
   return (
     <div data-testid="recapsPage" className={cn("p-12", "h-screen", "flex", "flex-col")}>
-      {currentKindLayout === "all" && <RecapLandingListCards onGoToRecapKindLayout={onGoToRecapKindLayout} />}
-
       {currentKindLayout === "landingListCards" && (
         <RecapLandingListCards onGoToRecapKindLayout={onGoToRecapKindLayout} />
+      )}
+
+      {currentKindLayout === "all" && (
+        <AllRecapsLayout
+          recapsMap={recapsMap}
+          onGoBackToLanding={onGoBackToLanding}
+          onCreateRecapSuccess={onCreateRecapSuccess}
+          onUpdateRecapSuccess={onUpdateRecapSuccess}
+          onDeleteRecapSuccess={onDeleteRecapSuccess}
+        />
       )}
 
       {currentKindLayout === "Work Experience" && (

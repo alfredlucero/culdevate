@@ -26,7 +26,8 @@ const RecapsCreateSuccessAlert: React.FC<RecapsCreateSuccessAlertProps> = ({
       className={className}
       {...passThroughProps}
     >
-      You have successfully created a {kind} Recap!
+      {kind !== RecapKind.AllRecaps && <>You have successfully created a {kind} Recap!</>}
+      {kind === RecapKind.AllRecaps && <>You have successfully created a Recap!</>}
     </Alert>
   );
 };

@@ -1,16 +1,20 @@
 import mongoose from "mongoose";
 
 export const setupDatabase = () => {
-  const { MONGO_USER, MONGO_PASSWORD, MONGO_PATH } = process.env;
+  const { CONFIG_ENV, MONGO_USER, MONGO_PASSWORD, MONGO_PATH } = process.env;
 
   // In order to chain mongoose requests with .then/.catch or use async/await
   mongoose.Promise = global.Promise;
   // To avoid deprecation warnings for using findOneAndUpdate or findOneAndDelete
   mongoose.set("useFindAndModify", false);
 
-  mongoose.connect(`mongodb+srv://${MONGO_USER}:${MONGO_PASSWORD}${MONGO_PATH}`, {
-    useNewUrlParser: true,
-  });
+  if (CONFIG_ENV === "dev") {
+    mongoose.connect(MONGO_PATH, { useNewUrlParser: true });
+  } else {
+    mongoose.connect(`mongodb+srv://${MONGO_USER}:${MONGO_PASSWORD}${MONGO_PATH}`, {
+      useNewUrlParser: true,
+    });
+  }
 
   mongoose.connection.on("connected", function() {
     console.log("Connected to MongoDB instance!");

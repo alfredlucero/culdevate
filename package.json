@@ -6,6 +6,8 @@
   "scripts": {
     "setup_packages": "lerna run setup --stream",
     "dev": "lerna run dev --concurrency 2 --stream",
+    "staging": "lerna run staging --concurrency 2 --stream",
+    "production": "lerna run production --concurrency 2 --stream",
     "lint": "lerna run lint --stream",
     "precommit": "lerna run precommit --concurrency 2 --stream",
     "test": "lerna run test --concurrency 2 --stream"

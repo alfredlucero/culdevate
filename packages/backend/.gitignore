@@ -1,2 +1,5 @@
 .env
+.env.production
+.env.staging
+mongo-db
 node_modules

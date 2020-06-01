@@ -28,12 +28,13 @@ On Mac, you can install with `brew install mongodb` and you should be able to do
 Otherwise, with Windows or if the earlier command did not work, you may follow along in MongoDB's [installation tutorial](https://docs.mongodb.com/guides/server/install/).
 
 We also recommend installing the [MongoDB Compass GUI](https://www.mongodb.com/download-center/compass) so you can connect to your local MongoDB or the staging MongoDB through a connection string and save those connections for future use. It is also easier to filter through the data and update documents through the GUI rather than through the command-line.
+The connection string for your local MongoDB development will be `mongodb://localhost:27017/culdevate-dev` and you can verify it connects properly by starting up your local MongoDB with a command like `npm run mongodb:mac` and then using the connection string in the MongoDB Compass GUI.
 
 Third, you'll notice there are separate environment configuration files named as `.env.*`. `.env.dev` is configured to work against the local MongoDB instance running on your machine and you can inspect the values inside. This file is provided since it does not have sensitive information but for staging and production we did not commit them to avoid security issues. There are example files of the required environment variables as shown in `.env.staging.example` and `.env.production.example`. You will need to contact the admins for the credentials/values to certain fields once you copy and create your own `.env.staging` and `.env.production` in your repo directory.
 
 ## How to get up and runnning
 
-After installing MongoDB for local development and tools such as the MongoDB Compass Community,
+After installing MongoDB for local development and tools such as the MongoDB Compass GUI,
 we are ready to start installing more code dependencies.
 
 To install the server dependencies, run this command

@@ -1,5 +1,6 @@
 import CuldevationModel, { Culdevation } from "./culdevations.model";
 
+// This DAO is for example purposes only
 // Define the Data Accesss Object, where we actually make MongoDB calls to the backend to decouple
 // accessing lower-level APIs and provide mocking for unit tests
 const CuldevationsDao = {

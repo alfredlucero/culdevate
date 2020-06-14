@@ -2,6 +2,7 @@ import { Request, Response } from "express";
 import CuldevationsDao from "./culdevations.dao";
 import { Culdevation } from "./culdevations.model";
 
+// This controller is for example purposes only
 const CuldevationsController = {
   async getAllCuldevations(req: Request, res: Response) {
     try {

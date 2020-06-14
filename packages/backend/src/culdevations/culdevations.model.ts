@@ -1,5 +1,6 @@
 import mongoose from "mongoose";
 
+// This model file is for example purposes only
 export interface Culdevation {
   culdevator: string;
   title: string;

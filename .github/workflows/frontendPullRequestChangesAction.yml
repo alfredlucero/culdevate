@@ -1,0 +1,43 @@
+name: Frontend Pull Request Changes
+
+# Controls when the action will run
+# Triggers the workflow on pull request events only for the master branch
+# The pull request must include changes to the frontend folder since this is the workflow
+# for a frontend related change
+on:
+  pull_request:
+    branches: [master]
+    paths:
+      - "packages/frontend/**"
+    types: [opened, synchronize, reopened]
+
+# A workflow run is made up of one or more jobs that can run sequentially or in parallel
+jobs:
+  # This job will run the frontend unit tests
+  unit_tests:
+    # The type of runner that the job will run on
+    runs-on: ubuntu-latest
+
+    # Steps represent a sequence of tasks that will be executed as part of the job
+    steps:
+      # Checks out your repository under $GITHUB_WORKSPACE, so your job can access it
+      - name: Checkout Repo
+        uses: actions/checkout@v2
+
+      # Set up a Node 12.x environment to do npm/node things
+      - name: Use Node.js 12.x
+        uses: actions/setup-node@v1
+        with:
+          node-version: 12.x
+
+      # Go into the frontend folder and install dependencies
+      - name: Install Frontend Dependencies
+        run: npm install
+        working-directory: packages/frontend
+
+      # Run unit tests in the frontend folder
+      - name: Run Unit Tests
+        run: npm run test
+        working-directory: packages/frontend
+        env:
+          CI: true

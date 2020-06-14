@@ -66,33 +66,6 @@ import {
     - maintains state for banners
     - maintains its specific create/edit/delete modals
     - maintains its own kind's recap list -> may be ordered in specific way
-
-  
-  <RecapsPage>
-    <LandingCardsLayout />
-
-    <AllRecapsLayout /> -> <RecapLayout />
-    <WorkExperienceLayout />
-    <EducationLayout />
-    <AccomplishmentsLayout />
-    <OrganizationsLayout />
-    <SkillsLayout>
-    </SkillsLayout>
-    <SideProjectsLayout>
-      <CreateSuccessBanner />
-      <CreateFailureBanner />
-      <EditSuccessBanner />
-      <EditFailureBanner />
-      <DeleteSuccessBanner />
-      <DeleteFailureBanner />
-
-      <SideProjectsCreateModal />
-      <SideProjectsEditModal />
-    </SideProjectsLayout>
-    <PublicationsLayout />
-    <ReferencesLayout />
-    <OtherLayout />
-  </RecapsPage>
 */
 
 export type RecapsCurrentKindLayout = "landingListCards" | "all" | RecapKind;

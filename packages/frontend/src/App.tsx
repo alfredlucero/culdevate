@@ -14,6 +14,7 @@ import NavigationAuth, { AuthRoutes } from "./components/NavigationAuth";
 import { useAuth } from "./AuthProvider";
 import "./App.css";
 
+// The Root Component of all the things
 const App = () => {
   const { isAuthenticated, logOut } = useAuth();
 

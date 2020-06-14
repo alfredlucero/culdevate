@@ -1,0 +1,35 @@
+name: Frontend Master Staging Deploy
+
+on:
+  push:
+    branches: [master]
+    paths:
+      - "packages/frontend/**"
+
+jobs:
+  deploy_staging:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout Repo
+        uses: actions/checkout@v2
+
+      - name: Use Node.js 12.x
+        uses: actions/setup-node@v1
+        with:
+          node-version: 12.x
+
+      - name: Install Surge
+        run: npm install -g surge
+
+      - name: Install Frontend Dependencies
+        run: npm install
+        working-directory: packages/frontend
+
+      - name: Build Frontend Assets
+        run: npm run build
+        working-directory: packages/frontend
+
+      - name: Deploy Assets to Staging Surge
+        run: surge ./dist ${{ secrets.SURGE_STAGING_DOMAIN }} --token ${{ secrets.SURGE_TOKEN }}
+        working-directory: packages/frontend

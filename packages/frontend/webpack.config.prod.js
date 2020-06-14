@@ -5,7 +5,9 @@ const { tsLoader, postCssLoader, devServer, prodOptimization } = require("./webp
 
 module.exports = {
   mode: "production",
-  entry: { main: "./src/Main.tsx" },
+  entry: {
+    main: "./src/Main.tsx",
+  },
   devtool: "cheap-module-source-map",
   module: {
     rules: [tsLoader, postCssLoader],

@@ -1,3 +1,4 @@
+const path = require("path");
 const { CleanWebpackPlugin } = require("clean-webpack-plugin");
 const HtmlWebpackPlugin = require("html-webpack-plugin");
 const MiniCssExtractPlugin = require("mini-css-extract-plugin");
@@ -32,8 +33,8 @@ module.exports = {
     }),
   ],
   output: {
-    path: __dirname + "/dist",
-    filename: "dist/[name].[chunkhash].js",
+    path: path.join(__dirname, "/dist/"),
+    filename: "[name].[chunkhash].js",
     sourceMapFilename: "[file].map",
     pathinfo: true,
     publicPath: "/",

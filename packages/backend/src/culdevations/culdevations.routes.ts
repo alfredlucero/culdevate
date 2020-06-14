@@ -1,6 +1,7 @@
 import { Router } from "express";
 import CuldevationsController from "./culdevations.controller";
 
+// This is for example purposes only of how to compose your routes
 const CuldevationsRoutes = {
   path: "/culdevations",
   router: Router(),

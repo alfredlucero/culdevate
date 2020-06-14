@@ -22,7 +22,7 @@ jobs:
     steps:
       # Checks out your repository under $GITHUB_WORKSPACE, so your job can access it
       - name: Checkout Repo
-      - uses: actions/checkout@v2
+        uses: actions/checkout@v2
 
       # Set up a Node 12.x environment to do npm/node things
       - name: Use Node.js 12.x
@@ -31,11 +31,13 @@ jobs:
           node-version: 12.x
 
       # Go into the backend folder and install dependencies
-      - run: npm install
+      - name: Install Backend Dependencies
+        run: npm install
         working-directory: packages/backend
 
       # Run unit/integration tests in the backend folder
-      - run: npm run test
+      - name: Run Unit/Integration tests
+        run: npm run test
         working-directory: packages/backend
         env:
           CI: true

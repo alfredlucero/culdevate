@@ -14,6 +14,6 @@ jobs:
       - name: Checkout Repo
         uses: actions/checkout@v2
 
-      - Deploy to Staging Heroku aka culdevateapistaging
-      run: |
-        git push https://heroku:${{ secrets.HEROKU_API_KEY }}@git.heroku.com/${{ secrets.HEROKU_STAGING_API_NAME }}.git master
+      - name: Deploy to Staging Heroku aka culdevateapistaging
+        run: |
+          git push https://heroku:${{ secrets.HEROKU_API_KEY }}@git.heroku.com/${{ secrets.HEROKU_STAGING_API_NAME }}.git master

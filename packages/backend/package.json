@@ -6,7 +6,7 @@
   "scripts": {
     "setup": "npm ci",
     "build": "tsc",
-    "start": "ts-node ./src/server.ts",
+    "start": "node ./dist/server.js",
     "mongodb:mac": "mkdir mongo-db; mongod --dbpath mongo-db",
     "mongodb:windows": "md mongo-db & \"C:/Program Files/MongoDb/Server/3.2/bin/mongod.exe\" --dbpath mongo-db",
     "dev": "cross-env NODE_ENV=development CONFIG_ENV=dev nodemon",

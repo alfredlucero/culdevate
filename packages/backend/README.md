@@ -74,3 +74,17 @@ To start up the Unit and Integration Tests you can run this command
 [culdevatestagingapi](https://culdevateapistaging.herokuapp.com/) aka the staging API server hosted on Heroku uses the Heroku CLI to deploy things locally and is automated through the `backendMasterStagingDeployAction.yml`. It relies on the `npm run start` command being available to detect a Node server, and we make sure to push only this backend subdirectory for the application since this folder is part of a monorepo.
 
 Make sure to set the environment variables in the `Config Vars` area in the Heroku culdevatestagingapi. They should match the proper `.env.staging` values to properly read the `process.env.*` variables within our code.
+
+For local deployment:
+
+Add a remote git reference to the Heroku staging application
+`heroku git:remote -a culdevateapistaging`
+
+Check to make sure you see the new remote added with
+`git remote -v`
+
+Rename the remote to be something more readable
+`git remote rename heroku culdevateapistaging`
+
+Deploy the backend folder code to Heroku
+`git subtree push --prefix packages/backend/ culdevateapistaging master`

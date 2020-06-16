@@ -16,4 +16,4 @@ jobs:
 
       - name: Deploy to Staging Heroku aka culdevateapistaging
         run: |
-          git subtree push --prefix packages/backend/ https://heroku:${{ secrets.HEROKU_API_KEY }}@git.heroku.com/${{ secrets.HEROKU_STAGING_API_NAME }}.git master -f
+          git subtree push --force --prefix packages/backend/ https://heroku:${{ secrets.HEROKU_API_KEY }}@git.heroku.com/${{ secrets.HEROKU_STAGING_API_NAME }}.git master

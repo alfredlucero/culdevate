@@ -1,5 +1,6 @@
 import { cleanEnv, str, port } from "envalid";
 
+// Only mean to be used in development mode/local testing
 const validateEnv = () => {
   cleanEnv(process.env, {
     MONGO_USER: str(),

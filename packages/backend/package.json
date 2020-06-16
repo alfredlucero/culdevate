@@ -16,6 +16,9 @@
     "lint": "tsc --noEmit && eslint --fix './src/**/*.{js,ts}'",
     "precommit": "tsc --noEmit && lint-staged"
   },
+  "engines": {
+    "node": "12.x"
+  },
   "lint-staged": {
     "*.{js,ts}": [
       "eslint . --fix",

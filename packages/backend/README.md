@@ -68,3 +68,9 @@ npm run staging
 To start up the Unit and Integration Tests you can run this command
 
 `npm run test`
+
+## Deployments to Heroku
+
+[culdevatestagingapi](https://culdevateapistaging.herokuapp.com/) aka the staging API server hosted on Heroku uses the Heroku CLI to deploy things locally and is automated through the `backendMasterStagingDeployAction.yml`. It relies on the `npm run start` command being available to detect a Node server, and we make sure to push only this backend subdirectory for the application since this folder is part of a monorepo.
+
+Make sure to set the environment variables in the `Config Vars` area in the Heroku culdevatestagingapi. They should match the proper `.env.staging` values to properly read the `process.env.*` variables within our code.

@@ -3,9 +3,11 @@ import app from "./app";
 import { setupDatabase } from "./db";
 import { validateEnv } from "./utils/validateEnv";
 
-dotenv.config({
-  path: `./.env.${process.env.CONFIG_ENV}`,
-});
+if (process.env.NODE_ENV !== "production") {
+  dotenv.config({
+    path: `./.env.${process.env.CONFIG_ENV}`,
+  });
+}
 
 // We separate the set up of the Express server (app) from actually listening/starting up the server
 // for testing purposes and for greater separation of concerns

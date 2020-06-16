@@ -3,3 +3,4 @@
 .env.staging
 mongo-db
 node_modules
+dist

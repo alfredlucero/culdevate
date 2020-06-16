@@ -7,11 +7,12 @@
     "setup": "npm ci",
     "build": "tsc",
     "start": "node ./dist/server.js",
+    "start:local": "ts-node ./src/server.ts",
     "mongodb:mac": "mkdir mongo-db; mongod --dbpath mongo-db",
     "mongodb:windows": "md mongo-db & \"C:/Program Files/MongoDb/Server/3.2/bin/mongod.exe\" --dbpath mongo-db",
     "dev": "cross-env NODE_ENV=development CONFIG_ENV=dev nodemon",
-    "staging": "cross-env NODE_ENV=production CONFIG_ENV=staging nodemon",
-    "production": "cross-env NODE_ENV=production CONFIG_ENV=production npm run build && nodemon",
+    "staging": "cross-env NODE_ENV=development CONFIG_ENV=staging nodemon",
+    "production": "cross-env NODE_ENV=development CONFIG_ENV=production npm run build && nodemon",
     "test": "jest",
     "lint": "tsc --noEmit && eslint --fix './src/**/*.{js,ts}'",
     "precommit": "tsc --noEmit && lint-staged"
@@ -21,7 +22,7 @@
   },
   "lint-staged": {
     "*.{js,ts}": [
-      "eslint . --fix",
+      "eslint . --fix --ignore-pattern dist/**",
       "git add"
     ]
   },
@@ -33,7 +34,7 @@
     "watch": [
       "src"
     ],
-    "exec": "npm run start",
+    "exec": "npm run start:local",
     "ext": "ts"
   },
   "keywords": [
@@ -74,7 +75,7 @@
     "@typescript-eslint/eslint-plugin": "^2.5.0",
     "@typescript-eslint/parser": "^2.5.0",
     "cross-env": "^7.0.2",
-    "dotenv": "^8.0.0",
+    "dotenv": "^8.2.0",
     "envalid": "^5.0.0",
     "eslint": "^6.5.1",
     "eslint-config-prettier": "^6.4.0",

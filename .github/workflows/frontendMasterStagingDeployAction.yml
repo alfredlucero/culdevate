@@ -28,6 +28,8 @@ jobs:
 
       - name: Build Frontend Assets
         run: npm run build
+        env:
+          API_HOST: ${{ secrets.STAGING_API_HOST }}
         working-directory: packages/frontend
 
       - name: Deploy Assets to Staging Surge

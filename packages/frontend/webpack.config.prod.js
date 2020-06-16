@@ -31,6 +31,8 @@ module.exports = {
         minifyJS: true,
       },
     }),
+    // TODO: set up dotenv and separate env files for us to use eventually
+    new webpack.DefinePlugin({ "process.env.API_HOST": JSON.stringify(process.env.API_HOST) }),
   ],
   output: {
     path: path.join(__dirname, "/dist/"),

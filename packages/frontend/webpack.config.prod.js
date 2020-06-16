@@ -33,6 +33,7 @@ module.exports = {
       },
     }),
     // TODO: set up dotenv and separate env files for us to use eventually
+    // replace with better environment variable management
     new webpack.DefinePlugin({ "process.env.API_HOST": JSON.stringify(process.env.API_HOST) }),
   ],
   output: {

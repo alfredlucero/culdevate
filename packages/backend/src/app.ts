@@ -14,6 +14,8 @@ import logger from "morgan";
 import CuldevationsRoutes from "./culdevations/culdevations.routes";
 import AuthRoutes from "./auth/auth.routes";
 import RecapsRoutes from "./recaps/recaps.routes";
+import ImpactsRoutes from "./impacts/impacts.routes";
+import SelfReviewsRoutes from "./selfreviews/selfreviews.routes";
 
 class App {
   public app: Application;
@@ -53,9 +55,13 @@ class App {
     // Purpose: for Recaps CRUD
     this.app.use(RecapsRoutes.path, RecapsRoutes.initializeRoutes());
 
-    // TODO: impacts routes
+    // Routes: /impacts/**/*
+    // Purpose: for Impacts CRUD
+    this.app.use(ImpactsRoutes.path, ImpactsRoutes.initializeRoutes());
 
-    // TODO: self reviews routes
+    // Routes: /selfreviews/**/*
+    // Purpose: for Self Reviews CRUD
+    this.app.use(SelfReviewsRoutes.path, SelfReviewsRoutes.initializeRoutes());
   }
 }
 

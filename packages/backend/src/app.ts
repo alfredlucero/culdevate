@@ -52,6 +52,10 @@ class App {
     // Routes: /recaps/**/*
     // Purpose: for Recaps CRUD
     this.app.use(RecapsRoutes.path, RecapsRoutes.initializeRoutes());
+
+    // TODO: impacts routes
+
+    // TODO: self reviews routes
   }
 }
 

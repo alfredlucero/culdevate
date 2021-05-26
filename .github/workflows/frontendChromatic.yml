@@ -20,4 +20,4 @@ jobs:
         run: npm install
 
       - name: Publish to Chromatic
-        run: npm run chromatic
+        run: npm run chromatic -- --project-token ${{ secrets.CHROMATIC_PROJECT_TOKEN }}

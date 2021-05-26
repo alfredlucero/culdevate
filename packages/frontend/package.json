@@ -12,8 +12,10 @@
     "test": "jest",
     "test_watch": "jest --watchAll",
     "storybook": "start-storybook -p 9001",
+    "build-storybook": "build-storybook",
     "lint": "tsc --noEmit && eslint --fix './src/**/*.{js,ts,jsx,tsx}'",
-    "precommit": "tsc --noEmit && lint-staged"
+    "precommit": "tsc --noEmit && lint-staged",
+    "chromatic": "chromatic --exit-zero-on-changes"
   },
   "lint-staged": {
     "*.{js,ts,tsx,jsx}": [
@@ -67,6 +69,7 @@
     "@typescript-eslint/parser": "^2.5.0",
     "autoprefixer": "^9.6.5",
     "babel-loader": "^8.0.6",
+    "chromatic": "^5.8.3",
     "classnames": "^2.2.6",
     "clean-webpack-plugin": "^3.0.0",
     "css-loader": "^3.2.0",

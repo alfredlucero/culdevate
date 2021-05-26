@@ -1,0 +1,23 @@
+name: "Chromatic"
+
+on:
+  pull_request:
+    branches: [master]
+    paths:
+      - "packages/frontend/**"
+    types: [opened, synchronize, reopened]
+
+jobs:
+  chromatic-deployment:
+    runs-on: ubuntu-latest
+    defaults:
+      run:
+        working-directory: packages/frontend
+    steps:
+      - uses: actions/checkout@v1
+
+      - name: Install Frontend Dependencies
+        run: npm install
+
+      - name: Publish to Chromatic
+        run: npm run chromatic -- --project-token ${{ secrets.CHROMATIC_PROJECT_TOKEN }}

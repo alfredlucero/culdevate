@@ -7,12 +7,12 @@ on:
       - "packages/frontend/**"
     types: [opened, synchronize, reopened]
 
+defaults:
+  run:
+    working-directory: packages/frontend
 jobs:
   chromatic-deployment:
     runs-on: ubuntu-latest
-    defaults:
-      run:
-        working-directory: packages/frontend
     steps:
       - uses: actions/checkout@v1
 

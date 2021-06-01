@@ -14,17 +14,10 @@
     "staging": "cross-env NODE_ENV=development CONFIG_ENV=staging nodemon",
     "production": "cross-env NODE_ENV=development CONFIG_ENV=production npm run build && nodemon",
     "test": "jest",
-    "lint": "tsc --noEmit && eslint --fix './src/**/*.{js,ts}'",
-    "precommit": "tsc --noEmit && lint-staged"
+    "lint": "tsc --noEmit && eslint --fix './src/**/*.{js,ts}'"
   },
   "engines": {
     "node": "12.x"
-  },
-  "lint-staged": {
-    "*.{js,ts}": [
-      "eslint . --fix --ignore-pattern dist/**",
-      "git add"
-    ]
   },
   "nodemonConfig": {
     "ignore": [

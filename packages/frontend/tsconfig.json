@@ -9,7 +9,8 @@
     "jsx": "react",
     "lib": ["dom", "es2017"],
     "strict": true,
-    "outDir": "./dist/"
+    "outDir": "./dist/",
+    "skipLibCheck": true
   },
   "include": ["./src/**/*"],
   "compileOnSave": false
